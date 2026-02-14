@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Sharing | Deine Energie-Community in BOL</title>
+    <meta name="description"
+        content="Die Plattform für Energy Sharing in Bühlertal, Ottersweier und Lauf. Wir vernetzen private Erzeuger und Verbraucher für maximalen Profit nach § 42c EnWG.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#84cc16', // Lime Green
+                            DEFAULT: '#65a30d',
+                            dark: '#365314',
+                            accent: '#0284c7', // Sky Blue
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Global Font Fix */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Hero Background - Haus mit Solaranlage */
+        .hero-bg {
+            /* Lokales Hintergrundbild mit dunklem Overlay für Lesbarkeit */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)), url('assets/background01.png');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: scroll;
+            /* Fixed kann auf manchen Handys ruckeln, scroll ist sicherer */
+        }
+
+        /* Text Shadows für maximale Lesbarkeit auf Bildern */
+        .text-shadow-sm {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .text-shadow-lg {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-white">
+
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-2">
+                    <div class="bg-brand text-white p-2 rounded-lg">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-900 tracking-tight">Energy <span
+                            class="text-brand">Sharing</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#concept" class="text-gray-600 hover:text-brand font-medium transition">Das Konzept</a>
+                    <a href="#matchmaking"
+                        class="text-gray-600 hover:text-brand font-medium transition">Energie-Vermittlung</a>
+                    <a href="#calculator"
+                        class="text-gray-600 hover:text-brand font-medium transition">Vorteils-Rechner</a>
+                    <a href="#signup"
+                        class="bg-brand hover:bg-brand-dark text-white px-5 py-2.5 rounded-full font-bold transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Community
+                        beitreten</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button p-2">
+                        <i class="fa-solid fa-bars text-2xl text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu hidden md:hidden bg-white px-4 pt-2 pb-4 shadow-lg border-t absolute w-full">
+            <a href="#concept" class="block py-3 text-gray-700 font-semibold border-b border-gray-100">Das Konzept</a>
+            <a href="#matchmaking"
+                class="block py-3 text-gray-700 font-semibold border-b border-gray-100">Energie-Vermittlung</a>
+            <a href="#calculator"
+                class="block py-3 text-gray-700 font-semibold border-b border-gray-100">Spar-Rechner</a>
+            <a href="#signup" class="block mt-4 bg-brand text-white text-center py-3 rounded-lg font-bold">Mitmachen</a>
+        </div>
+    </nav>
+
+    <header class="relative hero-bg h-screen min-h-[700px] flex items-center justify-center text-center px-4">
+        <div class="max-w-5xl mx-auto text-white z-10">
+
+            <div
+                class="inline-flex flex-col items-center gap-1.5 bg-white/10 border border-white/30 backdrop-blur-md rounded-2xl px-6 py-3 mb-14 shadow-lg">
+                <div class="flex items-center gap-2">
+                    <span class="w-2.5 h-2.5 rounded-full bg-brand-light animate-pulse"></span>
+                    <span
+                        class="text-white font-bold text-xs md:text-sm tracking-wide uppercase text-shadow-sm">Pilotphase:
+                        Bühlertal • Ottersweier • Lauf</span>
+                </div>
+                <span class="text-xs md:text-sm text-gray-200 font-medium text-shadow-sm opacity-90">Start 2026 in der
+                    Region BOL. Bundesweiter Rollout in Planung.</span>
+            </div>
+
+            <h1
+                class="text-5xl md:text-7xl font-black leading-tight mb-6 text-shadow-lg tracking-tight drop-shadow-2xl">
+                Teile deinen Strom.<br>
+                <span class="text-brand-light">Direkt mit deinen Nachbarn.</span>
+            </h1>
+
+            <p
+                class="text-lg md:text-2xl mb-10 text-gray-100 max-w-2xl mx-auto font-medium text-shadow-sm leading-relaxed">
+                Wir verbinden private Solaranlagen-Besitzer mit Haushalten in der Nähe.
+                Finde deinen perfekten Energie-Partner und profitiere gemeinsam vom
+                Energy&nbsp;Sharing&nbsp;nach&nbsp;§&nbsp;42c&nbsp;EnWG.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#signup"
+                    class="bg-brand hover:bg-brand-light text-white text-lg px-8 py-4 rounded-full font-bold transition transform hover:scale-105 shadow-xl border-2 border-brand ring-4 ring-brand/20">
+                    Jetzt Partner finden
+                </a>
+                <a href="#concept"
+                    class="bg-white hover:bg-gray-100 text-gray-900 text-lg px-8 py-4 rounded-full font-bold transition shadow-xl transform hover:scale-105">
+                    Wie es funktioniert
+                </a>
+            </div>
+
+
+        </div>
+    </header>
+
+    <section id="concept" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-5xl tracking-tight">Dein perfektes
+                    Energie-Match.</h2>
+                <p class="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Strom ist am günstigsten, wenn er lokal verbraucht wird. Wir bringen Angebot und Nachfrage zusammen
+                    – einfach und transparent.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1 space-y-10">
+                    <div class="flex gap-5">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-brand/10 text-brand">
+                                <i class="fa-solid fa-users-viewfinder text-2xl"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Wir finden das Match</h3>
+                            <p class="text-lg text-gray-600">
+                                Unsere Plattform analysiert dein Profil. Wir finden den Nachbarn, der genau dann wäscht
+                                oder lädt, wenn bei dir die Sonne scheint. Ein perfektes Match maximiert die Förderung.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-5">
+                        <div class="flex-shrink-0">
+                            <div class="flex items-center justify-center h-14 w-14 rounded-xl bg-blue-50 text-blue-600">
+                                <i class="fa-solid fa-handshake-simple text-2xl"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Gemeinschaft statt Konzern</h3>
+                            <p class="text-lg text-gray-600">
+                                Du verkaufst deinen Überschuss nicht anonym an die Börse, sondern an die Familie zwei
+                                Straßen weiter. Das stärkt die Region Bühlertal, Ottersweier und Lauf.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex gap-5">
+                        <div class="flex-shrink-0">
+                            <div
+                                class="flex items-center justify-center h-14 w-14 rounded-xl bg-yellow-50 text-yellow-600">
+                                <i class="fa-solid fa-file-invoice text-2xl"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Kein Abrechnungs-Stress</h3>
+                            <p class="text-lg text-gray-600">
+                                Wir bringen Erzeuger und Verbraucher zusammen – die Abrechnung läuft im Hintergrund.
+                                Alle nötigen Daten werden automatisch bereitgestellt.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="order-1 md:order-2 relative mx-auto" id="matchmaking">
+                    <div
+                        class="relative bg-white rounded-3xl p-6 shadow-2xl border border-gray-100 max-w-sm w-full animate-float z-20">
+                        <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
+                            <span class="text-xs font-bold text-gray-400 tracking-wider">NEUES MATCH GEFUNDEN!</span>
+                            <span
+                                class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full border border-green-200">98%
+                                Kompatibilität</span>
+                        </div>
+
+                        <div class="flex items-center gap-4 mb-4 p-3 rounded-xl hover:bg-gray-50 transition">
+                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                                class="w-14 h-14 rounded-full border-2 border-brand object-cover">
+                            <div>
+                                <p class="font-bold text-gray-900 text-lg">Familie Müller</p>
+                                <p class="text-xs text-gray-500 font-medium uppercase"><i
+                                        class="fa-solid fa-location-dot mr-1"></i> Bühlertal • PV (8kWp)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex justify-center my-2 relative h-8">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="h-full w-0.5 bg-gray-200"></div>
+                            </div>
+                            <div class="bg-white p-1 z-10">
+                                <i class="fa-solid fa-bolt text-brand text-xl animate-pulse"></i>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 mt-4 p-3 rounded-xl hover:bg-gray-50 transition">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                                class="w-14 h-14 rounded-full border-2 border-blue-400 object-cover">
+                            <div>
+                                <p class="font-bold text-gray-900 text-lg">Jan & Lisa</p>
+                                <p class="text-xs text-gray-500 font-medium uppercase"><i
+                                        class="fa-solid fa-location-dot mr-1"></i> Ottersweier • E-Auto</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <button
+                                class="w-full bg-brand text-white py-3 rounded-xl font-bold shadow-lg hover:bg-brand-dark transition transform active:scale-95 flex justify-center items-center gap-2">
+                                <i class="fa-solid fa-link"></i> Jetzt verbinden
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="absolute -z-10 top-10 -right-10 w-64 h-64 bg-brand/20 rounded-full blur-3xl opacity-60">
+                    </div>
+                    <div
+                        class="absolute -z-10 bottom-10 -left-10 w-64 h-64 bg-blue-200/50 rounded-full blur-3xl opacity-60">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="py-24 bg-gray-900 text-white relative overflow-hidden">
+        <div
+            class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <span
+                    class="text-brand font-extrabold tracking-widest uppercase text-sm bg-brand/10 px-4 py-2 rounded-full border border-brand/20">Vorteils-Rechner</span>
+                <h2 class="text-4xl font-bold mt-8 mb-6">Lohnt sich Energy Sharing für mich?</h2>
+                <p class="text-gray-400 text-lg">Eine Schätzung basierend auf den Rahmenbedingungen nach § 42c
+                    EnWG ab 2026.</p>
+            </div>
+
+            <div class="bg-gray-800/80 backdrop-blur border border-gray-700 rounded-3xl shadow-2xl p-8 md:p-12">
+                <div class="flex justify-center mb-12">
+                    <div class="bg-gray-700 p-1.5 rounded-full flex relative shadow-inner">
+                        <button id="btn-owner"
+                            class="px-6 sm:px-8 py-3 rounded-full text-sm font-bold transition-all transform duration-300 bg-brand text-white shadow-lg"
+                            onclick="setRole('owner')">Ich habe eine PV-Anlage</button>
+                        <button id="btn-user"
+                            class="px-6 sm:px-8 py-3 rounded-full text-sm font-bold transition-all transform duration-300 text-gray-400 hover:text-white"
+                            onclick="setRole('user')">Ich suche Strom</button>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-10 mb-10">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-300 mb-3 uppercase tracking-wide">Jährliche
+                            Sharing-Menge</label>
+                        <div
+                            class="flex items-center border border-gray-600 rounded-xl px-5 py-4 bg-gray-900 focus-within:ring-2 ring-brand focus-within:border-brand transition">
+                            <input type="number" id="kwh-input" value="2500"
+                                class="bg-transparent w-full outline-none text-white text-2xl font-bold font-mono"
+                                oninput="calculate()">
+                            <span class="text-gray-500 font-bold ml-2">kWh</span>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-3 flex items-center gap-2" id="input-hint">
+                            <i class="fa-regular fa-circle-question"></i> Wie viel Strom du an Nachbarn abgibst.
+                        </p>
+                    </div>
+
+                    <div
+                        class="flex flex-col justify-center space-y-6 bg-gray-700/30 rounded-xl p-6 border border-gray-700">
+                        <div class="flex justify-between items-center pb-4 border-b border-gray-600">
+                            <span class="text-gray-400 font-medium">Ohne Sharing (Markt):</span>
+                            <span class="font-mono text-xl text-gray-400 line-through decoration-red-500/50"
+                                id="standard-price">200 €</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-white font-bold text-lg">Mit Energy Sharing:</span>
+                            <span class="font-mono text-3xl text-brand-light font-bold" id="sharing-price">262 €</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="bg-gradient-to-r from-gray-700 to-gray-800 rounded-2xl p-8 text-center border border-gray-600 shadow-lg relative overflow-hidden">
+                    <div
+                        class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand to-transparent">
+                    </div>
+                    <p class="text-gray-300 mb-2 font-medium uppercase tracking-wider text-sm">Dein geschätzter Vorteil
+                        pro Jahr</p>
+                    <h3 class="text-5xl md:text-6xl font-extrabold text-white mb-4 tracking-tight" id="savings-result">+
+                        62 €</h3>
+                    <p class="text-xs text-gray-400 max-w-lg mx-auto leading-relaxed opacity-70">
+                        *Prognose. Der finanzielle Vorteil entsteht durch reduzierte Netzentgelte und Boni beim Energy
+                        Sharing. Wir als Plattform ermöglichen das Match.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-16 text-gray-900">Unsere Mission: Aus Baden in die Republik</h2>
+
+            <div class="relative">
+                <div
+                    class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-100 -z-10 transform -translate-y-1/2 rounded-full">
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div
+                        class="bg-white p-8 rounded-2xl border border-gray-100 shadow-xl hover:-translate-y-2 transition duration-300">
+                        <div
+                            class="w-12 h-12 bg-brand text-white rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg shadow-brand/40">
+                            1</div>
+                        <h3 class="font-bold text-xl mb-3 text-gray-900">Startphase (BOL)</h3>
+                        <p class="text-gray-600 leading-relaxed">Wir starten in Bühlertal, Ottersweier und Lauf. Aufbau
+                            der Community und Testen der Matching-Algorithmen.</p>
+                    </div>
+
+                    <div
+                        class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm opacity-80 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
+                        <div
+                            class="w-12 h-12 bg-gray-200 text-gray-600 rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold">
+                            2</div>
+                        <h3 class="font-bold text-xl mb-3 text-gray-900">Regionaler Ausbau</h3>
+                        <p class="text-gray-600 leading-relaxed">Erweiterung auf den gesamten Landkreis Rastatt und
+                            Ortenaukreis. Einbindung weiterer Stadtwerke.</p>
+                    </div>
+
+                    <div
+                        class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm opacity-60 hover:opacity-100 transition duration-300 grayscale hover:grayscale-0">
+                        <div
+                            class="w-12 h-12 bg-gray-100 text-gray-400 rounded-full flex items-center justify-center mx-auto mb-6 text-xl font-bold">
+                            3</div>
+                        <h3 class="font-bold text-xl mb-3 text-gray-900">Bundesweit</h3>
+                        <p class="text-gray-600 leading-relaxed">Energy Sharing für ganz Deutschland. Vernetzung über
+                            Netzgebiete hinweg (sobald regulatorisch möglich).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="signup" class="bg-brand-dark text-white py-24 text-center px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10">
+        </div>
+        <div class="max-w-2xl mx-auto relative z-10">
+            <h2 class="text-4xl font-bold mb-6">Werde Teil der Bewegung.</h2>
+            <p class="text-brand-light text-lg mb-10 font-medium">Registriere dich unverbindlich für die Startphase in
+                Bühlertal, Ottersweier und Lauf.</p>
+
+            <form
+                class="bg-white rounded-2xl p-2 flex flex-col sm:flex-row shadow-2xl transform transition-all hover:scale-[1.01]"
+                onsubmit="event.preventDefault(); showComingSoon();">
+                <input type="email" placeholder="Deine E-Mail Adresse"
+                    class="flex-grow px-6 py-4 text-gray-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand bg-transparent"
+                    required>
+                <button type="submit"
+                    class="bg-brand hover:bg-brand-light text-white font-bold px-10 py-4 rounded-xl mt-2 sm:mt-0 transition shadow-lg whitespace-nowrap">
+                    Vormerken
+                </button>
+            </form>
+            <div id="coming-soon-toast"
+                class="hidden mt-4 bg-white/10 border border-white/20 backdrop-blur-md rounded-xl px-6 py-4 text-white text-sm font-medium transition-all duration-500 opacity-0 transform translate-y-2">
+                <i class="fa-solid fa-circle-info mr-2 text-brand-light"></i>
+                Diese Funktion ist noch nicht verfügbar, wird aber bald freigeschaltet. Wir halten dich auf dem
+                Laufenden!
+            </div>
+            <p class="text-xs text-gray-400 mt-6 font-medium tracking-wide opacity-60">KEIN SPAM. 100% DATENSCHUTZ.</p>
+        </div>
+    </section>
+
+    <footer class="bg-gray-950 text-gray-500 py-10 text-center text-sm border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 Energy Sharing.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white transition">Impressum</a>
+                <a href="#" class="hover:text-white transition">Datenschutz</a>
+                <a href="#" class="hover:text-white transition">Kontakt</a>
+            </div>
+            <p>Made with <i class="fa-solid fa-heart text-red-600 animate-pulse"></i> in Baden.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const btn = document.querySelector("button.mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+        btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+
+        // Calculator Logic
+        let currentRole = 'owner';
+        const params = {
+            owner: { base: 0.08, share: 0.105, text: 'Menge, die du an Nachbarn abgibst.' },
+            user: { base: 0.35, share: 0.26, text: 'Menge, die du aus der Community beziehst.' }
+        };
+
+        function setRole(role) {
+            currentRole = role;
+            const activeClass = "bg-brand text-white shadow-lg";
+            const inactiveClass = "text-gray-400 hover:text-white";
+
+            if (role === 'owner') {
+                document.getElementById('btn-owner').className = "px-6 sm:px-8 py-3 rounded-full text-sm font-bold transition-all transform duration-300 " + activeClass;
+                document.getElementById('btn-user').className = "px-6 sm:px-8 py-3 rounded-full text-sm font-bold transition-all transform duration-300 " + inactiveClass;
+            } else {
+                document.getElementById('btn-owner').className = "px-6 sm:px-8 py-3 rounded-full text-sm font-bold transition-all transform duration-300 " + inactiveClass;
+                document.getElementById('btn-user').className = "px-6 sm:px-8 py-3 rounded-full text-sm font-bold transition-all transform duration-300 " + activeClass;
+            }
+
+            // Text Update with Fade Effect
+            const hint = document.getElementById('input-hint');
+            hint.style.opacity = '0';
+            setTimeout(() => {
+                hint.innerHTML = '<i class="fa-regular fa-circle-question"></i> ' + params[role].text;
+                hint.style.opacity = '1';
+            }, 200);
+
+            calculate();
+        }
+
+        function calculate() {
+            const kwh = document.getElementById('kwh-input').value;
+            let standard, sharing, savings;
+
+            if (currentRole === 'owner') {
+                standard = kwh * params.owner.base;
+                sharing = kwh * params.owner.share;
+                savings = sharing - standard;
+            } else {
+                standard = kwh * params.user.base;
+                sharing = kwh * params.user.share;
+                savings = standard - sharing;
+            }
+
+            // Animate Numbers (Simple)
+            document.getElementById('standard-price').innerText = standard.toFixed(0) + ' €';
+            document.getElementById('sharing-price').innerText = sharing.toFixed(0) + ' €';
+            document.getElementById('savings-result').innerText = '+ ' + savings.toFixed(0) + ' €';
+        }
+
+        calculate();
+
+        // Coming Soon Toast
+        function showComingSoon() {
+            const toast = document.getElementById('coming-soon-toast');
+            toast.classList.remove('hidden');
+            // Trigger reflow for animation
+            void toast.offsetWidth;
+            toast.classList.remove('opacity-0', 'translate-y-2');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.classList.add('hidden'), 500);
+            }, 5000);
+        }
+    </script>
+</body>
+
+</html>
