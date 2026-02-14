@@ -55,12 +55,10 @@
 
         /* Hero Background - Haus mit Solaranlage */
         .hero-bg {
-            /* Lokales Hintergrundbild mit dunklem Overlay für Lesbarkeit */
             background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)), url('assets/background01.png');
             background-size: cover;
             background-position: center center;
             background-attachment: scroll;
-            /* Fixed kann auf manchen Handys ruckeln, scroll ist sicherer */
         }
 
         /* Text Shadows für maximale Lesbarkeit auf Bildern */
@@ -70,6 +68,38 @@
 
         .text-shadow-lg {
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Partner Carousel Animations */
+        .partner-card-content {
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .partner-card-content.fade-out {
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        .partner-card-content.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Compatibility badge counter animation */
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .compat-badge {
+            animation: countUp 0.4s ease-out;
         }
     </style>
 </head>
@@ -114,7 +144,7 @@
     </nav>
 
     <header class="relative hero-bg h-screen min-h-[700px] flex items-center justify-center text-center px-4">
-        <div class="max-w-5xl mx-auto text-white z-10">
+        <div class="max-w-5xl mx-auto text-white z-10 pt-24">
 
             <div
                 class="inline-flex flex-col items-center gap-1.5 bg-white/10 border border-white/30 backdrop-blur-md rounded-2xl px-6 py-3 mb-14 shadow-lg">
@@ -159,8 +189,8 @@
     <section id="concept" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-5xl tracking-tight">Dein perfektes
-                    Energie-Match.</h2>
+                <h2 class="text-3xl font-extrabold text-gray-900 sm:text-5xl tracking-tight">Deine perfekte
+                    Energie-Vermittlung.</h2>
                 <p class="mt-6 text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
                     Strom ist am günstigsten, wenn er lokal verbraucht wird. Wir bringen Angebot und Nachfrage zusammen
                     – einfach und transparent.
@@ -176,10 +206,11 @@
                             </div>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Wir finden das Match</h3>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Wir finden den passenden Partner</h3>
                             <p class="text-lg text-gray-600">
                                 Unsere Plattform analysiert dein Profil. Wir finden den Nachbarn, der genau dann wäscht
-                                oder lädt, wenn bei dir die Sonne scheint. Ein perfektes Match maximiert die Förderung.
+                                oder lädt, wenn bei dir die Sonne scheint. Eine perfekte Vermittlung maximiert die
+                                Förderung.
                             </p>
                         </div>
                     </div>
@@ -203,14 +234,14 @@
                         <div class="flex-shrink-0">
                             <div
                                 class="flex items-center justify-center h-14 w-14 rounded-xl bg-yellow-50 text-yellow-600">
-                                <i class="fa-solid fa-file-invoice text-2xl"></i>
+                                <i class="fa-solid fa-sun text-2xl"></i>
                             </div>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-2">Kein Abrechnungs-Stress</h3>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">Mehr aus deiner Anlage herausholen</h3>
                             <p class="text-lg text-gray-600">
-                                Wir bringen Erzeuger und Verbraucher zusammen – die Abrechnung läuft im Hintergrund.
-                                Alle nötigen Daten werden automatisch bereitgestellt.
+                                Neu-Anlagen mit niedriger Einspeisevergütung und Alt-Anlagen mit auslaufender
+                                Einspeisevergütung können weiter profitieren.
                             </p>
                         </div>
                     </div>
@@ -220,19 +251,22 @@
                     <div
                         class="relative bg-white rounded-3xl p-6 shadow-2xl border border-gray-100 max-w-sm w-full animate-float z-20">
                         <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
-                            <span class="text-xs font-bold text-gray-400 tracking-wider">NEUES MATCH GEFUNDEN!</span>
-                            <span
-                                class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full border border-green-200">98%
+                            <span class="text-xs font-bold text-gray-400 tracking-wider">NEUER PARTNER GEFUNDEN!</span>
+                            <span id="compat-badge"
+                                class="compat-badge bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full border border-green-200">98%
                                 Kompatibilität</span>
                         </div>
 
-                        <div class="flex items-center gap-4 mb-4 p-3 rounded-xl hover:bg-gray-50 transition">
-                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
-                                class="w-14 h-14 rounded-full border-2 border-brand object-cover">
-                            <div>
-                                <p class="font-bold text-gray-900 text-lg">Familie Müller</p>
-                                <p class="text-xs text-gray-500 font-medium uppercase"><i
-                                        class="fa-solid fa-location-dot mr-1"></i> Bühlertal • PV (8kWp)</p>
+                        <div class="partner-card-content fade-in" id="partner-top">
+                            <div class="flex items-center gap-4 mb-4 p-3 rounded-xl hover:bg-gray-50 transition">
+                                <img id="partner-top-img"
+                                    src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                                    class="w-14 h-14 rounded-full border-2 border-brand object-cover">
+                                <div>
+                                    <p class="font-bold text-gray-900 text-lg" id="partner-top-name">Familie Müller</p>
+                                    <p class="text-xs text-gray-500 font-medium tracking-wide" id="partner-top-info"><i
+                                            class="fa-solid fa-location-dot mr-1"></i> BÜHLERTAL • PV (8 kWp)</p>
+                                </div>
                             </div>
                         </div>
 
@@ -245,17 +279,24 @@
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-4 mt-4 p-3 rounded-xl hover:bg-gray-50 transition">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
-                                class="w-14 h-14 rounded-full border-2 border-blue-400 object-cover">
-                            <div>
-                                <p class="font-bold text-gray-900 text-lg">Jan & Lisa</p>
-                                <p class="text-xs text-gray-500 font-medium uppercase"><i
-                                        class="fa-solid fa-location-dot mr-1"></i> Ottersweier • E-Auto</p>
+                        <div class="partner-card-content fade-in" id="partner-bottom">
+                            <div class="flex items-center gap-4 mt-4 p-3 rounded-xl hover:bg-gray-50 transition">
+                                <img id="partner-bottom-img"
+                                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                                    class="w-14 h-14 rounded-full border-2 border-blue-400 object-cover">
+                                <div>
+                                    <p class="font-bold text-gray-900 text-lg" id="partner-bottom-name">Jan &amp; Lisa
+                                    </p>
+                                    <p class="text-xs text-gray-500 font-medium tracking-wide" id="partner-bottom-info">
+                                        <i class="fa-solid fa-location-dot mr-1"></i> OTTERSWEIER • E-AUTO</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="mt-8">
+                        <!-- Carousel progress dots -->
+                        <div class="flex justify-center gap-1.5 mt-4 mb-2" id="carousel-dots"></div>
+
+                        <div class="mt-4">
                             <button
                                 class="w-full bg-brand text-white py-3 rounded-xl font-bold shadow-lg hover:bg-brand-dark transition transform active:scale-95 flex justify-center items-center gap-2">
                                 <i class="fa-solid fa-link"></i> Jetzt verbinden
@@ -340,7 +381,7 @@
                         62 €</h3>
                     <p class="text-xs text-gray-400 max-w-lg mx-auto leading-relaxed opacity-70">
                         *Prognose. Der finanzielle Vorteil entsteht durch reduzierte Netzentgelte und Boni beim Energy
-                        Sharing. Wir als Plattform ermöglichen das Match.
+                        Sharing. Wir als Plattform ermöglichen die Vermittlung.
                     </p>
                 </div>
             </div>
@@ -364,7 +405,7 @@
                             1</div>
                         <h3 class="font-bold text-xl mb-3 text-gray-900">Startphase (BOL)</h3>
                         <p class="text-gray-600 leading-relaxed">Wir starten in Bühlertal, Ottersweier und Lauf. Aufbau
-                            der Community und Testen der Matching-Algorithmen.</p>
+                            der Community und Testen der Vermittlungs-Algorithmen.</p>
                     </div>
 
                     <div
@@ -424,9 +465,9 @@
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <p>&copy; 2026 Energy Sharing.</p>
             <div class="flex gap-6">
-                <a href="#" class="hover:text-white transition">Impressum</a>
-                <a href="#" class="hover:text-white transition">Datenschutz</a>
-                <a href="#" class="hover:text-white transition">Kontakt</a>
+                <a href="pages/impressum.html" class="hover:text-white transition">Impressum</a>
+                <a href="pages/datenschutz.html" class="hover:text-white transition">Datenschutz</a>
+                <a href="pages/kontakt.html" class="hover:text-white transition">Kontakt</a>
             </div>
             <p>Made with <i class="fa-solid fa-heart text-red-600 animate-pulse"></i> in Baden.</p>
         </div>
@@ -495,7 +536,6 @@
         function showComingSoon() {
             const toast = document.getElementById('coming-soon-toast');
             toast.classList.remove('hidden');
-            // Trigger reflow for animation
             void toast.offsetWidth;
             toast.classList.remove('opacity-0', 'translate-y-2');
             toast.classList.add('opacity-100', 'translate-y-0');
@@ -506,6 +546,107 @@
                 setTimeout(() => toast.classList.add('hidden'), 500);
             }, 5000);
         }
+
+        // ── Partner Carousel ──────────────────────────────────────
+        const partnerships = [
+            {
+                top: { name: 'Familie Müller', info: 'BÜHLERTAL • PV (8 kWp)', img: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-brand' },
+                bottom: { name: 'Jan & Lisa', info: 'OTTERSWEIER • E-AUTO', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-blue-400' },
+                compat: 98
+            },
+            {
+                top: { name: 'Herr Schneider', info: 'LAUF • PV (10 kWp)', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-brand' },
+                bottom: { name: 'Familie Weber', info: 'BÜHLERTAL • WÄRMEPUMPE', img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-blue-400' },
+                compat: 95
+            },
+            {
+                top: { name: 'Ehepaar Kern', info: 'OTTERSWEIER • PV (6 kWp)', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-brand' },
+                bottom: { name: 'Tobias R.', info: 'LAUF • E-AUTO + SPEICHER', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-blue-400' },
+                compat: 91
+            },
+            {
+                top: { name: 'Familie Bauer', info: 'BÜHLERTAL • PV (12 kWp)', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-brand' },
+                bottom: { name: 'WG Sonnenschein', info: 'OTTERSWEIER • 4-PERSONEN-WG', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-blue-400' },
+                compat: 94
+            },
+            {
+                top: { name: 'Dr. Hoffmann', info: 'LAUF • PV (15 kWp)', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-brand' },
+                bottom: { name: 'Café Heimat', info: 'BÜHLERTAL • GEWERBE', img: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-blue-400' },
+                compat: 89
+            },
+            {
+                top: { name: 'Nachbar Schmidt', info: 'OTTERSWEIER • PV (5 kWp)', img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-brand' },
+                bottom: { name: 'Anna & Marc', info: 'LAUF • E-AUTO + WÄRMEPUMPE', img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-blue-400' },
+                compat: 96
+            }
+        ];
+
+        let currentPartner = 0;
+
+        // Build dots
+        const dotsContainer = document.getElementById('carousel-dots');
+        partnerships.forEach((_, i) => {
+            const dot = document.createElement('span');
+            dot.className = 'w-1.5 h-1.5 rounded-full transition-all duration-300 ' + (i === 0 ? 'bg-brand w-4' : 'bg-gray-300');
+            dot.dataset.index = i;
+            dotsContainer.appendChild(dot);
+        });
+
+        function updateDots(index) {
+            dotsContainer.querySelectorAll('span').forEach((dot, i) => {
+                if (i === index) {
+                    dot.className = 'w-4 h-1.5 rounded-full transition-all duration-300 bg-brand';
+                } else {
+                    dot.className = 'w-1.5 h-1.5 rounded-full transition-all duration-300 bg-gray-300';
+                }
+            });
+        }
+
+        function cyclePartners() {
+            const topEl = document.getElementById('partner-top');
+            const bottomEl = document.getElementById('partner-bottom');
+            const badge = document.getElementById('compat-badge');
+
+            // Fade out
+            topEl.classList.remove('fade-in');
+            topEl.classList.add('fade-out');
+            bottomEl.classList.remove('fade-in');
+            bottomEl.classList.add('fade-out');
+
+            setTimeout(() => {
+                currentPartner = (currentPartner + 1) % partnerships.length;
+                const p = partnerships[currentPartner];
+
+                // Update top partner
+                document.getElementById('partner-top-img').src = p.top.img;
+                document.getElementById('partner-top-img').className = 'w-14 h-14 rounded-full border-2 ' + p.top.border + ' object-cover';
+                document.getElementById('partner-top-name').textContent = p.top.name;
+                document.getElementById('partner-top-info').innerHTML = '<i class="fa-solid fa-location-dot mr-1"></i> ' + p.top.info;
+
+                // Update bottom partner
+                document.getElementById('partner-bottom-img').src = p.bottom.img;
+                document.getElementById('partner-bottom-img').className = 'w-14 h-14 rounded-full border-2 ' + p.bottom.border + ' object-cover';
+                document.getElementById('partner-bottom-name').textContent = p.bottom.name;
+                document.getElementById('partner-bottom-info').innerHTML = '<i class="fa-solid fa-location-dot mr-1"></i> ' + p.bottom.info;
+
+                // Update compatibility badge
+                badge.innerHTML = p.compat + '% Kompatibilität';
+                badge.classList.remove('compat-badge');
+                void badge.offsetWidth;
+                badge.classList.add('compat-badge');
+
+                // Update dots
+                updateDots(currentPartner);
+
+                // Fade in
+                topEl.classList.remove('fade-out');
+                topEl.classList.add('fade-in');
+                bottomEl.classList.remove('fade-out');
+                bottomEl.classList.add('fade-in');
+            }, 500);
+        }
+
+        setInterval(cyclePartners, 4000);
     </script>
 </body>
 

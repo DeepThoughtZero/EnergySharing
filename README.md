@@ -24,29 +24,6 @@ Energy Sharing ermöglicht es PV-Anlagen-Besitzern, ihren Überschussstrom direk
 | **2 – Regionaler Ausbau** | Erweiterung auf den Landkreis Rastatt und Ortenaukreis. |
 | **3 – Bundesweit** | Energy Sharing für ganz Deutschland – netzgebietsübergreifend. |
 
-## 🚀 Lokal starten
-
-Das Projekt ist eine statische Website. Einfach `index.html` im Browser öffnen:
-
-```bash
-# Repository klonen
-git clone <repository-url>
-cd PowerSharingHomepage
-
-# Datei im Browser öffnen
-open index.html        # macOS
-xdg-open index.html    # Linux
-start index.html       # Windows
-```
-
-## 🛠️ Tech-Stack
-
-| Technologie | Verwendung |
-|------------|-----------|
-| HTML / CSS / JS | Statische Single-Page Website |
-| Tailwind CSS (CDN) | Styling |
-| Font Awesome | Icons |
-| Google Fonts (Inter) | Typografie |
 
 ## 📄 Lizenz
 
