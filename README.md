@@ -4,6 +4,8 @@
 
 Wir verbinden private Solaranlagen-Besitzer mit Haushalten in der Nähe – für fairen, günstigen Nachbarschaftsstrom nach **§ 42c EnWG**.
 
+🌐 **Live:** [https://deepthoughtzero.github.io/EnergySharing/](https://deepthoughtzero.github.io/EnergySharing/) (gehostet via GitHub Pages)
+
 ---
 
 ## 🌱 Was ist Energy Sharing?
