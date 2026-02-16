@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rechtliche Grundlagen | Energy Sharing nach § 42c EnWG</title>
+    <meta name="description"
+        content="Die rechtlichen Grundlagen für Energy Sharing in Deutschland: § 42c EnWG im Volltext, verständlich aufbereitet für unsere Community.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#84cc16',
+                            DEFAULT: '#65a30d',
+                            dark: '#365314',
+                            accent: '#0284c7',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .hero-legal {
+            background-image: linear-gradient(135deg, rgba(30, 41, 59, 0.92), rgba(15, 23, 42, 0.88)), url('../assets/background01.png');
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .text-shadow-sm {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .text-shadow-lg {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Accordion */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.3s ease;
+        }
+
+        .accordion-content.open {
+            max-height: 3000px;
+            transition: max-height 0.6s ease-in;
+        }
+
+        .accordion-trigger .chevron {
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-trigger.active .chevron {
+            transform: rotate(180deg);
+        }
+
+        .role-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .role-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-white min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="../index.html" class="flex items-center gap-2 group">
+                    <div class="bg-brand text-white p-2 rounded-lg">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-900 tracking-tight">Energy <span
+                            class="text-brand">Sharing</span></span>
+                </a>
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#unsere-rolle" class="text-gray-600 hover:text-brand font-medium transition">Unsere
+                        Rolle</a>
+                    <a href="#gesetzestext" class="text-gray-600 hover:text-brand font-medium transition">§ 42c
+                        EnWG</a>
+                    <a href="#zusammenfassung"
+                        class="text-gray-600 hover:text-brand font-medium transition">Zusammenfassung</a>
+                    <a href="../index.html#signup"
+                        class="bg-brand hover:bg-brand-dark text-white px-5 py-2.5 rounded-full font-bold transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Community
+                        beitreten</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button p-2">
+                        <i class="fa-solid fa-bars text-2xl text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu hidden md:hidden bg-white px-4 pt-2 pb-4 shadow-lg border-t absolute w-full">
+            <a href="#unsere-rolle" class="block py-3 text-gray-700 font-semibold border-b border-gray-100">Unsere
+                Rolle</a>
+            <a href="#gesetzestext" class="block py-3 text-gray-700 font-semibold border-b border-gray-100">§ 42c
+                EnWG</a>
+            <a href="#zusammenfassung"
+                class="block py-3 text-gray-700 font-semibold border-b border-gray-100">Zusammenfassung</a>
+            <a href="../index.html#signup"
+                class="block mt-4 bg-brand text-white text-center py-3 rounded-lg font-bold">Community
+                beitreten</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative hero-legal min-h-[60vh] flex items-center justify-center text-center px-4">
+        <div class="max-w-4xl mx-auto text-white z-10 pt-24 pb-12">
+
+            <div
+                class="inline-flex items-center gap-2 bg-white/10 border border-white/30 backdrop-blur-md rounded-full px-5 py-2.5 mb-8 shadow-lg">
+                <i class="fa-solid fa-scale-balanced text-brand-light"></i>
+                <span
+                    class="text-white font-bold text-xs md:text-sm tracking-wide uppercase text-shadow-sm">Energiewirtschaftsgesetz</span>
+            </div>
+
+            <h1
+                class="text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-6 text-shadow-lg tracking-tight drop-shadow-2xl">
+                Rechtliche Grundlagen<br>
+                <span class="text-brand-light">für Energy Sharing</span>
+            </h1>
+
+            <p
+                class="text-lg md:text-xl mb-6 text-gray-100 max-w-3xl mx-auto font-medium text-shadow-sm leading-relaxed">
+                § 42c EnWG bildet die gesetzliche Basis für die gemeinsame Nutzung von Solarstrom mit deinen Nachbarn.
+                Hier findest du alle relevanten Regelungen – verständlich aufbereitet.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#unsere-rolle"
+                    class="bg-brand hover:bg-brand-light text-white text-lg px-8 py-4 rounded-full font-bold transition transform hover:scale-105 shadow-xl border-2 border-brand ring-4 ring-brand/20">
+                    <i class="fa-solid fa-users-gear mr-2"></i>Unsere Rolle
+                </a>
+                <a href="#gesetzestext"
+                    class="bg-white hover:bg-gray-100 text-gray-900 text-lg px-8 py-4 rounded-full font-bold transition shadow-xl transform hover:scale-105">
+                    Zum Gesetzestext
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Unsere Rolle – Klarstellung -->
+    <section id="unsere-rolle" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span
+                    class="text-brand font-extrabold tracking-widest uppercase text-sm bg-brand/10 px-4 py-2 rounded-full border border-brand/20">Was
+                    wir tun</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-6 text-gray-900 tracking-tight">Wir stärken die
+                    Community.</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Energy Sharing bringt viele Akteure zusammen: Erzeuger, Verbraucher, Netzbetreiber,
+                    Messstellenbetreiber und Abrechnungsdienstleister. <strong>Unsere Aufgabe ist klar
+                        definiert</strong> – und genauso klar sind die Grenzen.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Was wir tun 1 -->
+                <div
+                    class="role-card bg-gradient-to-br from-green-50 to-white rounded-2xl p-6 border border-green-100 shadow-md">
+                    <div class="w-14 h-14 bg-brand/10 rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-people-group text-brand text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Community aufbauen</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Wir vernetzen Erzeuger und Verbraucher in der Region – damit Nachbarschaftsstrom
+                        Realität wird.
+                    </p>
+                </div>
+
+                <!-- Was wir tun 2 -->
+                <div
+                    class="role-card bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100 shadow-md">
+                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-wand-magic-sparkles text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Automatisiert vermitteln</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Unsere App bringt Erzeuger und Verbraucher optimal zusammen – basierend auf
+                        Erzeugungs- und Verbrauchsprofilen.
+                    </p>
+                </div>
+
+                <!-- Was wir tun 3 -->
+                <div
+                    class="role-card bg-gradient-to-br from-purple-50 to-white rounded-2xl p-6 border border-purple-100 shadow-md">
+                    <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-link text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">Parteien zusammenbringen</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Wir koordinieren alle notwendigen Akteure: Netzbetreiber, Messstellenbetreiber,
+                        Bilanzkreisverantwortliche und Lieferanten.
+                    </p>
+                </div>
+
+                <!-- Was wir tun 4 -->
+                <div
+                    class="role-card bg-gradient-to-br from-amber-50 to-white rounded-2xl p-6 border border-amber-100 shadow-md">
+                    <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center mb-5">
+                        <i class="fa-solid fa-mobile-screen-button text-amber-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-gray-900 mb-2">App-gestützt & digital</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Alles über unsere App: Partnerfindung, Übersicht deiner Energie-Bilanz,
+                        Verträge und Kommunikation – alles an einem Ort.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Was wir NICHT tun -->
+            <div class="mt-16 bg-gray-50 rounded-3xl p-8 md:p-12 border border-gray-100">
+                <h3 class="text-2xl font-bold text-gray-900 mb-8 flex items-center gap-3">
+                    <div class="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center">
+                        <i class="fa-solid fa-circle-info text-red-500"></i>
+                    </div>
+                    Was wir <span class="text-red-500">nicht</span> tun
+                </h3>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex items-start gap-4 bg-white rounded-2xl p-6 border border-gray-100">
+                        <div class="flex-shrink-0 w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-gauge-high text-red-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-1">Keine Stromzähler verkaufen</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Die für Energy Sharing notwendigen Smart Meter (Zählerstandsgangmessung)
+                                werden vom <strong>zuständigen Messstellenbetreiber</strong> installiert und
+                                betrieben – nicht von uns. Wir helfen dir bei der Kontaktaufnahme.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 bg-white rounded-2xl p-6 border border-gray-100">
+                        <div class="flex-shrink-0 w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-file-invoice-dollar text-red-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-1">Keine Abrechnung</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Die Abrechnung der geteilten Energie erfolgt über die
+                                <strong>zuständigen Dienstleister und Netzbetreiber</strong>.
+                                Wir übernehmen keine Abrechnungs- oder Lieferantenpflichten.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 bg-white rounded-2xl p-6 border border-gray-100">
+                        <div class="flex-shrink-0 w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-plug-circle-xmark text-red-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-1">Kein Energieversorger</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Wir sind kein Stromlieferant. Du behältst deinen bestehenden Stromvertrag
+                                für den ergänzenden Strombezug – Energy Sharing ist eine <strong>zusätzliche
+                                    Quelle</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4 bg-white rounded-2xl p-6 border border-gray-100">
+                        <div class="flex-shrink-0 w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-screwdriver-wrench text-red-400 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-1">Keine Installation</h4>
+                            <p class="text-sm text-gray-600 leading-relaxed">
+                                Installation und Wartung der PV-Anlagen oder Speicher liegen beim
+                                <strong>Anlagenbetreiber und seinen Fachbetrieben</strong>.
+                                Wir konzentrieren uns auf die Vermittlung.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zusammenfassendes Statement -->
+                <div
+                    class="mt-8 bg-gradient-to-r from-brand/5 to-blue-50 rounded-2xl p-6 border border-brand/15 flex flex-col sm:flex-row items-start gap-4">
+                    <div
+                        class="flex-shrink-0 w-12 h-12 bg-brand text-white rounded-xl flex items-center justify-center shadow-md">
+                        <i class="fa-solid fa-bullseye text-xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-900 font-bold text-lg mb-1">Unser Fokus: Die Community verbinden</p>
+                        <p class="text-gray-600 leading-relaxed">
+                            Wir bringen alle notwendigen Parteien zusammen – <strong>automatisiert und
+                                App-gestützt</strong>. Von der Partnerfindung über die Vertragsanbahnung bis zur
+                            Koordination mit Netzbetreibern und Messstellenbetreibern. So wird Energy Sharing für
+                            dich so einfach wie möglich.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- § 42c EnWG – Gesetzestext -->
+    <section id="gesetzestext" class="py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span
+                    class="text-brand font-extrabold tracking-widest uppercase text-sm bg-brand/10 px-4 py-2 rounded-full border border-brand/20">Gesetzestext</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-6 text-gray-900 tracking-tight">§ 42c EnWG</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                    Gemeinsame Nutzung elektrischer Energie aus Anlagen zur Erzeugung von Elektrizität aus
+                    erneuerbaren Energien
+                </p>
+            </div>
+
+            <div class="space-y-4" id="accordion">
+
+                <!-- Absatz 1 -->
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                    <button
+                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
+                        onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold">1</span>
+                            <span class="font-bold text-gray-900">Voraussetzungen der gemeinsamen Nutzung</span>
+                        </div>
+                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-0">
+                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-4 border-t border-gray-100 pt-4">
+                            <p>
+                                Der Betreiber einer Anlage zur Erzeugung von Strom aus erneuerbaren Energien oder
+                                einer Energiespeicheranlage, in der ausschließlich aus erneuerbaren Energien
+                                stammende Elektrizität zwischengespeichert wird, kann die erzeugte Elektrizität
+                                mit anderen Letztverbrauchern nach den Absätzen 2 bis 6 gemeinsam nutzen
+                                (gemeinsame Nutzung), wenn die folgenden Voraussetzungen erfüllt sind:
+                            </p>
+                            <ol class="list-decimal list-inside space-y-3 pl-2">
+                                <li>der Betrieb der Anlage erfolgt durch eine natürliche Person oder durch eine
+                                    rechtsfähige Personengesellschaft oder eine juristische Person des Privatrechts,
+                                    deren sämtliche Gesellschafter oder Mitglieder Letztverbraucher oder juristische
+                                    Personen des öffentlichen Rechts sind,</li>
+                                <li>die Belieferung erfolgt durch den Betreiber der Anlage nach Nummer 1 unter
+                                    Nutzung des öffentlichen Elektrizitätsverteilernetzes sowie auf der Grundlage
+                                    eines Liefervertrages, der jeweils zwischen dem Betreiber der Anlage nach
+                                    Nummer 1 und dem die Elektrizität abnehmenden Letztverbraucher (Abnehmer)
+                                    abzuschließen ist,</li>
+                                <li>zwischen dem Betreiber der Anlage nach Nummer 1 und dem Abnehmer ist zusätzlich
+                                    zu einem Liefervertrag nach Nummer 2 ein Vertrag zur gemeinsamen Nutzung
+                                    abgeschlossen worden, der mindestens die in Absatz 3 genannten Regelungen
+                                    beinhaltet,</li>
+                                <li>die Anlage und sämtliche zu beliefernden Verbrauchsstellen befinden sich in
+                                    demselben Gebiet, in dem nach Absatz 4 eine gemeinsame Nutzung zu ermöglichen
+                                    ist,</li>
+                                <li>der Betrieb der Anlage dient weder überwiegend der gewerblichen noch überwiegend
+                                    der selbständigen beruflichen Tätigkeit des Betreibers nach Nummer 1, wobei in
+                                    dem Fall, dass die Anlage durch eine rechtsfähige Personengesellschaft oder eine
+                                    juristische Person des Privatrechts betrieben wird, auf die Tätigkeit aller als
+                                    Gesellschafter oder Mitglied beteiligten Letztverbraucher oder juristischen
+                                    Personen des öffentlichen Rechts abzustellen ist,</li>
+                                <li>der Strombezug wird an jeder belieferten Verbrauchsstelle mit einer
+                                    Zählerstandsgangmessung nach § 2 Satz 1 Nummer 27 des
+                                    Messstellenbetriebsgesetzes oder durch eine viertelstündliche registrierende
+                                    Leistungsmessung erfasst und</li>
+                                <li>die in der Anlage erzeugte oder gespeicherte Elektrizität wird mit einer
+                                    Zählerstandsgangmessung nach § 2 Satz 1 Nummer 27 des
+                                    Messstellenbetriebsgesetzes oder durch eine viertelstündliche registrierende
+                                    Leistungsmessung erfasst.</li>
+                            </ol>
+                            <p class="text-gray-500 italic">
+                                Energiespeicheranlagen nach Satz 1 müssen die in § 19 Absatz 3b des
+                                Erneuerbare-Energien-Gesetzes genannten Voraussetzungen erfüllen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Absatz 2 -->
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                    <button
+                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
+                        onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold">2</span>
+                            <span class="font-bold text-gray-900">Letztverbraucher – Unternehmensdefinition</span>
+                        </div>
+                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-0">
+                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
+                            <p>
+                                Abweichend von § 3 Nummer 70 ist ein Unternehmen nur dann Letztverbraucher im
+                                Sinne des Absatzes 1, wenn es sich um ein Kleinstunternehmen, ein kleines oder
+                                ein mittleres Unternehmen im Sinne des Artikels 2 des Anhangs der Empfehlung
+                                2003/361/EG handelt.
+                            </p>
+                            <p>
+                                Artikel 3 Absatz 4 des Anhangs der Empfehlung 2003/361/EG ist nicht anzuwenden.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Absatz 3 -->
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                    <button
+                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
+                        onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold">3</span>
+                            <span class="font-bold text-gray-900">Mindestinhalte des Nutzungsvertrags</span>
+                        </div>
+                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-0">
+                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
+                            <p>
+                                Der Vertrag zur gemeinsamen Nutzung nach Absatz 1 Nummer 1 hat mindestens
+                                Folgendes zu regeln:
+                            </p>
+                            <ol class="list-decimal list-inside space-y-2 pl-2">
+                                <li>den Umfang der Nutzung der Elektrizität, die durch die Anlage erzeugt oder in
+                                    der Anlage gespeichert wurde, durch den Abnehmer,</li>
+                                <li>einen Aufteilungsschlüssel, aus dem sich der Umfang des Rechts zur Nutzung der
+                                    Elektrizität ergibt, und</li>
+                                <li>ob eine entgeltliche Gegenleistung für die Nutzung der Elektrizität an den
+                                    Betreiber zu leisten ist sowie gegebenenfalls deren Höhe in Cent pro
+                                    Kilowattstunde.</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Absatz 4 -->
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                    <button
+                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
+                        onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold">4</span>
+                            <span class="font-bold text-gray-900">Gebietsregelungen & Zeitplan</span>
+                        </div>
+                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-0">
+                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
+                            <p>
+                                Jeder Betreiber eines Elektrizitätsverteilernetzes hat sicherzustellen, dass die
+                                gemeinsame Nutzung von Elektrizität nach Absatz 1 möglich ist
+                            </p>
+                            <ol class="list-decimal list-inside space-y-2 pl-2">
+                                <li><strong>ab dem 1. Juni 2026</strong> innerhalb des Bilanzierungsgebietes eines
+                                    Elektrizitätsverteilernetzbetreibers und</li>
+                                <li><strong>ab dem 1. Juni 2028</strong> innerhalb des Bilanzierungsgebietes eines
+                                    Elektrizitätsverteilernetzbetreibers sowie in dem Bilanzierungsgebiet eines
+                                    direkt angrenzenden Elektrizitätsverteilernetzbetreibers in derselben
+                                    Regelzone.</li>
+                            </ol>
+                            <p class="text-gray-500 italic">
+                                Jeder Betreiber eines direkt angrenzenden Elektrizitätsverteilernetzes im Sinne des
+                                Satzes 1 Nummer 2 ist verpflichtet, im erforderlichen Umfang mitzuwirken.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Absatz 5 -->
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                    <button
+                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
+                        onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold">5</span>
+                            <span class="font-bold text-gray-900">Beauftragung Dritter (Dienstleister)</span>
+                        </div>
+                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-0">
+                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
+                            <p>
+                                Ein Betreiber nach Absatz 1 Nummer 1 ist berechtigt, einen Dritten mit einer oder
+                                mehreren der folgenden Dienstleistungen zu beauftragen:
+                            </p>
+                            <ol class="list-decimal list-inside space-y-2 pl-2">
+                                <li>Dienstleistungen zur Erfüllung ihrer Pflichten, die sich aus dem Zugang zu den
+                                    Elektrizitätsverteilernetzen nach § 20 und den auf der Grundlage des § 20
+                                    Absatz 3 erlassenen Festlegungen der Bundesnetzagentur ergeben, insbesondere in
+                                    Bezug auf die Zusammenarbeit mit Betreibern von Energieversorgungsnetzen,
+                                    Bilanzkreisverantwortlichen, Netznutzern oder Lieferanten,</li>
+                                <li>Dienstleistungen im Zusammenhang mit dem Angebot von steuerbaren
+                                    Verbrauchseinrichtungen oder von Flexibilitätsdienstleistungen, deren
+                                    zwischengespeicherte Energie ausschließlich aus erneuerbaren Energien stammt und
+                                    die Gegenstand des Vertrages nach Absatz 3 sind,</li>
+                                <li>Dienstleistungen im Zusammenhang mit dem Abschluss von Verträgen nach Absatz 3,
+                                    einschließlich der Abrechnung gegenüber den Abnehmern oder</li>
+                                <li>Dienstleistungen im Zusammenhang mit der Installation und dem Betrieb der
+                                    Anlage nach Absatz 1, einschließlich der Messung und Wartung.</li>
+                            </ol>
+                            <p class="text-gray-500 italic">
+                                Für den Dritten nach Satz 1 findet Absatz 1 Satz 1 Nummer 5 oder Absatz 2 keine
+                                Anwendung.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Absatz 6 -->
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                    <button
+                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
+                        onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold">6</span>
+                            <span class="font-bold text-gray-900">Informationspflichten & Versorgungssicherheit</span>
+                        </div>
+                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-0">
+                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
+                            <p>
+                                Der Betreiber nach Absatz 1 Nummer 1 ist nicht verpflichtet, die umfassende
+                                Versorgung der Abnehmer sicherzustellen. Der Betreiber ist verpflichtet, jeden
+                                Abnehmer vor Abschluss des Vertrages zur gemeinsamen Nutzung in Textform darüber
+                                zu informieren,
+                            </p>
+                            <ol class="list-decimal list-inside space-y-2 pl-2">
+                                <li>dass die gemeinsam genutzte Anlage den Strombedarf der Abnehmer nicht
+                                    vollständig und nicht jederzeit decken kann,</li>
+                                <li>dass ein ergänzender Strombezug durch den Abnehmer notwendig ist und</li>
+                                <li>dass die Kosten für den ergänzenden Strombezug über den durchschnittlichen
+                                    Kosten eines Vertrages zur umfassenden Versorgung liegen können.</li>
+                            </ol>
+                            <p class="mt-3">
+                                Das Recht des Abnehmers, für den ergänzenden Strombezug einen Liefervertrag seiner
+                                Wahl mit einem Lieferanten seiner Wahl abzuschließen, darf in der Vereinbarung zur
+                                gemeinsamen Nutzung nicht eingeschränkt werden.
+                            </p>
+                            <p>
+                                Der Betreiber ist verpflichtet, den Abnehmer rechtzeitig darüber zu informieren,
+                                wenn die gemeinsam genutzte Anlage aus anderen als aus witterungs- oder
+                                tageszeitbedingten Gründen über einen erheblichen Zeitraum keine elektrische
+                                Energie erzeugt, und er setzt den Abnehmer in Kenntnis, wenn die Anlage ihren
+                                Betrieb wieder aufnimmt.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Absatz 7 -->
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                    <button
+                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
+                        onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold">7</span>
+                            <span class="font-bold text-gray-900">Vereinfachung für Haushaltskunden</span>
+                        </div>
+                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-0">
+                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
+                            <p>
+                                Die §§ 5 und 40 bis 42 sind nicht anzuwenden, wenn
+                            </p>
+                            <ol class="list-decimal list-inside space-y-2 pl-2">
+                                <li>die von einem Haushaltskunden nach Absatz 1 betriebene Anlage eine installierte
+                                    Leistung von <strong>30 Kilowatt</strong> nicht übersteigt oder</li>
+                                <li>im Falle eines Mehrparteienhauses eine durch einen oder mehrere Haushaltskunden,
+                                    die in dem gleichen Gebäude wohnen, nach Absatz 1 betriebene Anlage eine
+                                    installierte Leistung von <strong>100 Kilowatt</strong> nicht übersteigt.</li>
+                            </ol>
+                            <div class="mt-4 bg-brand/5 border border-brand/10 rounded-xl p-4 flex items-start gap-3">
+                                <i class="fa-solid fa-lightbulb text-brand mt-0.5"></i>
+                                <p class="text-sm text-gray-700">
+                                    <strong>Gut zu wissen:</strong> Die meisten privaten PV-Anlagen in BOL liegen
+                                    unter 30 kWp – damit entfallen zahlreiche bürokratische Pflichten und der
+                                    Einstieg ins Energy Sharing wird besonders einfach.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Alle aufklappen -->
+            <div class="text-center mt-8">
+                <button onclick="toggleAll()"
+                    class="text-brand font-bold text-sm hover:text-brand-dark transition inline-flex items-center gap-2"
+                    id="toggle-all-btn">
+                    <i class="fa-solid fa-arrows-up-down"></i>
+                    <span>Alle Absätze aufklappen</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Takeaways / Zusammenfassung -->
+    <section id="zusammenfassung" class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span
+                    class="text-brand font-extrabold tracking-widest uppercase text-sm bg-brand/10 px-4 py-2 rounded-full border border-brand/20">Auf
+                    einen Blick</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-6 text-gray-900 tracking-tight">Das Wichtigste
+                    zusammengefasst</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                    Die zentralen Punkte aus § 42c EnWG, die für dich als Community-Mitglied relevant sind.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-br from-green-50 to-white rounded-2xl p-6 border border-green-100 shadow-sm">
+                    <div class="w-12 h-12 bg-brand/10 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-check-double text-brand text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Gesetzlich verankert</h3>
+                    <p class="text-sm text-gray-600">Energy Sharing ist seit 2025 im Energiewirtschaftsgesetz
+                        verankert – kein Graubereich, sondern ein offizieller Rahmen.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-6 border border-blue-100 shadow-sm">
+                    <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-calendar-check text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Start ab Juni 2026</h3>
+                    <p class="text-sm text-gray-600">Ab dem 1. Juni 2026 müssen Verteilernetzbetreiber Energy
+                        Sharing innerhalb ihres Bilanzierungsgebiets ermöglichen.</p>
+                </div>
+
+                <div
+                    class="bg-gradient-to-br from-yellow-50 to-white rounded-2xl p-6 border border-yellow-100 shadow-sm">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-gauge-high text-yellow-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Smart Meter erforderlich</h3>
+                    <p class="text-sm text-gray-600">Erzeuger und Verbraucher brauchen eine Zählerstandsgangmessung
+                        (Smart Meter) – der Messstellenbetreiber kümmert sich darum.</p>
+                </div>
+
+                <div
+                    class="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-6 border border-purple-100 shadow-sm">
+                    <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-file-signature text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Nutzungsvertrag nötig</h3>
+                    <p class="text-sm text-gray-600">Zwischen Erzeuger und Abnehmer wird ein Vertrag zur gemeinsamen
+                        Nutzung geschlossen – mit Aufteilungsschlüssel und Preis.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-teal-50 to-white rounded-2xl p-6 border border-teal-100 shadow-sm">
+                    <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-house-chimney text-teal-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Privat & nicht-gewerblich</h3>
+                    <p class="text-sm text-gray-600">Die Anlage darf nicht überwiegend gewerblich genutzt werden –
+                        ideal für private Solaranlagen-Besitzer.</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-rose-50 to-white rounded-2xl p-6 border border-rose-100 shadow-sm">
+                    <div class="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fa-solid fa-bolt text-rose-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-gray-900 mb-2">Ergänzung, kein Ersatz</h3>
+                    <p class="text-sm text-gray-600">Energy Sharing ergänzt deinen bestehenden Stromvertrag –
+                        ein eigener Lieferant für den Restbedarf bleibt bestehen.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="../index.html#signup"
+                    class="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white px-8 py-4 rounded-full font-bold text-lg transition shadow-xl transform hover:scale-105">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                    Jetzt der Community beitreten
+                </a>
+                <p class="text-sm text-gray-500 mt-4">Kostenlos und unverbindlich – für Erzeuger & Verbraucher in
+                    BOL.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to main site banner -->
+    <div class="bg-gray-100 border-t border-gray-200 py-6 text-center">
+        <a href="../index.html"
+            class="text-gray-600 hover:text-brand font-medium transition inline-flex items-center gap-2">
+            <i class="fa-solid fa-arrow-left"></i>
+            Zur Hauptseite · www.power-share.de
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-500 py-10 text-center text-sm border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 Energy Sharing.</p>
+            <div class="flex gap-6">
+                <a href="impressum.html" class="hover:text-white transition">Impressum</a>
+                <a href="datenschutz.html" class="hover:text-white transition">Datenschutz</a>
+                <a href="kontakt.html" class="hover:text-white transition">Kontakt</a>
+            </div>
+            <p>Made with <i class="fa-solid fa-heart text-red-600 animate-pulse"></i> in Baden.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const btn = document.querySelector("button.mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+        btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+
+        // Accordion Logic
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const isOpen = content.classList.contains('open');
+
+            if (isOpen) {
+                content.classList.remove('open');
+                button.classList.remove('active');
+            } else {
+                content.classList.add('open');
+                button.classList.add('active');
+            }
+        }
+
+        let allOpen = false;
+
+        function toggleAll() {
+            const contents = document.querySelectorAll('.accordion-content');
+            const triggers = document.querySelectorAll('.accordion-trigger');
+            const btn = document.getElementById('toggle-all-btn');
+
+            allOpen = !allOpen;
+
+            contents.forEach(c => {
+                if (allOpen) {
+                    c.classList.add('open');
+                } else {
+                    c.classList.remove('open');
+                }
+            });
+
+            triggers.forEach(t => {
+                if (allOpen) {
+                    t.classList.add('active');
+                } else {
+                    t.classList.remove('active');
+                }
+            });
+
+            btn.querySelector('span').textContent = allOpen ? 'Alle Absätze zuklappen' : 'Alle Absätze aufklappen';
+        }
+
+        // Scroll animation
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.role-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+
+</html>

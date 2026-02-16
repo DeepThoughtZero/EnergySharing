@@ -101,6 +101,161 @@
         .compat-badge {
             animation: countUp 0.4s ease-out;
         }
+
+        /* ── Lightning Connection Animation ────────────────── */
+
+        /* The partner card wrapper for glow effect */
+        .partner-card {
+            transition: box-shadow 0.4s ease, border-color 0.4s ease;
+            overflow: hidden;
+        }
+
+        .partner-card.electric-glow {
+            border-color: #facc15 !important;
+            box-shadow:
+                0 0 15px rgba(250, 204, 21, 0.5),
+                0 0 40px rgba(250, 204, 21, 0.25),
+                0 0 80px rgba(56, 189, 248, 0.15),
+                inset 0 0 20px rgba(250, 204, 21, 0.05);
+            animation: electric-pulse 1.2s ease-in-out infinite;
+        }
+
+        .partner-card.connected {
+            border-color: #4ade80 !important;
+            box-shadow:
+                0 0 12px rgba(74, 222, 128, 0.4),
+                0 0 30px rgba(74, 222, 128, 0.15);
+        }
+
+        @keyframes electric-pulse {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 0 15px rgba(250, 204, 21, 0.5),
+                    0 0 40px rgba(250, 204, 21, 0.25),
+                    0 0 80px rgba(56, 189, 248, 0.15),
+                    inset 0 0 20px rgba(250, 204, 21, 0.05);
+            }
+
+            50% {
+                box-shadow:
+                    0 0 25px rgba(250, 204, 21, 0.7),
+                    0 0 60px rgba(250, 204, 21, 0.35),
+                    0 0 100px rgba(56, 189, 248, 0.25),
+                    inset 0 0 30px rgba(250, 204, 21, 0.1);
+            }
+        }
+
+        /* Spark particles */
+        .spark {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: #facc15;
+            pointer-events: none;
+            z-index: 40;
+            box-shadow: 0 0 6px rgba(250, 204, 21, 0.8), 0 0 12px rgba(250, 204, 21, 0.4);
+            animation: spark-fly 0.8s ease-out forwards;
+        }
+
+        @keyframes spark-fly {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(var(--spark-x), var(--spark-y)) scale(0);
+            }
+        }
+
+        /* Flash overlay */
+        .connection-flash {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(250, 204, 21, 0.3), transparent 70%);
+            border-radius: 1.5rem;
+            pointer-events: none;
+            z-index: 25;
+            opacity: 0;
+            transition: opacity 0.15s ease;
+        }
+
+        .connection-flash.active {
+            animation: flash-burst 0.5s ease-out forwards;
+        }
+
+        @keyframes flash-burst {
+            0% {
+                opacity: 0;
+            }
+
+            30% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Connected button state */
+        .btn-connected {
+            background: linear-gradient(135deg, #22c55e, #16a34a) !important;
+            pointer-events: none;
+        }
+
+        /* Bolt icon grow animation */
+        @keyframes bolt-grow {
+            0% {
+                transform: scale(1);
+            }
+
+            30% {
+                transform: scale(2.8);
+            }
+
+            50% {
+                transform: scale(2.2);
+            }
+
+            70% {
+                transform: scale(2.6);
+            }
+
+            100% {
+                transform: scale(2.4);
+            }
+        }
+
+        @keyframes bolt-pulse-connected {
+
+            0%,
+            100% {
+                transform: scale(2.4);
+                filter: drop-shadow(0 0 6px rgba(74, 222, 128, 0.6));
+            }
+
+            50% {
+                transform: scale(2.6);
+                filter: drop-shadow(0 0 12px rgba(74, 222, 128, 0.9));
+            }
+        }
+
+        .bolt-growing {
+            animation: bolt-grow 0.6s ease-out forwards;
+            color: #facc15 !important;
+            filter: drop-shadow(0 0 8px rgba(250, 204, 21, 0.8));
+        }
+
+        .bolt-connected {
+            transform: scale(2.4);
+            color: #4ade80 !important;
+            animation: bolt-pulse-connected 2s ease-in-out infinite;
+        }
     </style>
 </head>
 
@@ -170,7 +325,8 @@
                 class="text-lg md:text-2xl mb-10 text-gray-100 max-w-2xl mx-auto font-medium text-shadow-sm leading-relaxed">
                 Wir verbinden private Solaranlagen-Besitzer mit Haushalten in der Nähe.
                 Finde deinen perfekten Energie-Partner und profitiere gemeinsam vom
-                Energy&nbsp;Sharing&nbsp;nach&nbsp;§&nbsp;42c&nbsp;EnWG.
+                Energy&nbsp;Sharing&nbsp;nach&nbsp;<a href="pages/rechtliches.html"
+                    class="underline decoration-brand-light/50 hover:decoration-brand-light transition"></a>§&nbsp;42c&nbsp;EnWG</a>.
             </p>
 
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -262,15 +418,24 @@
                                 Neu-Anlagen mit niedriger Einspeisevergütung und Alt-Anlagen mit auslaufender
                                 Einspeisevergütung können weiter profitieren.
                             </p>
+                            <a href="pages/rechtliches.html"
+                                class="inline-flex items-center gap-1 text-brand font-bold text-sm mt-3 hover:text-brand-dark transition">
+                                Rechtliche Grundlagen <i class="fa-solid fa-arrow-right text-xs"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
 
                 <div class="order-1 md:order-2 relative mx-auto" id="matchmaking">
-                    <div
-                        class="relative bg-white rounded-3xl p-6 shadow-2xl border border-gray-100 max-w-sm w-full animate-float z-20">
+                    <div id="partner-card"
+                        class="partner-card relative bg-white rounded-3xl p-6 shadow-2xl border-2 border-gray-100 max-w-sm w-full animate-float z-20">
+
+                        <!-- Flash overlay -->
+                        <div class="connection-flash" id="connection-flash"></div>
+
                         <div class="flex justify-between items-center mb-6 border-b border-gray-100 pb-4">
-                            <span class="text-xs font-bold text-gray-400 tracking-wider">NEUER PARTNER GEFUNDEN!</span>
+                            <span class="text-xs font-bold text-gray-400 tracking-wider" id="card-status-text">NEUER
+                                PARTNER GEFUNDEN!</span>
                             <span id="compat-badge"
                                 class="compat-badge bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded-full border border-green-200">98%
                                 Kompatibilität</span>
@@ -289,12 +454,12 @@
                             </div>
                         </div>
 
-                        <div class="flex justify-center my-2 relative h-8">
+                        <div class="flex justify-center my-2 relative h-8" id="bolt-divider">
                             <div class="absolute inset-0 flex items-center justify-center">
                                 <div class="h-full w-0.5 bg-gray-200"></div>
                             </div>
                             <div class="bg-white p-1 z-10">
-                                <i class="fa-solid fa-bolt text-brand text-xl animate-pulse"></i>
+                                <i class="fa-solid fa-bolt text-brand text-xl animate-pulse" id="bolt-icon"></i>
                             </div>
                         </div>
 
@@ -317,7 +482,7 @@
                         <div class="flex justify-center gap-1.5 mt-4 mb-2" id="carousel-dots"></div>
 
                         <div class="mt-4">
-                            <button
+                            <button id="connect-btn"
                                 class="w-full bg-brand text-white py-3 rounded-xl font-bold shadow-lg hover:bg-brand-dark transition transform active:scale-95 flex justify-center items-center gap-2">
                                 <i class="fa-solid fa-link"></i> Jetzt verbinden
                             </button>
@@ -493,9 +658,10 @@
     <footer class="bg-gray-950 text-gray-500 py-10 text-center text-sm border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <p>&copy; 2026 Energy Sharing.</p>
-            <div class="flex gap-6">
+            <div class="flex gap-6 flex-wrap justify-center">
                 <a href="pages/impressum.html" class="hover:text-white transition">Impressum</a>
                 <a href="pages/datenschutz.html" class="hover:text-white transition">Datenschutz</a>
+                <a href="pages/rechtliches.html" class="hover:text-white transition">Rechtliches</a>
                 <a href="pages/kontakt.html" class="hover:text-white transition">Kontakt</a>
             </div>
             <p>Made with <i class="fa-solid fa-heart text-red-600 animate-pulse"></i> in Baden.</p>
@@ -631,10 +797,101 @@
             });
         }
 
+        // ── Connection Animation State ──────────────────────
+        let isConnected = false;
+        let isAnimating = false;
+
+        function resetConnectionState() {
+            const card = document.getElementById('partner-card');
+            const btn = document.getElementById('connect-btn');
+            const lightningSvg = document.getElementById('lightning-svg');
+            const lightningMain = document.getElementById('lightning-main');
+            const lightningBg = document.getElementById('lightning-bg');
+            const flash = document.getElementById('connection-flash');
+            const statusText = document.getElementById('card-status-text');
+
+            card.classList.remove('electric-glow', 'connected');
+            flash.classList.remove('active');
+            btn.classList.remove('btn-connected');
+            btn.innerHTML = '<i class="fa-solid fa-link"></i> Jetzt verbinden';
+            statusText.textContent = 'NEUER PARTNER GEFUNDEN!';
+            isConnected = false;
+            isAnimating = false;
+        }
+
+        function createSparks(container, count) {
+            const rect = container.getBoundingClientRect();
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            for (let i = 0; i < count; i++) {
+                const spark = document.createElement('div');
+                spark.classList.add('spark');
+                const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.5;
+                const distance = 40 + Math.random() * 80;
+                spark.style.left = centerX + 'px';
+                spark.style.top = centerY + 'px';
+                spark.style.setProperty('--spark-x', Math.cos(angle) * distance + 'px');
+                spark.style.setProperty('--spark-y', Math.sin(angle) * distance + 'px');
+                spark.style.animationDelay = (Math.random() * 0.3) + 's';
+                spark.style.width = (2 + Math.random() * 4) + 'px';
+                spark.style.height = spark.style.width;
+                container.appendChild(spark);
+                setTimeout(() => spark.remove(), 1100);
+            }
+        }
+
+        function triggerConnection() {
+            if (isConnected || isAnimating) return;
+            isAnimating = true;
+
+            const card = document.getElementById('partner-card');
+            const btn = document.getElementById('connect-btn');
+            const flash = document.getElementById('connection-flash');
+            const boltIcon = document.getElementById('bolt-icon');
+            const statusText = document.getElementById('card-status-text');
+
+            // Phase 1: Bolt icon grows (0ms)
+            boltIcon.classList.remove('animate-pulse');
+            boltIcon.classList.add('bolt-growing');
+
+            // Phase 2: Electric glow border (400ms)
+            setTimeout(() => {
+                card.classList.add('electric-glow');
+                createSparks(card, 16);
+            }, 400);
+
+            // Phase 2.5: Flash burst (700ms)
+            setTimeout(() => {
+                flash.classList.add('active');
+                createSparks(card, 10);
+            }, 700);
+
+            // Phase 3: Connected state (1200ms)
+            setTimeout(() => {
+                card.classList.remove('electric-glow');
+                card.classList.add('connected');
+                btn.classList.add('btn-connected');
+                btn.innerHTML = '<i class="fa-solid fa-check"></i> Verbunden!';
+                statusText.textContent = 'VERBINDUNG HERGESTELLT ⚡';
+                boltIcon.classList.remove('bolt-growing');
+                boltIcon.classList.add('bolt-connected');
+                isConnected = true;
+                isAnimating = false;
+            }, 1200);
+        }
+
+        document.getElementById('connect-btn').addEventListener('click', triggerConnection);
+
         function cyclePartners() {
             const topEl = document.getElementById('partner-top');
             const bottomEl = document.getElementById('partner-bottom');
             const badge = document.getElementById('compat-badge');
+
+            // Reset connection state before cycling
+            resetConnectionState();
+            const boltIcon = document.getElementById('bolt-icon');
+            boltIcon.classList.remove('bolt-growing', 'bolt-connected');
+            boltIcon.classList.add('animate-pulse');
 
             // Fade out
             topEl.classList.remove('fade-in');
