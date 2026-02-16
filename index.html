@@ -766,13 +766,43 @@
             },
             {
                 top: { name: 'Dr. Hoffmann', info: 'LAUF • PV (15 kWp)', img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-brand' },
-                bottom: { name: 'Café Heimat', info: 'BÜHLERTAL • GEWERBE', img: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-blue-400' },
+                bottom: { name: 'Familie Krämer', info: 'BÜHLERTAL • WÄRMEPUMPE', img: 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-blue-400' },
                 compat: 89
             },
             {
                 top: { name: 'Nachbar Schmidt', info: 'OTTERSWEIER • PV (5 kWp)', img: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-brand' },
                 bottom: { name: 'Anna & Marc', info: 'LAUF • E-AUTO + WÄRMEPUMPE', img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-blue-400' },
                 compat: 96
+            },
+            {
+                top: { name: 'Rentner Krause', info: 'BÜHLERTAL • PV (4 kWp)', img: 'https://images.unsplash.com/photo-1566616213894-2d4e1baee5d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-brand' },
+                bottom: { name: 'Lukas & Marie', info: 'BÜHLERTAL • E-AUTO', img: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-blue-400' },
+                compat: 72
+            },
+            {
+                top: { name: 'Fam. Zimmermann', info: 'OTTERSWEIER • PV (9 kWp)', img: 'https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-brand' },
+                bottom: { name: 'Studenten-WG', info: 'LAUF • 3-PERSONEN-WG', img: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-blue-400' },
+                compat: 78
+            },
+            {
+                top: { name: 'Herr Braun', info: 'LAUF • PV (7 kWp)', img: 'https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-brand' },
+                bottom: { name: 'Familie Richter', info: 'OTTERSWEIER • POOL + KLIMA', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-blue-400' },
+                compat: 68
+            },
+            {
+                top: { name: 'Ehepaar Lang', info: 'BÜHLERTAL • PV (11 kWp)', img: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-brand' },
+                bottom: { name: 'Herr Engel', info: 'LAUF • SPEICHER', img: 'https://images.unsplash.com/photo-1576602976047-174e57a47881?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-blue-400' },
+                compat: 83
+            },
+            {
+                top: { name: 'Opa Heinrich', info: 'OTTERSWEIER • PV (3 kWp)', img: 'https://images.unsplash.com/photo-1442458370899-ae20e367c5d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-brand' },
+                bottom: { name: 'Sarah & Tim', info: 'BÜHLERTAL • WÄRMEPUMPE', img: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-blue-400' },
+                compat: 75
+            },
+            {
+                top: { name: 'Fam. Hartmann', info: 'LAUF • PV (14 kWp)', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-brand' },
+                bottom: { name: 'Familie Wolf', info: 'OTTERSWEIER • E-AUTO + KLIMA', img: 'https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80', border: 'border-blue-400' },
+                compat: 87
             }
         ];
 
@@ -880,9 +910,13 @@
             }, 1200);
         }
 
-        document.getElementById('connect-btn').addEventListener('click', triggerConnection);
-
         function cyclePartners() {
+            // If currently connected or animating, skip this cycle to show the connected state longer
+            if (isConnected || isAnimating) {
+                isConnected = false;
+                return;
+            }
+
             const topEl = document.getElementById('partner-top');
             const bottomEl = document.getElementById('partner-bottom');
             const badge = document.getElementById('compat-badge');
@@ -932,7 +966,15 @@
             }, 500);
         }
 
-        setInterval(cyclePartners, 4000);
+        let carouselTimer = setInterval(cyclePartners, 4000);
+
+        document.getElementById('connect-btn').addEventListener('click', function () {
+            // Reset carousel timer so the animation is never interrupted
+            clearInterval(carouselTimer);
+            triggerConnection();
+            // Restart carousel after animation + viewing time (~4s animation + 4s viewing)
+            carouselTimer = setInterval(cyclePartners, 4000);
+        });
     </script>
 </body>
 
