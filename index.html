@@ -143,20 +143,22 @@
         </div>
     </nav>
 
-    <header class="relative hero-bg h-screen min-h-[700px] flex items-center justify-center text-center px-4">
-        <div class="max-w-5xl mx-auto text-white z-10 pt-32 md:pt-24">
+    <header class="relative hero-bg min-h-screen flex items-center justify-center text-center px-4 pt-24 pb-10">
+        <div class="max-w-5xl mx-auto text-white z-10">
 
-            <div
-                class="inline-flex flex-col items-center gap-1.5 bg-white/10 border border-white/30 backdrop-blur-md rounded-2xl px-6 py-3 mb-14 shadow-lg">
+            <a href="pages/bol.html"
+                class="inline-flex flex-col items-center gap-1.5 bg-white/10 border border-white/30 backdrop-blur-md rounded-2xl px-6 py-3 mb-14 shadow-lg hover:bg-white/20 hover:border-white/50 transition-all duration-300 group">
                 <div class="flex items-center gap-2">
                     <span class="w-2.5 h-2.5 rounded-full bg-brand-light animate-pulse"></span>
                     <span
                         class="text-white font-bold text-xs md:text-sm tracking-wide uppercase text-shadow-sm">Pilotphase:
                         Bühlertal • Ottersweier • Lauf</span>
                 </div>
-                <span class="text-xs md:text-sm text-gray-200 font-medium text-shadow-sm opacity-90">Start 2026 in der
+                <span
+                    class="text-xs md:text-sm text-gray-200 font-medium text-shadow-sm opacity-90 group-hover:text-white transition">Start
+                    2026 in der
                     Region BOL. Bundesweiter Rollout in Planung.</span>
-            </div>
+            </a>
 
             <h1
                 class="text-5xl md:text-7xl font-black leading-tight mb-6 text-shadow-lg tracking-tight drop-shadow-2xl">
@@ -398,9 +400,14 @@
                     <h3 class="text-5xl md:text-6xl font-extrabold text-white mb-4 tracking-tight" id="savings-result">+
                         62 €</h3>
                     <p class="text-xs text-gray-400 max-w-lg mx-auto leading-relaxed opacity-70">
-                        *Prognose. Der finanzielle Vorteil entsteht durch reduzierte Netzentgelte und Boni beim Energy
-                        Sharing. Wir als Plattform ermöglichen die Vermittlung.
+                        *Prognose basierend auf einem Sharing-Preis von 13 ct/kWh. Der finanzielle Vorteil entsteht
+                        durch
+                        faire Direktvermarktung beim Energy Sharing.
                     </p>
+                    <a href="pages/berechnung.html"
+                        class="inline-flex items-center gap-2 text-brand-light hover:text-white text-sm font-bold mt-4 transition">
+                        <i class="fa-solid fa-calculator"></i> Detaillierte Berechnung ansehen →
+                    </a>
                 </div>
             </div>
         </div>
@@ -424,6 +431,10 @@
                         <h3 class="font-bold text-xl mb-3 text-gray-900">Startphase (BOL)</h3>
                         <p class="text-gray-600 leading-relaxed">Wir starten in Bühlertal, Ottersweier und Lauf. Aufbau
                             der Community und Testen der Vermittlungs-Algorithmen.</p>
+                        <a href="pages/bol.html"
+                            class="inline-flex items-center gap-1 text-brand font-bold text-sm mt-4 hover:text-brand-dark transition">
+                            Mehr erfahren <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
                     </div>
 
                     <div
@@ -500,8 +511,8 @@
         // Calculator Logic
         let currentRole = 'owner';
         const params = {
-            owner: { base: 0.08, share: 0.105, text: 'Menge, die du an Nachbarn abgibst.' },
-            user: { base: 0.35, share: 0.26, text: 'Menge, die du aus der Community beziehst.' }
+            owner: { base: 0.0786, share: 0.13, text: 'Menge, die du an Nachbarn abgibst.' },
+            user: { base: 0.35, share: 0.30, text: 'Menge, die du aus der Community beziehst.' }
         };
 
         function setRole(role) {

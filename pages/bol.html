@@ -256,16 +256,20 @@
                                     <span class="text-sm text-gray-500 flex items-center gap-2">
                                         <i class="fa-solid fa-sun text-yellow-500"></i> Vorteil Erzeuger
                                     </span>
-                                    <span class="text-lg font-extrabold text-brand">+62 € / Jahr</span>
+                                    <span class="text-lg font-extrabold text-brand">+128 € / Jahr</span>
                                 </div>
                                 <div
                                     class="bg-white rounded-xl p-4 border border-blue-100 flex items-center justify-between">
                                     <span class="text-sm text-gray-500 flex items-center gap-2">
                                         <i class="fa-solid fa-house text-blue-500"></i> Vorteil Verbraucher
                                     </span>
-                                    <span class="text-lg font-extrabold text-brand-accent">−225 € / Jahr</span>
+                                    <span class="text-lg font-extrabold text-brand-accent">−125 € / Jahr</span>
                                 </div>
                             </div>
+                            <a href="berechnung.html"
+                                class="mt-3 inline-flex items-center gap-1 text-sm text-brand font-semibold hover:text-brand-dark transition">
+                                <i class="fa-solid fa-calculator"></i> Detaillierte Berechnung ansehen →
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -415,24 +419,47 @@
                 </div>
 
                 <div class="space-y-6">
-                    <!-- Quote / Statement Card -->
+                    <!-- Quote / Statement Card (Rotating) -->
                     <div
-                        class="bg-gradient-to-br from-brand-dark to-gray-900 rounded-3xl p-8 text-white relative overflow-hidden">
+                        class="bg-gradient-to-br from-brand-dark to-gray-900 rounded-3xl p-8 text-white relative overflow-hidden min-h-[320px]">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-brand/10 rounded-full blur-2xl -mr-10 -mt-10">
                         </div>
                         <i class="fa-solid fa-quote-left text-brand-light/30 text-5xl mb-4 block"></i>
-                        <p class="text-lg leading-relaxed font-medium mb-6">
-                            Wir möchten zeigen, dass Energiewende nicht abstrakt sein muss.
-                            In BOL teilen Nachbarn Strom miteinander – einfach, fair und direkt.
-                        </p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 bg-brand rounded-full flex items-center justify-center text-white font-bold text-sm">
-                                MK
+
+                        <!-- Quote 1: Matthias Kästle -->
+                        <div class="quote-slide transition-opacity duration-700 ease-in-out" id="quote-1">
+                            <p class="text-lg leading-relaxed font-medium mb-6">
+                                Wir möchten zeigen, dass Energiewende nicht abstrakt sein muss.
+                                In BOL teilen Nachbarn Strom miteinander – einfach, fair und direkt.
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 bg-brand rounded-full flex items-center justify-center text-white font-bold text-sm">
+                                    MK
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm">Matthias Kästle</p>
+                                    <p class="text-xs text-gray-400">Geschäftsführer & Projektleitung BOL</p>
+                                </div>
                             </div>
-                            <div>
-                                <p class="font-bold text-sm">Matthias Kästle</p>
-                                <p class="text-xs text-gray-400">Projektleitung Energy Sharing BOL</p>
+                        </div>
+
+                        <!-- Quote 2: Jochen Reith -->
+                        <div class="quote-slide transition-opacity duration-700 ease-in-out absolute inset-8 pt-[72px] opacity-0"
+                            id="quote-2">
+                            <p class="text-lg leading-relaxed font-medium mb-6">
+                                Unsere App macht es spielend einfach, im Umkreis nachhaltige Energiepartner
+                                zu finden. Davon werden alle profitieren – Erzeuger, Verbraucher und die ganze Region.
+                            </p>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-10 h-10 bg-brand-accent rounded-full flex items-center justify-center text-white font-bold text-sm">
+                                    JR
+                                </div>
+                                <div>
+                                    <p class="font-bold text-sm">Jochen Reith</p>
+                                    <p class="text-xs text-gray-400">Technische Leitung Energy Sharing</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -577,8 +604,11 @@
                     </ul>
                     <div class="mt-6 bg-white rounded-xl p-4 border border-green-100">
                         <p class="text-sm text-gray-500">Dein Vorteil als Erzeuger, z.B.:</p>
-                        <p class="text-2xl font-extrabold text-brand">+2,5 ct/kWh</p>
-                        <p class="text-xs text-gray-400 mt-1">als bei Einspeisung – je nach Vereinbarung</p>
+                        <p class="text-2xl font-extrabold text-brand">+5 ct/kWh</p>
+                        <p class="text-xs text-gray-400 mt-1">mehr als bei Einspeisung</p>
+                        <a href="berechnung.html"
+                            class="text-xs text-brand font-semibold hover:underline mt-1 inline-block">Berechnung
+                            ansehen →</a>
                     </div>
                 </div>
 
@@ -612,8 +642,11 @@
                     </ul>
                     <div class="mt-6 bg-white rounded-xl p-4 border border-blue-100">
                         <p class="text-sm text-gray-500">Dein Vorteil als Verbraucher, z.B.:</p>
-                        <p class="text-2xl font-extrabold text-brand-accent">-9 ct/kWh</p>
+                        <p class="text-2xl font-extrabold text-brand-accent">-5 ct/kWh</p>
                         <p class="text-xs text-gray-400 mt-1">gegenüber dem Standardtarif</p>
+                        <a href="berechnung.html"
+                            class="text-xs text-brand-accent font-semibold hover:underline mt-1 inline-block">Berechnung
+                            ansehen →</a>
                     </div>
                 </div>
             </div>
@@ -749,6 +782,15 @@
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
         });
+
+        // Quote Rotation
+        const quotes = document.querySelectorAll('.quote-slide');
+        let currentQuote = 0;
+        setInterval(() => {
+            quotes[currentQuote].classList.add('opacity-0');
+            currentQuote = (currentQuote + 1) % quotes.length;
+            quotes[currentQuote].classList.remove('opacity-0');
+        }, 6000);
     </script>
 </body>
 
