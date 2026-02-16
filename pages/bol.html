@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Energy Sharing in BOL | Bühlertal · Ottersweier · Lauf</title>
+    <meta name="description"
+        content="Energy Sharing für Bühlertal, Ottersweier und Lauf – die Region BOL wird zur lokalen Energie-Community. Nachbarschaftsstrom nach § 42c EnWG.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#84cc16',
+                            DEFAULT: '#65a30d',
+                            dark: '#365314',
+                            accent: '#0284c7',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'count-up': 'countUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        countUp: {
+                            from: { opacity: '0', transform: 'translateY(10px)' },
+                            to: { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .hero-bol {
+            background-image: linear-gradient(135deg, rgba(54, 83, 20, 0.88), rgba(0, 0, 0, 0.55)), url('../assets/background01.png');
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .text-shadow-sm {
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        .text-shadow-lg {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .stat-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .benefit-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .glow-brand {
+            box-shadow: 0 0 40px rgba(101, 163, 13, 0.15), 0 0 80px rgba(101, 163, 13, 0.08);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-white min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <a href="../index.html" class="flex items-center gap-2 group">
+                    <div class="bg-brand text-white p-2 rounded-lg">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-900 tracking-tight">Energy <span
+                            class="text-brand">Sharing</span></span>
+                </a>
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#vorteile" class="text-gray-600 hover:text-brand font-medium transition">Vorteile</a>
+                    <a href="#so-funktionierts" class="text-gray-600 hover:text-brand font-medium transition">So
+                        funktioniert's</a>
+                    <a href="#mitmachen"
+                        class="bg-brand hover:bg-brand-dark text-white px-5 py-2.5 rounded-full font-bold transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Jetzt
+                        mitmachen</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button p-2">
+                        <i class="fa-solid fa-bars text-2xl text-gray-600"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-menu hidden md:hidden bg-white px-4 pt-2 pb-4 shadow-lg border-t absolute w-full">
+            <a href="#vorteile" class="block py-3 text-gray-700 font-semibold border-b border-gray-100">Vorteile</a>
+            <a href="#so-funktionierts" class="block py-3 text-gray-700 font-semibold border-b border-gray-100">So
+                funktioniert's</a>
+            <a href="#mitmachen" class="block mt-4 bg-brand text-white text-center py-3 rounded-lg font-bold">Jetzt
+                mitmachen</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative hero-bol min-h-[85vh] flex items-center justify-center text-center px-4">
+        <div class="max-w-5xl mx-auto text-white z-10 pt-24">
+
+            <div
+                class="inline-flex items-center gap-2 bg-white/10 border border-white/30 backdrop-blur-md rounded-full px-5 py-2.5 mb-8 shadow-lg">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-light animate-pulse"></span>
+                <span class="text-white font-bold text-xs md:text-sm tracking-wide uppercase text-shadow-sm">Pilotregion
+                    2026</span>
+            </div>
+
+            <h1
+                class="text-4xl sm:text-5xl md:text-7xl font-black leading-tight mb-6 text-shadow-lg tracking-tight drop-shadow-2xl">
+                Energy Sharing<br>
+                <span class="text-brand-light">für die Region BOL.</span>
+            </h1>
+
+            <p
+                class="text-lg md:text-xl mb-4 text-gray-100 max-w-3xl mx-auto font-medium text-shadow-sm leading-relaxed">
+                <strong>B</strong>ühlertal · <strong>O</strong>ttersweier · <strong>L</strong>auf –
+                drei Gemeinden, eine Vision: Nachbarschaftsstrom statt anonymer Energiemarkt.
+            </p>
+            <p class="text-base md:text-lg mb-10 text-gray-300 max-w-2xl mx-auto text-shadow-sm leading-relaxed">
+                Wir verbinden private Solaranlagen-Besitzer mit Haushalten in der Nähe –
+                für fairen, günstigen Strom direkt aus der Nachbarschaft nach § 42c EnWG.
+            </p>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a href="#mitmachen"
+                    class="bg-brand hover:bg-brand-light text-white text-lg px-8 py-4 rounded-full font-bold transition transform hover:scale-105 shadow-xl border-2 border-brand ring-4 ring-brand/20">
+                    <i class="fa-solid fa-hand-holding-heart mr-2"></i>Jetzt Teil werden
+                </a>
+                <a href="#vorteile"
+                    class="bg-white hover:bg-gray-100 text-gray-900 text-lg px-8 py-4 rounded-full font-bold transition shadow-xl transform hover:scale-105">
+                    Vorteile entdecken
+                </a>
+            </div>
+
+            <!-- Stats Bar -->
+            <div class="grid grid-cols-3 gap-4 max-w-2xl mx-auto">
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl py-4 px-3">
+                    <p class="text-2xl md:text-3xl font-black text-brand-light">3</p>
+                    <p class="text-xs md:text-sm text-gray-300 font-medium mt-1">Gemeinden</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl py-4 px-3">
+                    <p class="text-2xl md:text-3xl font-black text-brand-light">2026</p>
+                    <p class="text-xs md:text-sm text-gray-300 font-medium mt-1">Startjahr</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl py-4 px-3">
+                    <p class="text-2xl md:text-3xl font-black text-brand-light">100%</p>
+                    <p class="text-xs md:text-sm text-gray-300 font-medium mt-1">Regional</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Was ist Energy Sharing? -->
+    <section class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span
+                    class="text-brand font-extrabold tracking-widest uppercase text-sm bg-brand/10 px-4 py-2 rounded-full border border-brand/20">Was
+                    ist das?</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-6 text-gray-900 tracking-tight">Energy Sharing einfach
+                    erklärt</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Seit 2025 ermöglicht <strong>§ 42c EnWG</strong> in Deutschland erstmals das sogenannte
+                        <strong>Energy Sharing</strong>: Strom aus lokalen Solaranlagen kann direkt mit Nachbarn
+                        geteilt werden – ohne Umweg über die Strombörse.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Für die Region <strong>BOL</strong> bedeutet das: Wer eine PV-Anlage in Bühlertal,
+                        Ottersweier oder Lauf besitzt, kann seinen überschüssigen Strom an Haushalte in der
+                        Nachbarschaft abgeben – und dabei <strong>mehr verdienen als mit der klassischen
+                            Einspeisevergütung</strong>.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        Verbraucher erhalten gleichzeitig <strong>günstigeren, regionalen Ökostrom</strong>
+                        direkt vom Nachbarn. Eine echte Win-Win-Situation für die ganze Gemeinde.
+                    </p>
+                </div>
+
+                <div class="relative">
+                    <div
+                        class="bg-gradient-to-br from-brand/5 to-green-50 rounded-3xl p-8 border border-brand/10 glow-brand">
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center">
+                                    <i class="fa-solid fa-sun text-yellow-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-900">Erzeuger aus Lauf</p>
+                                    <p class="text-sm text-gray-500">PV-Anlage mit 10 kWp auf dem Dach</p>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-center">
+                                <div
+                                    class="flex flex-col items-center gap-1 bg-brand/10 rounded-xl px-4 py-3 border border-brand/20">
+                                    <i class="fa-solid fa-bolt text-brand text-lg animate-pulse"></i>
+                                    <span class="text-xs font-bold text-brand uppercase tracking-wider">Strom
+                                        teilen</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div
+                                    class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                                    <i class="fa-solid fa-house text-blue-500 text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-900">Verbraucher aus Bühlertal</p>
+                                    <p class="text-sm text-gray-500">Familie mit Wärmepumpe & E-Auto</p>
+                                </div>
+                            </div>
+
+                            <div
+                                class="mt-4 bg-white rounded-xl p-4 border border-gray-100 flex items-center justify-between">
+                                <span class="text-sm text-gray-500">Geschätzter Vorteil</span>
+                                <span class="text-xl font-extrabold text-brand">+62 € / Jahr</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vorteile für die Region -->
+    <section id="vorteile" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span
+                    class="text-brand font-extrabold tracking-widest uppercase text-sm bg-brand/10 px-4 py-2 rounded-full border border-brand/20">Vorteile</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-6 text-gray-900 tracking-tight">Das bringt Energy Sharing
+                    für BOL</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                    Drei Gemeinden profitieren – wirtschaftlich, ökologisch und als Gemeinschaft.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="benefit-card bg-white rounded-2xl p-8 border border-gray-100 shadow-md">
+                    <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                        <i class="fa-solid fa-piggy-bank text-brand text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Mehr Geld für Erzeuger</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        PV-Besitzer erhalten bis zu <strong>10,5 ct/kWh</strong> beim Energy Sharing –
+                        deutlich mehr als die Einspeisevergütung von ca. 8 ct für Neuanlagen.
+                    </p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="benefit-card bg-white rounded-2xl p-8 border border-gray-100 shadow-md">
+                    <div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                        <i class="fa-solid fa-receipt text-blue-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Günstiger für Verbraucher</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Strom aus der Nachbarschaft ist günstiger als vom Versorger – durch reduzierte
+                        Netzentgelte und faire Direktpreise.
+                    </p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="benefit-card bg-white rounded-2xl p-8 border border-gray-100 shadow-md">
+                    <div class="w-14 h-14 bg-yellow-100 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                        <i class="fa-solid fa-leaf text-yellow-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Klimaschutz vor Ort</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Lokaler Verbrauch reduziert Transportverluste und fördert den Ausbau erneuerbarer
+                        Energien direkt in der Region.
+                    </p>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="benefit-card bg-white rounded-2xl p-8 border border-gray-100 shadow-md">
+                    <div class="w-14 h-14 bg-purple-100 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                        <i class="fa-solid fa-people-group text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Gemeinschaft stärken</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Energy Sharing verbindet Nachbarn und schafft ein Bewusstsein für gemeinsamen
+                        Energieverbrauch – das stärkt den Zusammenhalt in BOL.
+                    </p>
+                </div>
+
+                <!-- Benefit 5 -->
+                <div class="benefit-card bg-white rounded-2xl p-8 border border-gray-100 shadow-md">
+                    <div class="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                        <i class="fa-solid fa-building-columns text-orange-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Lokale Wertschöpfung</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Das Geld für Strom bleibt in der Region – statt an große Konzerne fließt es
+                        direkt an Nachbarn in Bühlertal, Ottersweier und Lauf.
+                    </p>
+                </div>
+
+                <!-- Benefit 6 -->
+                <div class="benefit-card bg-white rounded-2xl p-8 border border-gray-100 shadow-md">
+                    <div class="w-14 h-14 bg-teal-100 rounded-2xl flex items-center justify-center mb-6 shadow-sm">
+                        <i class="fa-solid fa-shield-halved text-teal-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Rechtlich abgesichert</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Energy Sharing ist im Energiewirtschaftsgesetz (§ 42c EnWG) verankert –
+                        ein offizieller Rahmen mit klaren Spielregeln.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Für die Gemeinde / Bürgermeisterin -->
+    <section class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <span
+                        class="text-brand font-extrabold tracking-widest uppercase text-sm bg-brand/10 px-4 py-2 rounded-full border border-brand/20">Für
+                        Kommunen</span>
+                    <h2 class="text-3xl sm:text-4xl font-bold mt-6 text-gray-900 tracking-tight leading-snug">
+                        Eine Chance für<br>
+                        <span class="text-brand">Bühlertal, Ottersweier & Lauf</span>
+                    </h2>
+                    <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+                        Energy Sharing bietet Kommunen die einzigartige Möglichkeit, ihre Bürgerinnen und
+                        Bürger aktiv an der Energiewende zu beteiligen. Als Pilotregion kann BOL eine
+                        <strong>Vorreiterrolle in Baden-Württemberg</strong> einnehmen.
+                    </p>
+
+                    <div class="mt-8 space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 flex-shrink-0">
+                                <i class="fa-solid fa-circle-check text-brand text-lg"></i>
+                            </div>
+                            <p class="text-gray-700"><strong>Klimaziele erreichen:</strong> Lokaler
+                                Solarstrom-Verbrauch senkt den CO₂-Ausstoß der Gemeinde messbar.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 flex-shrink-0">
+                                <i class="fa-solid fa-circle-check text-brand text-lg"></i>
+                            </div>
+                            <p class="text-gray-700"><strong>Bürgerbeteiligung fördern:</strong> Bürger werden vom
+                                passiven Konsumenten zum aktiven Teilnehmer der Energiewende.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 flex-shrink-0">
+                                <i class="fa-solid fa-circle-check text-brand text-lg"></i>
+                            </div>
+                            <p class="text-gray-700"><strong>Standort attraktiver machen:</strong> Innovative
+                                Energieprojekte erhöhen die Attraktivität der Gemeinde für junge Familien.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="mt-1 flex-shrink-0">
+                                <i class="fa-solid fa-circle-check text-brand text-lg"></i>
+                            </div>
+                            <p class="text-gray-700"><strong>Keine Kosten für die Kommune:</strong> Die Plattform
+                                wird privat betrieben – die Gemeinde profitiert, ohne eigenes Budget einzusetzen.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-6">
+                    <!-- Quote / Statement Card -->
+                    <div
+                        class="bg-gradient-to-br from-brand-dark to-gray-900 rounded-3xl p-8 text-white relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-brand/10 rounded-full blur-2xl -mr-10 -mt-10">
+                        </div>
+                        <i class="fa-solid fa-quote-left text-brand-light/30 text-5xl mb-4 block"></i>
+                        <p class="text-lg leading-relaxed font-medium mb-6">
+                            Wir möchten zeigen, dass Energiewende nicht abstrakt sein muss.
+                            In BOL teilen Nachbarn Strom miteinander – einfach, fair und direkt.
+                        </p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-brand rounded-full flex items-center justify-center text-white font-bold text-sm">
+                                MK
+                            </div>
+                            <div>
+                                <p class="font-bold text-sm">Matthias Kästle</p>
+                                <p class="text-xs text-gray-400">Projektleitung Energy Sharing BOL</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Roadmap Mini -->
+                    <div class="bg-gray-50 rounded-2xl p-6 border border-gray-100">
+                        <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-map-location-dot text-brand"></i>
+                            Fahrplan für BOL
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-xs font-bold shadow-md shadow-brand/30">
+                                    1</div>
+                                <div>
+                                    <p class="text-sm font-bold text-gray-900">Community aufbauen</p>
+                                    <p class="text-xs text-gray-500">Interessierte Erzeuger & Verbraucher sammeln</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 bg-gray-200 text-gray-600 rounded-full flex items-center justify-center text-xs font-bold">
+                                    2</div>
+                                <div>
+                                    <p class="text-sm font-bold text-gray-900">Matching starten</p>
+                                    <p class="text-xs text-gray-500">Erzeuger & Verbraucher optimal zusammenbringen</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="w-8 h-8 bg-gray-100 text-gray-400 rounded-full flex items-center justify-center text-xs font-bold">
+                                    3</div>
+                                <div>
+                                    <p class="text-sm font-bold text-gray-900">Energy Sharing live</p>
+                                    <p class="text-xs text-gray-500">Strom fließt von Nachbar zu Nachbar in BOL</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- So funktioniert's -->
+    <section id="so-funktionierts" class="py-24 bg-gray-900 text-white relative overflow-hidden">
+        <div
+            class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]">
+        </div>
+        <div class="max-w-6xl mx-auto px-4 relative z-10">
+            <div class="text-center mb-16">
+                <span
+                    class="text-brand font-extrabold tracking-widest uppercase text-sm bg-brand/10 px-4 py-2 rounded-full border border-brand/20">In
+                    3 Schritten</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-6 tracking-tight">So einfach funktioniert's</h2>
+                <p class="mt-4 text-gray-400 text-lg max-w-xl mx-auto">
+                    Ob du Strom erzeugst oder verbrauchst – Energy Sharing lohnt sich für beide Seiten.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-800/60 backdrop-blur border border-gray-700 rounded-2xl p-8 text-center">
+                    <div
+                        class="w-16 h-16 bg-brand/20 text-brand rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">1. Registrieren</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Melde dich auf unserer Plattform an – egal ob als PV-Besitzer oder als
+                        Stromverbraucher. Kostenlos und unverbindlich.
+                    </p>
+                </div>
+
+                <div class="bg-gray-800/60 backdrop-blur border border-gray-700 rounded-2xl p-8 text-center">
+                    <div
+                        class="w-16 h-16 bg-brand/20 text-brand rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fa-solid fa-users-viewfinder"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">2. Partner finden</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Unser Matching-Algorithmus findet den optimalen Partner – basierend auf
+                        Erzeugungs- und Verbrauchsprofilen in BOL.
+                    </p>
+                </div>
+
+                <div class="bg-gray-800/60 backdrop-blur border border-gray-700 rounded-2xl p-8 text-center">
+                    <div
+                        class="w-16 h-16 bg-brand/20 text-brand rounded-2xl flex items-center justify-center mx-auto mb-6 text-2xl">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">3. Strom teilen</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Der Strom fließt automatisch – du profitierst von fairen Konditionen und
+                        unterstützt deine Nachbarschaft.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wer kann mitmachen? -->
+    <section class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span
+                    class="text-brand font-extrabold tracking-widest uppercase text-sm bg-brand/10 px-4 py-2 rounded-full border border-brand/20">Für
+                    jeden</span>
+                <h2 class="text-3xl sm:text-4xl font-bold mt-6 text-gray-900 tracking-tight">Wer kann mitmachen?</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Erzeuger -->
+                <div
+                    class="stat-card bg-gradient-to-br from-green-50 to-white rounded-3xl p-8 border border-green-100 shadow-lg">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div
+                            class="w-12 h-12 bg-brand text-white rounded-xl flex items-center justify-center shadow-md">
+                            <i class="fa-solid fa-solar-panel text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">Erzeuger</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-brand mt-1 text-sm"></i>
+                            <span>Du hast eine <strong>PV-Anlage</strong> auf dem Dach</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-brand mt-1 text-sm"></i>
+                            <span>Du wohnst in <strong>Bühlertal, Ottersweier oder Lauf</strong></span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-brand mt-1 text-sm"></i>
+                            <span>Du möchtest <strong>mehr verdienen</strong> als mit der Einspeisevergütung</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-brand mt-1 text-sm"></i>
+                            <span>Besonders interessant für <strong>Alt-Anlagen</strong> mit auslaufender
+                                Vergütung</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 bg-white rounded-xl p-4 border border-green-100">
+                        <p class="text-sm text-gray-500">Dein Vorteil als Erzeuger:</p>
+                        <p class="text-2xl font-extrabold text-brand">bis zu +2,5 ct/kWh</p>
+                        <p class="text-xs text-gray-400 mt-1">gegenüber klassischer Einspeisung</p>
+                    </div>
+                </div>
+
+                <!-- Verbraucher -->
+                <div
+                    class="stat-card bg-gradient-to-br from-blue-50 to-white rounded-3xl p-8 border border-blue-100 shadow-lg">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div
+                            class="w-12 h-12 bg-brand-accent text-white rounded-xl flex items-center justify-center shadow-md">
+                            <i class="fa-solid fa-plug text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900">Verbraucher</h3>
+                    </div>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-brand-accent mt-1 text-sm"></i>
+                            <span>Du wohnst in <strong>Bühlertal, Ottersweier oder Lauf</strong></span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-brand-accent mt-1 text-sm"></i>
+                            <span>Du möchtest <strong>günstigen Ökostrom</strong> vom Nachbarn</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-brand-accent mt-1 text-sm"></i>
+                            <span>Besonders attraktiv mit <strong>E-Auto oder Wärmepumpe</strong></span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-brand-accent mt-1 text-sm"></i>
+                            <span><strong>Keine eigene PV-Anlage</strong> nötig</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 bg-white rounded-xl p-4 border border-blue-100">
+                        <p class="text-sm text-gray-500">Dein Vorteil als Verbraucher:</p>
+                        <p class="text-2xl font-extrabold text-brand-accent">bis zu -9 ct/kWh</p>
+                        <p class="text-xs text-gray-400 mt-1">gegenüber dem Standardtarif</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Mitmachen -->
+    <section id="mitmachen" class="bg-brand-dark text-white py-24 text-center px-4 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10">
+        </div>
+        <div class="max-w-2xl mx-auto relative z-10">
+            <div
+                class="inline-flex items-center gap-2 bg-white/10 border border-white/20 backdrop-blur-sm rounded-full px-5 py-2 mb-8">
+                <i class="fa-solid fa-map-marker-alt text-brand-light"></i>
+                <span class="text-sm font-bold text-white/90">Bühlertal · Ottersweier · Lauf</span>
+            </div>
+
+            <h2 class="text-4xl font-bold mb-6">Werde Teil der<br>Energy Sharing Community.</h2>
+            <p class="text-brand-light text-lg mb-10 font-medium max-w-lg mx-auto">
+                Registriere dich jetzt unverbindlich für die Pilotphase in der Region BOL.
+                Gemeinsam gestalten wir die Energiewende vor Ort.
+            </p>
+
+            <form
+                class="bg-white rounded-2xl p-2 flex flex-col sm:flex-row shadow-2xl transform transition-all hover:scale-[1.01]"
+                onsubmit="event.preventDefault(); showComingSoon();">
+                <input type="email" placeholder="Deine E-Mail Adresse"
+                    class="flex-grow px-6 py-4 text-gray-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand bg-transparent"
+                    required>
+                <button type="submit"
+                    class="bg-brand hover:bg-brand-light text-white font-bold px-10 py-4 rounded-xl mt-2 sm:mt-0 transition shadow-lg whitespace-nowrap">
+                    Vormerken
+                </button>
+            </form>
+            <div id="coming-soon-toast"
+                class="hidden mt-4 bg-white/10 border border-white/20 backdrop-blur-md rounded-xl px-6 py-4 text-white text-sm font-medium transition-all duration-500 opacity-0 transform translate-y-2">
+                <i class="fa-solid fa-circle-info mr-2 text-brand-light"></i>
+                Diese Funktion ist noch nicht verfügbar, wird aber bald freigeschaltet. Wir halten dich auf dem
+                Laufenden!
+            </div>
+            <p class="text-xs text-gray-400 mt-6 font-medium tracking-wide opacity-60">KEIN SPAM. 100% DATENSCHUTZ.
+            </p>
+        </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Fragen zum Projekt?</h3>
+            <p class="text-gray-600 mb-8 max-w-lg mx-auto">
+                Wir stehen Ihnen gerne zur Verfügung – als Ansprechpartner für Bürger, Gemeinden und alle
+                Interessierten.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:webmaster@power-share.de"
+                    class="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white px-8 py-3 rounded-full font-bold transition shadow-md">
+                    <i class="fa-solid fa-envelope"></i> E-Mail schreiben
+                </a>
+                <a href="kontakt.html"
+                    class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-900 px-8 py-3 rounded-full font-bold transition shadow-md">
+                    <i class="fa-solid fa-address-book"></i> Kontaktseite
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to main site banner -->
+    <div class="bg-gray-100 border-t border-gray-200 py-6 text-center">
+        <a href="../index.html"
+            class="text-gray-600 hover:text-brand font-medium transition inline-flex items-center gap-2">
+            <i class="fa-solid fa-arrow-left"></i>
+            Zur Hauptseite · www.power-share.de
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-gray-500 py-10 text-center text-sm border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 Energy Sharing.</p>
+            <div class="flex gap-6">
+                <a href="impressum.html" class="hover:text-white transition">Impressum</a>
+                <a href="datenschutz.html" class="hover:text-white transition">Datenschutz</a>
+                <a href="kontakt.html" class="hover:text-white transition">Kontakt</a>
+            </div>
+            <p>Made with <i class="fa-solid fa-heart text-red-600 animate-pulse"></i> in Baden.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const btn = document.querySelector("button.mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+        btn.addEventListener("click", () => menu.classList.toggle("hidden"));
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.add('hidden'));
+        });
+
+        // Coming Soon Toast
+        function showComingSoon() {
+            const toast = document.getElementById('coming-soon-toast');
+            toast.classList.remove('hidden');
+            void toast.offsetWidth;
+            toast.classList.remove('opacity-0', 'translate-y-2');
+            toast.classList.add('opacity-100', 'translate-y-0');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'translate-y-0');
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.classList.add('hidden'), 500);
+            }, 5000);
+        }
+
+        // Scroll animation for stat cards
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.benefit-card, .stat-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+
+</html>
