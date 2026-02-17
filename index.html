@@ -563,7 +563,7 @@
                     <p class="text-gray-300 mb-2 font-medium uppercase tracking-wider text-sm">Dein geschätzter Vorteil
                         pro Jahr</p>
                     <h3 class="text-5xl md:text-6xl font-extrabold text-white mb-4 tracking-tight" id="savings-result">+
-                        62 €</h3>
+                        129 €</h3>
                     <p class="text-xs text-gray-400 max-w-lg mx-auto leading-relaxed opacity-70">
                         *Prognose basierend auf einem Sharing-Preis von 13 ct/kWh. Der finanzielle Vorteil entsteht
                         durch
@@ -631,27 +631,13 @@
         </div>
         <div class="max-w-2xl mx-auto relative z-10">
             <h2 class="text-4xl font-bold mb-6">Werde Teil der Bewegung.</h2>
-            <p class="text-brand-light text-lg mb-10 font-medium">Registriere dich unverbindlich für die Startphase in
-                Bühlertal, Ottersweier und Lauf.</p>
+            <p class="text-brand-light text-lg mb-10 font-medium">Du möchtest beim Energy Sharing in
+                Bühlertal, Ottersweier und Lauf dabei sein? Schreib uns – wir melden uns bei dir!</p>
 
-            <form
-                class="bg-white rounded-2xl p-2 flex flex-col sm:flex-row shadow-2xl transform transition-all hover:scale-[1.01]"
-                onsubmit="event.preventDefault(); showComingSoon();">
-                <input type="email" placeholder="Deine E-Mail Adresse"
-                    class="flex-grow px-6 py-4 text-gray-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand bg-transparent"
-                    required>
-                <button type="submit"
-                    class="bg-brand hover:bg-brand-light text-white font-bold px-10 py-4 rounded-xl mt-2 sm:mt-0 transition shadow-lg whitespace-nowrap">
-                    Vormerken
-                </button>
-            </form>
-            <div id="coming-soon-toast"
-                class="hidden mt-4 bg-white/10 border border-white/20 backdrop-blur-md rounded-xl px-6 py-4 text-white text-sm font-medium transition-all duration-500 opacity-0 transform translate-y-2">
-                <i class="fa-solid fa-circle-info mr-2 text-brand-light"></i>
-                Diese Funktion ist noch nicht verfügbar, wird aber bald freigeschaltet. Wir halten dich auf dem
-                Laufenden!
-            </div>
-            <p class="text-xs text-gray-400 mt-6 font-medium tracking-wide opacity-60">KEIN SPAM. 100% DATENSCHUTZ.</p>
+            <a href="pages/kontakt.html"
+                class="bg-brand hover:bg-brand-light text-white text-lg px-10 py-4 rounded-full font-bold transition transform hover:scale-105 shadow-xl inline-flex items-center justify-center gap-2">
+                <i class="fa-solid fa-envelope"></i> Kontakt aufnehmen
+            </a>
         </div>
     </section>
 
@@ -727,20 +713,6 @@
 
         calculate();
 
-        // Coming Soon Toast
-        function showComingSoon() {
-            const toast = document.getElementById('coming-soon-toast');
-            toast.classList.remove('hidden');
-            void toast.offsetWidth;
-            toast.classList.remove('opacity-0', 'translate-y-2');
-            toast.classList.add('opacity-100', 'translate-y-0');
-
-            setTimeout(() => {
-                toast.classList.remove('opacity-100', 'translate-y-0');
-                toast.classList.add('opacity-0', 'translate-y-2');
-                setTimeout(() => toast.classList.add('hidden'), 500);
-            }, 5000);
-        }
 
         // ── Partner Carousel ──────────────────────────────────────
         const partnerships = [

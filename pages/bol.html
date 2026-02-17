@@ -256,7 +256,7 @@
                                     <span class="text-sm text-gray-500 flex items-center gap-2">
                                         <i class="fa-solid fa-sun text-yellow-500"></i> Vorteil Erzeuger
                                     </span>
-                                    <span class="text-lg font-extrabold text-brand">+128 € / Jahr</span>
+                                    <span class="text-lg font-extrabold text-brand">+129 € / Jahr</span>
                                 </div>
                                 <div
                                     class="bg-white rounded-xl p-4 border border-blue-100 flex items-center justify-between">
@@ -666,29 +666,14 @@
 
             <h2 class="text-4xl font-bold mb-6">Werde Teil der<br>Energy Sharing Community.</h2>
             <p class="text-brand-light text-lg mb-10 font-medium max-w-lg mx-auto">
-                Registriere dich jetzt unverbindlich für die Pilotphase in der Region BOL.
-                Gemeinsam gestalten wir die Energiewende vor Ort.
+                Du möchtest bei der Pilotphase in der Region BOL dabei sein?
+                Schreib uns – wir melden uns bei dir!
             </p>
 
-            <form
-                class="bg-white rounded-2xl p-2 flex flex-col sm:flex-row shadow-2xl transform transition-all hover:scale-[1.01]"
-                onsubmit="event.preventDefault(); showComingSoon();">
-                <input type="email" placeholder="Deine E-Mail Adresse"
-                    class="flex-grow px-6 py-4 text-gray-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-brand bg-transparent"
-                    required>
-                <button type="submit"
-                    class="bg-brand hover:bg-brand-light text-white font-bold px-10 py-4 rounded-xl mt-2 sm:mt-0 transition shadow-lg whitespace-nowrap">
-                    Vormerken
-                </button>
-            </form>
-            <div id="coming-soon-toast"
-                class="hidden mt-4 bg-white/10 border border-white/20 backdrop-blur-md rounded-xl px-6 py-4 text-white text-sm font-medium transition-all duration-500 opacity-0 transform translate-y-2">
-                <i class="fa-solid fa-circle-info mr-2 text-brand-light"></i>
-                Diese Funktion ist noch nicht verfügbar, wird aber bald freigeschaltet. Wir halten dich auf dem
-                Laufenden!
-            </div>
-            <p class="text-xs text-gray-400 mt-6 font-medium tracking-wide opacity-60">KEIN SPAM. 100% DATENSCHUTZ.
-            </p>
+            <a href="kontakt.html"
+                class="bg-brand hover:bg-brand-light text-white text-lg px-10 py-4 rounded-full font-bold transition transform hover:scale-105 shadow-xl inline-flex items-center justify-center gap-2">
+                <i class="fa-solid fa-envelope"></i> Kontakt aufnehmen
+            </a>
         </div>
     </section>
 
@@ -700,16 +685,10 @@
                 Wir stehen Ihnen gerne zur Verfügung – als Ansprechpartner für Bürger, Gemeinden und alle
                 Interessierten.
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="mailto:webmaster@power-share.de"
-                    class="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white px-8 py-3 rounded-full font-bold transition shadow-md">
-                    <i class="fa-solid fa-envelope"></i> E-Mail schreiben
-                </a>
-                <a href="kontakt.html"
-                    class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-900 px-8 py-3 rounded-full font-bold transition shadow-md">
-                    <i class="fa-solid fa-address-book"></i> Kontaktseite
-                </a>
-            </div>
+            <a href="kontakt.html"
+                class="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white px-8 py-3 rounded-full font-bold transition shadow-md">
+                <i class="fa-solid fa-envelope"></i> Kontakt aufnehmen
+            </a>
         </div>
     </section>
 
@@ -746,20 +725,6 @@
             link.addEventListener('click', () => menu.classList.add('hidden'));
         });
 
-        // Coming Soon Toast
-        function showComingSoon() {
-            const toast = document.getElementById('coming-soon-toast');
-            toast.classList.remove('hidden');
-            void toast.offsetWidth;
-            toast.classList.remove('opacity-0', 'translate-y-2');
-            toast.classList.add('opacity-100', 'translate-y-0');
-
-            setTimeout(() => {
-                toast.classList.remove('opacity-100', 'translate-y-0');
-                toast.classList.add('opacity-0', 'translate-y-2');
-                setTimeout(() => toast.classList.add('hidden'), 500);
-            }, 5000);
-        }
 
         // Scroll animation for stat cards
         const observerOptions = {

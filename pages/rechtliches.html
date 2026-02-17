@@ -106,9 +106,8 @@
                     <a href="#verwandte-modelle" class="text-gray-600 hover:text-brand font-medium transition">§ 42b
                         & 42a</a>
                     <a href="#glossar" class="text-gray-600 hover:text-brand font-medium transition">Glossar</a>
-                    <a href="../index.html#signup"
-                        class="bg-brand hover:bg-brand-dark text-white px-5 py-2.5 rounded-full font-bold transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Community
-                        beitreten</a>
+                    <a href="kontakt.html"
+                        class="bg-brand hover:bg-brand-dark text-white px-5 py-2.5 rounded-full font-bold transition shadow-md hover:shadow-lg transform hover:-translate-y-0.5">Kontakt</a>
                 </div>
                 <div class="md:hidden flex items-center">
                     <button class="mobile-menu-button p-2">
@@ -127,9 +126,8 @@
             <a href="#glossar" class="block py-3 text-gray-700 font-semibold border-b border-gray-100">Glossar</a>
             <a href="#zusammenfassung"
                 class="block py-3 text-gray-700 font-semibold border-b border-gray-100">Zusammenfassung</a>
-            <a href="../index.html#signup"
-                class="block mt-4 bg-brand text-white text-center py-3 rounded-lg font-bold">Community
-                beitreten</a>
+            <a href="kontakt.html"
+                class="block mt-4 bg-brand text-white text-center py-3 rounded-lg font-bold">Kontakt</a>
         </div>
     </nav>
 
@@ -340,52 +338,62 @@
                 </p>
             </div>
 
-            <div class="space-y-4" id="accordion">
-
-                <!-- Absatz 1 -->
-                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+            <!-- Vollständiger Gesetzestext zum Aufklappen -->
+            <div class="mb-16">
+                <div class="bg-white rounded-2xl border-2 border-brand/30 shadow-lg overflow-hidden">
                     <button
-                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
+                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-brand/5 transition group"
                         onclick="toggleAccordion(this)">
                         <div class="flex items-center gap-3">
-                            <span
-                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold">1</span>
-                            <span class="font-bold text-gray-900">Voraussetzungen der gemeinsamen Nutzung</span>
+                            <div
+                                class="flex-shrink-0 w-10 h-10 bg-brand/10 text-brand rounded-xl flex items-center justify-center">
+                                <i class="fa-solid fa-scale-balanced text-lg"></i>
+                            </div>
+                            <div>
+                                <span class="font-bold text-gray-900 text-lg">Vollständiger Gesetzestext</span>
+                                <p class="text-sm text-gray-500 mt-0.5">§ 42c EnWG – unverändert zum Nachlesen</p>
+                            </div>
                         </div>
-                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                        <i class="chevron fa-solid fa-chevron-down text-brand text-sm"></i>
                     </button>
                     <div class="accordion-content px-6 pb-0">
-                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-4 border-t border-gray-100 pt-4">
-                            <p>
-                                Der Betreiber einer Anlage zur Erzeugung von Strom aus erneuerbaren Energien oder
+                        <div
+                            class="pb-8 text-sm text-gray-600 leading-relaxed border-t border-brand/10 pt-6 border-l-4 border-l-brand/20 pl-6 ml-2">
+
+                            <p class="font-semibold text-gray-800 mb-4">§ 42c Gemeinsame Nutzung elektrischer
+                                Energie aus Anlagen zur Erzeugung von Elektrizität aus erneuerbaren Energien</p>
+
+                            <!-- Absatz 1 -->
+                            <p class="font-bold text-gray-700 mt-6 mb-2">Absatz 1 – Voraussetzungen</p>
+                            <p>Der Betreiber einer Anlage zur Erzeugung von Strom aus erneuerbaren Energien oder
                                 einer Energiespeicheranlage, in der ausschließlich aus erneuerbaren Energien
                                 stammende Elektrizität zwischengespeichert wird, kann die erzeugte Elektrizität
                                 mit anderen Letztverbrauchern nach den Absätzen 2 bis 6 gemeinsam nutzen
-                                (gemeinsame Nutzung), wenn die folgenden Voraussetzungen erfüllt sind:
-                            </p>
-                            <ol class="list-decimal list-inside space-y-3 pl-2">
+                                (gemeinsame Nutzung), wenn die folgenden Voraussetzungen erfüllt sind:</p>
+                            <ol class="list-decimal list-inside space-y-2 pl-2 my-3">
                                 <li>der Betrieb der Anlage erfolgt durch eine natürliche Person oder durch eine
-                                    rechtsfähige Personengesellschaft oder eine juristische Person des Privatrechts,
-                                    deren sämtliche Gesellschafter oder Mitglieder Letztverbraucher oder juristische
-                                    Personen des öffentlichen Rechts sind,</li>
+                                    rechtsfähige Personengesellschaft oder eine juristische Person des
+                                    Privatrechts, deren sämtliche Gesellschafter oder Mitglieder Letztverbraucher
+                                    oder juristische Personen des öffentlichen Rechts sind,</li>
                                 <li>die Belieferung erfolgt durch den Betreiber der Anlage nach Nummer 1 unter
                                     Nutzung des öffentlichen Elektrizitätsverteilernetzes sowie auf der Grundlage
                                     eines Liefervertrages, der jeweils zwischen dem Betreiber der Anlage nach
                                     Nummer 1 und dem die Elektrizität abnehmenden Letztverbraucher (Abnehmer)
                                     abzuschließen ist,</li>
-                                <li>zwischen dem Betreiber der Anlage nach Nummer 1 und dem Abnehmer ist zusätzlich
-                                    zu einem Liefervertrag nach Nummer 2 ein Vertrag zur gemeinsamen Nutzung
-                                    abgeschlossen worden, der mindestens die in Absatz 3 genannten Regelungen
-                                    beinhaltet,</li>
+                                <li>zwischen dem Betreiber der Anlage nach Nummer 1 und dem Abnehmer ist
+                                    zusätzlich zu einem Liefervertrag nach Nummer 2 ein Vertrag zur gemeinsamen
+                                    Nutzung abgeschlossen worden, der mindestens die in Absatz 3 genannten
+                                    Regelungen beinhaltet,</li>
                                 <li>die Anlage und sämtliche zu beliefernden Verbrauchsstellen befinden sich in
                                     demselben Gebiet, in dem nach Absatz 4 eine gemeinsame Nutzung zu ermöglichen
                                     ist,</li>
-                                <li>der Betrieb der Anlage dient weder überwiegend der gewerblichen noch überwiegend
-                                    der selbständigen beruflichen Tätigkeit des Betreibers nach Nummer 1, wobei in
-                                    dem Fall, dass die Anlage durch eine rechtsfähige Personengesellschaft oder eine
-                                    juristische Person des Privatrechts betrieben wird, auf die Tätigkeit aller als
-                                    Gesellschafter oder Mitglied beteiligten Letztverbraucher oder juristischen
-                                    Personen des öffentlichen Rechts abzustellen ist,</li>
+                                <li>der Betrieb der Anlage dient weder überwiegend der gewerblichen noch
+                                    überwiegend der selbständigen beruflichen Tätigkeit des Betreibers nach
+                                    Nummer 1, wobei in dem Fall, dass die Anlage durch eine rechtsfähige
+                                    Personengesellschaft oder eine juristische Person des Privatrechts betrieben
+                                    wird, auf die Tätigkeit aller als Gesellschafter oder Mitglied beteiligten
+                                    Letztverbraucher oder juristischen Personen des öffentlichen Rechts
+                                    abzustellen ist,</li>
                                 <li>der Strombezug wird an jeder belieferten Verbrauchsstelle mit einer
                                     Zählerstandsgangmessung nach § 2 Satz 1 Nummer 27 des
                                     Messstellenbetriebsgesetzes oder durch eine viertelstündliche registrierende
@@ -395,60 +403,22 @@
                                     Messstellenbetriebsgesetzes oder durch eine viertelstündliche registrierende
                                     Leistungsmessung erfasst.</li>
                             </ol>
-                            <p class="text-gray-500 italic">
-                                Energiespeicheranlagen nach Satz 1 müssen die in § 19 Absatz 3b des
-                                Erneuerbare-Energien-Gesetzes genannten Voraussetzungen erfüllen.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                            <p class="italic text-gray-500">Energiespeicheranlagen nach Satz 1 müssen die in § 19
+                                Absatz 3b des Erneuerbare-Energien-Gesetzes genannten Voraussetzungen erfüllen.</p>
 
-                <!-- Absatz 2 -->
-                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-                    <button
-                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
-                        onclick="toggleAccordion(this)">
-                        <div class="flex items-center gap-3">
-                            <span
-                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold">2</span>
-                            <span class="font-bold text-gray-900">Letztverbraucher – Unternehmensdefinition</span>
-                        </div>
-                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
-                    </button>
-                    <div class="accordion-content px-6 pb-0">
-                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
-                            <p>
-                                Abweichend von § 3 Nummer 70 ist ein Unternehmen nur dann Letztverbraucher im
-                                Sinne des Absatzes 1, wenn es sich um ein Kleinstunternehmen, ein kleines oder
-                                ein mittleres Unternehmen im Sinne des Artikels 2 des Anhangs der Empfehlung
-                                2003/361/EG handelt.
-                            </p>
-                            <p>
-                                Artikel 3 Absatz 4 des Anhangs der Empfehlung 2003/361/EG ist nicht anzuwenden.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                            <!-- Absatz 2 -->
+                            <p class="font-bold text-gray-700 mt-6 mb-2">Absatz 2 – Unternehmensdefinition</p>
+                            <p>Abweichend von § 3 Nummer 70 ist ein Unternehmen nur dann Letztverbraucher im
+                                Sinne des Absatzes 1, wenn es sich um ein Kleinstunternehmen, ein kleines oder ein
+                                mittleres Unternehmen im Sinne des Artikels 2 des Anhangs der Empfehlung
+                                2003/361/EG handelt. Artikel 3 Absatz 4 des Anhangs der Empfehlung 2003/361/EG ist
+                                nicht anzuwenden.</p>
 
-                <!-- Absatz 3 -->
-                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-                    <button
-                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
-                        onclick="toggleAccordion(this)">
-                        <div class="flex items-center gap-3">
-                            <span
-                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold">3</span>
-                            <span class="font-bold text-gray-900">Mindestinhalte des Nutzungsvertrags</span>
-                        </div>
-                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
-                    </button>
-                    <div class="accordion-content px-6 pb-0">
-                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
-                            <p>
-                                Der Vertrag zur gemeinsamen Nutzung nach Absatz 1 Nummer 1 hat mindestens
-                                Folgendes zu regeln:
-                            </p>
-                            <ol class="list-decimal list-inside space-y-2 pl-2">
+                            <!-- Absatz 3 -->
+                            <p class="font-bold text-gray-700 mt-6 mb-2">Absatz 3 – Vertragsinhalte</p>
+                            <p>Der Vertrag zur gemeinsamen Nutzung nach Absatz 1 Nummer 1 hat mindestens Folgendes
+                                zu regeln:</p>
+                            <ol class="list-decimal list-inside space-y-2 pl-2 my-3">
                                 <li>den Umfang der Nutzung der Elektrizität, die durch die Anlage erzeugt oder in
                                     der Anlage gespeichert wurde, durch den Abnehmer,</li>
                                 <li>einen Aufteilungsschlüssel, aus dem sich der Umfang des Rechts zur Nutzung der
@@ -457,158 +427,408 @@
                                     Betreiber zu leisten ist sowie gegebenenfalls deren Höhe in Cent pro
                                     Kilowattstunde.</li>
                             </ol>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Absatz 4 -->
-                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-                    <button
-                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
-                        onclick="toggleAccordion(this)">
-                        <div class="flex items-center gap-3">
-                            <span
-                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold">4</span>
-                            <span class="font-bold text-gray-900">Gebietsregelungen & Zeitplan</span>
-                        </div>
-                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
-                    </button>
-                    <div class="accordion-content px-6 pb-0">
-                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
-                            <p>
-                                Jeder Betreiber eines Elektrizitätsverteilernetzes hat sicherzustellen, dass die
-                                gemeinsame Nutzung von Elektrizität nach Absatz 1 möglich ist
-                            </p>
-                            <ol class="list-decimal list-inside space-y-2 pl-2">
-                                <li><strong>ab dem 1. Juni 2026</strong> innerhalb des Bilanzierungsgebietes eines
+                            <!-- Absatz 4 -->
+                            <p class="font-bold text-gray-700 mt-6 mb-2">Absatz 4 – Gebietsregelung</p>
+                            <p>Jeder Betreiber eines Elektrizitätsverteilernetzes hat sicherzustellen, dass die
+                                gemeinsame Nutzung von Elektrizität nach Absatz 1 möglich ist</p>
+                            <ol class="list-decimal list-inside space-y-2 pl-2 my-3">
+                                <li>ab dem 1. Juni 2026 innerhalb des Bilanzierungsgebietes eines
                                     Elektrizitätsverteilernetzbetreibers und</li>
-                                <li><strong>ab dem 1. Juni 2028</strong> innerhalb des Bilanzierungsgebietes eines
+                                <li>ab dem 1. Juni 2028 innerhalb des Bilanzierungsgebietes eines
                                     Elektrizitätsverteilernetzbetreibers sowie in dem Bilanzierungsgebiet eines
                                     direkt angrenzenden Elektrizitätsverteilernetzbetreibers in derselben
                                     Regelzone.</li>
                             </ol>
-                            <p class="text-gray-500 italic">
-                                Jeder Betreiber eines direkt angrenzenden Elektrizitätsverteilernetzes im Sinne des
-                                Satzes 1 Nummer 2 ist verpflichtet, im erforderlichen Umfang mitzuwirken.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                            <p class="italic text-gray-500">Jeder Betreiber eines direkt angrenzenden
+                                Elektrizitätsverteilernetzes im Sinne des Satzes 1 Nummer 2 ist verpflichtet, im
+                                erforderlichen Umfang mitzuwirken.</p>
 
-                <!-- Absatz 5 -->
-                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-                    <button
-                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
-                        onclick="toggleAccordion(this)">
-                        <div class="flex items-center gap-3">
-                            <span
-                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold">5</span>
-                            <span class="font-bold text-gray-900">Beauftragung Dritter (Dienstleister)</span>
-                        </div>
-                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
-                    </button>
-                    <div class="accordion-content px-6 pb-0">
-                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
-                            <p>
-                                Ein Betreiber nach Absatz 1 Nummer 1 ist berechtigt, einen Dritten mit einer oder
-                                mehreren der folgenden Dienstleistungen zu beauftragen:
-                            </p>
-                            <ol class="list-decimal list-inside space-y-2 pl-2">
+                            <!-- Absatz 5 -->
+                            <p class="font-bold text-gray-700 mt-6 mb-2">Absatz 5 – Beauftragung Dritter</p>
+                            <p>Ein Betreiber nach Absatz 1 Nummer 1 ist berechtigt, einen Dritten mit einer oder
+                                mehreren der folgenden Dienstleistungen zu beauftragen:</p>
+                            <ol class="list-decimal list-inside space-y-2 pl-2 my-3">
                                 <li>Dienstleistungen zur Erfüllung ihrer Pflichten, die sich aus dem Zugang zu den
                                     Elektrizitätsverteilernetzen nach § 20 und den auf der Grundlage des § 20
-                                    Absatz 3 erlassenen Festlegungen der Bundesnetzagentur ergeben, insbesondere in
-                                    Bezug auf die Zusammenarbeit mit Betreibern von Energieversorgungsnetzen,
-                                    Bilanzkreisverantwortlichen, Netznutzern oder Lieferanten,</li>
+                                    Absatz 3 erlassenen Festlegungen der Bundesnetzagentur ergeben, insbesondere
+                                    in Bezug auf die Zusammenarbeit mit Betreibern von
+                                    Energieversorgungsnetzen, Bilanzkreisverantwortlichen, Netznutzern oder
+                                    Lieferanten,</li>
                                 <li>Dienstleistungen im Zusammenhang mit dem Angebot von steuerbaren
                                     Verbrauchseinrichtungen oder von Flexibilitätsdienstleistungen, deren
-                                    zwischengespeicherte Energie ausschließlich aus erneuerbaren Energien stammt und
-                                    die Gegenstand des Vertrages nach Absatz 3 sind,</li>
-                                <li>Dienstleistungen im Zusammenhang mit dem Abschluss von Verträgen nach Absatz 3,
-                                    einschließlich der Abrechnung gegenüber den Abnehmern oder</li>
+                                    zwischengespeicherte Energie ausschließlich aus erneuerbaren Energien stammt
+                                    und die Gegenstand des Vertrages nach Absatz 3 sind,</li>
+                                <li>Dienstleistungen im Zusammenhang mit dem Abschluss von Verträgen nach
+                                    Absatz 3, einschließlich der Abrechnung gegenüber den Abnehmern oder</li>
                                 <li>Dienstleistungen im Zusammenhang mit der Installation und dem Betrieb der
                                     Anlage nach Absatz 1, einschließlich der Messung und Wartung.</li>
                             </ol>
-                            <p class="text-gray-500 italic">
-                                Für den Dritten nach Satz 1 findet Absatz 1 Satz 1 Nummer 5 oder Absatz 2 keine
-                                Anwendung.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+                            <p class="italic text-gray-500">Für den Dritten nach Satz 1 findet Absatz 1 Satz 1
+                                Nummer 5 oder Absatz 2 keine Anwendung.</p>
 
-                <!-- Absatz 6 -->
-                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
-                    <button
-                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
-                        onclick="toggleAccordion(this)">
-                        <div class="flex items-center gap-3">
-                            <span
-                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold">6</span>
-                            <span class="font-bold text-gray-900">Informationspflichten & Versorgungssicherheit</span>
-                        </div>
-                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
-                    </button>
-                    <div class="accordion-content px-6 pb-0">
-                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
-                            <p>
-                                Der Betreiber nach Absatz 1 Nummer 1 ist nicht verpflichtet, die umfassende
+                            <!-- Absatz 6 -->
+                            <p class="font-bold text-gray-700 mt-6 mb-2">Absatz 6 – Informationspflichten</p>
+                            <p>Der Betreiber nach Absatz 1 Nummer 1 ist nicht verpflichtet, die umfassende
                                 Versorgung der Abnehmer sicherzustellen. Der Betreiber ist verpflichtet, jeden
-                                Abnehmer vor Abschluss des Vertrages zur gemeinsamen Nutzung in Textform darüber
-                                zu informieren,
-                            </p>
-                            <ol class="list-decimal list-inside space-y-2 pl-2">
+                                Abnehmer vor Abschluss des Vertrages zur gemeinsamen Nutzung nach Absatz 1 Satz 1
+                                Nummer 3 in Textform darüber zu informieren,</p>
+                            <ol class="list-decimal list-inside space-y-2 pl-2 my-3">
                                 <li>dass die gemeinsam genutzte Anlage den Strombedarf der Abnehmer nicht
                                     vollständig und nicht jederzeit decken kann,</li>
                                 <li>dass ein ergänzender Strombezug durch den Abnehmer notwendig ist und</li>
                                 <li>dass die Kosten für den ergänzenden Strombezug über den durchschnittlichen
                                     Kosten eines Vertrages zur umfassenden Versorgung liegen können.</li>
                             </ol>
-                            <p class="mt-3">
-                                Das Recht des Abnehmers, für den ergänzenden Strombezug einen Liefervertrag seiner
+                            <p>Das Recht des Abnehmers, für den ergänzenden Strombezug einen Liefervertrag seiner
                                 Wahl mit einem Lieferanten seiner Wahl abzuschließen, darf in der Vereinbarung zur
-                                gemeinsamen Nutzung nicht eingeschränkt werden.
-                            </p>
-                            <p>
-                                Der Betreiber ist verpflichtet, den Abnehmer rechtzeitig darüber zu informieren,
-                                wenn die gemeinsam genutzte Anlage aus anderen als aus witterungs- oder
-                                tageszeitbedingten Gründen über einen erheblichen Zeitraum keine elektrische
-                                Energie erzeugt, und er setzt den Abnehmer in Kenntnis, wenn die Anlage ihren
-                                Betrieb wieder aufnimmt.
-                            </p>
+                                gemeinsamen Nutzung nicht eingeschränkt werden. Der Betreiber ist verpflichtet,
+                                den Abnehmer rechtzeitig darüber zu informieren, wenn die gemeinsam genutzte
+                                Anlage aus anderen als aus witterungs- oder tageszeitbedingten Gründen über einen
+                                erheblichen Zeitraum keine elektrische Energie erzeugt, und er setzt den Abnehmer
+                                in Kenntnis, wenn die Anlage ihren Betrieb wieder aufnimmt.</p>
+
+                            <!-- Absatz 7 -->
+                            <p class="font-bold text-gray-700 mt-6 mb-2">Absatz 7 – Vereinfachungen</p>
+                            <p>Die §§ 5 und 40 bis 42 sind nicht anzuwenden, wenn</p>
+                            <ol class="list-decimal list-inside space-y-2 pl-2 my-3">
+                                <li>die von einem Haushaltskunden nach Absatz 1 betriebene Anlage eine
+                                    installierte Leistung von 30 Kilowatt nicht übersteigt oder</li>
+                                <li>im Falle eines Mehrparteienhauses eine durch einen oder mehrere
+                                    Haushaltskunden, die in dem gleichen Gebäude wohnen, nach Absatz 1 betriebene
+                                    Anlage eine installierte Leistung von 100 Kilowatt nicht übersteigt.</li>
+                            </ol>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Absatz 7 -->
+            <!-- FAQ-Erklärungen -->
+            <h3 class="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-3">
+                <div class="w-10 h-10 bg-brand/10 rounded-xl flex items-center justify-center">
+                    <i class="fa-solid fa-comments text-brand"></i>
+                </div>
+                Was bedeutet das konkret?
+            </h3>
+            <p class="text-gray-600 mb-8 ml-13">Die wichtigsten Punkte aus § 42c – verständlich erklärt.</p>
+
+            <div class="space-y-4" id="accordion">
+
+                <!-- FAQ 1: Wer darf mitmachen? -->
                 <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
                     <button
                         class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
                         onclick="toggleAccordion(this)">
                         <div class="flex items-center gap-3">
                             <span
-                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold">7</span>
-                            <span class="font-bold text-gray-900">Vereinfachung für Haushaltskunden</span>
+                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold"><i
+                                    class="fa-solid fa-user-check text-xs"></i></span>
+                            <span class="font-bold text-gray-900">Wer darf beim Energy Sharing
+                                mitmachen?</span>
                         </div>
                         <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
                     </button>
                     <div class="accordion-content px-6 pb-0">
                         <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
                             <p>
-                                Die §§ 5 und 40 bis 42 sind nicht anzuwenden, wenn
+                                Im Grunde jeder, der eine <strong>Solar- oder Speicheranlage</strong> betreibt
+                                und Strom aus erneuerbaren Energien erzeugt. Das kann eine
+                                <strong>Privatperson</strong> sein (z.B. ein Hauseigentümer mit PV-Dachanlage),
+                                aber auch eine <strong>Gesellschaft oder ein Verein</strong> – vorausgesetzt,
+                                alle Mitglieder sind selbst Verbraucher oder öffentliche Einrichtungen.
+                            </p>
+                            <p>
+                                <strong>Unternehmen</strong> dürfen als Abnehmer teilnehmen, solange sie als
+                                <strong>Kleinstunternehmen</strong> oder <strong>KMU</strong> gelten (weniger
+                                als 250 Mitarbeiter, max. 50 Mio. € Umsatz).
+                            </p>
+                            <p>
+                                Wichtig: Die Anlage darf <strong>nicht überwiegend gewerblich</strong>
+                                genutzt werden. Sie muss primär der privaten Stromerzeugung dienen.
+                            </p>
+                            <div class="mt-3 bg-brand/5 border border-brand/10 rounded-xl p-4 flex items-start gap-3">
+                                <i class="fa-solid fa-lightbulb text-brand mt-0.5"></i>
+                                <p class="text-sm text-gray-700">
+                                    <strong>Bezug zum Gesetz:</strong> Diese Regelungen finden sich in
+                                    Absatz 1 (Voraussetzungen) und Absatz 2 (Unternehmensdefinition).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 2: Wie funktioniert die Lieferung? -->
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                    <button
+                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
+                        onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold"><i
+                                    class="fa-solid fa-bolt text-xs"></i></span>
+                            <span class="font-bold text-gray-900">Wie kommt der Strom vom Erzeuger zum
+                                Abnehmer?</span>
+                        </div>
+                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-0">
+                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
+                            <p>
+                                Der Strom wird über das <strong>normale, öffentliche Stromnetz</strong>
+                                transportiert – es wird also keine private Leitung gebaut. Der Erzeuger
+                                speist seinen Solarstrom ins Netz ein, und der Abnehmer bezieht ihn über
+                                seinen regulären Anschluss.
+                            </p>
+                            <p>
+                                Die Zuordnung, wie viel Strom welcher Abnehmer bekommt, erfolgt
+                                <strong>rechnerisch</strong> über Smart Meter. Damit das funktioniert,
+                                brauchen <strong>beide Seiten</strong> eine moderne Messeinrichtung
+                                (Zählerstandsgangmessung oder viertelstündliche Leistungsmessung).
+                            </p>
+                            <div class="mt-3 bg-brand/5 border border-brand/10 rounded-xl p-4 flex items-start gap-3">
+                                <i class="fa-solid fa-lightbulb text-brand mt-0.5"></i>
+                                <p class="text-sm text-gray-700">
+                                    <strong>Bezug zum Gesetz:</strong> Absatz 1, Nummern 2, 6 und 7
+                                    regeln Lieferung und Messung.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3: Welche Verträge brauche ich? -->
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                    <button
+                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
+                        onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold"><i
+                                    class="fa-solid fa-file-signature text-xs"></i></span>
+                            <span class="font-bold text-gray-900">Welche Verträge brauche ich?</span>
+                        </div>
+                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-0">
+                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
+                            <p>
+                                Zwischen Erzeuger und Abnehmer werden <strong>zwei Verträge</strong>
+                                benötigt:
                             </p>
                             <ol class="list-decimal list-inside space-y-2 pl-2">
-                                <li>die von einem Haushaltskunden nach Absatz 1 betriebene Anlage eine installierte
-                                    Leistung von <strong>30 Kilowatt</strong> nicht übersteigt oder</li>
-                                <li>im Falle eines Mehrparteienhauses eine durch einen oder mehrere Haushaltskunden,
-                                    die in dem gleichen Gebäude wohnen, nach Absatz 1 betriebene Anlage eine
-                                    installierte Leistung von <strong>100 Kilowatt</strong> nicht übersteigt.</li>
+                                <li>Ein <strong>Liefervertrag</strong> – regelt die grundsätzliche
+                                    Stromlieferung.</li>
+                                <li>Ein <strong>Nutzungsvertrag</strong> – regelt die Details der
+                                    gemeinsamen Nutzung.</li>
                             </ol>
+                            <p class="mt-3">Der Nutzungsvertrag muss mindestens festlegen:</p>
+                            <ul class="space-y-2 pl-2">
+                                <li class="flex items-start gap-2"><i
+                                        class="fa-solid fa-check text-brand mt-0.5 text-xs"></i><span>Wie
+                                        viel Strom der Abnehmer nutzen darf
+                                        (<strong>Aufteilungsschlüssel</strong>)</span></li>
+                                <li class="flex items-start gap-2"><i
+                                        class="fa-solid fa-check text-brand mt-0.5 text-xs"></i><span>Ob
+                                        und wie viel der Abnehmer dafür bezahlt
+                                        (<strong>Preis in ct/kWh</strong>)</span></li>
+                            </ul>
+                            <div class="mt-3 bg-brand/5 border border-brand/10 rounded-xl p-4 flex items-start gap-3">
+                                <i class="fa-solid fa-lightbulb text-brand mt-0.5"></i>
+                                <p class="text-sm text-gray-700">
+                                    <strong>Bezug zum Gesetz:</strong> Absatz 1 Nr. 2–3 und Absatz 3
+                                    regeln die Vertragsanforderungen.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 4: Wo darf geteilt werden? -->
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                    <button
+                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
+                        onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold"><i
+                                    class="fa-solid fa-map-location-dot text-xs"></i></span>
+                            <span class="font-bold text-gray-900">In welchem Gebiet darf ich Strom
+                                teilen?</span>
+                        </div>
+                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-0">
+                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
+                            <p>
+                                Das Gebiet, in dem Energy Sharing erlaubt ist, wird stufenweise
+                                erweitert:
+                            </p>
+                            <div class="grid sm:grid-cols-2 gap-4 my-4">
+                                <div class="bg-brand/5 rounded-xl p-4 border border-brand/10">
+                                    <p class="font-bold text-brand text-lg mb-1">Ab 1. Juni 2026</p>
+                                    <p class="text-sm">Innerhalb des <strong>Netzgebiets deines
+                                            Verteilnetzbetreibers</strong>. In der Praxis oft der
+                                        Landkreis oder eine vergleichbare Region.</p>
+                                </div>
+                                <div class="bg-blue-50 rounded-xl p-4 border border-blue-100">
+                                    <p class="font-bold text-blue-600 text-lg mb-1">Ab 1. Juni 2028</p>
+                                    <p class="text-sm">Zusätzlich auch in <strong>direkt angrenzende
+                                            Netzgebiete</strong> innerhalb derselben Regelzone – also ein
+                                        deutlich größerer Radius.</p>
+                                </div>
+                            </div>
+                            <p>
+                                Der Netzbetreiber ist verpflichtet, die technischen Voraussetzungen
+                                dafür rechtzeitig zu schaffen.
+                            </p>
+                            <div class="mt-3 bg-brand/5 border border-brand/10 rounded-xl p-4 flex items-start gap-3">
+                                <i class="fa-solid fa-lightbulb text-brand mt-0.5"></i>
+                                <p class="text-sm text-gray-700">
+                                    <strong>Bezug zum Gesetz:</strong> Absatz 4 legt die
+                                    Gebietsregelungen und Fristen fest.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5: Kann ich einen Dienstleister beauftragen? -->
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                    <button
+                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
+                        onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold"><i
+                                    class="fa-solid fa-handshake text-xs"></i></span>
+                            <span class="font-bold text-gray-900">Kann ich einen Dienstleister
+                                beauftragen?</span>
+                        </div>
+                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-0">
+                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
+                            <p>
+                                <strong>Ja!</strong> Als Anlagenbetreiber darfst du einen
+                                <strong>Dienstleister</strong> mit verschiedenen Aufgaben beauftragen –
+                                zum Beispiel:
+                            </p>
+                            <ul class="space-y-2 pl-2">
+                                <li class="flex items-start gap-2"><i
+                                        class="fa-solid fa-check text-brand mt-0.5 text-xs"></i><span>Netzzugang
+                                        und Zusammenarbeit mit dem Netzbetreiber</span></li>
+                                <li class="flex items-start gap-2"><i
+                                        class="fa-solid fa-check text-brand mt-0.5 text-xs"></i><span>Angebot
+                                        von Speicher- und Flexibilitätsdienstleistungen</span></li>
+                                <li class="flex items-start gap-2"><i
+                                        class="fa-solid fa-check text-brand mt-0.5 text-xs"></i><span>Vertragsabschluss
+                                        und Abrechnung gegenüber Abnehmern</span></li>
+                                <li class="flex items-start gap-2"><i
+                                        class="fa-solid fa-check text-brand mt-0.5 text-xs"></i><span>Installation,
+                                        Betrieb, Messung und Wartung der Anlage</span></li>
+                            </ul>
+                            <p class="mt-3">
+                                Für den Dienstleister gelten dabei <strong>nicht die gleichen
+                                    Einschränkungen</strong> wie für den Betreiber selbst – er muss also
+                                z.B. kein Kleinstunternehmen sein und die Tätigkeit darf gewerblich sein.
+                            </p>
+                            <div class="mt-3 bg-brand/5 border border-brand/10 rounded-xl p-4 flex items-start gap-3">
+                                <i class="fa-solid fa-lightbulb text-brand mt-0.5"></i>
+                                <p class="text-sm text-gray-700">
+                                    <strong>Bezug zum Gesetz:</strong> Absatz 5 regelt die Beauftragung
+                                    Dritter.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 6: Versorgungssicherheit -->
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                    <button
+                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
+                        onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold"><i
+                                    class="fa-solid fa-shield-halved text-xs"></i></span>
+                            <span class="font-bold text-gray-900">Was passiert, wenn die Sonne mal nicht
+                                scheint?</span>
+                        </div>
+                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-0">
+                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
+                            <p>
+                                Der Erzeuger ist <strong>nicht verpflichtet</strong>, dich rund um die Uhr
+                                komplett mit Strom zu versorgen. Das ist auch logisch – eine Solaranlage
+                                produziert nur tagsüber und je nach Wetter unterschiedlich viel.
+                            </p>
+                            <p>
+                                Deshalb brauchst du als Abnehmer <strong>immer einen zusätzlichen
+                                    Stromvertrag</strong> mit einem Energieversorger deiner Wahl.
+                                Dieses Recht darf im Nutzungsvertrag <strong>nicht eingeschränkt</strong>
+                                werden.
+                            </p>
+                            <p>
+                                Der Erzeuger muss dich aber <strong>vorab informieren</strong>, dass die
+                                Anlage nicht alles deckt, und dich <strong>rechtzeitig
+                                    benachrichtigen</strong>, wenn die Anlage länger ausfällt (z.B. wegen
+                                einer Reparatur – nicht einfach wegen schlechtem Wetter).
+                            </p>
+                            <div class="mt-3 bg-brand/5 border border-brand/10 rounded-xl p-4 flex items-start gap-3">
+                                <i class="fa-solid fa-lightbulb text-brand mt-0.5"></i>
+                                <p class="text-sm text-gray-700">
+                                    <strong>Bezug zum Gesetz:</strong> Absatz 6 regelt
+                                    Informationspflichten und Versorgungssicherheit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 7: Vereinfachungen -->
+                <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+                    <button
+                        class="accordion-trigger w-full flex items-center justify-between px-6 py-5 text-left hover:bg-gray-50 transition"
+                        onclick="toggleAccordion(this)">
+                        <div class="flex items-center gap-3">
+                            <span
+                                class="flex-shrink-0 w-8 h-8 bg-brand/10 text-brand rounded-lg flex items-center justify-center text-sm font-bold"><i
+                                    class="fa-solid fa-wand-magic-sparkles text-xs"></i></span>
+                            <span class="font-bold text-gray-900">Gibt es Vereinfachungen für kleinere
+                                Anlagen?</span>
+                        </div>
+                        <i class="chevron fa-solid fa-chevron-down text-gray-400 text-sm"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-0">
+                        <div class="pb-6 text-sm text-gray-600 leading-relaxed space-y-3 border-t border-gray-100 pt-4">
+                            <p>
+                                <strong>Ja, deutlich!</strong> Wenn du als Privatperson eine Anlage mit
+                                maximal <strong>30 kWp</strong> betreibst, entfallen viele bürokratische
+                                Pflichten. Dazu gehören z.B. spezielle
+                                Energielieferanten-Genehmigungspflichten und umfangreiche
+                                Verbraucherschutz-Vorschriften, die sonst für Stromlieferanten gelten.
+                            </p>
+                            <p>
+                                Bei einem <strong>Mehrparteienhaus</strong> gilt diese Erleichterung
+                                sogar für Anlagen bis <strong>100 kWp</strong>, wenn die Anlage von
+                                einem oder mehreren Haushaltskunden betrieben wird, die im selben
+                                Gebäude wohnen.
+                            </p>
                             <div class="mt-4 bg-brand/5 border border-brand/10 rounded-xl p-4 flex items-start gap-3">
                                 <i class="fa-solid fa-lightbulb text-brand mt-0.5"></i>
                                 <p class="text-sm text-gray-700">
-                                    <strong>Gut zu wissen:</strong> Die meisten privaten PV-Anlagen in BOL liegen
-                                    unter 30 kWp – damit entfallen zahlreiche bürokratische Pflichten und der
-                                    Einstieg ins Energy Sharing wird besonders einfach.
+                                    <strong>Gut zu wissen:</strong> Die allermeisten privaten PV-Anlagen
+                                    liegen unter 30 kWp – damit entfallen zahlreiche bürokratische
+                                    Pflichten und der Einstieg ins Energy Sharing wird besonders einfach.
+                                </p>
+                            </div>
+                            <div class="mt-3 bg-brand/5 border border-brand/10 rounded-xl p-4 flex items-start gap-3">
+                                <i class="fa-solid fa-scale-balanced text-brand mt-0.5"></i>
+                                <p class="text-sm text-gray-700">
+                                    <strong>Bezug zum Gesetz:</strong> Absatz 7 regelt die
+                                    Vereinfachungen für Haushaltskunden.
                                 </p>
                             </div>
                         </div>
@@ -622,7 +842,7 @@
                     class="text-brand font-bold text-sm hover:text-brand-dark transition inline-flex items-center gap-2"
                     id="toggle-all-btn">
                     <i class="fa-solid fa-arrows-up-down"></i>
-                    <span>Alle Absätze aufklappen</span>
+                    <span>Alle Erklärungen aufklappen</span>
                 </button>
             </div>
         </div>
@@ -1075,6 +1295,78 @@
                             sie ausschließlich EE-Strom speichern.</p>
                     </div>
                 </div>
+
+                <!-- EEG -->
+                <div id="eeg" class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-yellow-100 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-sun text-yellow-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">EEG</h3>
+                            <span class="text-xs text-gray-400">Erneuerbare-Energien-Gesetz</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Das <strong>Erneuerbare-Energien-Gesetz</strong> regelt die bevorzugte Einspeisung von Strom aus
+                        erneuerbaren Quellen ins Stromnetz und garantiert deren Vergütung.
+                    </p>
+                    <div class="mt-3 bg-yellow-50 rounded-lg p-3">
+                        <p class="text-xs text-gray-500"><i class="fa-solid fa-arrow-right text-yellow-600 mr-1"></i>
+                            Die EEG-Vergütung dient oft als Vergleichswert, um die Wirtschaftlichkeit von Energy Sharing
+                            zu
+                            bewerten.</p>
+                    </div>
+                </div>
+
+                <!-- BDEW -->
+                <div id="bdew" class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-blue-100 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-chart-simple text-blue-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">BDEW</h3>
+                            <span class="text-xs text-gray-400">Bundesverband der Energie- und Wasserwirtschaft</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Der <strong>BDEW</strong> vertritt die Interessen der deutschen Energie- und Wasserwirtschaft.
+                        Er
+                        veröffentlicht regelmäßig Analysen und Durchschnittspreise für Strom.
+                    </p>
+                    <div class="mt-3 bg-blue-50 rounded-lg p-3">
+                        <p class="text-xs text-gray-500"><i class="fa-solid fa-arrow-right text-blue-500 mr-1"></i>
+                            Wir nutzen die BDEW-Strompreisanalysen als Referenz für durchschnittliche
+                            Haushaltsstrompreise.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Nebenkosten -->
+                <div id="nebenkosten" class="bg-white rounded-2xl p-6 border border-gray-200 shadow-sm">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center">
+                            <i class="fa-solid fa-file-invoice-dollar text-gray-600"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-900">Nebenkosten (Strom)</h3>
+                            <span class="text-xs text-gray-400">Netzentgelte, Umlagen & Steuern</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Zusätzlich zum reinen Energiepreis fallen staatlich veranlasste Preisbestandteile an. Dazu
+                        gehören
+                        <strong>Netzentgelte</strong> (Nutzung des Stromnetzes), <strong>Konzessionsabgaben</strong> und
+                        verschiedene <strong>Umlagen</strong> (z.B. KWKG-Umlage, Offshore-Netzumlage).
+                    </p>
+                    <div class="mt-3 bg-gray-50 rounded-lg p-3">
+                        <p class="text-xs text-gray-500"><i class="fa-solid fa-arrow-right text-gray-600 mr-1"></i>
+                            Beim Energy Sharing entfällt unter bestimmten Voraussetzungen (Anlagen ≤2 MW, Umkreis 4,5
+                            km)
+                            die <strong>Stromsteuer</strong> komplett.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1152,10 +1444,10 @@
             </div>
 
             <div class="mt-12 text-center">
-                <a href="../index.html#signup"
+                <a href="kontakt.html"
                     class="inline-flex items-center gap-2 bg-brand hover:bg-brand-dark text-white px-8 py-4 rounded-full font-bold text-lg transition shadow-xl transform hover:scale-105">
-                    <i class="fa-solid fa-hand-holding-heart"></i>
-                    Jetzt der Community beitreten
+                    <i class="fa-solid fa-envelope"></i>
+                    Kontakt aufnehmen
                 </a>
                 <p class="text-sm text-gray-500 mt-4">Kostenlos und unverbindlich – für Erzeuger & Verbraucher in
                     der Region.</p>
@@ -1234,7 +1526,7 @@
                 }
             });
 
-            btn.querySelector('span').textContent = allOpen ? 'Alle Absätze zuklappen' : 'Alle Absätze aufklappen';
+            btn.querySelector('span').textContent = allOpen ? 'Alle Erklärungen zuklappen' : 'Alle Erklärungen aufklappen';
         }
 
         // Scroll animation
