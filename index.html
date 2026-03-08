@@ -329,6 +329,24 @@
                     class="underline decoration-brand-light/50 hover:decoration-brand-light transition"></a>§&nbsp;42c&nbsp;EnWG</a>.
             </p>
 
+            <!-- Prominent Video Button -->
+            <div class="flex justify-center mb-8">
+                <button
+                    onclick="document.getElementById('video-modal').classList.remove('hidden'); document.getElementById('promo-video').play();"
+                    class="group relative flex items-center justify-center gap-4 bg-white/10 hover:bg-white/20 border border-white/30 backdrop-blur-md text-white px-8 py-4 rounded-full font-bold transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.2)] hover:shadow-[0_0_50px_rgba(255,255,255,0.4)] transform hover:-translate-y-1">
+                    <div class="absolute inset-0 rounded-full bg-white/5 animate-pulse"></div>
+                    <div
+                        class="w-14 h-14 flex items-center justify-center bg-brand rounded-full shadow-lg shadow-brand/50 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fa-solid fa-play text-white ml-1 text-2xl"></i>
+                    </div>
+                    <div class="text-left">
+                        <span
+                            class="block text-xs uppercase tracking-wider text-brand-light font-bold">Zusammenfassung</span>
+                        <span class="block text-lg md:text-xl tracking-wide">Video ansehen</span>
+                    </div>
+                </button>
+            </div>
+
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="#signup"
                     class="bg-brand hover:bg-brand-light text-white text-lg px-8 py-4 rounded-full font-bold transition transform hover:scale-105 shadow-xl border-2 border-brand ring-4 ring-brand/20">
@@ -1145,6 +1163,35 @@
             carouselTimer = setInterval(cyclePartners, 4000);
         });
     </script>
+
+    <!-- Video Modal -->
+    <div id="video-modal"
+        onclick="document.getElementById('video-modal').classList.add('hidden'); document.getElementById('promo-video').pause();"
+        class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8 transition-opacity duration-300">
+        <div
+            onclick="event.stopPropagation();"
+            class="relative w-full max-w-5xl bg-gray-900 rounded-3xl overflow-hidden shadow-2xl border border-gray-800 transform transition-all duration-300 scale-100">
+            <!-- Modal Header -->
+            <div
+                class="absolute top-0 inset-x-0 p-4 flex justify-between items-center z-10 bg-gradient-to-b from-black/80 to-transparent pointer-events-none">
+                <span class="text-white font-bold text-lg drop-shadow-md">Solarstrom vom Nachbarn erklärt</span>
+                <button
+                    onclick="document.getElementById('video-modal').classList.add('hidden'); document.getElementById('promo-video').pause();"
+                    class="pointer-events-auto text-white/80 hover:text-white bg-black/50 hover:bg-brand rounded-full w-10 h-10 flex items-center justify-center transition-all duration-300 backdrop-blur-md">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Video Player -->
+            <div class="aspect-video w-full bg-black">
+                <video id="promo-video" class="w-full h-full object-contain" controls preload="metadata"
+                    poster="assets/background01.png">
+                    <source src="assets/Solarstrom_vom_Nachbarn01.mp4" type="video/mp4">
+                    Dein Browser unterstützt das Video-Tag leider nicht.
+                </video>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
