@@ -1,0 +1,9 @@
+# Node.js Abhängigkeiten
+node_modules/
+
+# npm Debug-Logs
+npm-debug.log*
+
+# OS-Dateien
+.DS_Store
+Thumbs.db

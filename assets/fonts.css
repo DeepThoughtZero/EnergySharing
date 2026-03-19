@@ -1,0 +1,40 @@
+/* ============================================
+   Inter – lokal gehostet (DSGVO-konform)
+   Quelle: google-webfonts-helper
+   ============================================ */
+
+/* inter-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: url('inter-v20-latin/inter-v20-latin-regular.woff2') format('woff2');
+}
+
+/* inter-500 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  src: url('inter-v20-latin/inter-v20-latin-500.woff2') format('woff2');
+}
+
+/* inter-700 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  src: url('inter-v20-latin/inter-v20-latin-700.woff2') format('woff2');
+}
+
+/* inter-900 - latin */
+@font-face {
+  font-display: swap;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  src: url('inter-v20-latin/inter-v20-latin-900.woff2') format('woff2');
+}
