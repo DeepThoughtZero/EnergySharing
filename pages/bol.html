@@ -97,8 +97,9 @@
     <header class="relative hero-bol min-h-[85vh] flex items-center justify-center text-center px-4">
         <div class="max-w-5xl mx-auto text-white z-10 pt-24">
 
-            <div
-                class="inline-flex items-center gap-2 bg-white/10 border border-white/30 backdrop-blur-md rounded-full px-5 py-2.5 mb-8 shadow-lg">
+            <div id="pilotregionBadge"
+                class="inline-flex items-center gap-2 bg-white/10 border border-white/30 backdrop-blur-md rounded-full px-5 py-2.5 mb-8 shadow-lg"
+                style="cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent;">
                 <span class="w-2.5 h-2.5 rounded-full bg-brand-light animate-pulse"></span>
                 <span class="text-white font-bold text-xs md:text-sm tracking-wide uppercase text-shadow-sm">Pilotregion
                     2026</span>
@@ -713,6 +714,34 @@
             currentQuote = (currentQuote + 1) % quotes.length;
             quotes[currentQuote].classList.remove('opacity-0');
         }, 6000);
+
+        // Easter Egg: 5 rapid clicks on "Pilotregion 2026" badge → open presentation
+        (function() {
+            const badge = document.getElementById('pilotregionBadge');
+            if (!badge) return;
+            let clickCount = 0;
+            let clickTimer = null;
+            const REQUIRED_CLICKS = 5;
+            const TIMEOUT_MS = 2000;
+
+            badge.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                clickCount++;
+
+                if (clickTimer) clearTimeout(clickTimer);
+
+                if (clickCount >= REQUIRED_CLICKS) {
+                    clickCount = 0;
+                    window.location.href = 'bol_versammlung.html';
+                    return;
+                }
+
+                clickTimer = setTimeout(function() {
+                    clickCount = 0;
+                }, TIMEOUT_MS);
+            });
+        })();
     </script>
 </body>
 
