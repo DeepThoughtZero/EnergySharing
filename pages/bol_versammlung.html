@@ -269,6 +269,51 @@
 
 <body>
 
+    <!-- ── Password Overlay ─────────────────────────── -->
+    <style>
+        #pw-overlay { position: fixed; inset: 0; z-index: 9999; background: rgba(10, 15, 26, 0.95); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s, visibility 0.5s; }
+        #pw-overlay.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .pw-box { background: var(--bg-card); padding: 2.5rem; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1); text-align: center; max-width: 400px; width: 90%; }
+        .pw-input { width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.15); padding: 0.8rem 1rem; border-radius: 0.5rem; color: #fff; font-family: inherit; font-size: 1rem; text-align: center; outline: none; transition: border-color 0.3s; }
+        .pw-input:focus { border-color: var(--brand-light); }
+        .pw-error { color: #fb7185; font-size: 0.8rem; margin-top: 0.8rem; opacity: 0; transition: opacity 0.3s; }
+        .pw-error.visible { opacity: 1; }
+    </style>
+    <div id="pw-overlay">
+        <div class="pw-box">
+            <h2 style="font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">Präsentation geschützt</h2>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Bitte geben Sie das Passwort ein, um die Folien zu sehen.</p>
+            <input type="password" id="pw-input" class="pw-input" placeholder="Passwort eingeben..." autofocus>
+            <div id="pw-error" class="pw-error">Falsches Passwort</div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('pw-input').addEventListener('input', async function(e) {
+            const errorEl = document.getElementById('pw-error');
+            const val = e.target.value;
+            
+            // Hash the input using Web Crypto API
+            const encoder = new TextEncoder();
+            const data = encoder.encode(val);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            
+            // Target hash for the required password
+            const targetHash = '751d39ed2835ce57eba1498053395c00a50f1cd39c1db034bd681735d1a6e0fb';
+
+            if (hashHex === targetHash) {
+                document.getElementById('pw-overlay').classList.add('hidden');
+                e.target.blur();
+                errorEl.classList.remove('visible');
+            } else if (val.length >= 10) {
+                errorEl.classList.add('visible');
+            } else {
+                errorEl.classList.remove('visible');
+            }
+        });
+    </script>
+
     <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
     <button class="close-btn" onclick="window.location.href='bol.html'" title="Zurück"><i class="fa-solid fa-xmark"></i></button>
 
@@ -293,81 +338,103 @@
             </div>
         </div>
 
-        <!-- ══════════ F2 ── Paradigmenwechsel ══════════ -->
+        <!-- ══════════ F2 ── Team Power-Share ══════════ -->
         <div class="slide" data-slide="1">
+            <div class="bg-glow green" style="width:400px;height:400px;top:10%;right:-10%"></div>
+            <div class="slide-tag"><span class="dot"></span> Initiative</div>
+            <h2 class="slide-heading">Das Team hinter <span class="accent">Power-Share</span></h2>
+            <p class="slide-subtitle">Ein privater Ansatz aus Überzeugung — von Bürgern für Bürger.</p>
+            <div class="card-grid cols-4 slide-body" style="margin-top:1.5rem; max-width:800px;">
+                <div class="card anim-item" style="text-align:center;"><div class="icon icon-green" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-user"></i></div><h3>Matthias</h3></div>
+                <div class="card anim-item" style="text-align:center;"><div class="icon icon-blue" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-user"></i></div><h3>Jochen</h3></div>
+                <div class="card anim-item" style="text-align:center;"><div class="icon icon-yellow" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-user"></i></div><h3>Steffen</h3></div>
+                <div class="card anim-item" style="text-align:center;"><div class="icon icon-purple" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-user"></i></div><h3>Andreas</h3></div>
+            </div>
+            <div class="highlight-box anim-item" style="margin-top:1.5rem;">
+                <div class="big"><i class="fa-solid fa-heart" style="margin-right:0.4rem; color:#ef4444;"></i>Ehrenamtliches Hobby-Projekt</div>
+                <p>Wir agieren unabhängig und ohne Gewinnabsicht. Unser Ziel: Das Verteilnetz effizienter machen und lokales Energy Sharing im Tal vorantreiben.</p>
+            </div>
+        </div>
+
+        <!-- ══════════ F3 ── Paradigmenwechsel ══════════ -->
+        <div class="slide" data-slide="2">
             <div class="bg-glow yellow" style="width:450px;height:450px;top:-8%;left:20%"></div>
             <div class="slide-tag"><span class="dot"></span> Block 1 · Vision</div>
             <h2 class="slide-heading">Der <span class="accent">Paradigmenwechsel</span></h2>
-            <p class="slide-subtitle">§ 42c EnWG — Ab 1. Juni 2026 ist das Teilen von Strom über das öffentliche Netz gesetzlich verankert.</p>
+            <p class="slide-subtitle">Bürger begeistern, Initiative zeigen: Bottom-up statt Top-down.</p>
             <div class="card-grid cols-2 slide-body">
-                <div class="card anim-item"><div class="icon icon-yellow"><i class="fa-solid fa-scale-balanced"></i></div><h3>Vom Konsumenten zum Prosumer</h3><p>Bürger werden aktive Teilnehmer am Energiemarkt — nicht nur passive Verbraucher.</p></div>
-                <div class="card anim-item"><div class="icon icon-green"><i class="fa-solid fa-hourglass-half"></i></div><h3>Das Zeitfenster ist jetzt</h3><p>Phase 1 startet Juni 2026. Wer 2026 starten will, muss <strong>heute</strong> die Weichen stellen.</p></div>
+                <div class="card anim-item"><div class="icon icon-yellow"><i class="fa-solid fa-scale-balanced"></i></div><h3>Für alle ermöglichen</h3><p>Nicht nur für Großerzeuger oder -abnehmer: Jeder Bürger wird aktiver Teilnehmer (Prosumer) am lokalen Energiemarkt.</p></div>
+                <div class="card anim-item"><div class="icon icon-green"><i class="fa-solid fa-lightbulb"></i></div><h3>Investitionen steuern</h3><p>Da zubauen, wo es sinnvoll ist. Energie lokal erzeugen und direkt verbrauchen für ein ausbalanciertes Netz.</p></div>
                 <div class="card anim-item"><div class="icon icon-blue"><i class="fa-solid fa-calendar-check"></i></div><h3>Phase 1 (ab 01.06.2026)</h3><p>Sharing innerhalb des Bilanzierungsgebiets eines einzelnen Verteilnetzbetreibers (Syna).</p></div>
                 <div class="card anim-item"><div class="icon icon-purple"><i class="fa-solid fa-calendar-plus"></i></div><h3>Phase 2 (ab 01.06.2028)</h3><p>Erweiterung auf benachbarte Bilanzierungsgebiete innerhalb derselben Regelzone.</p></div>
             </div>
         </div>
 
-        <!-- ══════════ F3 ── Was ist Energy Sharing? ══════════ -->
-        <div class="slide" data-slide="2">
+        <!-- ══════════ F4 ── Was ist Energy Sharing? (1/2) ══════════ -->
+        <div class="slide" data-slide="3">
             <div class="bg-glow green" style="width:500px;height:500px;top:5%;right:-8%"></div>
-            <div class="bg-glow blue" style="width:350px;height:350px;bottom:-10%;left:10%"></div>
             <div class="slide-tag"><span class="dot"></span> Block 1 · Grundlagen</div>
-            <h2 class="slide-heading">Was ist <span class="accent">Energy Sharing</span> genau?</h2>
-            <p class="slide-subtitle">Strom teilen über das öffentliche Netz — rechtlich fundiert, technisch ausgereift.</p>
+            <h2 class="slide-heading">Was ist <span class="accent">Energy Sharing</span> genau? (1/2)</h2>
+            <p class="slide-subtitle">Gesetzliche Basis und Abrechnung — virtuell und regional.</p>
 
-            <div class="schema-row" style="margin-bottom:1rem;">
+            <div class="schema-row" style="margin-bottom:1.5rem;">
                 <div class="schema-card anim-item">
                     <div class="schema-num">1</div>
                     <h3><i class="fa-solid fa-gavel" style="color:var(--brand-light);font-size:0.75rem;"></i> Gesetzliche Basis</h3>
-                    <p><strong style="color:#fff;">§ 42c EnWG</strong> erlaubt seit 01.06.2026 die gemeinschaftliche Gebäudeversorgung (GGV) — erweitert auf das Verteilnetz. Teilnehmer in einem Bilanzierungsgebiet können Strom direkt untereinander teilen.</p>
+                    <p><strong style="color:#fff;">§ 42c EnWG</strong> erlaubt ab 2026 Energy Sharing im Verteilnetz. Teilnehmer im selben Bilanzierungsgebiet teilen Strom direkt.</p>
                 </div>
                 <div class="schema-card anim-item">
                     <div class="schema-num">2</div>
                     <h3><i class="fa-solid fa-chart-bar" style="color:#38bdf8;font-size:0.75rem;"></i> 15-Minuten-Bilanzierung</h3>
-                    <p>Jede Viertelstunde wird gemessen: Wer hat eingespeist? Wer hat verbraucht? Die Zuordnung erfolgt <strong style="color:#fff;">virtuell</strong> über das <strong style="color:#fff;">GGV-Modell</strong> — kein separater Zähler, kein physischer Stromfluss-Tracking nötig.</p>
+                    <p>Messung alle 15 Minuten. Die Zuordnung erfolgt <strong style="color:#fff;">virtuell</strong> über das <strong style="color:#fff;">GGV-Modell</strong> — kein separater Zähler nötig.</p>
                 </div>
+            </div>
+            
+            <div class="highlight-box anim-item" style="margin-top:1rem; max-width:800px;">
+                <div class="big"><i class="fa-solid fa-network-wired" style="margin-right:0.4rem;"></i>Netzentlastung durch lokale Anreize</div>
+                <p>Der Strom fließt physisch wie immer. Nur die <strong style="color:#fff;">Abrechnung</strong> ändert sich: Dieser finanzielle Incentive motiviert den lokalen Direktverbrauch. Strom wird dann verbraucht, wenn er im Tal erzeugt wird — das kappt Lastspitzen.</p>
+            </div>
+        </div>
+
+        <!-- ══════════ F5 ── Was ist Energy Sharing? (2/2) ══════════ -->
+        <div class="slide" data-slide="4">
+            <div class="bg-glow blue" style="width:400px;height:400px;bottom:-10%;left:10%"></div>
+            <div class="slide-tag"><span class="dot"></span> Block 1 · Grundlagen</div>
+            <h2 class="slide-heading">Was ist <span class="accent">Energy Sharing</span> genau? (2/2)</h2>
+            <p class="slide-subtitle">Sicherheit für die Teilnehmer und die Rolle des Netzes.</p>
+
+            <div class="schema-row" style="margin-bottom:1.5rem;">
                 <div class="schema-card anim-item">
                     <div class="schema-num">3</div>
                     <h3><i class="fa-solid fa-plug-circle-bolt" style="color:#facc15;font-size:0.75rem;"></i> Rolle des Netzbetreibers</h3>
-                    <p>Das Verteilnetz (Syna) bleibt der physische Transportweg. Der VNB stellt <strong style="color:#fff;">Smart Meter (iMSys)</strong> bereit und liefert die Messdaten. Das Netz wird mitgenutzt — nicht umgangen.</p>
+                    <p>Das Verteilnetz (Syna) bleibt der Transportweg. Der VNB liefert die Messdaten via <strong style="color:#fff;">Smart Meter (iMSys)</strong>.</p>
+                </div>
+                <div class="schema-card anim-item">
+                    <div class="schema-num">4</div>
+                    <h3><i class="fa-solid fa-file-contract" style="color:#c084fc;font-size:0.75rem;"></i> Risikofrei</h3>
+                    <p>Es bleibt beim <strong style="color:#fff;">parallelen Stromvertrag</strong> mit allen Boni. Fällt der lokale PV-Strom abends weg, greift nahtlos der normale Versorger.</p>
                 </div>
             </div>
 
             <div class="card-grid cols-4 slide-body" style="max-width:800px;">
-                <div class="card anim-item" style="text-align:center; padding:0.7rem;">
-                    <div style="font-size:1.2rem; font-weight:900; color:var(--brand-light);">Regional</div>
-                    <p style="font-size:0.65rem;">Erzeugung & Verbrauch vor Ort</p>
-                </div>
-                <div class="card anim-item" style="text-align:center; padding:0.7rem;">
-                    <div style="font-size:1.2rem; font-weight:900; color:#38bdf8;">15 min</div>
-                    <p style="font-size:0.65rem;">Abrechnungs-Intervall</p>
-                </div>
-                <div class="card anim-item" style="text-align:center; padding:0.7rem;">
-                    <div style="font-size:1.2rem; font-weight:900; color:#facc15;">1 VNB</div>
-                    <p style="font-size:0.65rem;">Phase 1: ein Verteilnetzbetreiber</p>
-                </div>
-                <div class="card anim-item" style="text-align:center; padding:0.7rem;">
-                    <div style="font-size:1.2rem; font-weight:900; color:#c084fc;">iMSys</div>
-                    <p style="font-size:0.65rem;">Smart Meter als Voraussetzung</p>
-                </div>
-            </div>
-
-            <div class="highlight-box anim-item" style="margin-top:1rem;">
-                <div class="big"><i class="fa-solid fa-network-wired" style="margin-right:0.4rem;"></i>Netzentlastung durch lokale Anreize</div>
-                <p>Der Strom fließt physisch wie immer über das Netz. Nur die <strong style="color:#fff;">Abrechnung</strong> ändert sich: Statt alles an den Versorger zu verkaufen, werden Erzeuger und Verbraucher virtuell zusammengebracht. <strong style="color:var(--brand-light);">Dieser finanzielle Incentive motiviert den lokalen Direktverbrauch.</strong> Strom wird genau dann verbraucht, wenn er im Tal erzeugt wird — das kappt Lastspitzen und schont das Verteilnetz.</p>
+                <div class="card anim-item" style="text-align:center; padding:0.7rem;"><div style="font-size:1.2rem; font-weight:900; color:var(--brand-light);">Regional</div><p style="font-size:0.65rem;">Erzeugung & Verbrauch</p></div>
+                <div class="card anim-item" style="text-align:center; padding:0.7rem;"><div style="font-size:1.2rem; font-weight:900; color:#38bdf8;">15 min</div><p style="font-size:0.65rem;">Abrechnungs-Intervall</p></div>
+                <div class="card anim-item" style="text-align:center; padding:0.7rem;"><div style="font-size:1.2rem; font-weight:900; color:#facc15;">Sicher</div><p style="font-size:0.65rem;">Keine Dunkelflaute-Risiken</p></div>
+                <div class="card anim-item" style="text-align:center; padding:0.7rem;"><div style="font-size:1.2rem; font-weight:900; color:#c084fc;">iMSys</div><p style="font-size:0.65rem;">Smart Meter Pflicht</p></div>
             </div>
         </div>
 
-        <!-- ══════════ F4 ── Benchmarking ══════════ -->
-        <div class="slide" data-slide="3">
+        <!-- ══════════ F6 ── Benchmarking ══════════ -->
+        <div class="slide" data-slide="5">
             <div class="bg-glow blue" style="width:400px;height:400px;top:-5%;right:5%"></div>
             <div class="slide-tag"><span class="dot"></span> Block 1 · Grundlagen</div>
             <h2 class="slide-heading">Internationales <span class="accent">Benchmarking</span></h2>
-            <p class="slide-subtitle">Nachbarländer zeigen: Es funktioniert.</p>
-            <div class="card-grid cols-3 slide-body">
-                <div class="card anim-item"><div class="icon icon-rose" style="font-weight:800;font-size:0.85rem;color:#fb7185;">AT</div><h3>Österreich</h3><p>EDA als zentrale Drehscheibe. <strong>Bis zu 64% Netzentgelt-Reduktion.</strong> (Erfolgreich im Live-Betrieb)</p></div>
-                <div class="card anim-item"><div class="icon icon-teal" style="font-weight:800;font-size:0.85rem;color:#2dd4bf;">CH</div><h3>Schweiz</h3><p>Quartierstrom Walenstadt: P2P auf Blockchain. LEG: bis 40% reduzierte Netzentgelte ab 2026.</p></div>
-                <div class="card anim-item"><div class="icon icon-orange" style="font-weight:800;font-size:0.85rem;color:#fb923c;">NL</div><h3>Niederlande</h3><p>Experimentierklauseln in Eemnes: Bis zu 4.000 Teilnehmer — Haushalte, Bauern, Betriebe.</p></div>
+            <p class="slide-subtitle">Europa zeigt: Local Energy Markets funktionieren in der Praxis.</p>
+            <div class="card-grid cols-4 slide-body">
+                <div class="card anim-item"><div class="icon icon-rose" style="font-weight:800;font-size:0.85rem;color:#fb7185;">AT</div><h3>Österreich</h3><p>EDA als Drehscheibe. <strong>Bis zu 64% Netzentgelt-Reduktion.</strong> (Live-Betrieb)</p></div>
+                <div class="card anim-item"><div class="icon icon-teal" style="font-weight:800;font-size:0.85rem;color:#2dd4bf;">CH</div><h3>Schweiz</h3><p>Quartierstrom Walenstadt: LEG bringt bis 40% reduzierte Netzentgelte ab 2026.</p></div>
+                <div class="card anim-item"><div class="icon icon-orange" style="font-weight:800;font-size:0.85rem;color:#fb923c;">NL</div><h3>Niederlande</h3><p>Eemnes: Bis zu 4.000 Teilnehmer — Haushalte, Bauern, Betriebe.</p></div>
+                <div class="card anim-item"><div class="icon icon-purple" style="font-weight:800;font-size:0.85rem;color:#c084fc;">DK/UK</div><h3>Nordeuropa</h3><p>UK (Energy Local) & Dänemark (Wind-Kooperativen) testen seit Jahren P2P Sandboxes.</p></div>
             </div>
         </div>
 
@@ -386,25 +453,31 @@
         </div>
 
         <!-- ══════════ F6 ── Konzept Animated Flow ══════════ -->
-        <div class="slide" data-slide="5">
+        <div class="slide" data-slide="6">
             <div class="bg-glow blue" style="width:500px;height:500px;top:10%;left:-10%"></div>
             <div class="slide-tag"><span class="dot"></span> Block 2 · Lösung</div>
             <h2 class="slide-heading">Das Konzept — <span class="accent">Simpel erklärt</span></h2>
-            <div class="flow-row" style="margin:1.5rem 0;">
-                <div class="flow-box anim-item" style="background:rgba(234,179,8,0.08); border:1px solid rgba(234,179,8,0.2);"><i class="fa-solid fa-sun" style="color:#facc15;"></i><span class="label">Erzeuger A</span><span class="sub">Dach-PV · Überschuss</span></div>
-                <div class="flow-connector anim-item"><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
+            <div class="flow-row" style="margin:2.5rem 0 1.5rem 0;">
+                <div class="flow-box anim-item" style="background:rgba(234,179,8,0.08); border:1px solid rgba(234,179,8,0.2);"><i class="fa-solid fa-sun" style="color:#facc15;"></i><span class="label">Prosumer A</span><span class="sub">Dach-PV · Überschuss</span></div>
+                <div class="flow-connector anim-item" style="position:relative;">
+                    <span style="position:absolute; top:-25px; left:50%; transform:translateX(-50%); font-size:0.6rem; color:#fff; white-space:nowrap; font-weight:bold;">1. Finden über die App</span>
+                    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+                </div>
                 <div class="flow-box anim-item" style="background:rgba(101,163,13,0.08); border:1px solid rgba(101,163,13,0.2);"><i class="fa-solid fa-bolt" style="color:var(--brand-light);"></i><span class="label">Öffentl. Netz</span><span class="sub">Syna · Verteilnetz</span></div>
-                <div class="flow-connector anim-item"><div class="particle"></div><div class="particle"></div><div class="particle"></div></div>
+                <div class="flow-connector anim-item" style="position:relative;">
+                    <span style="position:absolute; top:-25px; left:50%; transform:translateX(-50%); font-size:0.6rem; color:#fff; white-space:nowrap; font-weight:bold;">2. Community auf- und ausbauen</span>
+                    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
+                </div>
                 <div class="flow-box anim-item" style="background:rgba(2,132,199,0.08); border:1px solid rgba(2,132,199,0.2);"><i class="fa-solid fa-house" style="color:#38bdf8;"></i><span class="label">Verbraucher B</span><span class="sub">Nachbar · Haushalt</span></div>
             </div>
             <div class="highlight-box anim-item">
                 <div class="big"><i class="fa-solid fa-heart-pulse" style="margin-right:0.4rem;"></i>Power-Share</div>
-                <p>Die „Dating-App" für Strom — wir bringen Erzeuger und Verbraucher zusammen.</p>
+                <p>Die „Dating-App" für Strom — wir bringen Prosumer und Verbraucher zusammen.</p>
             </div>
         </div>
 
         <!-- ══════════ F7 ── Matching-Plattform mit Netzwerk-Grafik ══════════ -->
-        <div class="slide" data-slide="6">
+        <div class="slide" data-slide="7">
             <div class="bg-glow green" style="width:400px;height:400px;top:5%;right:-5%"></div>
             <div class="slide-tag"><span class="dot"></span> Block 2 · Power-Share</div>
             <h2 class="slide-heading">Die <span class="accent">Matching-Plattform</span></h2>
@@ -435,7 +508,7 @@
                     <circle cx="120" cy="80" r="18" class="node-circle" fill="rgba(234,179,8,0.1)" stroke="#facc15" stroke-width="1.5"/>
                     <text x="120" y="77" text-anchor="middle" fill="#facc15" font-size="11">☀</text>
                     <text x="120" y="88" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Familie M.</text>
-                    <text x="120" y="95" text-anchor="middle" fill="#94a3b8" font-size="4">9,8 kWp PV</text>
+                    <text x="120" y="95" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer (PV)</text>
                     <!-- Mini profile bars -->
                     <rect x="103" y="102" width="4" height="8" rx="1" fill="#facc15" opacity="0.6" class="profile-bar"/>
                     <rect x="109" y="105" width="4" height="5" rx="1" fill="#facc15" opacity="0.4" class="profile-bar"/>
@@ -447,7 +520,7 @@
                     <circle cx="280" cy="80" r="18" class="node-circle" fill="rgba(234,179,8,0.1)" stroke="#facc15" stroke-width="1.5"/>
                     <text x="280" y="77" text-anchor="middle" fill="#facc15" font-size="11">☀</text>
                     <text x="280" y="88" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Rathaus Lauf</text>
-                    <text x="280" y="95" text-anchor="middle" fill="#94a3b8" font-size="4">30 kWp PV</text>
+                    <text x="280" y="95" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer (PV)</text>
                     <rect x="263" y="102" width="4" height="6" rx="1" fill="#facc15" opacity="0.5" class="profile-bar"/>
                     <rect x="269" y="99" width="4" height="9" rx="1" fill="#facc15" opacity="0.6" class="profile-bar"/>
                     <rect x="275" y="96" width="4" height="12" rx="1" fill="#facc15" opacity="0.8" class="profile-bar"/>
@@ -455,22 +528,22 @@
                     <rect x="287" y="96" width="4" height="12" rx="1" fill="#facc15" opacity="0.8" class="profile-bar"/>
                     <rect x="293" y="101" width="4" height="7" rx="1" fill="#facc15" opacity="0.5" class="profile-bar"/>
 
-                    <!-- Prosumer node (green) -->
-                    <circle cx="200" cy="60" r="18" class="node-circle" fill="rgba(101,163,13,0.1)" stroke="#84cc16" stroke-width="1.5"/>
-                    <text x="200" y="57" text-anchor="middle" fill="#84cc16" font-size="10">⚡</text>
+                    <!-- Former Prosumer node (green) now also PV -->
+                    <circle cx="200" cy="60" r="18" class="node-circle" fill="rgba(234,179,8,0.1)" stroke="#facc15" stroke-width="1.5"/>
+                    <text x="200" y="57" text-anchor="middle" fill="#facc15" font-size="10">☀</text>
                     <text x="200" y="68" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Bäckerei K.</text>
-                    <text x="200" y="75" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer</text>
+                    <text x="200" y="75" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer (PV)</text>
 
-                    <circle cx="240" cy="230" r="18" class="node-circle" fill="rgba(101,163,13,0.1)" stroke="#84cc16" stroke-width="1.5"/>
-                    <text x="240" y="227" text-anchor="middle" fill="#84cc16" font-size="10">⚡</text>
+                    <circle cx="240" cy="230" r="18" class="node-circle" fill="rgba(234,179,8,0.1)" stroke="#facc15" stroke-width="1.5"/>
+                    <text x="240" y="227" text-anchor="middle" fill="#facc15" font-size="10">☀</text>
                     <text x="240" y="238" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Schule O.</text>
-                    <text x="240" y="245" text-anchor="middle" fill="#94a3b8" font-size="4">15 kWp + Verbrauch</text>
+                    <text x="240" y="245" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer (PV)</text>
 
                     <!-- Verbraucher nodes (blue) -->
                     <circle cx="100" cy="180" r="18" class="node-circle" fill="rgba(2,132,199,0.1)" stroke="#38bdf8" stroke-width="1.5"/>
                     <text x="100" y="177" text-anchor="middle" fill="#38bdf8" font-size="10">🏠</text>
                     <text x="100" y="188" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Familie S.</text>
-                    <text x="100" y="195" text-anchor="middle" fill="#94a3b8" font-size="4">~3.500 kWh/a</text>
+                    <text x="100" y="195" text-anchor="middle" fill="#94a3b8" font-size="4">Verbraucher</text>
                     <rect x="83" y="200" width="4" height="10" rx="1" fill="#38bdf8" opacity="0.7" class="profile-bar"/>
                     <rect x="89" y="204" width="4" height="6" rx="1" fill="#38bdf8" opacity="0.4" class="profile-bar"/>
                     <rect x="95" y="203" width="4" height="7" rx="1" fill="#38bdf8" opacity="0.5" class="profile-bar"/>
@@ -481,22 +554,20 @@
                     <circle cx="300" cy="180" r="18" class="node-circle" fill="rgba(2,132,199,0.1)" stroke="#38bdf8" stroke-width="1.5"/>
                     <text x="300" y="177" text-anchor="middle" fill="#38bdf8" font-size="10">🏠</text>
                     <text x="300" y="188" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Ehepaar W.</text>
-                    <text x="300" y="195" text-anchor="middle" fill="#94a3b8" font-size="4">~2.800 kWh/a</text>
+                    <text x="300" y="195" text-anchor="middle" fill="#94a3b8" font-size="4">Verbraucher</text>
 
                     <circle cx="160" cy="230" r="18" class="node-circle" fill="rgba(2,132,199,0.1)" stroke="#38bdf8" stroke-width="1.5"/>
                     <text x="160" y="227" text-anchor="middle" fill="#38bdf8" font-size="10">🏠</text>
                     <text x="160" y="238" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">WEG Am Hang</text>
-                    <text x="160" y="245" text-anchor="middle" fill="#94a3b8" font-size="4">12 Parteien</text>
+                    <text x="160" y="245" text-anchor="middle" fill="#94a3b8" font-size="4">Verbraucher</text>
 
                     <!-- Legend -->
                     <circle cx="30" cy="260" r="5" fill="rgba(234,179,8,0.15)" stroke="#facc15" stroke-width="1"/>
-                    <text x="40" y="263" fill="#94a3b8" font-size="6">Erzeuger (PV)</text>
-                    <circle cx="120" cy="260" r="5" fill="rgba(101,163,13,0.1)" stroke="#84cc16" stroke-width="1"/>
-                    <text x="130" y="263" fill="#94a3b8" font-size="6">Prosumer</text>
-                    <circle cx="195" cy="260" r="5" fill="rgba(2,132,199,0.1)" stroke="#38bdf8" stroke-width="1"/>
-                    <text x="205" y="263" fill="#94a3b8" font-size="6">Verbraucher</text>
-                    <rect x="275" y="257" width="20" height="6" rx="1" fill="rgba(250,204,21,0.4)"/>
-                    <text x="300" y="263" fill="#94a3b8" font-size="6">Stromprofil</text>
+                    <text x="40" y="263" fill="#94a3b8" font-size="6">Prosumer (mit PV)</text>
+                    <circle cx="120" cy="260" r="5" fill="rgba(2,132,199,0.1)" stroke="#38bdf8" stroke-width="1"/>
+                    <text x="130" y="263" fill="#94a3b8" font-size="6">Verbraucher</text>
+                    <rect x="200" y="257" width="20" height="6" rx="1" fill="rgba(250,204,21,0.4)"/>
+                    <text x="225" y="263" fill="#94a3b8" font-size="6">Stromprofil (Σ = 0 nach Kirchhoff)</text>
                 </svg>
 
                 <!-- Steps -->
@@ -521,8 +592,36 @@
             </div>
         </div>
 
-        <!-- ══════════ F8 ── decarbon1ze ══════════ -->
-        <div class="slide" data-slide="7">
+        <!-- ══════════ F8 ── Alternative Anbieter ══════════ -->
+        <div class="slide" data-slide="8">
+            <div class="bg-glow rose" style="width:400px;height:400px;top:10%;left:-10%"></div>
+            <div class="slide-tag"><span class="dot"></span> Block 2 · Alternativen</div>
+            <h2 class="slide-heading"><span class="accent">Markt-Alternativen</span> im Vergleich</h2>
+            <p class="slide-subtitle">Mögliche Partner, jedoch nicht favorisiert.</p>
+            <div class="card-grid cols-2 slide-body" style="max-width:800px; margin-top:1.5rem;">
+                <div class="card anim-item" style="border-color:rgba(225,29,72,0.2);">
+                    <h3 style="color:#fb7185;"><i class="fa-solid fa-server"></i> neugemacht</h3>
+                    <p style="font-size:0.8rem; margin-bottom:1rem;">End-to-End Plattform inkl. Smart Meter Gateway.</p>
+                    <ul>
+                        <li><i class="fa-solid fa-xmark" style="color:#e11d48;"></i> Eigene Smart-Meter-Infrastruktur</li>
+                        <li><i class="fa-solid fa-xmark" style="color:#e11d48;"></i> <strong>Direkte Konkurrenz zur Syna</strong></li>
+                        <li><i class="fa-solid fa-xmark" style="color:#e11d48;"></i> Hohe Hardware- & Wechselkosten</li>
+                    </ul>
+                </div>
+                <div class="card anim-item" style="border-color:rgba(225,29,72,0.2);">
+                    <h3 style="color:#fb7185;"><i class="fa-solid fa-chart-line"></i> Exnaton</h3>
+                    <p style="font-size:0.8rem; margin-bottom:1rem;">Enterprise-Software aus der Schweiz (ETH Spin-off).</p>
+                    <ul>
+                        <li><i class="fa-solid fa-xmark" style="color:#e11d48;"></i> Sehr teuer (Faktor 10x zu decarbon1ze)</li>
+                        <li><i class="fa-solid fa-xmark" style="color:#e11d48;"></i> <strong>Firmensitz Schweiz</strong> (nicht DE-Recht)</li>
+                        <li><i class="fa-solid fa-xmark" style="color:#e11d48;"></i> Fokus auf Großprojekte & SAP-Integration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════ F9 ── decarbon1ze ══════════ -->
+        <div class="slide" data-slide="9">
             <div class="bg-glow green" style="width:500px;height:500px;top:-5%;right:-10%"></div>
             <div class="bg-glow blue" style="width:350px;height:350px;bottom:-8%;left:5%"></div>
             <div class="slide-tag"><span class="dot"></span> Block 2 · Favorisierter Partner</div>
@@ -533,7 +632,7 @@
                     <ul><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span><strong>100 € einmalig</strong> je Teilnehmer (Setup)</span></li><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span><strong>5 € / Monat</strong> je Teilnehmer (laufend)</span></li><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span><strong>15-Minuten-genaue</strong> Abrechnung</span></li><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span>Am einfachsten: fester ct/kWh-Preis</span></li></ul>
                 </div>
                 <div class="card anim-item"><div class="icon icon-blue"><i class="fa-solid fa-gears"></i></div><h3>Abrechnungsmodell</h3>
-                    <ul><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Verkäufer erhält 15-min-Abrechnung</span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Verkäufer rechnet <strong>selbst</strong> mit Käufern ab</span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Kein Zwischenhändler nötig</span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Virtuelle Bilanzierung (GGV-Modell)</span></li></ul>
+                    <ul><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Verkäufer erhält 15-min-Abrechnung</span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Verkäufer rechnet <strong>selbst</strong> mit Käufern ab</span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span><strong>Rechnung über Einspeiser</strong></span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Virtuelle Bilanzierung (GGV-Modell)</span></li></ul>
                 </div>
                 <div class="card anim-item"><div class="icon icon-purple"><i class="fa-solid fa-user-tie"></i></div><h3>Ansprechpartner</h3>
                     <p><strong style="color:#fff;">Dr. Arwen Colell</strong> — GF / CPO</p><p style="font-size:0.68rem;">Strategie, Partnerschaften & Produkt</p>
@@ -545,24 +644,24 @@
             </div>
         </div>
 
-        <!-- ══════════ F9 ── Partner-Vergleich ══════════ -->
-        <div class="slide" data-slide="8">
+        <!-- ══════════ F10 ── Partner-Vergleich ══════════ -->
+        <div class="slide" data-slide="10">
             <div class="bg-glow yellow" style="width:400px;height:400px;top:-8%;left:10%"></div>
             <div class="slide-tag"><span class="dot"></span> Block 2 · Alternativen</div>
             <h2 class="slide-heading">Partner-<span class="accent">Vergleich</span>: Setup-Kosten</h2>
-            <p class="slide-subtitle">Initiale Kosten pro Projekt — der Unterschied ist enorm.</p>
+            <p class="slide-subtitle">Initiale Kosten — der Unterschied ist enorm.</p>
             <div class="bar-chart slide-body" style="max-width:480px; margin-bottom:1rem;">
-                <div class="bar-group anim-item"><div class="bar-stack"><div class="bar" style="height:16px; background:linear-gradient(180deg,var(--brand-light),var(--brand));"><div class="bar-val">100 €</div></div></div><div class="bar-label">decarbon1ze</div><div class="bar-sublabel">+ 5 €/Monat</div></div>
-                <div class="bar-group anim-item"><div class="bar-stack"><div class="bar" style="height:52px; background:linear-gradient(180deg,#c084fc,#7c3aed);"><div class="bar-val">~3.000–5.000 €</div></div></div><div class="bar-label">neugemacht</div><div class="bar-sublabel">je Gebäude</div></div>
-                <div class="bar-group anim-item"><div class="bar-stack"><div class="bar" style="height:140px; background:linear-gradient(180deg,#fb7185,#e11d48);"><div class="bar-val">~20.000 €</div></div></div><div class="bar-label">Exnaton</div><div class="bar-sublabel">+ 1.500 €/Mon.</div></div>
+                <div class="bar-group anim-item"><div class="bar-stack"><div class="bar" style="height:16px; background:linear-gradient(180deg,var(--brand-light),var(--brand));"><div class="bar-val">100 €</div></div></div><div class="bar-label">decarbon1ze</div><div class="bar-sublabel" style="font-weight:bold;">pro Teilnehmer</div></div>
+                <div class="bar-group anim-item"><div class="bar-stack"><div class="bar" style="height:52px; background:linear-gradient(180deg,#c084fc,#7c3aed);"><div class="bar-val">~3.000–5.000 €</div></div></div><div class="bar-label">neugemacht</div><div class="bar-sublabel" style="font-weight:bold;">pro Projekt / Gebäude</div></div>
+                <div class="bar-group anim-item"><div class="bar-stack"><div class="bar" style="height:140px; background:linear-gradient(180deg,#fb7185,#e11d48);"><div class="bar-val">~20.000 €</div></div></div><div class="bar-label">Exnaton</div><div class="bar-sublabel" style="font-weight:bold;">pro VNB / Projekt</div></div>
             </div>
             <div class="slide-body" style="max-width:880px;">
                 <table class="compare-table">
                     <thead><tr><th>Anbieter</th><th>Vorteile</th><th>Nachteile / Risiken</th></tr></thead>
                     <tbody>
                         <tr class="highlight-row"><td><strong>decarbon1ze</strong> ★</td><td><span class="pro">✓</span> DE-Firma · <span class="pro">✓</span> Günstigster · <span class="pro">✓</span> GGV-Fokus · <span class="pro">✓</span> 15-min</td><td><span class="con">ℹ</span> Jung am Markt</td></tr>
-                        <tr><td><strong>neugemacht</strong></td><td><span class="pro">✓</span> End2End · <span class="pro">✓</span> SMGW inklusive · <span class="pro">✓</span> API-Übergabe</td><td><span class="con">✗</span> <strong>Eigene Smart Meter → Konkurrenz Syna</strong> · <span class="con">✗</span> Teurer</td></tr>
-                        <tr><td><strong>Exnaton</strong></td><td><span class="pro">✓</span> SAP-Integration · <span class="pro">✓</span> KI-Prognosen · <span class="pro">✓</span> Enterprise</td><td><span class="con">✗</span> <strong>Schweizer Firma</strong> (nicht DE-Recht) · <span class="con">✗</span> <strong>10× teurer</strong></td></tr>
+                        <tr><td><strong>neugemacht</strong></td><td><span class="pro">✓</span> End2End · <span class="pro">✓</span> SMGW inklusive · <span class="pro">✓</span> API-Übergabe</td><td><span class="con">✗</span> Konkurrenz Syna · <span class="con">✗</span> Teurer</td></tr>
+                        <tr><td><strong>Exnaton</strong></td><td><span class="pro">✓</span> SAP-Integration · <span class="pro">✓</span> KI-Prognosen · <span class="pro">✓</span> Enterprise</td><td><span class="con">✗</span> Schweizer Firma · <span class="con">✗</span> 10× teurer</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -612,6 +711,102 @@
             </div>
         </div>
 
+        <!-- ══════════ F11b ── Interaktiver Rechner ══════════ -->
+        <div class="slide" data-slide="11">
+            <div class="bg-glow blue" style="width:500px;height:500px;bottom:-10%;left:-5%"></div>
+            <div class="slide-tag"><span class="dot"></span> Block 3 · Wirtschaftlichkeit</div>
+            <h2 class="slide-heading">Der <span class="accent">Energy Sharing Rechner</span></h2>
+            <p class="slide-subtitle">Live-Simulation: Wie verteilen wir die Vorteile fair?</p>
+            
+            <div class="slide-body calc-wrapper" style="width: 100%; max-width: 800px; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
+                <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 0.5rem;">
+                    <button class="btn calc-scenario-btn" onclick="setScenario('fair')" style="background: var(--brand); color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; font-weight: bold;"><i class="fa-solid fa-scale-balanced" style="margin-right:0.5rem;"></i> Gleichbehandlung</button>
+                    <button class="btn calc-scenario-btn" onclick="setScenario('gift')" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; font-weight: bold;"><i class="fa-solid fa-gift" style="margin-right:0.5rem;"></i> Strom verschenken</button>
+                </div>
+                
+                <div style="display: flex; gap: 2rem;">
+                    <!-- Controls -->
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 1.2rem;">
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                                <label style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">Energy Sharing Preis (ct/kWh)</label>
+                                <span id="valPreis" style="font-weight: bold; color: var(--brand-light);">13.0 ct</span>
+                            </div>
+                            <input type="range" id="sliderPreis" min="0" max="30" step="0.5" value="13" style="width: 100%; accent-color: var(--brand-light);" oninput="updateCalc()">
+                        </div>
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                                <label style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">Plattformgebühr (ct/kWh)</label>
+                                <span id="valGebuehr" style="font-weight: bold; color: #fff;">1.8 ct</span>
+                            </div>
+                            <input type="range" id="sliderGebuehr" min="0" max="5" step="0.1" value="1.8" style="width: 100%; accent-color: #94a3b8;" oninput="updateCalc()">
+                        </div>
+                        <div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                                <label style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">Netzentgelt reduziert (ct/kWh)</label>
+                                <span id="valNetz" style="font-weight: bold; color: #fff;">4.5 ct</span>
+                            </div>
+                            <input type="range" id="sliderNetz" min="0" max="15" step="0.1" value="4.5" style="width: 100%; accent-color: #94a3b8;" oninput="updateCalc()">
+                        </div>
+                    </div>
+
+                    <!-- Results -->
+                    <div style="flex: 1; display: flex; flex-direction: column; gap: 1rem;">
+                        <div style="background: rgba(234, 179, 8, 0.1); border: 1px solid rgba(234, 179, 8, 0.3); border-radius: 0.75rem; padding: 1rem; text-align: center;">
+                            <div style="font-size: 0.7rem; color: #facc15; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem;">Erzeuger Erlös (netto)</div>
+                            <div style="font-size: 2rem; font-weight: 900; color: #facc15;"><span id="resErzeuger">11.2</span> <span style="font-size:1rem;font-weight:bold;">ct/kWh</span></div>
+                            <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">vs. EEG-Vergütung (~8 ct)</div>
+                        </div>
+                        <div style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 0.75rem; padding: 1rem; text-align: center;">
+                            <div style="font-size: 0.7rem; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem;">Verbraucher Kosten (brutto)</div>
+                            <div style="font-size: 2rem; font-weight: 900; color: #38bdf8;"><span id="resVerbraucher">22.9</span> <span style="font-size:1rem;font-weight:bold;">ct/kWh</span></div>
+                            <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">inkl. Steuern & Abgaben (vs. ~32 ct)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <script>
+                function updateCalc() {
+                    const preis = parseFloat(document.getElementById('sliderPreis').value);
+                    const gebuehr = parseFloat(document.getElementById('sliderGebuehr').value);
+                    const netz = parseFloat(document.getElementById('sliderNetz').value);
+                    
+                    document.getElementById('valPreis').innerText = preis.toFixed(1) + ' ct';
+                    document.getElementById('valGebuehr').innerText = gebuehr.toFixed(1) + ' ct';
+                    document.getElementById('valNetz').innerText = netz.toFixed(1) + ' ct';
+                    
+                    // Erzeuger: Erhält den Preis abzüglich der Plattformgebühr
+                    const erlös = Math.max(0, preis - gebuehr);
+                    document.getElementById('resErzeuger').innerText = erlös.toFixed(1);
+                    
+                    // Verbraucher: Preis + Netzentgelt + sonstige Steuern/Abgaben (pauschal ~3.6 ct EEG/Konzession/etc + 19% MwSt)
+                    // Vereinfachte Rechnung: (Preis + Netzentgelt + 3.6) * 1.19
+                    const brutto = (preis + netz + 3.6) * 1.19;
+                    document.getElementById('resVerbraucher').innerText = brutto.toFixed(1);
+                }
+
+                function setScenario(type) {
+                    const btns = document.querySelectorAll('.calc-scenario-btn');
+                    btns.forEach(b => {
+                        b.style.background = 'rgba(255,255,255,0.1)';
+                        b.style.border = '1px solid rgba(255,255,255,0.2)';
+                    });
+
+                    if (type === 'fair') {
+                        document.getElementById('sliderPreis').value = 13;
+                        btns[0].style.background = 'var(--brand)';
+                        btns[0].style.border = 'none';
+                    } else if (type === 'gift') {
+                        document.getElementById('sliderPreis').value = 0; // Strom verschenken (0 ct)
+                        btns[1].style.background = 'var(--brand)';
+                        btns[1].style.border = 'none';
+                    }
+                    updateCalc();
+                }
+            </script>
+        </div>
+
         <!-- ══════════ F12 ── Post-EEG ══════════ -->
         <div class="slide" data-slide="11">
             <div class="bg-glow" style="width:400px;height:400px;top:10%;left:-5%; background:#f97316;"></div>
@@ -642,11 +837,11 @@
             <div class="bg-glow green" style="width:500px;height:500px;bottom:-10%;right:-10%"></div>
             <div class="slide-tag"><span class="dot"></span> Block 3 · Wirtschaftlichkeit</div>
             <h2 class="slide-heading">Die <span class="accent">Kommune als Anker</span>-Teilnehmer</h2>
-            <p class="slide-subtitle">Rathäuser, Schulen, Bauhöfe — die Gemeinde als Vorbild.</p>
+            <p class="slide-subtitle">Rathäuser, Schulen, Bauhöfe — die Gemeinde als Vorbild und Treiber.</p>
             <div class="card-grid cols-3 slide-body">
-                <div class="card anim-item" style="text-align:center;"><div class="icon icon-green" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-building-flag"></i></div><h3>Einspeisen</h3><p>Kommunale Dachflächen liefern Solarstrom für die Community.</p></div>
-                <div class="card anim-item" style="text-align:center;"><div class="icon icon-blue" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-plug-circle-bolt"></i></div><h3>Beziehen</h3><p>Günstigen Community-Strom für Eigenbedarf der Liegenschaften nutzen.</p></div>
-                <div class="card anim-item" style="text-align:center;"><div class="icon icon-yellow" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-award"></i></div><h3>Vorbild sein</h3><p>Klimaziele erreichen, Standort stärken, positive PR.</p></div>
+                <div class="card anim-item" style="text-align:center;"><div class="icon icon-green" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-building-flag"></i></div><h3>Liegenschaften</h3><p>Dachflächen liefern Strom, kommunaler Eigenbedarf wird günstig aus der Community gedeckt.</p></div>
+                <div class="card anim-item" style="text-align:center;"><div class="icon icon-blue" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-battery-full"></i></div><h3>Zentrale Batterie</h3><p>Perspektive: Ein Quartiersspeicher für alle — analog zum erfolgreichen <strong>Neon-Modell in Willstätt</strong>.</p></div>
+                <div class="card anim-item" style="text-align:center;"><div class="icon icon-yellow" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-award"></i></div><h3>Vorbild sein</h3><p>Klimaziele erreichen, Standort stärken, positive PR für das gesamte Tal.</p></div>
             </div>
             <p style="text-align:center; margin-top:0.9rem; font-size:0.75rem; color:var(--text-muted);"><i class="fa-solid fa-coins" style="color:var(--brand-light); margin-right:0.3rem;"></i>Keine Kosten für die Kommune — die Plattform wird privat betrieben.</p>
         </div>
@@ -682,31 +877,45 @@
             <div class="quote-block anim-item" style="border-left-color:var(--brand-accent);"><p>„Herr Wulftange — lassen Sie uns in BOL gemeinsam zeigen, wie Verteilnetzbetreiber und Sharing-Communities in der Praxis harmonieren."</p><div class="attr">— Direkte Einladung an Süwag/Syna</div></div>
         </div>
 
-        <!-- ══════════ F16 ── CTA (mit Herr/Frau) ══════════ -->
+        <!-- ══════════ F15b ── Weitere Vorteile in Zukunft ══════════ -->
         <div class="slide" data-slide="15">
+            <div class="bg-glow yellow" style="width:500px;height:500px;top:-5%;left:-10%"></div>
+            <div class="slide-tag"><span class="dot"></span> Block 4 · Ausblick</div>
+            <h2 class="slide-heading">Weitere Vorteile <span class="accent">in Zukunft</span></h2>
+            <p class="slide-subtitle">Die Regulatorik wird sich zugunsten von Energy Sharing weiterentwickeln.</p>
+            <div class="card-grid cols-3 slide-body">
+                <div class="card anim-item"><div class="icon icon-yellow"><i class="fa-solid fa-money-bill-wave"></i></div><h3>Entfall von Abgaben</h3><p>Weitere Befreiungen (z.B. von Stromsteuer oder verbleibenden Umlagen) für lokalen Strom sind politisch in Diskussion.</p></div>
+                <div class="card anim-item"><div class="icon icon-blue"><i class="fa-solid fa-tower-broadcast"></i></div><h3>Netzentgelt-Reform</h3><p>Dynamische, zeitvariable Netzentgelte belohnen netzdienliches Verhalten (Direktverbrauch bei viel Sonne) zusätzlich.</p></div>
+                <div class="card anim-item"><div class="icon icon-green"><i class="fa-solid fa-cubes"></i></div><h3>Rahmenwerk Power-Share</h3><p>Das von uns aufgebaute Plattform-Konstrukt ist skalierbar und offen für neue Module (z.B. E-Ladesäulen-Integration).</p></div>
+            </div>
+        </div>
+
+        <!-- ══════════ F16 ── CTA (mit Herr/Frau) ══════════ -->
+        <div class="slide" data-slide="16">
             <div class="bg-glow green" style="width:600px;height:600px;top:-15%;left:30%"></div>
             <div class="slide-tag"><span class="dot"></span> Block 4 · Bitten</div>
             <h2 class="slide-heading">Unser Angebot & <span class="accent">Unsere Bitten</span></h2>
             <ul class="cta-list">
-                <li class="anim-item"><div class="cta-icon icon-green"><i class="fa-solid fa-building-flag"></i></div><span><strong>An die Bürgermeister (Herr Pfetzer, Herr Kramer, Herr Kist):</strong><br>Offizielle Bewerbung – Gemeindeblatt, Aushänge, Info-Veranstaltung für Bürger.</span></li>
-                <li class="anim-item"><div class="cta-icon icon-blue"><i class="fa-solid fa-landmark"></i></div><span><strong>An Kämmerer & Energiemanagement (Herr Kern, Herr Weis, Herr Trapp, Herr Brunner):</strong><br>Prüfung von 1–2 kommunalen Liegenschaften (Rathaus, Schule, Bauhof) als erste Test-Objekte.</span></li>
-                <li class="anim-item"><div class="cta-icon icon-yellow"><i class="fa-solid fa-bolt"></i></div><span><strong>An Süwag/Syna (Herr Wulftange):</strong><br>Priorisierter iMSys-Rollout in BOL. „Fast-Lane" für Smart-Meter-Bereitstellung & Datenschnittstelle zu decarbon1ze.</span></li>
+                <li class="anim-item"><div class="cta-icon icon-green"><i class="fa-solid fa-building-flag"></i></div><span><strong>An die Bürgermeister (Herr Pfetzer, Herr Kramer, Herr Kist):</strong><br>Offizielle Bewerbung (Gemeindeblatt) & <strong>Akzeptanz-Argumente Wind/Solar</strong>: Lokale Projekte werden von Bürgern getragen, wenn sie direkt am günstigen Strom partizipieren!</span></li>
+                <li class="anim-item"><div class="cta-icon icon-blue"><i class="fa-solid fa-landmark"></i></div><span><strong>An Kämmerer & Energiemanagement (Herr Kern, Herr Weis, Herr Trapp, Herr Brunner):</strong><br>Prüfung von 1–2 kommunalen Liegenschaften (Rathaus, Schule) als erste Test-Objekte.</span></li>
+                <li class="anim-item"><div class="cta-icon icon-yellow"><i class="fa-solid fa-bolt"></i></div><span><strong>An Süwag/Syna (Herr Wulftange):</strong><br>Priorisierter iMSys-Rollout in BOL & direkte Schnittstelle zu decarbon1ze.</span></li>
             </ul>
         </div>
 
         <!-- ══════════ F17 ── Abschluss ══════════ -->
-        <div class="slide" data-slide="16">
+        <div class="slide" data-slide="17">
             <div class="gradient-bg"></div>
             <div class="particles" id="endParticles"></div>
             <div class="slide-tag"><span class="dot"></span> Abschluss</div>
-            <h1 class="slide-title" style="margin-bottom:0.8rem;">Regionale Energie für eine<br><span class="accent">starke Gemeinschaft.</span></h1>
+            <h1 class="slide-title" style="margin-bottom:0.8rem;">Lassen Sie uns den<br><span class="accent">nächsten Schritt</span> gehen.</h1>
             <p class="slide-subtitle" style="max-width:540px;">Vom anonymen Strommarkt zur nachbarschaftlichen Wertegemeinschaft. BOL wird zum Vorreiter in Deutschland.</p>
-            <div class="stat-row" style="margin-bottom:1rem;">
-                <div class="stat-item anim-item"><div class="num"><i class="fa-solid fa-users" style="font-size:1.3rem;"></i></div><div class="label">Jeder profitiert</div></div>
-                <div class="stat-item anim-item"><div class="num"><i class="fa-solid fa-leaf" style="font-size:1.3rem;"></i></div><div class="label">Klimaschutz</div></div>
-                <div class="stat-item anim-item"><div class="num"><i class="fa-solid fa-bolt" style="font-size:1.3rem;"></i></div><div class="label">Innovation</div></div>
+            
+            <div class="highlight-box anim-item" style="margin: 1.5rem auto; max-width: 500px; background: rgba(16, 185, 129, 0.15); border-color: rgba(16, 185, 129, 0.4);">
+                <div class="big" style="color: #34d399;"><i class="fa-solid fa-comments" style="margin-right:0.4rem;"></i>Nächster Schritt: 4er-Gespräch</div>
+                <p>Gemeinsamer runder Tisch: Kommunen, Syna/Süwag, decarbon1ze & Power-Share.</p>
             </div>
-            <div class="partner-row">
+
+            <div class="partner-row anim-item">
                 <div class="partner-badge"><i class="fa-solid fa-heart-pulse"></i> Power-Share</div>
                 <div class="partner-badge" style="border-color:rgba(101,163,13,0.3);background:rgba(101,163,13,0.06);"><i class="fa-solid fa-chart-line"></i> decarbon1ze ★</div>
                 <div class="partner-badge"><i class="fa-solid fa-network-wired"></i> Syna / Süwag</div>
