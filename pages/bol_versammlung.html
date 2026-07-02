@@ -192,8 +192,15 @@
         .network-svg text { font-family: 'Inter', sans-serif; }
         .network-svg .node-circle { transition: r 0.4s ease; }
         .network-svg .node-circle:hover { r: 22; }
-        .network-svg .link-line { stroke-dasharray: 4 3; animation: dash-flow 1.5s linear infinite; }
-        @keyframes dash-flow { to { stroke-dashoffset: -14; } }
+        .network-svg .link-line { stroke-dasharray: 4 3; }
+        .network-svg .flow-out { animation: dash-flow-out 1.5s linear infinite; }
+        .network-svg .flow-var1 { animation: dash-var1 6s ease-in-out infinite; }
+        .network-svg .flow-var2 { animation: dash-var2 6.5s ease-in-out infinite; }
+        .network-svg .flow-var3 { animation: dash-var3 7s ease-in-out infinite; }
+        @keyframes dash-flow-out { to { stroke-dashoffset: 14; } }
+        @keyframes dash-var1 { 0% { stroke-dashoffset: 0; } 40% { stroke-dashoffset: -60; } 50% { stroke-dashoffset: -60; } 90% { stroke-dashoffset: 30; } 100% { stroke-dashoffset: 30; } }
+        @keyframes dash-var2 { 0% { stroke-dashoffset: 0; } 40% { stroke-dashoffset: 40; } 50% { stroke-dashoffset: 40; } 90% { stroke-dashoffset: -50; } 100% { stroke-dashoffset: -50; } }
+        @keyframes dash-var3 { 0% { stroke-dashoffset: 0; } 40% { stroke-dashoffset: -40; } 50% { stroke-dashoffset: -40; } 90% { stroke-dashoffset: 60; } 100% { stroke-dashoffset: 60; } }
         .network-svg .profile-bar { transition: height 0.8s cubic-bezier(.22,1,.36,1), y 0.8s cubic-bezier(.22,1,.36,1); }
         .slide:not(.active) .network-svg .profile-bar { height: 0 !important; }
 
@@ -237,7 +244,8 @@
         .title-meta span i { color: var(--brand-light); font-size: 0.68rem; }
 
         .gradient-bg { position: absolute; inset: 0; z-index: -1; background: radial-gradient(ellipse at 30% 20%, rgba(101,163,13,0.08) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(2,132,199,0.06) 0%, transparent 50%); animation: grad-shift 8s ease-in-out infinite alternate; }
-        @keyframes grad-shift { 0%{opacity:.6;transform:scale(1)}100%{opacity:1;transform:scale(1.05)} }
+        @keyframes grad-shift { 0%{opacity:.6;}100%{opacity:1;} }
+
 
         .particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
         .particle-dot { position: absolute; border-radius: 50%; animation: float-up linear infinite; opacity: 0; }
@@ -288,21 +296,13 @@
         </div>
     </div>
     <script>
-        document.getElementById('pw-input').addEventListener('input', async function(e) {
+        const SECRET_HASH = "UG93ZXJTaGFyZQ==";
+
+        document.getElementById('pw-input').addEventListener('input', function(e) {
             const errorEl = document.getElementById('pw-error');
             const val = e.target.value;
             
-            // Hash the input using Web Crypto API
-            const encoder = new TextEncoder();
-            const data = encoder.encode(val);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-            
-            // Target hash for the required password
-            const targetHash = '751d39ed2835ce57eba1498053395c00a50f1cd39c1db034bd681735d1a6e0fb';
-
-            if (hashHex === targetHash) {
+            if (btoa(val) === SECRET_HASH) {
                 document.getElementById('pw-overlay').classList.add('hidden');
                 e.target.blur();
                 errorEl.classList.remove('visible');
@@ -491,13 +491,13 @@
                     <text x="200" y="26" text-anchor="middle" fill="#64748b" font-size="8" font-weight="600" letter-spacing="0.1em">COMMUNITY BOL</text>
 
                     <!-- Connection lines (animated dashes) -->
-                    <line x1="120" y1="80" x2="200" y2="140" class="link-line" stroke="rgba(132,204,22,0.25)" stroke-width="1.5"/>
-                    <line x1="280" y1="80" x2="200" y2="140" class="link-line" stroke="rgba(132,204,22,0.25)" stroke-width="1.5"/>
-                    <line x1="100" y1="180" x2="200" y2="140" class="link-line" stroke="rgba(56,189,248,0.25)" stroke-width="1.5"/>
-                    <line x1="300" y1="180" x2="200" y2="140" class="link-line" stroke="rgba(56,189,248,0.25)" stroke-width="1.5"/>
-                    <line x1="160" y1="230" x2="200" y2="140" class="link-line" stroke="rgba(56,189,248,0.25)" stroke-width="1.5"/>
-                    <line x1="240" y1="230" x2="200" y2="140" class="link-line" stroke="rgba(132,204,22,0.25)" stroke-width="1.5"/>
-                    <line x1="200" y1="60" x2="200" y2="140" class="link-line" stroke="rgba(250,204,21,0.25)" stroke-width="1.5"/>
+                    <line x1="120" y1="80" x2="200" y2="140" class="link-line flow-var1" stroke="rgba(132,204,22,0.25)" stroke-width="1.5"/>
+                    <line x1="280" y1="80" x2="200" y2="140" class="link-line flow-var2" stroke="rgba(132,204,22,0.25)" stroke-width="1.5"/>
+                    <line x1="100" y1="180" x2="200" y2="140" class="link-line flow-out" stroke="rgba(56,189,248,0.25)" stroke-width="1.5"/>
+                    <line x1="300" y1="180" x2="200" y2="140" class="link-line flow-out" stroke="rgba(56,189,248,0.25)" stroke-width="1.5"/>
+                    <line x1="160" y1="230" x2="200" y2="140" class="link-line flow-out" stroke="rgba(56,189,248,0.25)" stroke-width="1.5"/>
+                    <line x1="240" y1="230" x2="200" y2="140" class="link-line flow-var3" stroke="rgba(132,204,22,0.25)" stroke-width="1.5"/>
+                    <line x1="200" y1="60" x2="200" y2="140" class="link-line flow-var1" stroke="rgba(250,204,21,0.25)" stroke-width="1.5"/>
 
                     <!-- Center hub: Power-Share -->
                     <circle cx="200" cy="140" r="22" fill="rgba(101,163,13,0.15)" stroke="var(--brand-light)" stroke-width="2"/>
@@ -508,7 +508,7 @@
                     <circle cx="120" cy="80" r="18" class="node-circle" fill="rgba(234,179,8,0.1)" stroke="#facc15" stroke-width="1.5"/>
                     <text x="120" y="77" text-anchor="middle" fill="#facc15" font-size="11">☀</text>
                     <text x="120" y="88" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Familie M.</text>
-                    <text x="120" y="95" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer (PV)</text>
+                    <text x="120" y="95" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer</text>
                     <!-- Mini profile bars -->
                     <rect x="103" y="102" width="4" height="8" rx="1" fill="#facc15" opacity="0.6" class="profile-bar"/>
                     <rect x="109" y="105" width="4" height="5" rx="1" fill="#facc15" opacity="0.4" class="profile-bar"/>
@@ -520,7 +520,7 @@
                     <circle cx="280" cy="80" r="18" class="node-circle" fill="rgba(234,179,8,0.1)" stroke="#facc15" stroke-width="1.5"/>
                     <text x="280" y="77" text-anchor="middle" fill="#facc15" font-size="11">☀</text>
                     <text x="280" y="88" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Rathaus Lauf</text>
-                    <text x="280" y="95" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer (PV)</text>
+                    <text x="280" y="95" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer</text>
                     <rect x="263" y="102" width="4" height="6" rx="1" fill="#facc15" opacity="0.5" class="profile-bar"/>
                     <rect x="269" y="99" width="4" height="9" rx="1" fill="#facc15" opacity="0.6" class="profile-bar"/>
                     <rect x="275" y="96" width="4" height="12" rx="1" fill="#facc15" opacity="0.8" class="profile-bar"/>
@@ -532,12 +532,24 @@
                     <circle cx="200" cy="60" r="18" class="node-circle" fill="rgba(234,179,8,0.1)" stroke="#facc15" stroke-width="1.5"/>
                     <text x="200" y="57" text-anchor="middle" fill="#facc15" font-size="10">☀</text>
                     <text x="200" y="68" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Bäckerei K.</text>
-                    <text x="200" y="75" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer (PV)</text>
+                    <text x="200" y="75" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer</text>
+                    <rect x="183" y="82" width="4" height="6" rx="1" fill="#facc15" opacity="0.6" class="profile-bar"/>
+                    <rect x="189" y="79" width="4" height="9" rx="1" fill="#facc15" opacity="0.8" class="profile-bar"/>
+                    <rect x="195" y="75" width="4" height="13" rx="1" fill="#facc15" opacity="1" class="profile-bar"/>
+                    <rect x="201" y="77" width="4" height="11" rx="1" fill="#facc15" opacity="0.9" class="profile-bar"/>
+                    <rect x="207" y="80" width="4" height="8" rx="1" fill="#facc15" opacity="0.7" class="profile-bar"/>
+                    <rect x="213" y="84" width="4" height="4" rx="1" fill="#facc15" opacity="0.4" class="profile-bar"/>
 
                     <circle cx="240" cy="230" r="18" class="node-circle" fill="rgba(234,179,8,0.1)" stroke="#facc15" stroke-width="1.5"/>
                     <text x="240" y="227" text-anchor="middle" fill="#facc15" font-size="10">☀</text>
                     <text x="240" y="238" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Schule O.</text>
-                    <text x="240" y="245" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer (PV)</text>
+                    <text x="240" y="245" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer</text>
+                    <rect x="223" y="252" width="4" height="6" rx="1" fill="#facc15" opacity="0.5" class="profile-bar"/>
+                    <rect x="229" y="248" width="4" height="10" rx="1" fill="#facc15" opacity="0.7" class="profile-bar"/>
+                    <rect x="235" y="245" width="4" height="13" rx="1" fill="#facc15" opacity="0.9" class="profile-bar"/>
+                    <rect x="241" y="247" width="4" height="11" rx="1" fill="#facc15" opacity="0.8" class="profile-bar"/>
+                    <rect x="247" y="250" width="4" height="8" rx="1" fill="#facc15" opacity="0.6" class="profile-bar"/>
+                    <rect x="253" y="254" width="4" height="4" rx="1" fill="#facc15" opacity="0.4" class="profile-bar"/>
 
                     <!-- Verbraucher nodes (blue) -->
                     <circle cx="100" cy="180" r="18" class="node-circle" fill="rgba(2,132,199,0.1)" stroke="#38bdf8" stroke-width="1.5"/>
@@ -555,19 +567,31 @@
                     <text x="300" y="177" text-anchor="middle" fill="#38bdf8" font-size="10">🏠</text>
                     <text x="300" y="188" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Ehepaar W.</text>
                     <text x="300" y="195" text-anchor="middle" fill="#94a3b8" font-size="4">Verbraucher</text>
+                    <rect x="283" y="202" width="4" height="5" rx="1" fill="#38bdf8" opacity="0.4" class="profile-bar"/>
+                    <rect x="289" y="200" width="4" height="7" rx="1" fill="#38bdf8" opacity="0.5" class="profile-bar"/>
+                    <rect x="295" y="198" width="4" height="9" rx="1" fill="#38bdf8" opacity="0.7" class="profile-bar"/>
+                    <rect x="301" y="194" width="4" height="13" rx="1" fill="#38bdf8" opacity="1" class="profile-bar"/>
+                    <rect x="307" y="197" width="4" height="10" rx="1" fill="#38bdf8" opacity="0.8" class="profile-bar"/>
+                    <rect x="313" y="201" width="4" height="6" rx="1" fill="#38bdf8" opacity="0.5" class="profile-bar"/>
 
                     <circle cx="160" cy="230" r="18" class="node-circle" fill="rgba(2,132,199,0.1)" stroke="#38bdf8" stroke-width="1.5"/>
                     <text x="160" y="227" text-anchor="middle" fill="#38bdf8" font-size="10">🏠</text>
                     <text x="160" y="238" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">WEG Am Hang</text>
                     <text x="160" y="245" text-anchor="middle" fill="#94a3b8" font-size="4">Verbraucher</text>
+                    <rect x="143" y="252" width="4" height="10" rx="1" fill="#38bdf8" opacity="0.7" class="profile-bar"/>
+                    <rect x="149" y="255" width="4" height="7" rx="1" fill="#38bdf8" opacity="0.5" class="profile-bar"/>
+                    <rect x="155" y="256" width="4" height="6" rx="1" fill="#38bdf8" opacity="0.4" class="profile-bar"/>
+                    <rect x="161" y="258" width="4" height="4" rx="1" fill="#38bdf8" opacity="0.3" class="profile-bar"/>
+                    <rect x="167" y="254" width="4" height="8" rx="1" fill="#38bdf8" opacity="0.6" class="profile-bar"/>
+                    <rect x="173" y="250" width="4" height="12" rx="1" fill="#38bdf8" opacity="0.8" class="profile-bar"/>
 
                     <!-- Legend -->
                     <circle cx="30" cy="260" r="5" fill="rgba(234,179,8,0.15)" stroke="#facc15" stroke-width="1"/>
-                    <text x="40" y="263" fill="#94a3b8" font-size="6">Prosumer (mit PV)</text>
+                    <text x="40" y="263" fill="#94a3b8" font-size="6">Prosumer</text>
                     <circle cx="120" cy="260" r="5" fill="rgba(2,132,199,0.1)" stroke="#38bdf8" stroke-width="1"/>
                     <text x="130" y="263" fill="#94a3b8" font-size="6">Verbraucher</text>
                     <rect x="200" y="257" width="20" height="6" rx="1" fill="rgba(250,204,21,0.4)"/>
-                    <text x="225" y="263" fill="#94a3b8" font-size="6">Stromprofil (Σ = 0 nach Kirchhoff)</text>
+                    <text x="225" y="263" fill="#94a3b8" font-size="6">Dynamisches Stromprofil</text>
                 </svg>
 
                 <!-- Steps -->
@@ -652,8 +676,8 @@
             <p class="slide-subtitle">Initiale Kosten — der Unterschied ist enorm.</p>
             <div class="bar-chart slide-body" style="max-width:480px; margin-bottom:1rem;">
                 <div class="bar-group anim-item"><div class="bar-stack"><div class="bar" style="height:16px; background:linear-gradient(180deg,var(--brand-light),var(--brand));"><div class="bar-val">100 €</div></div></div><div class="bar-label">decarbon1ze</div><div class="bar-sublabel" style="font-weight:bold;">pro Teilnehmer</div></div>
-                <div class="bar-group anim-item"><div class="bar-stack"><div class="bar" style="height:52px; background:linear-gradient(180deg,#c084fc,#7c3aed);"><div class="bar-val">~3.000–5.000 €</div></div></div><div class="bar-label">neugemacht</div><div class="bar-sublabel" style="font-weight:bold;">pro Projekt / Gebäude</div></div>
-                <div class="bar-group anim-item"><div class="bar-stack"><div class="bar" style="height:140px; background:linear-gradient(180deg,#fb7185,#e11d48);"><div class="bar-val">~20.000 €</div></div></div><div class="bar-label">Exnaton</div><div class="bar-sublabel" style="font-weight:bold;">pro VNB / Projekt</div></div>
+                <div class="bar-group anim-item"><div class="bar-stack"><div class="bar" style="height:52px; background:linear-gradient(180deg,#c084fc,#7c3aed);"><div class="bar-val">~3.000–5.000 €</div></div></div><div class="bar-label">neugemacht</div><div class="bar-sublabel" style="font-weight:bold;">pro Projekt</div></div>
+                <div class="bar-group anim-item"><div class="bar-stack"><div class="bar" style="height:140px; background:linear-gradient(180deg,#fb7185,#e11d48);"><div class="bar-val">~20.000 €</div></div></div><div class="bar-label">Exnaton</div><div class="bar-sublabel" style="font-weight:bold;">pro Projekt</div></div>
             </div>
             <div class="slide-body" style="max-width:880px;">
                 <table class="compare-table">
@@ -720,8 +744,8 @@
             
             <div class="slide-body calc-wrapper" style="width: 100%; max-width: 800px; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
                 <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 0.5rem;">
-                    <button class="btn calc-scenario-btn" onclick="setScenario('fair')" style="background: var(--brand); color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; font-weight: bold;"><i class="fa-solid fa-scale-balanced" style="margin-right:0.5rem;"></i> Gleichbehandlung</button>
-                    <button class="btn calc-scenario-btn" onclick="setScenario('gift')" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; font-weight: bold;"><i class="fa-solid fa-gift" style="margin-right:0.5rem;"></i> Strom verschenken</button>
+                    <button class="btn calc-scenario-btn" onclick="setFeeMode('fair')" style="background: var(--brand); color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; font-weight: bold;"><i class="fa-solid fa-scale-balanced" style="margin-right:0.5rem;"></i> Gleichbehandlung (je 5€)</button>
+                    <button class="btn calc-scenario-btn" onclick="setFeeMode('producer')" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; font-weight: bold;"><i class="fa-solid fa-weight-hanging" style="margin-right:0.5rem;"></i> Ausbalancieren (Einspeiser zahlt 10€)</button>
                 </div>
                 
                 <div style="display: flex; gap: 2rem;">
@@ -736,17 +760,17 @@
                         </div>
                         <div>
                             <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-                                <label style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">Plattformgebühr (ct/kWh)</label>
-                                <span id="valGebuehr" style="font-weight: bold; color: #fff;">1.8 ct</span>
+                                <label style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">Geteilte Menge (kWh/Monat)</label>
+                                <span id="valMenge" style="font-weight: bold; color: #fff;">300 kWh</span>
                             </div>
-                            <input type="range" id="sliderGebuehr" min="0" max="5" step="0.1" value="1.8" style="width: 100%; accent-color: #94a3b8;" oninput="updateCalc()">
+                            <input type="range" id="sliderMenge" min="50" max="2000" step="50" value="300" style="width: 100%; accent-color: #94a3b8;" oninput="updateCalc()">
                         </div>
                         <div>
                             <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-                                <label style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">Netzentgelt reduziert (ct/kWh)</label>
-                                <span id="valNetz" style="font-weight: bold; color: #fff;">4.5 ct</span>
+                                <label style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">Netzentgelt (ct/kWh)</label>
+                                <span id="valNetz" style="font-weight: bold; color: #fff;">12.0 ct</span>
                             </div>
-                            <input type="range" id="sliderNetz" min="0" max="15" step="0.1" value="4.5" style="width: 100%; accent-color: #94a3b8;" oninput="updateCalc()">
+                            <input type="range" id="sliderNetz" min="0" max="12" step="0.1" value="12" style="width: 100%; accent-color: #94a3b8;" oninput="updateCalc()">
                         </div>
                     </div>
 
@@ -754,39 +778,48 @@
                     <div style="flex: 1; display: flex; flex-direction: column; gap: 1rem;">
                         <div style="background: rgba(234, 179, 8, 0.1); border: 1px solid rgba(234, 179, 8, 0.3); border-radius: 0.75rem; padding: 1rem; text-align: center;">
                             <div style="font-size: 0.7rem; color: #facc15; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem;">Erzeuger Erlös (netto)</div>
-                            <div style="font-size: 2rem; font-weight: 900; color: #facc15;"><span id="resErzeuger">11.2</span> <span style="font-size:1rem;font-weight:bold;">ct/kWh</span></div>
-                            <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">vs. EEG-Vergütung (~8 ct)</div>
+                            <div style="font-size: 2rem; font-weight: 900; color: #facc15;"><span id="resErzeuger">13.0</span> <span style="font-size:1rem;font-weight:bold;">ct/kWh</span></div>
+                            <div style="font-size: 0.8rem; color: #facc15; margin-top: 0.4rem; font-weight:bold;">Gewinn vs. EEG: <span id="resErzeugerMonat">+10.00 €</span> / Monat</div>
                         </div>
                         <div style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 0.75rem; padding: 1rem; text-align: center;">
                             <div style="font-size: 0.7rem; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem;">Verbraucher Kosten (brutto)</div>
-                            <div style="font-size: 2rem; font-weight: 900; color: #38bdf8;"><span id="resVerbraucher">22.9</span> <span style="font-size:1rem;font-weight:bold;">ct/kWh</span></div>
-                            <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">inkl. Steuern & Abgaben (vs. ~32 ct)</div>
+                            <div style="font-size: 2rem; font-weight: 900; color: #38bdf8;"><span id="resVerbraucher">25.1</span> <span style="font-size:1rem;font-weight:bold;">ct/kWh</span></div>
+                            <div style="font-size: 0.8rem; color: #38bdf8; margin-top: 0.4rem; font-weight:bold;">Ersparnis: <span id="resVerbraucherMonat">-15.70 €</span> / Monat</div>
+                            <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.2rem;">vs. Grundversorger (~32 ct)</div>
                         </div>
                     </div>
                 </div>
             </div>
             
             <script>
+                let currentFeeMode = 'fair';
+                
                 function updateCalc() {
                     const preis = parseFloat(document.getElementById('sliderPreis').value);
-                    const gebuehr = parseFloat(document.getElementById('sliderGebuehr').value);
+                    const menge = parseFloat(document.getElementById('sliderMenge').value);
                     const netz = parseFloat(document.getElementById('sliderNetz').value);
                     
                     document.getElementById('valPreis').innerText = preis.toFixed(1) + ' ct';
-                    document.getElementById('valGebuehr').innerText = gebuehr.toFixed(1) + ' ct';
+                    document.getElementById('valMenge').innerText = menge + ' kWh';
                     document.getElementById('valNetz').innerText = netz.toFixed(1) + ' ct';
                     
-                    // Erzeuger: Erhält den Preis abzüglich der Plattformgebühr
-                    const erlös = Math.max(0, preis - gebuehr);
-                    document.getElementById('resErzeuger').innerText = erlös.toFixed(1);
+                    const gebuehrErzeuger = currentFeeMode === 'fair' ? 5 : 10;
+                    const gebuehrVerbraucher = currentFeeMode === 'fair' ? 5 : 0;
                     
-                    // Verbraucher: Preis + Netzentgelt + sonstige Steuern/Abgaben (pauschal ~3.6 ct EEG/Konzession/etc + 19% MwSt)
-                    // Vereinfachte Rechnung: (Preis + Netzentgelt + 3.6) * 1.19
+                    // Erzeuger:
+                    document.getElementById('resErzeuger').innerText = preis.toFixed(1);
+                    const gewinnErzeuger = ((preis - 8) * menge / 100) - gebuehrErzeuger;
+                    document.getElementById('resErzeugerMonat').innerText = (gewinnErzeuger >= 0 ? '+' : '') + gewinnErzeuger.toFixed(2) + ' €';
+                    
+                    // Verbraucher: (Preis + Netzentgelt + 3.6) * 1.19
                     const brutto = (preis + netz + 3.6) * 1.19;
                     document.getElementById('resVerbraucher').innerText = brutto.toFixed(1);
+                    const ersparnisVerbraucher = ((32 - brutto) * menge / 100) - gebuehrVerbraucher;
+                    document.getElementById('resVerbraucherMonat').innerText = (ersparnisVerbraucher >= 0 ? '-' : '+') + Math.abs(ersparnisVerbraucher).toFixed(2) + ' €';
                 }
 
-                function setScenario(type) {
+                function setFeeMode(type) {
+                    currentFeeMode = type;
                     const btns = document.querySelectorAll('.calc-scenario-btn');
                     btns.forEach(b => {
                         b.style.background = 'rgba(255,255,255,0.1)';
@@ -794,16 +827,17 @@
                     });
 
                     if (type === 'fair') {
-                        document.getElementById('sliderPreis').value = 13;
                         btns[0].style.background = 'var(--brand)';
                         btns[0].style.border = 'none';
-                    } else if (type === 'gift') {
-                        document.getElementById('sliderPreis').value = 0; // Strom verschenken (0 ct)
+                    } else if (type === 'producer') {
                         btns[1].style.background = 'var(--brand)';
                         btns[1].style.border = 'none';
                     }
                     updateCalc();
                 }
+                
+                // Initial call to set values correctly on load
+                updateCalc();
             </script>
         </div>
 
