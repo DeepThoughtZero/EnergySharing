@@ -720,26 +720,25 @@
             const badge = document.getElementById('pilotregionBadge');
             if (!badge) return;
             let clickCount = 0;
-            let clickTimer = null;
+            let firstClickTime = 0;
             const REQUIRED_CLICKS = 5;
-            const TIMEOUT_MS = 2000;
+            const TIME_WINDOW_MS = 3000;
 
             badge.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                clickCount++;
-
-                if (clickTimer) clearTimeout(clickTimer);
-
-                if (clickCount >= REQUIRED_CLICKS) {
-                    clickCount = 0;
-                    window.location.href = 'bol_versammlung.html';
-                    return;
+                
+                const now = Date.now();
+                if (clickCount === 0 || now - firstClickTime > TIME_WINDOW_MS) {
+                    clickCount = 1;
+                    firstClickTime = now;
+                } else {
+                    clickCount++;
+                    if (clickCount >= REQUIRED_CLICKS) {
+                        clickCount = 0;
+                        window.location.href = 'bol_versammlung.html';
+                    }
                 }
-
-                clickTimer = setTimeout(function() {
-                    clickCount = 0;
-                }, TIMEOUT_MS);
             });
         })();
     </script>
