@@ -248,8 +248,6 @@
 
 
         .particles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
-        .particle-dot { position: absolute; border-radius: 50%; animation: float-up linear infinite; opacity: 0; }
-        @keyframes float-up { 0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.6}90%{opacity:.6}100%{transform:translateY(-20vh) scale(1);opacity:0} }
 
         /* ── Paragraph schema card ────────────────────── */
         .schema-row { display: flex; gap: 1rem; align-items: stretch; justify-content: center; flex-wrap: wrap; max-width: 900px; width: 100%; }
@@ -1283,19 +1281,227 @@
         }
         triggerCountUps(slides[0]);
 
-        // ── Particles ──
-        function createParticles(id) {
-            const c = document.getElementById(id); if (!c) return;
-            const cols = ['var(--brand-light)', '#38bdf8', '#facc15', 'rgba(255,255,255,0.3)'];
-            for (let i = 0; i < 18; i++) {
-                const d = document.createElement('div'); d.className = 'particle-dot';
-                const s = 2 + Math.random() * 4;
-                d.style.cssText = `width:${s}px;height:${s}px;left:${Math.random()*100}%;background:${cols[Math.floor(Math.random()*cols.length)]};animation-duration:${8+Math.random()*12}s;animation-delay:${Math.random()*10}s;`;
-                c.appendChild(d);
+        // ── Energy Network Background ──
+        class EnergyNetwork {
+            constructor(containerId) {
+                this.container = document.getElementById(containerId);
+                if (!this.container) return;
+                
+                this.canvas = document.createElement('canvas');
+                this.canvas.style.position = 'absolute';
+                this.canvas.style.inset = '0';
+                this.canvas.style.width = '100%';
+                this.canvas.style.height = '100%';
+                this.canvas.style.pointerEvents = 'none';
+                this.canvas.style.zIndex = '0';
+                
+                this.ctx = this.canvas.getContext('2d');
+                this.container.appendChild(this.canvas);
+                
+                this.nodes = [];
+                this.edges = [];
+                this.particles = [];
+                
+                // Colors representing different types of energy sources/users
+                this.colors = ['rgba(132, 204, 22, 1)', 'rgba(56, 189, 248, 1)', 'rgba(250, 204, 21, 1)'];
+                
+                this.resize();
+                window.addEventListener('resize', () => {
+                    this.resize();
+                    this.initNetwork();
+                });
+                
+                this.initNetwork();
+                this.animate();
+            }
+            
+            resize() {
+                const rect = this.container.getBoundingClientRect();
+                this.canvas.width = rect.width;
+                this.canvas.height = rect.height;
+            }
+            
+            initNetwork() {
+                this.nodes = [];
+                this.edges = [];
+                this.particles = [];
+                
+                const w = this.canvas.width || window.innerWidth;
+                const h = this.canvas.height || window.innerHeight;
+                // Mehr Knoten für eine dichtere Community am Rand
+                const nodeCount = Math.floor((w * h) / 20000); 
+                
+                // Create random nodes, avoid center
+                for (let i = 0; i < nodeCount; i++) {
+                    let x, y;
+                    let valid = false;
+                    while(!valid) {
+                        x = Math.random() * w;
+                        y = Math.random() * h;
+                        
+                        // Normalized distance from center (0 to 1 at edges)
+                        const dx = (x - w/2) / (w/2);
+                        const dy = (y - h/2) / (h/2);
+                        const dist = Math.hypot(dx, dy);
+                        
+                        // Wahrscheinlichkeit steigt stark nach außen an. Zentrum bleibt quasi leer.
+                        if (Math.random() < Math.pow(dist, 2.5)) {
+                            valid = true;
+                        }
+                    }
+                    
+                    this.nodes.push({
+                        x: x,
+                        y: y,
+                        radius: 1 + Math.random() * 1.5
+                    });
+                }
+                
+                // Connect closest nodes
+                for (let i = 0; i < this.nodes.length; i++) {
+                    const n1 = this.nodes[i];
+                    const distances = [];
+                    for (let j = 0; j < this.nodes.length; j++) {
+                        if (i === j) continue;
+                        const n2 = this.nodes[j];
+                        const dist = Math.hypot(n1.x - n2.x, n1.y - n2.y);
+                        distances.push({ index: j, dist: dist });
+                    }
+                    distances.sort((a, b) => a.dist - b.dist);
+                    
+                    // Mehr Verbindungen für starke Community (4-6 statt 2-3)
+                    const connects = 4 + Math.floor(Math.random() * 3);
+                    for (let c = 0; c < connects && c < distances.length; c++) {
+                        const target = distances[c];
+                        const maxDist = Math.min(350, Math.max(w, h) * 0.25);
+                        
+                        if (target.dist < maxDist) { 
+                            // Prüfen, ob die Linie durchs Zentrum geht (vermeiden!)
+                            const n2 = this.nodes[target.index];
+                            const midX = (n1.x + n2.x) / 2;
+                            const midY = (n1.y + n2.y) / 2;
+                            const midDx = (midX - w/2) / (w/2);
+                            const midDy = (midY - h/2) / (h/2);
+                            const midDist = Math.hypot(midDx, midDy);
+                            
+                            // Wenn die Mitte der Linie zu nah am Zentrum ist -> keine Verbindung
+                            if (midDist < 0.45) continue;
+                            
+                            const exists = this.edges.some(e => 
+                                (e.from === i && e.to === target.index) || 
+                                (e.to === i && e.from === target.index)
+                            );
+                            if (!exists) {
+                                this.edges.push({ from: i, to: target.index, dist: target.dist });
+                            }
+                        }
+                    }
+                }
+            }
+            
+            spawnParticle() {
+                if (this.edges.length === 0) return;
+                const edge = this.edges[Math.floor(Math.random() * this.edges.length)];
+                const reverse = Math.random() > 0.5;
+                const startNode = reverse ? this.nodes[edge.to] : this.nodes[edge.from];
+                const endNode = reverse ? this.nodes[edge.from] : this.nodes[edge.to];
+                
+                this.particles.push({
+                    start: startNode,
+                    end: endNode,
+                    progress: 0,
+                    speed: 0.003 + Math.random() * 0.004,
+                    color: this.colors[Math.floor(Math.random() * this.colors.length)],
+                    size: 1.5 + Math.random() * 1.5
+                });
+            }
+            
+            animate() {
+                // Nur animieren, wenn das Canvas sichtbar ist
+                const slide = this.container.closest('.slide');
+                const isVisible = slide && slide.classList.contains('active');
+                
+                if (isVisible) {
+                    const w = this.canvas.width;
+                    const h = this.canvas.height;
+                    
+                    this.ctx.clearRect(0, 0, w, h);
+                    
+                    // Kanten zeichnen
+                    this.ctx.lineWidth = 1;
+                    this.edges.forEach(e => {
+                        const n1 = this.nodes[e.from];
+                        const n2 = this.nodes[e.to];
+                        // Besser sichtbare Verbindungen für stärkere Community
+                        const opacity = 0.04 + Math.max(0, (1 - (e.dist / 350))) * 0.06;
+                        this.ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(n1.x, n1.y);
+                        this.ctx.lineTo(n2.x, n2.y);
+                        this.ctx.stroke();
+                    });
+                    
+                    // Knoten zeichnen
+                    this.ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+                    this.nodes.forEach(n => {
+                        this.ctx.beginPath();
+                        this.ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+                        this.ctx.fill();
+                    });
+                    
+                    // Partikel spawnen (höhere Rate für starke Community, 0.25 statt 0.12)
+                    if (Math.random() < 0.25) { 
+                        this.spawnParticle();
+                    }
+                    
+                    // Partikel zeichnen
+                    for (let i = this.particles.length - 1; i >= 0; i--) {
+                        const p = this.particles[i];
+                        p.progress += p.speed;
+                        
+                        if (p.progress >= 1) {
+                            this.particles.splice(i, 1);
+                            continue;
+                        }
+                        
+                        const x = p.start.x + (p.end.x - p.start.x) * p.progress;
+                        const y = p.start.y + (p.end.y - p.start.y) * p.progress;
+                        
+                        const trailLen = 0.15;
+                        const trailStart = Math.max(0, p.progress - trailLen);
+                        const tx = p.start.x + (p.end.x - p.start.x) * trailStart;
+                        const ty = p.start.y + (p.end.y - p.start.y) * trailStart;
+                        
+                        // Trail
+                        const gradient = this.ctx.createLinearGradient(tx, ty, x, y);
+                        gradient.addColorStop(0, 'rgba(0,0,0,0)');
+                        gradient.addColorStop(1, p.color);
+                        
+                        this.ctx.beginPath();
+                        this.ctx.moveTo(tx, ty);
+                        this.ctx.lineTo(x, y);
+                        this.ctx.strokeStyle = gradient;
+                        this.ctx.lineWidth = p.size;
+                        this.ctx.lineCap = 'round';
+                        this.ctx.stroke();
+                        
+                        // Kopf
+                        this.ctx.beginPath();
+                        this.ctx.arc(x, y, p.size * 1.2, 0, Math.PI * 2);
+                        this.ctx.fillStyle = p.color;
+                        this.ctx.shadowBlur = 8;
+                        this.ctx.shadowColor = p.color;
+                        this.ctx.fill();
+                        this.ctx.shadowBlur = 0;
+                    }
+                }
+                
+                requestAnimationFrame(() => this.animate());
             }
         }
-        createParticles('titleParticles');
-        createParticles('endParticles');
+        
+        new EnergyNetwork('titleParticles');
+        new EnergyNetwork('endParticles');
         updateUI();
     </script>
 
