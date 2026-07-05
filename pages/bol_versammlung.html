@@ -429,12 +429,16 @@
             <div class="bg-glow blue" style="width:400px;height:400px;top:-5%;right:5%"></div>
             <div class="slide-tag"><span class="dot"></span> Block 1 · Grundlagen</div>
             <h2 class="slide-heading">Internationales <span class="accent">Benchmarking</span></h2>
-            <p class="slide-subtitle">Europa zeigt: Local Energy Markets funktionieren in der Praxis.</p>
+            <p class="slide-subtitle">Europa zeigt: Energy Sharing funktioniert, wenn die Anreize stimmen.</p>
             <div class="card-grid cols-4 slide-body">
-                <div class="card anim-item"><div class="icon icon-rose" style="font-weight:800;font-size:0.85rem;color:#fb7185;">AT</div><h3>Österreich</h3><p>EDA als Drehscheibe. <strong>Bis zu 64% Netzentgelt-Reduktion.</strong> (Live-Betrieb)</p></div>
-                <div class="card anim-item"><div class="icon icon-teal" style="font-weight:800;font-size:0.85rem;color:#2dd4bf;">CH</div><h3>Schweiz</h3><p>Quartierstrom Walenstadt: LEG bringt bis 40% reduzierte Netzentgelte ab 2026.</p></div>
-                <div class="card anim-item"><div class="icon icon-orange" style="font-weight:800;font-size:0.85rem;color:#fb923c;">NL</div><h3>Niederlande</h3><p>Eemnes: Bis zu 4.000 Teilnehmer — Haushalte, Bauern, Betriebe.</p></div>
-                <div class="card anim-item"><div class="icon icon-purple" style="font-weight:800;font-size:0.85rem;color:#c084fc;">DK/UK</div><h3>Nordeuropa</h3><p>UK (Energy Local) & Dänemark (Wind-Kooperativen) testen seit Jahren P2P Sandboxes.</p></div>
+                <div class="card anim-item favored"><div class="icon icon-rose" style="font-weight:800;font-size:0.85rem;color:#fb7185;">AT</div><h3>Österreich</h3><p>Massenmarkt-Vorbild. Smart-Meter basiert, <strong>bis 64% Netzentgelt-Rabatt</strong>. >3.000 Gemeinschaften.</p></div>
+                <div class="card anim-item"><div class="icon icon-blue" style="font-weight:800;font-size:0.85rem;color:#38bdf8;">FR</div><h3>Frankreich</h3><p>Skaliert stark: Fast 2.000 kollektive Eigenverbrauchs-Projekte, häufig getragen von <strong>Kommunen</strong>.</p></div>
+                <div class="card anim-item"><div class="icon icon-purple" style="font-weight:800;font-size:0.85rem;color:#c084fc;">UK</div><h3>Großbritannien</h3><p>Energy Local: Fokus auf <strong>zeitliches Matching</strong>. Belohnt lokales verbrauchsdienliches Verhalten.</p></div>
+                <div class="card anim-item"><div class="icon icon-teal" style="font-weight:800;font-size:0.85rem;color:#2dd4bf;">CH</div><h3>Schweiz</h3><p>Ab 2026 neuer Rechtsrahmen. Bringt <strong>20-40% reduzierte Netzentgelte</strong> nach Pilot-Erfolgen.</p></div>
+            </div>
+            <div class="highlight-box anim-item" style="margin-top:1.5rem; max-width:800px; margin-left:auto; margin-right:auto;">
+                <div class="big"><i class="fa-solid fa-lightbulb" style="margin-right:0.4rem; color:var(--brand-light);"></i>Fazit für §42c EnWG (Deutschland)</div>
+                <p>Energy Sharing wird nur ein Erfolg durch drei Faktoren: <strong>15-Minuten-Messung, automatisierte Datenprozesse</strong> und vor allem einen <strong>spürbaren wirtschaftlichen Vorteil</strong> (z.B. Netzentgeltreduktion) für lokal geteilten Strom.</p>
             </div>
         </div>
 
@@ -474,6 +478,10 @@
                 <div class="big"><i class="fa-solid fa-heart-pulse" style="margin-right:0.4rem;"></i>Power-Share</div>
                 <p>Die „Dating-App" für Strom — wir bringen Prosumer und Verbraucher zusammen.</p>
             </div>
+            <div class="highlight-box anim-item" style="margin-top:1rem; border-color:rgba(249,115,22,0.3); background:rgba(249,115,22,0.1);">
+                <div class="big" style="color:#f97316;"><i class="fa-solid fa-fire" style="margin-right:0.4rem;"></i>Hohe Nachfrage</div>
+                <p>Wir erhalten bereits <strong>wöchentlich mehrere Anfragen</strong> — sowohl von interessierten Bürgern (potenzielle Prosumer) als auch von potenziellen Partner-Unternehmen.</p>
+            </div>
         </div>
 
         <!-- ══════════ F7 ── Matching-Plattform mit Netzwerk-Grafik ══════════ -->
@@ -485,7 +493,7 @@
 
             <div style="display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap; justify-content:center; max-width:900px; width:100%;">
                 <!-- Interactive SVG network map -->
-                <svg class="network-svg" viewBox="0 0 400 280" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex:1; min-width:300px;">
+                <svg class="network-svg" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex:1; min-width:300px;">
                     <!-- Community circle -->
                     <circle cx="200" cy="140" r="110" stroke="rgba(101,163,13,0.15)" stroke-width="1" stroke-dasharray="4 3" fill="none"/>
                     <text x="200" y="26" text-anchor="middle" fill="#64748b" font-size="8" font-weight="600" letter-spacing="0.1em">COMMUNITY BOL</text>
@@ -506,9 +514,8 @@
 
                     <!-- Erzeuger nodes (yellow/sun) -->
                     <circle cx="120" cy="80" r="18" class="node-circle" fill="rgba(234,179,8,0.1)" stroke="#facc15" stroke-width="1.5"/>
-                    <text x="120" y="77" text-anchor="middle" fill="#facc15" font-size="11">☀</text>
-                    <text x="120" y="88" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Familie M.</text>
-                    <text x="120" y="95" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer</text>
+                    <text x="120" y="75" text-anchor="middle" fill="#facc15" font-size="11">☀</text>
+                    <text x="120" y="86" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Familie M.</text>
                     <!-- Mini profile bars -->
                     <rect x="103" y="102" width="4" height="8" rx="1" fill="#facc15" opacity="0.6" class="profile-bar"/>
                     <rect x="109" y="105" width="4" height="5" rx="1" fill="#facc15" opacity="0.4" class="profile-bar"/>
@@ -518,9 +525,8 @@
                     <rect x="133" y="105" width="4" height="5" rx="1" fill="#facc15" opacity="0.4" class="profile-bar"/>
 
                     <circle cx="280" cy="80" r="18" class="node-circle" fill="rgba(234,179,8,0.1)" stroke="#facc15" stroke-width="1.5"/>
-                    <text x="280" y="77" text-anchor="middle" fill="#facc15" font-size="11">☀</text>
-                    <text x="280" y="88" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Rathaus Lauf</text>
-                    <text x="280" y="95" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer</text>
+                    <text x="280" y="75" text-anchor="middle" fill="#facc15" font-size="11">☀</text>
+                    <text x="280" y="86" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Rathaus Lauf</text>
                     <rect x="263" y="102" width="4" height="6" rx="1" fill="#facc15" opacity="0.5" class="profile-bar"/>
                     <rect x="269" y="99" width="4" height="9" rx="1" fill="#facc15" opacity="0.6" class="profile-bar"/>
                     <rect x="275" y="96" width="4" height="12" rx="1" fill="#facc15" opacity="0.8" class="profile-bar"/>
@@ -530,9 +536,8 @@
 
                     <!-- Former Prosumer node (green) now also PV -->
                     <circle cx="200" cy="60" r="18" class="node-circle" fill="rgba(234,179,8,0.1)" stroke="#facc15" stroke-width="1.5"/>
-                    <text x="200" y="57" text-anchor="middle" fill="#facc15" font-size="10">☀</text>
-                    <text x="200" y="68" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Bäckerei K.</text>
-                    <text x="200" y="75" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer</text>
+                    <text x="200" y="55" text-anchor="middle" fill="#facc15" font-size="10">☀</text>
+                    <text x="200" y="66" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Bäckerei K.</text>
                     <rect x="183" y="82" width="4" height="6" rx="1" fill="#facc15" opacity="0.6" class="profile-bar"/>
                     <rect x="189" y="79" width="4" height="9" rx="1" fill="#facc15" opacity="0.8" class="profile-bar"/>
                     <rect x="195" y="75" width="4" height="13" rx="1" fill="#facc15" opacity="1" class="profile-bar"/>
@@ -541,9 +546,8 @@
                     <rect x="213" y="84" width="4" height="4" rx="1" fill="#facc15" opacity="0.4" class="profile-bar"/>
 
                     <circle cx="240" cy="230" r="18" class="node-circle" fill="rgba(234,179,8,0.1)" stroke="#facc15" stroke-width="1.5"/>
-                    <text x="240" y="227" text-anchor="middle" fill="#facc15" font-size="10">☀</text>
-                    <text x="240" y="238" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Schule O.</text>
-                    <text x="240" y="245" text-anchor="middle" fill="#94a3b8" font-size="4">Prosumer</text>
+                    <text x="240" y="225" text-anchor="middle" fill="#facc15" font-size="10">☀</text>
+                    <text x="240" y="236" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Schule O.</text>
                     <rect x="223" y="252" width="4" height="6" rx="1" fill="#facc15" opacity="0.5" class="profile-bar"/>
                     <rect x="229" y="248" width="4" height="10" rx="1" fill="#facc15" opacity="0.7" class="profile-bar"/>
                     <rect x="235" y="245" width="4" height="13" rx="1" fill="#facc15" opacity="0.9" class="profile-bar"/>
@@ -553,9 +557,8 @@
 
                     <!-- Verbraucher nodes (blue) -->
                     <circle cx="100" cy="180" r="18" class="node-circle" fill="rgba(2,132,199,0.1)" stroke="#38bdf8" stroke-width="1.5"/>
-                    <text x="100" y="177" text-anchor="middle" fill="#38bdf8" font-size="10">🏠</text>
-                    <text x="100" y="188" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Familie S.</text>
-                    <text x="100" y="195" text-anchor="middle" fill="#94a3b8" font-size="4">Verbraucher</text>
+                    <text x="100" y="175" text-anchor="middle" fill="#38bdf8" font-size="10">🏠</text>
+                    <text x="100" y="186" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Familie S.</text>
                     <rect x="83" y="200" width="4" height="10" rx="1" fill="#38bdf8" opacity="0.7" class="profile-bar"/>
                     <rect x="89" y="204" width="4" height="6" rx="1" fill="#38bdf8" opacity="0.4" class="profile-bar"/>
                     <rect x="95" y="203" width="4" height="7" rx="1" fill="#38bdf8" opacity="0.5" class="profile-bar"/>
@@ -564,9 +567,8 @@
                     <rect x="113" y="199" width="4" height="11" rx="1" fill="#38bdf8" opacity="0.8" class="profile-bar"/>
 
                     <circle cx="300" cy="180" r="18" class="node-circle" fill="rgba(2,132,199,0.1)" stroke="#38bdf8" stroke-width="1.5"/>
-                    <text x="300" y="177" text-anchor="middle" fill="#38bdf8" font-size="10">🏠</text>
-                    <text x="300" y="188" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Ehepaar W.</text>
-                    <text x="300" y="195" text-anchor="middle" fill="#94a3b8" font-size="4">Verbraucher</text>
+                    <text x="300" y="175" text-anchor="middle" fill="#38bdf8" font-size="10">🏠</text>
+                    <text x="300" y="186" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">Ehepaar W.</text>
                     <rect x="283" y="202" width="4" height="5" rx="1" fill="#38bdf8" opacity="0.4" class="profile-bar"/>
                     <rect x="289" y="200" width="4" height="7" rx="1" fill="#38bdf8" opacity="0.5" class="profile-bar"/>
                     <rect x="295" y="198" width="4" height="9" rx="1" fill="#38bdf8" opacity="0.7" class="profile-bar"/>
@@ -575,9 +577,8 @@
                     <rect x="313" y="201" width="4" height="6" rx="1" fill="#38bdf8" opacity="0.5" class="profile-bar"/>
 
                     <circle cx="160" cy="230" r="18" class="node-circle" fill="rgba(2,132,199,0.1)" stroke="#38bdf8" stroke-width="1.5"/>
-                    <text x="160" y="227" text-anchor="middle" fill="#38bdf8" font-size="10">🏠</text>
-                    <text x="160" y="238" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">WEG Am Hang</text>
-                    <text x="160" y="245" text-anchor="middle" fill="#94a3b8" font-size="4">Verbraucher</text>
+                    <text x="160" y="225" text-anchor="middle" fill="#38bdf8" font-size="10">🏠</text>
+                    <text x="160" y="236" text-anchor="middle" fill="#fff" font-size="5" font-weight="600">WEG Am Hang</text>
                     <rect x="143" y="252" width="4" height="10" rx="1" fill="#38bdf8" opacity="0.7" class="profile-bar"/>
                     <rect x="149" y="255" width="4" height="7" rx="1" fill="#38bdf8" opacity="0.5" class="profile-bar"/>
                     <rect x="155" y="256" width="4" height="6" rx="1" fill="#38bdf8" opacity="0.4" class="profile-bar"/>
@@ -586,12 +587,12 @@
                     <rect x="173" y="250" width="4" height="12" rx="1" fill="#38bdf8" opacity="0.8" class="profile-bar"/>
 
                     <!-- Legend -->
-                    <circle cx="30" cy="260" r="5" fill="rgba(234,179,8,0.15)" stroke="#facc15" stroke-width="1"/>
-                    <text x="40" y="263" fill="#94a3b8" font-size="6">Prosumer</text>
-                    <circle cx="120" cy="260" r="5" fill="rgba(2,132,199,0.1)" stroke="#38bdf8" stroke-width="1"/>
-                    <text x="130" y="263" fill="#94a3b8" font-size="6">Verbraucher</text>
-                    <rect x="200" y="257" width="20" height="6" rx="1" fill="rgba(250,204,21,0.4)"/>
-                    <text x="225" y="263" fill="#94a3b8" font-size="6">Dynamisches Stromprofil</text>
+                    <circle cx="30" cy="280" r="5" fill="rgba(234,179,8,0.15)" stroke="#facc15" stroke-width="1"/>
+                    <text x="40" y="283" fill="#94a3b8" font-size="6">Prosumer</text>
+                    <circle cx="120" cy="280" r="5" fill="rgba(2,132,199,0.1)" stroke="#38bdf8" stroke-width="1"/>
+                    <text x="130" y="283" fill="#94a3b8" font-size="6">Verbraucher</text>
+                    <rect x="200" y="277" width="20" height="6" rx="1" fill="rgba(250,204,21,0.4)"/>
+                    <text x="225" y="283" fill="#94a3b8" font-size="6">Dynamisches Stromprofil</text>
                 </svg>
 
                 <!-- Steps -->
@@ -613,6 +614,7 @@
                         <p style="font-size:0.7rem;">Automatisch, 15-min-genau, transparent. Dashboard für alle Teilnehmer.</p>
                     </div>
                 </div>
+                </div>
             </div>
         </div>
 
@@ -628,7 +630,7 @@
                     <p style="font-size:0.8rem; margin-bottom:1rem;">End-to-End Plattform inkl. Smart Meter Gateway.</p>
                     <ul>
                         <li><i class="fa-solid fa-xmark" style="color:#e11d48;"></i> Eigene Smart-Meter-Infrastruktur</li>
-                        <li><i class="fa-solid fa-xmark" style="color:#e11d48;"></i> <strong>Direkte Konkurrenz zur Syna</strong></li>
+                        <li><i class="fa-solid fa-xmark" style="color:#e11d48;"></i> <strong>Unpassend für Syna-Kooperation</strong></li>
                         <li><i class="fa-solid fa-xmark" style="color:#e11d48;"></i> Hohe Hardware- & Wechselkosten</li>
                     </ul>
                 </div>
@@ -640,6 +642,16 @@
                         <li><i class="fa-solid fa-xmark" style="color:#e11d48;"></i> <strong>Firmensitz Schweiz</strong> (nicht DE-Recht)</li>
                         <li><i class="fa-solid fa-xmark" style="color:#e11d48;"></i> Fokus auf Großprojekte & SAP-Integration</li>
                     </ul>
+                </div>
+            </div>
+            <div class="anim-item" style="margin-top:1.5rem; max-width:800px; margin-left:auto; margin-right:auto; padding: 1.2rem; background:rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius:0.75rem; border-left: 4px solid #64748b;">
+                <div style="font-size:0.85rem; font-weight:700; color:#94a3b8; margin-bottom:0.8rem; letter-spacing:0.02em;"><i class="fa-solid fa-eye" style="margin-right:0.4rem;"></i>Weitere Marktbegleiter (für das Pilotprojekt unpassend)</div>
+                <div style="display:flex; flex-wrap:wrap; gap:0.6rem; font-size:0.75rem;">
+                    <span style="background:rgba(255,255,255,0.04); padding:0.4rem 0.7rem; border-radius:0.4rem; color:#cbd5e1; border:1px solid rgba(255,255,255,0.04);"><strong>WeShareEnergy</strong> <span style="opacity:0.6; margin-left:0.3rem;">Preisziel zu hoch</span></span>
+                    <span style="background:rgba(255,255,255,0.04); padding:0.4rem 0.7rem; border-radius:0.4rem; color:#cbd5e1; border:1px solid rgba(255,255,255,0.04);"><strong>Lumenaza</strong> <span style="opacity:0.6; margin-left:0.3rem;">Fokus auf BPO</span></span>
+                    <span style="background:rgba(255,255,255,0.04); padding:0.4rem 0.7rem; border-radius:0.4rem; color:#cbd5e1; border:1px solid rgba(255,255,255,0.04);"><strong>neoom</strong> <span style="opacity:0.6; margin-left:0.3rem;">Hardware-Lock-in</span></span>
+                    <span style="background:rgba(255,255,255,0.04); padding:0.4rem 0.7rem; border-radius:0.4rem; color:#cbd5e1; border:1px solid rgba(255,255,255,0.04);"><strong>egon.energy</strong> <span style="opacity:0.6; margin-left:0.3rem;">Anderer Fokus</span></span>
+                    <span style="background:rgba(255,255,255,0.04); padding:0.4rem 0.7rem; border-radius:0.4rem; color:#cbd5e1; border:1px solid rgba(255,255,255,0.04);"><strong>Tibber / Rabot.charge</strong> <span style="opacity:0.6; margin-left:0.3rem;">Anderes Modell (dyn. Tarife)</span></span>
                 </div>
             </div>
         </div>
@@ -684,8 +696,9 @@
                     <thead><tr><th>Anbieter</th><th>Vorteile</th><th>Nachteile / Risiken</th></tr></thead>
                     <tbody>
                         <tr class="highlight-row"><td><strong>decarbon1ze</strong> ★</td><td><span class="pro">✓</span> DE-Firma · <span class="pro">✓</span> Günstigster · <span class="pro">✓</span> GGV-Fokus · <span class="pro">✓</span> 15-min</td><td><span class="con">ℹ</span> Jung am Markt</td></tr>
-                        <tr><td><strong>neugemacht</strong></td><td><span class="pro">✓</span> End2End · <span class="pro">✓</span> SMGW inklusive · <span class="pro">✓</span> API-Übergabe</td><td><span class="con">✗</span> Konkurrenz Syna · <span class="con">✗</span> Teurer</td></tr>
+                        <tr><td><strong>neugemacht</strong></td><td><span class="pro">✓</span> End2End · <span class="pro">✓</span> SMGW inklusive · <span class="pro">✓</span> API-Übergabe</td><td><span class="con">✗</span> Unpassend für Syna · <span class="con">✗</span> Teurer</td></tr>
                         <tr><td><strong>Exnaton</strong></td><td><span class="pro">✓</span> SAP-Integration · <span class="pro">✓</span> KI-Prognosen · <span class="pro">✓</span> Enterprise</td><td><span class="con">✗</span> Schweizer Firma · <span class="con">✗</span> 10× teurer</td></tr>
+                        <tr style="opacity:0.75;"><td><strong>Weitere</strong><br><span style="font-size:0.65rem; font-weight:normal;">WeShareEnergy, neoom, Lumenaza, etc.</span></td><td><span class="pro">✓</span> Div. Speziallösungen</td><td><span class="con">✗</span> Nicht favorisiert (Lock-in, zu teuer o.a. Fokus)</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -713,131 +726,334 @@
                     <div class="donut-legend-item"><div class="swatch" style="background:var(--brand-light);"></div> <strong style="color:#fff;">Power-Share</strong> — Community & Matching</div>
                     <div class="donut-legend-item"><div class="swatch" style="background:#38bdf8;"></div> <strong style="color:#fff;">decarbon1ze ★</strong> — Bilanzierung & Abrechnung</div>
                     <div class="donut-legend-item"><div class="swatch" style="background:#c084fc;"></div> <strong style="color:#fff;">Syna / Süwag</strong> — Netz & Smart Meter (iMSys)</div>
-                    <div class="donut-legend-item"><div class="swatch" style="background:#2dd4bf;"></div> <strong style="color:#fff;">Stadtwerke Bühl</strong> — möglicher operativer Partner</div>
+                    <div class="donut-legend-item"><div class="swatch" style="background:#2dd4bf;"></div> <strong style="color:#fff;">Gemeinden Bühlertal, Lauf, Ottersweier</strong> — Pilotregion & lokaler Rückhalt</div>
                 </div>
             </div>
             <p style="text-align:center; font-size:0.75rem; color:var(--text-muted);"><i class="fa-solid fa-microchip" style="color:var(--brand-light); margin-right:0.3rem;"></i>„Keine Luftschlösser — funktionierende Enterprise-IT aus Deutschland."</p>
+            <div class="anim-item" style="display:flex; justify-content:center; margin-top:1.2rem;">
+                <div class="partner-badge" style="opacity:0.6; cursor:help;" title="Optional"><i class="fa-solid fa-building"></i> <strong style="color:#fff;">(Optional) Stadtwerke Bühl</strong> — in Kontakt für Piloten/Zusammenarbeit</div>
+            </div>
         </div>
 
-        <!-- ══════════ F11 ── Win-Win ══════════ -->
+        <!-- ══════════ F11 ── Abgaben & Kosten ══════════ -->
         <div class="slide" data-slide="10">
             <div class="bg-glow yellow" style="width:400px;height:400px;top:-5%;right:20%"></div>
             <div class="slide-tag"><span class="dot"></span> Block 3 · Wirtschaftlichkeit</div>
-            <h2 class="slide-heading"><span class="accent">Win-Win</span> für die Bürger</h2>
-            <p class="slide-subtitle">Rechenbeispiel: Beide Seiten profitieren — Kaufkraft bleibt in BOL.</p>
-            <div class="card-grid cols-2 slide-body" style="max-width:660px;">
-                <div class="card anim-item" style="text-align:center; border-color:rgba(234,179,8,0.2);"><div class="icon icon-yellow" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-sun"></i></div><h3>Erzeuger</h3><p style="margin-bottom:0.4rem;">Mehr als EEG-Vergütung für den Überschuss.</p><div style="font-size:1.7rem; font-weight:900; color:var(--brand-light);">+<span class="count-up" data-target="180" data-no-sep="1">0</span> €</div><div style="font-size:0.6rem; color:var(--text-muted);">MEHRERLÖS PRO JAHR</div></div>
-                <div class="card anim-item" style="text-align:center; border-color:rgba(2,132,199,0.2);"><div class="icon icon-blue" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-house"></i></div><h3>Verbraucher</h3><p style="margin-bottom:0.4rem;">Günstigere Arbeitspreise & reduzierte Netzentgelte.</p><div style="font-size:1.7rem; font-weight:900; color:#38bdf8;">−<span class="count-up" data-target="175" data-no-sep="1">0</span> €</div><div style="font-size:0.6rem; color:var(--text-muted);">ERSPARNIS PRO JAHR</div></div>
-            </div>
-            <div class="highlight-box anim-item" style="margin-top:0.9rem;">
-                <div class="big">Prosumer-Mehrerlöse: &gt;<span class="count-up" data-target="800" data-no-sep="1">0</span> €/Jahr</div>
-                <p>gegenüber reiner EEG-Einspeisung — je nach Anlagengröße und Profil.</p>
+            <h2 class="slide-heading">Kosten & <span class="accent">Abgaben</span></h2>
+            <p class="slide-subtitle">Auch beim Energy Sharing fallen Netzentgelte und Umlagen an.</p>
+            
+            <div class="slide-body" style="max-width:800px; margin: 0 auto;">
+                <table class="compare-table" style="margin-bottom: 1.5rem;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:left;">Abgabe / Kostenpunkt</th>
+                            <th style="text-align:right;">ct / kWh (netto)</th>
+                            <th style="text-align:left; padding-left: 1.5rem;">Hinweis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Netzentgelte</strong></td>
+                            <td style="text-align:right; font-weight:bold;">9,26</td>
+                            <td style="padding-left: 1.5rem; color: var(--text-muted); font-size: 0.85rem;">nach Senkung 2026</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Umlagen</strong> <span style="font-size:0.7rem; color:var(--text-muted);">(KWKG, Offshore, §19)</span></td>
+                            <td style="text-align:right; font-weight:bold;">2,95</td>
+                            <td style="padding-left: 1.5rem; color: var(--text-muted); font-size: 0.85rem;">Stand 2026</td>
+                        </tr>
+                        <tr class="highlight-row">
+                            <td><i class="fa-solid fa-bolt" style="color:var(--brand-light); margin-right:0.3rem;"></i> <strong>Stromsteuer</strong></td>
+                            <td style="text-align:right; font-weight:bold; color:var(--brand-light);">0,00</td>
+                            <td style="padding-left: 1.5rem; color: var(--brand-light); font-size: 0.85rem; font-weight:bold;"><i class="fa-solid fa-check"></i> Befreit! (≤2 MW, ≤4,5 km)</td>
+                        </tr>
+                        <tr style="border-top: 2px solid rgba(255,255,255,0.1);">
+                            <td style="font-size: 1.1rem; padding-top: 1rem;"><strong>Summe Nebenkosten</strong></td>
+                            <td style="text-align:right; font-size: 1.1rem; font-weight:900; padding-top: 1rem;">12,21</td>
+                            <td style="padding-top: 1rem;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="highlight-box anim-item" style="margin-top:1rem; max-width: 100%;">
+                    <div class="big" style="font-size: 1.2rem;"><i class="fa-solid fa-scale-balanced" style="margin-right:0.4rem; color:var(--brand-light);"></i> Der faire Sharing-Preis</div>
+                    <p style="font-size: 0.9rem;">Dazu kommt der reine <strong>Sharing-Preis</strong> (z.B. 13 ct/kWh), der frei zwischen Erzeuger und Verbraucher vereinbart wird. Durch die Stromsteuerbefreiung entsteht eine echte <strong>Win-Win-Situation</strong>.</p>
+                </div>
             </div>
         </div>
 
         <!-- ══════════ F11b ── Interaktiver Rechner ══════════ -->
         <div class="slide" data-slide="11">
             <div class="bg-glow blue" style="width:500px;height:500px;bottom:-10%;left:-5%"></div>
+            <div class="bg-glow yellow" style="width:400px;height:400px;top:-5%;right:-5%"></div>
             <div class="slide-tag"><span class="dot"></span> Block 3 · Wirtschaftlichkeit</div>
             <h2 class="slide-heading">Der <span class="accent">Energy Sharing Rechner</span></h2>
             <p class="slide-subtitle">Live-Simulation: Wie verteilen wir die Vorteile fair?</p>
             
-            <div class="slide-body calc-wrapper" style="width: 100%; max-width: 800px; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem;">
-                <div style="display: flex; gap: 1rem; justify-content: center; margin-bottom: 0.5rem;">
-                    <button class="btn calc-scenario-btn" onclick="setFeeMode('fair')" style="background: var(--brand); color: white; border: none; padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; font-weight: bold;"><i class="fa-solid fa-scale-balanced" style="margin-right:0.5rem;"></i> Gleichbehandlung (je 5€)</button>
-                    <button class="btn calc-scenario-btn" onclick="setFeeMode('producer')" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 0.5rem; cursor: pointer; font-weight: bold;"><i class="fa-solid fa-weight-hanging" style="margin-right:0.5rem;"></i> Ausbalancieren (Einspeiser zahlt 10€)</button>
-                </div>
+            <div class="slide-body calc-wrapper" style="width: 100%; max-width: 1100px; background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(255,255,255,0.1); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; gap: 1rem; margin-top: 0.5rem;">
                 
-                <div style="display: flex; gap: 2rem;">
-                    <!-- Controls -->
-                    <div style="flex: 1; display: flex; flex-direction: column; gap: 1.2rem;">
-                        <div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-                                <label style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">Energy Sharing Preis (ct/kWh)</label>
-                                <span id="valPreis" style="font-weight: bold; color: var(--brand-light);">13.0 ct</span>
-                            </div>
-                            <input type="range" id="sliderPreis" min="0" max="30" step="0.5" value="13" style="width: 100%; accent-color: var(--brand-light);" oninput="updateCalc()">
+                <!-- Buttons Row -->
+                <div style="display: flex; gap: 1rem; justify-content: space-between; flex-wrap: wrap;">
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
+                        <span style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:bold; letter-spacing: 0.05em; margin-right: 0.5rem;"><i class="fa-solid fa-wand-magic-sparkles" style="margin-right:0.3rem;"></i> Szenarien</span>
+                        <button class="btn preset-btn active" onclick="applyPreset('small', this)" style="background: var(--brand); color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight:bold; cursor: pointer;">Kleine Menge</button>
+                        <button class="btn preset-btn" onclick="applyPreset('large', this)" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight:bold; cursor: pointer;">Größere Menge</button>
+                        <button class="btn preset-btn" onclick="applyPreset('family', this)" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight:bold; cursor: pointer;">Freunde / Familie</button>
+                    </div>
+
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
+                        <span style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:bold; letter-spacing: 0.05em; margin-right: 0.5rem;"><i class="fa-solid fa-scale-balanced" style="margin-right:0.3rem;"></i> Plattform-Fee</span>
+                        <button class="btn fee-btn active" onclick="setFeeMode('fair', this)" style="background: var(--brand); color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight:bold; cursor: pointer;">Gleich (je 5€)</button>
+                        <button class="btn fee-btn" onclick="setFeeMode('producer', this)" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight:bold; cursor: pointer;">Ausbalancieren (Erzeuger 10€)</button>
+                    </div>
+                </div>
+
+                <!-- Global Sliders Row -->
+                <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 0.8rem; padding: 1rem 1.5rem; display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                            <label style="font-size: 0.75rem; color: var(--text-muted); font-weight:bold; text-transform:uppercase;">Sharing-Preis</label>
+                            <span id="val_g_sh_price" style="font-size: 0.9rem; font-weight: 900; color: var(--brand-light);">13.0 ct</span>
                         </div>
-                        <div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-                                <label style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">Geteilte Menge (kWh/Monat)</label>
-                                <span id="valMenge" style="font-weight: bold; color: #fff;">300 kWh</span>
-                            </div>
-                            <input type="range" id="sliderMenge" min="50" max="2000" step="50" value="300" style="width: 100%; accent-color: #94a3b8;" oninput="updateCalc()">
+                        <input type="range" id="g_sh_price" min="0" max="30" step="0.5" value="13" style="width: 100%; accent-color: var(--brand-light);" oninput="updateAll()">
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                            <label style="font-size: 0.75rem; color: var(--text-muted); font-weight:bold; text-transform:uppercase;">Netzentgelt (Sharing)</label>
+                            <span id="val_g_grid" style="font-size: 0.9rem; font-weight: 900; color: #fff;">12.0 ct</span>
                         </div>
-                        <div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-                                <label style="font-size: 0.8rem; font-weight: bold; color: var(--text-muted);">Netzentgelt (ct/kWh)</label>
-                                <span id="valNetz" style="font-weight: bold; color: #fff;">12.0 ct</span>
+                        <input type="range" id="g_grid" min="0" max="25" step="0.5" value="12" style="width: 100%; accent-color: #94a3b8;" oninput="updateAll()">
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                            <label style="font-size: 0.75rem; color: var(--text-muted); font-weight:bold; text-transform:uppercase;">Marktpreis (Bezug)</label>
+                            <span id="val_g_price" style="font-size: 0.9rem; font-weight: 900; color: #fff;">35.0 ct</span>
+                        </div>
+                        <input type="range" id="g_price" min="20" max="60" step="1" value="35" style="width: 100%; accent-color: #94a3b8;" oninput="updateAll()">
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                            <label style="font-size: 0.75rem; color: var(--text-muted); font-weight:bold; text-transform:uppercase;">EEG Vergütung</label>
+                            <span id="val_g_eeg" style="font-size: 0.9rem; font-weight: 900; color: #fff;">8.0 ct</span>
+                        </div>
+                        <input type="range" id="g_eeg" min="0" max="15" step="0.1" value="8.0" style="width: 100%; accent-color: #94a3b8;" oninput="updateAll()">
+                    </div>
+                </div>
+
+                <!-- 3 Columns -->
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 0.5rem;">
+                    
+                    <!-- Producer -->
+                    <div style="background: rgba(234, 179, 8, 0.05); border: 1px solid rgba(234, 179, 8, 0.2); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; position:relative; overflow:hidden;">
+                        <div style="position:absolute; top:-10px; right:-10px; font-size:5rem; opacity:0.05; color:#facc15;"><i class="fa-solid fa-solar-panel"></i></div>
+                        <h3 style="color: #facc15; font-size: 1.2rem; font-weight: 900; margin-bottom: 1.2rem; display:flex; align-items:center; gap:0.5rem;"><i class="fa-solid fa-solar-panel"></i> Einspeiser <span style="font-size:0.7rem; font-weight:normal; opacity:0.7; border: 1px solid #facc15; border-radius:1rem; padding:0.1rem 0.5rem;">Producer</span></h3>
+                        
+                        <div style="flex: 1; display: flex; flex-direction: column; gap: 1.2rem; z-index:1;">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Einspeisemenge (p.a.)</label>
+                                    <span id="val_p_export" style="font-size: 0.85rem; font-weight: bold; color: #facc15;">10.000 kWh</span>
+                                </div>
+                                <input type="range" id="p_export" min="1000" max="50000" step="500" value="10000" style="width: 100%; accent-color: #facc15;" oninput="updateAll()">
                             </div>
-                            <input type="range" id="sliderNetz" min="0" max="12" step="0.1" value="12" style="width: 100%; accent-color: #94a3b8;" oninput="updateCalc()">
+                        </div>
+                        
+                        <div style="margin-top: 1.5rem; background: rgba(0,0,0,0.4); padding: 1.2rem; border-radius: 0.8rem; text-align: center; border-bottom: 4px solid #facc15; z-index:1;">
+                            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.6); text-transform: uppercase; font-weight:bold; letter-spacing:0.05em;">Zusätzlicher Ertrag p.a.</div>
+                            <div style="font-size: 2.2rem; font-weight: 900; color: #facc15; margin: 0.2rem 0;">+<span id="res_p_profit">0</span> €</div>
+                            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">vs. reiner EEG-Vergütung</div>
                         </div>
                     </div>
 
-                    <!-- Results -->
-                    <div style="flex: 1; display: flex; flex-direction: column; gap: 1rem;">
-                        <div style="background: rgba(234, 179, 8, 0.1); border: 1px solid rgba(234, 179, 8, 0.3); border-radius: 0.75rem; padding: 1rem; text-align: center;">
-                            <div style="font-size: 0.7rem; color: #facc15; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem;">Erzeuger Erlös (netto)</div>
-                            <div style="font-size: 2rem; font-weight: 900; color: #facc15;"><span id="resErzeuger">13.0</span> <span style="font-size:1rem;font-weight:bold;">ct/kWh</span></div>
-                            <div style="font-size: 0.8rem; color: #facc15; margin-top: 0.4rem; font-weight:bold;">Gewinn vs. EEG: <span id="resErzeugerMonat">+10.00 €</span> / Monat</div>
+                    <!-- Prosumer -->
+                    <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; position:relative; overflow:hidden;">
+                        <div style="position:absolute; top:-10px; right:-10px; font-size:5rem; opacity:0.05; color:#34d399;"><i class="fa-solid fa-house-circle-bolt"></i></div>
+                        <h3 style="color: #34d399; font-size: 1.2rem; font-weight: 900; margin-bottom: 1.2rem; display:flex; align-items:center; gap:0.5rem;"><i class="fa-solid fa-house-circle-bolt"></i> Beides <span style="font-size:0.7rem; font-weight:normal; opacity:0.7; border: 1px solid #34d399; border-radius:1rem; padding:0.1rem 0.5rem;">Prosumer</span></h3>
+                        
+                        <div style="flex: 1; display: flex; flex-direction: column; gap: 1.2rem; z-index:1;">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Einspeisemenge (p.a.)</label>
+                                    <span id="val_pr_export" style="font-size: 0.85rem; font-weight: bold; color: #34d399;">6.000 kWh</span>
+                                </div>
+                                <input type="range" id="pr_export" min="1000" max="30000" step="500" value="6000" style="width: 100%; accent-color: #34d399;" oninput="updateAll()">
+                            </div>
+                            <div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Jahresbedarf (Bezug)</label>
+                                    <span id="val_pr_demand" style="font-size: 0.85rem; font-weight: bold; color: #34d399;">3.000 kWh</span>
+                                </div>
+                                <input type="range" id="pr_demand" min="1000" max="15000" step="100" value="3000" style="width: 100%; accent-color: #34d399;" oninput="updateAll()">
+                            </div>
+                            <div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Davon aus Sharing</label>
+                                    <span id="val_pr_share" style="font-size: 0.85rem; font-weight: bold; color: #34d399;">1.500 kWh</span>
+                                </div>
+                                <input type="range" id="pr_share" min="0" max="15000" step="100" value="1500" style="width: 100%; accent-color: #34d399;" oninput="updateAll()">
+                            </div>
                         </div>
-                        <div style="background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 0.75rem; padding: 1rem; text-align: center;">
-                            <div style="font-size: 0.7rem; color: #38bdf8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem;">Verbraucher Kosten (brutto)</div>
-                            <div style="font-size: 2rem; font-weight: 900; color: #38bdf8;"><span id="resVerbraucher">25.1</span> <span style="font-size:1rem;font-weight:bold;">ct/kWh</span></div>
-                            <div style="font-size: 0.8rem; color: #38bdf8; margin-top: 0.4rem; font-weight:bold;">Ersparnis: <span id="resVerbraucherMonat">-15.70 €</span> / Monat</div>
-                            <div style="font-size: 0.65rem; color: var(--text-muted); margin-top: 0.2rem;">vs. Grundversorger (~32 ct)</div>
+                        
+                        <div style="margin-top: 1.5rem; background: rgba(0,0,0,0.4); padding: 1.2rem; border-radius: 0.8rem; text-align: center; border-bottom: 4px solid #34d399; z-index:1;">
+                            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.6); text-transform: uppercase; font-weight:bold; letter-spacing:0.05em;">Gesamtvorteil p.a.</div>
+                            <div style="font-size: 2.2rem; font-weight: 900; color: #34d399; margin: 0.2rem 0;">+<span id="res_pr_total">0</span> €</div>
+                            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">Ersparnis + Zusatzerlös</div>
                         </div>
                     </div>
+
+                    <!-- Consumer -->
+                    <div style="background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; position:relative; overflow:hidden;">
+                        <div style="position:absolute; top:-10px; right:-10px; font-size:5rem; opacity:0.05; color:#38bdf8;"><i class="fa-solid fa-house-user"></i></div>
+                        <h3 style="color: #38bdf8; font-size: 1.2rem; font-weight: 900; margin-bottom: 1.2rem; display:flex; align-items:center; gap:0.5rem;"><i class="fa-solid fa-house-user"></i> Abnehmer <span style="font-size:0.7rem; font-weight:normal; opacity:0.7; border: 1px solid #38bdf8; border-radius:1rem; padding:0.1rem 0.5rem;">Consumer</span></h3>
+                        
+                        <div style="flex: 1; display: flex; flex-direction: column; gap: 1.2rem; z-index:1;">
+                            <div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Jahresbedarf (Bezug)</label>
+                                    <span id="val_c_demand" style="font-size: 0.85rem; font-weight: bold; color: #38bdf8;">4.000 kWh</span>
+                                </div>
+                                <input type="range" id="c_demand" min="1000" max="20000" step="100" value="4000" style="width: 100%; accent-color: #38bdf8;" oninput="updateAll()">
+                            </div>
+                            <div>
+                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Davon aus Sharing</label>
+                                    <span id="val_c_share" style="font-size: 0.85rem; font-weight: bold; color: #38bdf8;">2.000 kWh</span>
+                                </div>
+                                <input type="range" id="c_share" min="0" max="20000" step="100" value="2000" style="width: 100%; accent-color: #38bdf8;" oninput="updateAll()">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 1.5rem; background: rgba(0,0,0,0.4); padding: 1.2rem; border-radius: 0.8rem; text-align: center; border-bottom: 4px solid #38bdf8; z-index:1;">
+                            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.6); text-transform: uppercase; font-weight:bold; letter-spacing:0.05em;">Ersparnis p.a.</div>
+                            <div style="font-size: 2.2rem; font-weight: 900; color: #38bdf8; margin: 0.2rem 0;">+<span id="res_c_save">0</span> €</div>
+                            <div style="font-size: 0.75rem; color: rgba(255,255,255,0.5);">vs. 100% Graustrom</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div style="text-align: center; font-size: 0.65rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem; letter-spacing: 0.02em;">
+                    *Alle Berechnungen inklusive Plattformgebühr, exkl. ggf. einmaliger Smart-Meter-Installationskosten.
                 </div>
             </div>
             
             <script>
                 let currentFeeMode = 'fair';
                 
-                function updateCalc() {
-                    const preis = parseFloat(document.getElementById('sliderPreis').value);
-                    const menge = parseFloat(document.getElementById('sliderMenge').value);
-                    const netz = parseFloat(document.getElementById('sliderNetz').value);
-                    
-                    document.getElementById('valPreis').innerText = preis.toFixed(1) + ' ct';
-                    document.getElementById('valMenge').innerText = menge + ' kWh';
-                    document.getElementById('valNetz').innerText = netz.toFixed(1) + ' ct';
-                    
-                    const gebuehrErzeuger = currentFeeMode === 'fair' ? 5 : 10;
-                    const gebuehrVerbraucher = currentFeeMode === 'fair' ? 5 : 0;
-                    
-                    // Erzeuger:
-                    document.getElementById('resErzeuger').innerText = preis.toFixed(1);
-                    const gewinnErzeuger = ((preis - 8) * menge / 100) - gebuehrErzeuger;
-                    document.getElementById('resErzeugerMonat').innerText = (gewinnErzeuger >= 0 ? '+' : '') + gewinnErzeuger.toFixed(2) + ' €';
-                    
-                    // Verbraucher: (Preis + Netzentgelt + 3.6) * 1.19
-                    const brutto = (preis + netz + 3.6) * 1.19;
-                    document.getElementById('resVerbraucher').innerText = brutto.toFixed(1);
-                    const ersparnisVerbraucher = ((32 - brutto) * menge / 100) - gebuehrVerbraucher;
-                    document.getElementById('resVerbraucherMonat').innerText = (ersparnisVerbraucher >= 0 ? '-' : '+') + Math.abs(ersparnisVerbraucher).toFixed(2) + ' €';
-                }
-
-                function setFeeMode(type) {
-                    currentFeeMode = type;
-                    const btns = document.querySelectorAll('.calc-scenario-btn');
+                function applyPreset(preset, btnElem) {
+                    const btns = document.querySelectorAll('.preset-btn');
                     btns.forEach(b => {
                         b.style.background = 'rgba(255,255,255,0.1)';
                         b.style.border = '1px solid rgba(255,255,255,0.2)';
                     });
-
-                    if (type === 'fair') {
-                        btns[0].style.background = 'var(--brand)';
-                        btns[0].style.border = 'none';
-                    } else if (type === 'producer') {
-                        btns[1].style.background = 'var(--brand)';
-                        btns[1].style.border = 'none';
+                    if(btnElem) {
+                        btnElem.style.background = 'var(--brand)';
+                        btnElem.style.border = 'none';
                     }
-                    updateCalc();
+
+                    if(preset === 'small') {
+                        document.getElementById('g_sh_price').value = 13;
+                        document.getElementById('p_export').value = 3000;
+                        document.getElementById('pr_export').value = 3000;
+                        document.getElementById('pr_demand').value = 2500;
+                        document.getElementById('pr_share').value = 1000;
+                        document.getElementById('c_demand').value = 2500;
+                        document.getElementById('c_share').value = 1500;
+                    } else if(preset === 'large') {
+                        document.getElementById('g_sh_price').value = 10;
+                        document.getElementById('p_export').value = 30000;
+                        document.getElementById('pr_export').value = 15000;
+                        document.getElementById('pr_demand').value = 8000;
+                        document.getElementById('pr_share').value = 4000;
+                        document.getElementById('c_demand').value = 10000;
+                        document.getElementById('c_share').value = 6000;
+                    } else if(preset === 'family') {
+                        document.getElementById('g_sh_price').value = 0; // Schenken
+                        document.getElementById('p_export').value = 8000;
+                        document.getElementById('pr_export').value = 5000;
+                        document.getElementById('pr_demand').value = 4000;
+                        document.getElementById('pr_share').value = 2500;
+                        document.getElementById('c_demand').value = 4000;
+                        document.getElementById('c_share').value = 3000;
+                    }
+                    updateAll();
                 }
-                
-                // Initial call to set values correctly on load
-                updateCalc();
+
+                function setFeeMode(type, btnElem) {
+                    currentFeeMode = type;
+                    const btns = document.querySelectorAll('.fee-btn');
+                    btns.forEach(b => {
+                        b.style.background = 'rgba(255,255,255,0.1)';
+                        b.style.border = '1px solid rgba(255,255,255,0.2)';
+                    });
+                    if(btnElem) {
+                        btnElem.style.background = 'var(--brand)';
+                        btnElem.style.border = 'none';
+                    }
+                    updateAll();
+                }
+
+                function updateAll() {
+                    // Global Parameters
+                    const g_sh_price = parseFloat(document.getElementById('g_sh_price').value) / 100;
+                    const g_grid = parseFloat(document.getElementById('g_grid').value) / 100;
+                    const g_price = parseFloat(document.getElementById('g_price').value) / 100;
+                    const g_eeg = parseFloat(document.getElementById('g_eeg').value) / 100;
+
+                    document.getElementById('val_g_sh_price').innerText = (g_sh_price * 100).toFixed(1) + ' ct';
+                    document.getElementById('val_g_grid').innerText = (g_grid * 100).toFixed(1) + ' ct';
+                    document.getElementById('val_g_price').innerText = (g_price * 100).toFixed(1) + ' ct';
+                    document.getElementById('val_g_eeg').innerText = (g_eeg * 100).toFixed(1) + ' ct';
+
+                    // Fees p.a.
+                    const feeProducer = currentFeeMode === 'fair' ? (5 * 12) : (10 * 12);
+                    const feeConsumer = currentFeeMode === 'fair' ? (5 * 12) : 0;
+                    const feeProsumer = feeProducer + feeConsumer; // z.B. zahlt 10€ oder 10€
+
+                    // FORMATTING HELPER
+                    const fmt = (num) => new Intl.NumberFormat('de-DE').format(Math.round(num));
+
+                    // 1. PRODUCER
+                    const p_export = parseFloat(document.getElementById('p_export').value);
+                    document.getElementById('val_p_export').innerText = fmt(p_export) + ' kWh';
+                    
+                    const p_profit = (p_export * g_sh_price) - feeProducer - (p_export * g_eeg);
+                    document.getElementById('res_p_profit').innerText = fmt(Math.max(0, p_profit));
+
+                    // 2. CONSUMER
+                    const c_demand = parseFloat(document.getElementById('c_demand').value);
+                    let c_share = parseFloat(document.getElementById('c_share').value);
+                    if (c_share > c_demand) { c_share = c_demand; document.getElementById('c_share').value = c_share; }
+                    
+                    document.getElementById('val_c_demand').innerText = fmt(c_demand) + ' kWh';
+                    document.getElementById('val_c_share').innerText = fmt(c_share) + ' kWh';
+
+                    const c_trad_cost = c_demand * g_price;
+                    const c_sharing_cost = (c_share * (g_sh_price + g_grid)) + ((c_demand - c_share) * g_price) + feeConsumer;
+                    const c_save = c_trad_cost - c_sharing_cost;
+                    document.getElementById('res_c_save').innerText = fmt(Math.max(0, c_save));
+
+                    // 3. PROSUMER
+                    const pr_export = parseFloat(document.getElementById('pr_export').value);
+                    const pr_demand = parseFloat(document.getElementById('pr_demand').value);
+                    let pr_share = parseFloat(document.getElementById('pr_share').value);
+                    if (pr_share > pr_demand) { pr_share = pr_demand; document.getElementById('pr_share').value = pr_share; }
+                    
+                    document.getElementById('val_pr_export').innerText = fmt(pr_export) + ' kWh';
+                    document.getElementById('val_pr_demand').innerText = fmt(pr_demand) + ' kWh';
+                    document.getElementById('val_pr_share').innerText = fmt(pr_share) + ' kWh';
+
+                    const pr_profit = (pr_export * g_sh_price) - (pr_export * g_eeg);
+                    const pr_trad_cost = pr_demand * g_price;
+                    const pr_sharing_cost = (pr_share * (g_sh_price + g_grid)) + ((pr_demand - pr_share) * g_price);
+                    const pr_save = pr_trad_cost - pr_sharing_cost;
+                    
+                    const pr_total = pr_profit + pr_save - feeProsumer;
+                    document.getElementById('res_pr_total').innerText = fmt(Math.max(0, pr_total));
+                }
+
+                // Initial call
+                updateAll();
             </script>
         </div>
 
@@ -866,6 +1082,36 @@
             <div class="quote-block anim-item"><p>„Energy Sharing gibt Altanlagen eine neue, profitable Zukunft — statt sie abzuschalten."</p></div>
         </div>
 
+        <!-- ══════════ F12b ── Ottersweier Beispiel ══════════ -->
+        <div class="slide" data-slide="12b">
+            <div class="bg-glow rose" style="width:400px;height:400px;top:-5%;right:5%"></div>
+            <div class="slide-tag"><span class="dot"></span> Block 3 · Wirtschaftlichkeit</div>
+            <h2 class="slide-heading">Aktuelles Beispiel: <span class="accent">Ottersweier</span></h2>
+            <p class="slide-subtitle">Nach 13 Gewinnjahren plötzlich im Minus: Warum der Status Quo nicht mehr funktioniert.</p>
+            
+            <div class="card-grid cols-3 slide-body">
+                <div class="card anim-item" style="border-color:rgba(225,29,72,0.2);">
+                    <div class="icon icon-rose"><i class="fa-solid fa-arrow-trend-down"></i></div>
+                    <h3 style="color:#fb7185;">Das Problem</h3>
+                    <p><strong>18.280 € Verlust in 2024.</strong><br>Warum? Wegfall der EEG-Vergütung durch negative Strompreise an der Börse.</p>
+                </div>
+                <div class="card anim-item" style="border-color:rgba(250,204,21,0.2);">
+                    <div class="icon icon-yellow"><i class="fa-solid fa-code-branch"></i></div>
+                    <h3 style="color:#facc15;">Bisherige Überlegungen</h3>
+                    <p>Ideen wie die Nutzung für die Dorfheizung oder Schul-Klimaanlagen sind ein erster Schritt, schöpfen das Potenzial aber nicht voll aus:</p>
+                    <ul style="font-size:0.75rem; margin-top:0.5rem; padding-left:1rem;">
+                        <li><i class="fa-solid fa-arrow-right" style="color:#facc15; margin-right:4px;"></i>Die Dorfheizung benötigt im Sommer (PV-Hochphase) ca. <strong>Faktor 7</strong> weniger Energie.</li>
+                        <li><i class="fa-solid fa-arrow-right" style="color:#facc15; margin-right:4px;"></i>Klimaanlagen erhöhen den Eigenverbrauch, generieren jedoch keine neuen Einnahmen.</li>
+                    </ul>
+                </div>
+                <div class="card anim-item" style="border-color:rgba(16,185,129,0.2);">
+                    <div class="icon icon-green"><i class="fa-solid fa-gem"></i></div>
+                    <h3 style="color:#34d399;">Neue Option mit Mehrwert</h3>
+                    <p><strong>Energy Sharing!</strong><br>Lokalen Strom lukrativ an Bürger verkaufen. Durch Investitionen in Batterien kann der Strom über 24h verteilt werden — eine echte Win-Win-Situation für Gemeinde und Bürger.</p>
+                </div>
+            </div>
+        </div>
+
         <!-- ══════════ F13 ── Kommune ══════════ -->
         <div class="slide" data-slide="12">
             <div class="bg-glow green" style="width:500px;height:500px;bottom:-10%;right:-10%"></div>
@@ -875,7 +1121,7 @@
             <div class="card-grid cols-3 slide-body">
                 <div class="card anim-item" style="text-align:center;"><div class="icon icon-green" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-building-flag"></i></div><h3>Liegenschaften</h3><p>Dachflächen liefern Strom, kommunaler Eigenbedarf wird günstig aus der Community gedeckt.</p></div>
                 <div class="card anim-item" style="text-align:center;"><div class="icon icon-blue" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-battery-full"></i></div><h3>Zentrale Batterie</h3><p>Perspektive: Ein Quartiersspeicher für alle — analog zum erfolgreichen <strong>Neon-Modell in Willstätt</strong>.</p></div>
-                <div class="card anim-item" style="text-align:center;"><div class="icon icon-yellow" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-award"></i></div><h3>Vorbild sein</h3><p>Klimaziele erreichen, Standort stärken, positive PR für das gesamte Tal.</p></div>
+                <div class="card anim-item" style="text-align:center;"><div class="icon icon-yellow" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-award"></i></div><h3>Vorbild sein</h3><p>Nicht "Klimaneutralität 2040" für Fördergelder ausrufen, sondern echte lokale Ausbalancierung schaffen – damit wir keinen Strom aus dem Norden beziehen und keine Überschüsse in Nachbarländer verschieben müssen.</p></div>
             </div>
             <p style="text-align:center; margin-top:0.9rem; font-size:0.75rem; color:var(--text-muted);"><i class="fa-solid fa-coins" style="color:var(--brand-light); margin-right:0.3rem;"></i>Keine Kosten für die Kommune — die Plattform wird privat betrieben.</p>
         </div>
@@ -930,9 +1176,9 @@
             <div class="slide-tag"><span class="dot"></span> Block 4 · Bitten</div>
             <h2 class="slide-heading">Unser Angebot & <span class="accent">Unsere Bitten</span></h2>
             <ul class="cta-list">
-                <li class="anim-item"><div class="cta-icon icon-green"><i class="fa-solid fa-building-flag"></i></div><span><strong>An die Bürgermeister (Herr Pfetzer, Herr Kramer, Herr Kist):</strong><br>Offizielle Bewerbung (Gemeindeblatt) & <strong>Akzeptanz-Argumente Wind/Solar</strong>: Lokale Projekte werden von Bürgern getragen, wenn sie direkt am günstigen Strom partizipieren!</span></li>
-                <li class="anim-item"><div class="cta-icon icon-blue"><i class="fa-solid fa-landmark"></i></div><span><strong>An Kämmerer & Energiemanagement (Herr Kern, Herr Weis, Herr Trapp, Herr Brunner):</strong><br>Prüfung von 1–2 kommunalen Liegenschaften (Rathaus, Schule) als erste Test-Objekte.</span></li>
-                <li class="anim-item"><div class="cta-icon icon-yellow"><i class="fa-solid fa-bolt"></i></div><span><strong>An Süwag/Syna (Herr Wulftange):</strong><br>Priorisierter iMSys-Rollout in BOL & direkte Schnittstelle zu decarbon1ze.</span></li>
+                <li class="anim-item"><div class="cta-icon icon-green"><i class="fa-solid fa-building-flag"></i></div><span><strong>An die Bürgermeister:</strong><br>Offizielle Bewerbung (Gemeindeblatt) & <strong>Akzeptanz-Argumente Wind/Solar</strong>: Lokale Projekte werden von Bürgern getragen, wenn sie direkt am günstigen Strom partizipieren!</span></li>
+                <li class="anim-item"><div class="cta-icon icon-blue"><i class="fa-solid fa-landmark"></i></div><span><strong>An Kämmerer & Energiemanagement:</strong><br>Prüfung von 1–2 kommunalen Liegenschaften (Rathaus, Schule) als erste Test-Objekte.</span></li>
+                <li class="anim-item"><div class="cta-icon icon-yellow"><i class="fa-solid fa-bolt"></i></div><span><strong>An Süwag/Syna:</strong><br>Priorisierter iMSys-Rollout in BOL & direkte Schnittstelle zu decarbon1ze.</span></li>
             </ul>
         </div>
 
@@ -953,7 +1199,6 @@
                 <div class="partner-badge"><i class="fa-solid fa-heart-pulse"></i> Power-Share</div>
                 <div class="partner-badge" style="border-color:rgba(101,163,13,0.3);background:rgba(101,163,13,0.06);"><i class="fa-solid fa-chart-line"></i> decarbon1ze ★</div>
                 <div class="partner-badge"><i class="fa-solid fa-network-wired"></i> Syna / Süwag</div>
-                <div class="partner-badge"><i class="fa-solid fa-building-columns"></i> Stadtwerke Bühl</div>
             </div>
             <p style="margin-top:1.5rem; font-size:0.72rem; color:var(--text-muted); text-align:center;">www.power-share.de · Kontakt für Rückfragen jederzeit möglich</p>
         </div>
@@ -962,7 +1207,7 @@
 
     <div class="nav-bar">
         <button class="nav-btn" id="btnPrev" title="Vorherige Folie"><i class="fa-solid fa-chevron-left"></i></button>
-        <span class="slide-counter" id="slideCounter">1 / 17</span>
+        <span class="slide-counter" id="slideCounter">1 / 18</span>
         <button class="nav-btn" id="btnNext" title="Nächste Folie"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
