@@ -349,8 +349,20 @@
                 <div class="card anim-item" style="text-align:center;"><div class="icon icon-purple" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-user"></i></div><h3>Andreas</h3></div>
             </div>
             <div class="highlight-box anim-item" style="margin-top:1.5rem;">
-                <div class="big"><i class="fa-solid fa-heart" style="margin-right:0.4rem; color:#ef4444;"></i>Ehrenamtliches Hobby-Projekt</div>
+                <div class="big"><i class="fa-solid fa-heart" style="margin-right:0.4rem; color:#ef4444;"></i>Ehrenamtliches Projekt</div>
                 <p>Wir agieren unabhängig und ohne Gewinnabsicht. Unser Ziel: Das Verteilnetz effizienter machen und lokales Energy Sharing im Tal vorantreiben.</p>
+            </div>
+            <div class="card-grid cols-2 slide-body" style="margin-top:1.5rem; max-width:800px;">
+                <div class="card anim-item" style="text-align:center; padding:1.2rem;">
+                    <div class="icon icon-yellow" style="margin:0 auto 0.8rem; width:42px; height:42px; font-size:1.1rem;"><i class="fa-solid fa-lightbulb"></i></div>
+                    <h3 style="font-size:1rem; margin-bottom:0.4rem; color:var(--brand-light);">Vision</h3>
+                    <p style="font-size:0.8rem;">BOL Region energieautark mit 100% Ökostrom</p>
+                </div>
+                <div class="card anim-item" style="text-align:center; padding:1.2rem;">
+                    <div class="icon icon-green" style="margin:0 auto 0.8rem; width:42px; height:42px; font-size:1.1rem;"><i class="fa-solid fa-bullseye"></i></div>
+                    <h3 style="font-size:1rem; margin-bottom:0.4rem; color:var(--brand-light);">Mission</h3>
+                    <p style="font-size:0.8rem;">Durch Bürgerbeteiligung gezielt Energie-Überschuss ausbalancieren und Energie-Defizite durch gezielte Investitionen schließen</p>
+                </div>
             </div>
         </div>
 
@@ -1246,6 +1258,7 @@
         btnPrev.addEventListener('click', prevSlide);
 
         document.addEventListener('keydown', (e) => {
+            if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
             if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); nextSlide(); }
             else if (e.key === 'ArrowLeft' || e.key === 'Backspace' || e.key === 'PageUp') { e.preventDefault(); prevSlide(); }
             else if (e.key === 'Home') { e.preventDefault(); goTo(0, 'backward'); }
@@ -1350,10 +1363,13 @@
                         }
                     }
                     
+                    const r = 1 + Math.random() * 1.5;
                     this.nodes.push({
                         x: x,
                         y: y,
-                        radius: 1 + Math.random() * 1.5
+                        radius: r,
+                        targetRadius: r,
+                        pulseOpacity: 0
                     });
                 }
                 
@@ -1392,9 +1408,69 @@
                                 (e.to === i && e.from === target.index)
                             );
                             if (!exists) {
-                                this.edges.push({ from: i, to: target.index, dist: target.dist });
+                                this.edges.push({ from: i, to: target.index, dist: target.dist, opacity: 1 });
                             }
                         }
+                    }
+                }
+            }
+            
+            spawnNewNode() {
+                const w = this.canvas.width;
+                const h = this.canvas.height;
+                // Maximale Anzahl, um die Performance nicht endlos zu belasten
+                const maxNodes = Math.floor((w * h) / 10000); 
+                
+                if (this.nodes.length >= maxNodes) return;
+                
+                let x, y;
+                let valid = false;
+                while(!valid) {
+                    x = Math.random() * w;
+                    y = Math.random() * h;
+                    const dx = (x - w/2) / (w/2);
+                    const dy = (y - h/2) / (h/2);
+                    const dist = Math.hypot(dx, dy);
+                    if (Math.random() < Math.pow(dist, 2.5)) {
+                        valid = true;
+                    }
+                }
+                
+                const newIndex = this.nodes.length;
+                this.nodes.push({
+                    x: x,
+                    y: y,
+                    radius: 0, // Beginnt unsichtbar und wächst
+                    targetRadius: 1 + Math.random() * 1.5,
+                    pulseRadius: 0,
+                    pulseOpacity: 1
+                });
+                
+                // Mit bestehenden Knoten verbinden
+                const distances = [];
+                for (let j = 0; j < this.nodes.length - 1; j++) {
+                    const n2 = this.nodes[j];
+                    const dist = Math.hypot(x - n2.x, y - n2.y);
+                    distances.push({ index: j, dist: dist });
+                }
+                distances.sort((a, b) => a.dist - b.dist);
+                
+                const connects = 4 + Math.floor(Math.random() * 3);
+                const maxDist = Math.min(350, Math.max(w, h) * 0.25);
+                
+                for (let c = 0; c < connects && c < distances.length; c++) {
+                    const target = distances[c];
+                    if (target.dist < maxDist) { 
+                        const n2 = this.nodes[target.index];
+                        const midX = (x + n2.x) / 2;
+                        const midY = (y + n2.y) / 2;
+                        const midDx = (midX - w/2) / (w/2);
+                        const midDy = (midY - h/2) / (h/2);
+                        const midDist = Math.hypot(midDx, midDy);
+                        
+                        if (midDist < 0.45) continue;
+                        
+                        this.edges.push({ from: newIndex, to: target.index, dist: target.dist, opacity: 0 });
                     }
                 }
             }
@@ -1430,11 +1506,14 @@
                     // Kanten zeichnen
                     this.ctx.lineWidth = 1;
                     this.edges.forEach(e => {
+                        if (e.opacity < 1) e.opacity += 0.02; // Kanten faden sanft ein
                         const n1 = this.nodes[e.from];
                         const n2 = this.nodes[e.to];
-                        // Besser sichtbare Verbindungen für stärkere Community
-                        const opacity = 0.04 + Math.max(0, (1 - (e.dist / 350))) * 0.06;
-                        this.ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+                        
+                        const targetOpacity = 0.04 + Math.max(0, (1 - (e.dist / 350))) * 0.06;
+                        const currentOpacity = targetOpacity * (e.opacity !== undefined ? e.opacity : 1);
+                        
+                        this.ctx.strokeStyle = `rgba(255, 255, 255, ${currentOpacity})`;
                         this.ctx.beginPath();
                         this.ctx.moveTo(n1.x, n1.y);
                         this.ctx.lineTo(n2.x, n2.y);
@@ -1444,10 +1523,30 @@
                     // Knoten zeichnen
                     this.ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
                     this.nodes.forEach(n => {
+                        if (n.radius < n.targetRadius) {
+                            n.radius += 0.03; // Knoten wächst sanft herein
+                        }
                         this.ctx.beginPath();
                         this.ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
                         this.ctx.fill();
+                        
+                        // Visueller "Ping" bei neuen Knoten, damit man das Wachstum sieht
+                        if (n.pulseOpacity > 0) {
+                            this.ctx.beginPath();
+                            this.ctx.arc(n.x, n.y, n.pulseRadius, 0, Math.PI * 2);
+                            this.ctx.strokeStyle = `rgba(132, 204, 22, ${n.pulseOpacity})`; // brand-light
+                            this.ctx.lineWidth = 1;
+                            this.ctx.stroke();
+                            n.pulseRadius += 0.4;
+                            n.pulseOpacity -= 0.015;
+                        }
                     });
+                    
+                    // Neue Knoten hinzufügen (wachsende Community)
+                    // Wahrscheinlichkeit 0.02 entspricht ca. 1 neuem Knoten jede Sekunde
+                    if (Math.random() < 0.02) {
+                        this.spawnNewNode();
+                    }
                     
                     // Partikel spawnen (höhere Rate für starke Community, 0.25 statt 0.12)
                     if (Math.random() < 0.25) { 
