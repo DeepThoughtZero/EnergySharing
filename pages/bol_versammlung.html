@@ -31,10 +31,12 @@
         .deck { position: relative; width: 100vw; height: 100vh; }
         .slide {
             position: absolute; inset: 0;
-            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            display: flex; flex-direction: column; justify-content: safe center; align-items: center;
             padding: 2.5rem 5rem 4.5rem; opacity: 0; pointer-events: none;
             transition: opacity 0.55s cubic-bezier(.4,0,.2,1), transform 0.55s cubic-bezier(.4,0,.2,1);
-            transform: translateX(40px); will-change: opacity, transform; overflow-y: auto;
+            transform: translateX(40px); will-change: opacity, transform;
+            overflow-y: auto; overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
         .slide.active { opacity: 1; pointer-events: auto; transform: translateX(0); }
 
@@ -258,18 +260,39 @@
         .schema-card .schema-num { position: absolute; top: 0.6rem; right: 0.8rem; font-size: 1.6rem; font-weight: 900; color: rgba(255,255,255,0.04); }
 
         @media (max-width: 768px) {
-            .slide { padding: 2rem 1.2rem 5rem; }
+            .slide { padding: 1.5rem 1rem 5rem; justify-content: flex-start; }
             .card-grid.cols-2, .card-grid.cols-3, .card-grid.cols-4 { grid-template-columns: 1fr; }
             .flow-row { flex-direction: column; }
             .flow-connector { width: 4px; height: 30px; }
             .stat-row { flex-direction: column; align-items: center; }
-            .bar-chart { gap: 0.75rem; }
+            .bar-chart { gap: 0.75rem; flex-wrap: wrap; }
             .bar { width: 34px; }
             .donut-wrap { flex-direction: column; }
             .timeline { flex-direction: column; gap: 0.8rem; }
             .timeline-line { display: none; }
             .schema-row { flex-direction: column; align-items: center; }
+            .schema-card { max-width: 100%; }
             .network-svg { max-width: 100%; }
+            .slide-body { max-width: 100%; }
+            .compare-table { display: block; overflow-x: auto; }
+            .highlight-box { max-width: 100%; }
+            .flow-box { min-width: auto; width: 100%; }
+        }
+
+        @media (max-width: 480px) {
+            .slide { padding: 1rem 0.75rem 4.5rem; }
+            h1.slide-title { font-size: clamp(1.3rem, 6vw, 1.8rem); }
+            h2.slide-heading { font-size: clamp(1rem, 5vw, 1.4rem); }
+            .slide-subtitle { font-size: 0.78rem; }
+            .stat-item .num { font-size: 1.3rem; }
+            .nav-btn { width: 42px; height: 42px; font-size: 1rem; }
+            .close-btn { top: 0.6rem; right: 0.8rem; width: 34px; height: 34px; font-size: 0.9rem; }
+            .card { padding: 0.75rem; }
+            .card h3 { font-size: 0.78rem; }
+            .card p, .card ul { font-size: 0.7rem; }
+            .bar-chart { gap: 0.4rem; }
+            .bar { width: 26px; }
+            .bar-label { font-size: 0.6rem; max-width: 60px; }
         }
     </style>
 </head>
