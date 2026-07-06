@@ -841,7 +841,7 @@
                     </div>
 
                     <div style="display: flex; gap: 0.5rem; align-items: center;">
-                        <span style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:bold; letter-spacing: 0.05em; margin-right: 0.5rem;"><i class="fa-solid fa-scale-balanced" style="margin-right:0.3rem;"></i> Plattform-Fee</span>
+                        <span style="font-size:0.75rem; color:var(--text-muted); text-transform:uppercase; font-weight:bold; letter-spacing: 0.05em; margin-right: 0.5rem;"><i class="fa-solid fa-scale-balanced" style="margin-right:0.3rem;"></i> Monatliche Plattform-Gebühr</span>
                         <button class="btn fee-btn active" onclick="setFeeMode('fair', this)" style="background: var(--brand); color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight:bold; cursor: pointer;">Gleich (je 5€)</button>
                         <button class="btn fee-btn" onclick="setFeeMode('producer', this)" style="background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); padding: 0.4rem 0.8rem; border-radius: 0.5rem; font-size: 0.85rem; font-weight:bold; cursor: pointer;">Ausbalancieren (Erzeuger 10€)</button>
                     </div>
@@ -852,28 +852,28 @@
                     <div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
                             <label style="font-size: 0.75rem; color: var(--text-muted); font-weight:bold; text-transform:uppercase;">Sharing-Preis</label>
-                            <span id="val_g_sh_price" style="font-size: 0.9rem; font-weight: 900; color: var(--brand-light);">13.0 ct</span>
+                            <span id="val_g_sh_price" style="font-size: 0.9rem; font-weight: 900; color: var(--brand-light);">13.0 ct/kWh</span>
                         </div>
                         <input type="range" id="g_sh_price" min="0" max="30" step="0.5" value="13" style="width: 100%; accent-color: var(--brand-light);" oninput="updateAll()">
                     </div>
                     <div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-                            <label style="font-size: 0.75rem; color: var(--text-muted); font-weight:bold; text-transform:uppercase;">Netzentgelt (Sharing)</label>
-                            <span id="val_g_grid" style="font-size: 0.9rem; font-weight: 900; color: #fff;">12.0 ct</span>
+                            <label style="font-size: 0.75rem; color: var(--text-muted); font-weight:bold; text-transform:uppercase;">Netzentgelt</label>
+                            <span id="val_g_grid" style="font-size: 0.9rem; font-weight: 900; color: #fff;">12.0 ct/kWh</span>
                         </div>
                         <input type="range" id="g_grid" min="0" max="25" step="0.5" value="12" style="width: 100%; accent-color: #94a3b8;" oninput="updateAll()">
                     </div>
                     <div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-                            <label style="font-size: 0.75rem; color: var(--text-muted); font-weight:bold; text-transform:uppercase;">Marktpreis (Bezug)</label>
-                            <span id="val_g_price" style="font-size: 0.9rem; font-weight: 900; color: #fff;">35.0 ct</span>
+                            <label style="font-size: 0.75rem; color: var(--text-muted); font-weight:bold; text-transform:uppercase;">Marktpreis</label>
+                            <span id="val_g_price" style="font-size: 0.9rem; font-weight: 900; color: #fff;">35.0 ct/kWh</span>
                         </div>
                         <input type="range" id="g_price" min="20" max="60" step="1" value="35" style="width: 100%; accent-color: #94a3b8;" oninput="updateAll()">
                     </div>
                     <div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
                             <label style="font-size: 0.75rem; color: var(--text-muted); font-weight:bold; text-transform:uppercase;">EEG Vergütung</label>
-                            <span id="val_g_eeg" style="font-size: 0.9rem; font-weight: 900; color: #fff;">8.0 ct</span>
+                            <span id="val_g_eeg" style="font-size: 0.9rem; font-weight: 900; color: #fff;">8.0 ct/kWh</span>
                         </div>
                         <input type="range" id="g_eeg" min="0" max="15" step="0.1" value="8.0" style="width: 100%; accent-color: #94a3b8;" oninput="updateAll()">
                     </div>
@@ -890,7 +890,7 @@
                         <div style="flex: 1; display: flex; flex-direction: column; gap: 1.2rem; z-index:1;">
                             <div>
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Einspeisemenge (p.a.)</label>
+                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Sharing-Einspeisung</label>
                                     <span id="val_p_export" style="font-size: 0.85rem; font-weight: bold; color: #facc15;">10.000 kWh</span>
                                 </div>
                                 <input type="range" id="p_export" min="1000" max="50000" step="500" value="10000" style="width: 100%; accent-color: #facc15;" oninput="updateAll()">
@@ -912,21 +912,15 @@
                         <div style="flex: 1; display: flex; flex-direction: column; gap: 1.2rem; z-index:1;">
                             <div>
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Einspeisemenge (p.a.)</label>
+                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Sharing-Einspeisung</label>
                                     <span id="val_pr_export" style="font-size: 0.85rem; font-weight: bold; color: #34d399;">6.000 kWh</span>
                                 </div>
                                 <input type="range" id="pr_export" min="1000" max="30000" step="500" value="6000" style="width: 100%; accent-color: #34d399;" oninput="updateAll()">
                             </div>
+
                             <div>
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Jahresbedarf (Bezug)</label>
-                                    <span id="val_pr_demand" style="font-size: 0.85rem; font-weight: bold; color: #34d399;">3.000 kWh</span>
-                                </div>
-                                <input type="range" id="pr_demand" min="1000" max="15000" step="100" value="3000" style="width: 100%; accent-color: #34d399;" oninput="updateAll()">
-                            </div>
-                            <div>
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Davon aus Sharing</label>
+                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Sharing-Abnahme</label>
                                     <span id="val_pr_share" style="font-size: 0.85rem; font-weight: bold; color: #34d399;">1.500 kWh</span>
                                 </div>
                                 <input type="range" id="pr_share" min="0" max="15000" step="100" value="1500" style="width: 100%; accent-color: #34d399;" oninput="updateAll()">
@@ -948,15 +942,8 @@
                         <div style="flex: 1; display: flex; flex-direction: column; gap: 1.2rem; z-index:1;">
                             <div>
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Jahresbedarf (Bezug)</label>
-                                    <span id="val_c_demand" style="font-size: 0.85rem; font-weight: bold; color: #38bdf8;">4.000 kWh</span>
-                                </div>
-                                <input type="range" id="c_demand" min="1000" max="20000" step="100" value="4000" style="width: 100%; accent-color: #38bdf8;" oninput="updateAll()">
-                            </div>
-                            <div>
-                                <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Davon aus Sharing</label>
-                                    <span id="val_c_share" style="font-size: 0.85rem; font-weight: bold; color: #38bdf8;">2.000 kWh</span>
+                                    <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Sharing-Abnahme</label>
+                                    <span id="val_c_share" style="font-size: 0.85rem; font-weight: bold; color: #38bdf8;">1.000 kWh</span>
                                 </div>
                                 <input type="range" id="c_share" min="0" max="20000" step="100" value="1000" style="width: 100%; accent-color: #38bdf8;" oninput="updateAll()">
                             </div>
@@ -994,25 +981,22 @@
                         document.getElementById('g_sh_price').value = 13;
                         document.getElementById('p_export').value = 3000;
                         document.getElementById('pr_export').value = 3000;
-                        document.getElementById('pr_demand').value = 2500;
+
                         document.getElementById('pr_share').value = 1000;
-                        document.getElementById('c_demand').value = 2500;
                         document.getElementById('c_share').value = 1500;
                     } else if(preset === 'large') {
-                        document.getElementById('g_sh_price').value = 10;
+                        document.getElementById('g_sh_price').value = 13;
                         document.getElementById('p_export').value = 30000;
                         document.getElementById('pr_export').value = 15000;
-                        document.getElementById('pr_demand').value = 8000;
+
                         document.getElementById('pr_share').value = 4000;
-                        document.getElementById('c_demand').value = 10000;
                         document.getElementById('c_share').value = 6000;
                     } else if(preset === 'family') {
                         document.getElementById('g_sh_price').value = 0; // Schenken
-                        document.getElementById('p_export').value = 8000;
-                        document.getElementById('pr_export').value = 5000;
-                        document.getElementById('pr_demand').value = 4000;
+                        document.getElementById('p_export').value = 3000;
+                        document.getElementById('pr_export').value = 3000;
+
                         document.getElementById('pr_share').value = 2500;
-                        document.getElementById('c_demand').value = 4000;
                         document.getElementById('c_share').value = 3000;
                     }
                     updateAll();
@@ -1039,10 +1023,10 @@
                     const g_price = parseFloat(document.getElementById('g_price').value) / 100;
                     const g_eeg = parseFloat(document.getElementById('g_eeg').value) / 100;
 
-                    document.getElementById('val_g_sh_price').innerText = (g_sh_price * 100).toFixed(1) + ' ct';
-                    document.getElementById('val_g_grid').innerText = (g_grid * 100).toFixed(1) + ' ct';
-                    document.getElementById('val_g_price').innerText = (g_price * 100).toFixed(1) + ' ct';
-                    document.getElementById('val_g_eeg').innerText = (g_eeg * 100).toFixed(1) + ' ct';
+                    document.getElementById('val_g_sh_price').innerText = (g_sh_price * 100).toFixed(1) + ' ct/kWh';
+                    document.getElementById('val_g_grid').innerText = (g_grid * 100).toFixed(1) + ' ct/kWh';
+                    document.getElementById('val_g_price').innerText = (g_price * 100).toFixed(1) + ' ct/kWh';
+                    document.getElementById('val_g_eeg').innerText = (g_eeg * 100).toFixed(1) + ' ct/kWh';
 
                     // Fees p.a.
                     const feeProducer = currentFeeMode === 'fair' ? (5 * 12) : (10 * 12);
@@ -1060,31 +1044,25 @@
                     document.getElementById('res_p_profit').innerText = fmt(Math.max(0, p_profit));
 
                     // 2. CONSUMER
-                    const c_demand = parseFloat(document.getElementById('c_demand').value);
                     let c_share = parseFloat(document.getElementById('c_share').value);
-                    if (c_share > c_demand) { c_share = c_demand; document.getElementById('c_share').value = c_share; }
                     
-                    document.getElementById('val_c_demand').innerText = fmt(c_demand) + ' kWh';
                     document.getElementById('val_c_share').innerText = fmt(c_share) + ' kWh';
 
-                    const c_trad_cost = c_demand * g_price;
-                    const c_sharing_cost = (c_share * (g_sh_price + g_grid)) + ((c_demand - c_share) * g_price) + feeConsumer;
+                    const c_trad_cost = c_share * g_price;
+                    const c_sharing_cost = (c_share * (g_sh_price + g_grid)) + feeConsumer;
                     const c_save = c_trad_cost - c_sharing_cost;
                     document.getElementById('res_c_save').innerText = fmt(Math.max(0, c_save));
 
                     // 3. PROSUMER
                     const pr_export = parseFloat(document.getElementById('pr_export').value);
-                    const pr_demand = parseFloat(document.getElementById('pr_demand').value);
                     let pr_share = parseFloat(document.getElementById('pr_share').value);
-                    if (pr_share > pr_demand) { pr_share = pr_demand; document.getElementById('pr_share').value = pr_share; }
                     
                     document.getElementById('val_pr_export').innerText = fmt(pr_export) + ' kWh';
-                    document.getElementById('val_pr_demand').innerText = fmt(pr_demand) + ' kWh';
                     document.getElementById('val_pr_share').innerText = fmt(pr_share) + ' kWh';
 
                     const pr_profit = (pr_export * g_sh_price) - (pr_export * g_eeg);
-                    const pr_trad_cost = pr_demand * g_price;
-                    const pr_sharing_cost = (pr_share * (g_sh_price + g_grid)) + ((pr_demand - pr_share) * g_price);
+                    const pr_trad_cost = pr_share * g_price;
+                    const pr_sharing_cost = (pr_share * (g_sh_price + g_grid));
                     const pr_save = pr_trad_cost - pr_sharing_cost;
                     
                     const pr_total = pr_profit + pr_save - feeProsumer;
