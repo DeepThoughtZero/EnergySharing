@@ -402,7 +402,7 @@
             
             <div class="highlight-box anim-item" style="margin-top:1rem; max-width:800px;">
                 <div class="big"><i class="fa-solid fa-network-wired" style="margin-right:0.4rem;"></i>Netzentlastung durch lokale Anreize</div>
-                <p>Der Strom fließt physisch wie immer. Nur die <strong style="color:#fff;">Abrechnung</strong> ändert sich: Dieser finanzielle Incentive motiviert den lokalen Direktverbrauch. Strom wird dann verbraucht, wenn er im Tal erzeugt wird — das kappt Lastspitzen.</p>
+                <p>Der Strom fließt physisch wie immer. Nur die <strong style="color:#fff;">Abrechnung</strong> ändert sich: Dieser finanzielle Incentive motiviert den lokalen Direktverbrauch. Strom wird dann verbraucht, wenn er in der Nachbarschaft erzeugt wird — das kappt Lastspitzen.</p>
             </div>
         </div>
 
@@ -460,7 +460,7 @@
             <p class="slide-subtitle">Die Blaupause für ganz Deutschland — von uns, für uns.</p>
             <div class="card-grid cols-3 slide-body">
                 <div class="card anim-item" style="text-align:center;"><div class="icon icon-green" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-mountain-sun"></i></div><h3>Optimale Größe</h3><p>Drei überschaubare Gemeinden — groß genug für Impact, klein genug für Zusammenhalt.</p></div>
-                <div class="card anim-item" style="text-align:center;"><div class="icon icon-yellow" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-people-group"></i></div><h3>Starker Zusammenhalt</h3><p>„Wir im Tal" — die Region kennt sich, vertraut sich und arbeitet zusammen.</p></div>
+                <div class="card anim-item" style="text-align:center;"><div class="icon icon-yellow" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-people-group"></i></div><h3>Starker Zusammenhalt</h3><p>„Wir Nachbarn" — die Region kennt sich, vertraut sich und arbeitet zusammen.</p></div>
                 <div class="card anim-item" style="text-align:center;"><div class="icon icon-orange" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-solar-panel"></i></div><h3>Viele Bestands-PV</h3><p>Zahlreiche PV-Anlagen sind bereits installiert — das Potenzial wartet.</p></div>
             </div>
             <div class="quote-block anim-item"><p>„BOL kann die Blaupause für nachbarschaftliches Stromteilen in ganz Deutschland werden — von uns, für uns."</p></div>
@@ -508,14 +508,19 @@
                     <circle cx="200" cy="140" r="110" stroke="rgba(101,163,13,0.15)" stroke-width="1" stroke-dasharray="4 3" fill="none"/>
                     <text x="200" y="26" text-anchor="middle" fill="#64748b" font-size="8" font-weight="600" letter-spacing="0.1em">COMMUNITY BOL</text>
 
-                    <!-- Connection lines (animated dashes) -->
-                    <line x1="120" y1="80" x2="200" y2="140" class="link-line flow-var1" stroke="rgba(132,204,22,0.25)" stroke-width="1.5"/>
-                    <line x1="280" y1="80" x2="200" y2="140" class="link-line flow-var2" stroke="rgba(132,204,22,0.25)" stroke-width="1.5"/>
-                    <line x1="100" y1="180" x2="200" y2="140" class="link-line flow-out" stroke="rgba(56,189,248,0.25)" stroke-width="1.5"/>
-                    <line x1="300" y1="180" x2="200" y2="140" class="link-line flow-out" stroke="rgba(56,189,248,0.25)" stroke-width="1.5"/>
-                    <line x1="160" y1="230" x2="200" y2="140" class="link-line flow-out" stroke="rgba(56,189,248,0.25)" stroke-width="1.5"/>
-                    <line x1="240" y1="230" x2="200" y2="140" class="link-line flow-var3" stroke="rgba(132,204,22,0.25)" stroke-width="1.5"/>
-                    <line x1="200" y1="60" x2="200" y2="140" class="link-line flow-var1" stroke="rgba(250,204,21,0.25)" stroke-width="1.5"/>
+                    <defs>
+                        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                            <feMerge>
+                                <feMergeNode in="coloredBlur"/>
+                                <feMergeNode in="SourceGraphic"/>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <!-- Mesh lines -->
+                    <g id="mesh-lines" stroke="rgba(255,255,255,0.06)" stroke-width="1"></g>
+                    <!-- Mesh particles -->
+                    <g id="mesh-particles"></g>
 
                     <!-- Center hub: Power-Share -->
                     <circle cx="200" cy="140" r="22" fill="rgba(101,163,13,0.15)" stroke="var(--brand-light)" stroke-width="2"/>
@@ -658,7 +663,7 @@
                 <div style="font-size:0.85rem; font-weight:700; color:#94a3b8; margin-bottom:0.8rem; letter-spacing:0.02em;"><i class="fa-solid fa-eye" style="margin-right:0.4rem;"></i>Weitere Marktbegleiter (für das Pilotprojekt unpassend)</div>
                 <div style="display:flex; flex-wrap:wrap; gap:0.6rem; font-size:0.75rem;">
                     <span style="background:rgba(255,255,255,0.04); padding:0.4rem 0.7rem; border-radius:0.4rem; color:#cbd5e1; border:1px solid rgba(255,255,255,0.04);"><strong>WeShareEnergy</strong> <span style="opacity:0.6; margin-left:0.3rem;">Preisziel zu hoch</span></span>
-                    <span style="background:rgba(255,255,255,0.04); padding:0.4rem 0.7rem; border-radius:0.4rem; color:#cbd5e1; border:1px solid rgba(255,255,255,0.04);"><strong>Lumenaza</strong> <span style="opacity:0.6; margin-left:0.3rem;">Fokus auf BPO</span></span>
+                    <span style="background:rgba(255,255,255,0.04); padding:0.4rem 0.7rem; border-radius:0.4rem; color:#cbd5e1; border:1px solid rgba(255,255,255,0.04);"><strong>Lumenaza</strong> <span style="opacity:0.6; margin-left:0.3rem;">Fokus auf Business Process Outsourcing (BPO)</span></span>
                     <span style="background:rgba(255,255,255,0.04); padding:0.4rem 0.7rem; border-radius:0.4rem; color:#cbd5e1; border:1px solid rgba(255,255,255,0.04);"><strong>neoom</strong> <span style="opacity:0.6; margin-left:0.3rem;">Hardware-Lock-in</span></span>
                     <span style="background:rgba(255,255,255,0.04); padding:0.4rem 0.7rem; border-radius:0.4rem; color:#cbd5e1; border:1px solid rgba(255,255,255,0.04);"><strong>egon.energy</strong> <span style="opacity:0.6; margin-left:0.3rem;">Anderer Fokus</span></span>
                     <span style="background:rgba(255,255,255,0.04); padding:0.4rem 0.7rem; border-radius:0.4rem; color:#cbd5e1; border:1px solid rgba(255,255,255,0.04);"><strong>Tibber / Rabot.charge</strong> <span style="opacity:0.6; margin-left:0.3rem;">Anderes Modell (dyn. Tarife)</span></span>
@@ -678,14 +683,14 @@
                     <ul><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span><strong>100 € einmalig</strong> je Teilnehmer (Setup)</span></li><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span><strong>5 € / Monat</strong> je Teilnehmer (laufend)</span></li><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span><strong>15-Minuten-genaue</strong> Abrechnung</span></li><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span>Am einfachsten: fester ct/kWh-Preis</span></li></ul>
                 </div>
                 <div class="card anim-item"><div class="icon icon-blue"><i class="fa-solid fa-gears"></i></div><h3>Abrechnungsmodell</h3>
-                    <ul><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Verkäufer erhält 15-min-Abrechnung</span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Verkäufer rechnet <strong>selbst</strong> mit Käufern ab</span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span><strong>Rechnung über Einspeiser</strong></span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Virtuelle Bilanzierung (GGV-Modell)</span></li></ul>
+                    <ul><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Verkäufer erhält 15-min-Abrechnung</span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Verkäufer rechnet <strong>selbst</strong> mit Käufern ab</span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span><strong>Rechnung über Einspeiser</strong></span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Virtuelle Bilanzierung (Gemeinschaftliche Gebäudeversorgung / GGV-Modell)</span></li></ul>
                 </div>
                 <div class="card anim-item"><div class="icon icon-purple"><i class="fa-solid fa-user-tie"></i></div><h3>Ansprechpartner</h3>
                     <p><strong style="color:#fff;">Dr. Arwen Colell</strong> — GF / CPO</p><p style="font-size:0.68rem;">Strategie, Partnerschaften & Produkt</p>
-                    <p style="margin-top:0.3rem;"><strong style="color:#fff;">Ulrich Schuster</strong> — Technik</p><p style="font-size:0.68rem;">Integration, Zähler-Schnittstellen & Netz</p>
+                    <p style="margin-top:0.3rem;"><strong style="color:#fff;">Dr. Ulrich Schuster</strong> — Technik</p><p style="font-size:0.68rem;">Integration, Zähler-Schnittstellen & Netz</p>
                 </div>
                 <div class="card anim-item"><div class="icon icon-yellow"><i class="fa-solid fa-star"></i></div><h3>Warum decarbon1ze?</h3>
-                    <ul><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span><strong>DE-Firma</strong> — DSGVO, deutsches Recht</span></li><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span><strong>Günstigster</strong> Anbieter im Vergleich</span></li><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span><strong>Fokus auf GGV</strong> (§ 42c EnWG)</span></li><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span>Bereit für <strong>Pilotprojekt BOL</strong></span></li></ul>
+                    <ul><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span><strong>DE-Firma</strong> — DSGVO, deutsches Recht</span></li><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span><strong>Günstigster</strong> Anbieter im Vergleich</span></li><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span><strong>Fokus auf Gemeinschaftliche Gebäudeversorgung (GGV)</strong> (§ 42c EnWG)</span></li><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span>Bereit für <strong>Pilotprojekt BOL</strong></span></li></ul>
                 </div>
             </div>
         </div>
@@ -929,7 +934,7 @@
                                     <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Davon aus Sharing</label>
                                     <span id="val_c_share" style="font-size: 0.85rem; font-weight: bold; color: #38bdf8;">2.000 kWh</span>
                                 </div>
-                                <input type="range" id="c_share" min="0" max="20000" step="100" value="2000" style="width: 100%; accent-color: #38bdf8;" oninput="updateAll()">
+                                <input type="range" id="c_share" min="0" max="20000" step="100" value="1000" style="width: 100%; accent-color: #38bdf8;" oninput="updateAll()">
                             </div>
                         </div>
                         
@@ -1131,7 +1136,7 @@
             <div class="card-grid cols-3 slide-body">
                 <div class="card anim-item" style="text-align:center;"><div class="icon icon-green" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-building-flag"></i></div><h3>Liegenschaften</h3><p>Dachflächen liefern Strom, kommunaler Eigenbedarf wird günstig aus der Community gedeckt.</p></div>
                 <div class="card anim-item" style="text-align:center;"><div class="icon icon-blue" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-battery-full"></i></div><h3>Zentrale Batterie</h3><p>Perspektive: Ein Quartiersspeicher für alle — analog zum erfolgreichen <strong>Neon-Modell in Willstätt</strong>.</p></div>
-                <div class="card anim-item" style="text-align:center;"><div class="icon icon-yellow" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-award"></i></div><h3>Vorbild sein</h3><p>Nicht "Klimaneutralität 2040" für Fördergelder ausrufen, sondern echte lokale Ausbalancierung schaffen – damit wir keinen Strom aus dem Norden beziehen und keine Überschüsse in Nachbarländer verschieben müssen.</p></div>
+                <div class="card anim-item" style="text-align:center;"><div class="icon icon-yellow" style="margin:0 auto 0.5rem;"><i class="fa-solid fa-award"></i></div><h3>Vorbild sein</h3><p>Nicht "Klimaneutralität 2040" für Fördergelder ausrufen, sondern echte lokale Ausbalancierung schaffen – damit wir weniger Strom aus dem Norden beziehen und weniger Überschüsse in Nachbarländer verschieben müssen.</p></div>
             </div>
             <p style="text-align:center; margin-top:0.9rem; font-size:0.75rem; color:var(--text-muted);"><i class="fa-solid fa-coins" style="color:var(--brand-light); margin-right:0.3rem;"></i>Keine Kosten für die Kommune — die Plattform wird privat betrieben.</p>
         </div>
@@ -1164,7 +1169,7 @@
                 <div class="card anim-item" style="border-color:rgba(2,132,199,0.2);"><div class="icon icon-blue"><i class="fa-solid fa-network-wired"></i></div><h3>Pragmatischer Datenaustausch</h3><p>iMSys-Daten von Syna → decarbon1ze für 15-min-Bilanzierung. Technik: Herr Schuster (decarbon1ze).</p></div>
                 <div class="card anim-item" style="border-color:rgba(101,163,13,0.2);"><div class="icon icon-green"><i class="fa-solid fa-handshake-angle"></i></div><h3>Pilot-Partnerschaft</h3><p>BOL als gemeinsames Vorzeigeprojekt — wie VNBs und Communities harmonieren.</p></div>
             </div>
-            <div class="quote-block anim-item" style="border-left-color:var(--brand-accent);"><p>„Herr Wulftange — lassen Sie uns in BOL gemeinsam zeigen, wie Verteilnetzbetreiber und Sharing-Communities in der Praxis harmonieren."</p><div class="attr">— Direkte Einladung an Süwag/Syna</div></div>
+            <div class="quote-block anim-item" style="border-left-color:var(--brand-accent);"><p>„Lassen Sie uns in BOL gemeinsam zeigen, wie Verteilnetzbetreiber und Sharing-Communities in der Praxis harmonieren."</p><div class="attr">— Direkte Einladung an Süwag/Syna</div></div>
         </div>
 
         <!-- ══════════ F15b ── Weitere Vorteile in Zukunft ══════════ -->
@@ -1186,7 +1191,7 @@
             <div class="slide-tag"><span class="dot"></span> Block 4 · Bitten</div>
             <h2 class="slide-heading">Unser Angebot & <span class="accent">Unsere Bitten</span></h2>
             <ul class="cta-list">
-                <li class="anim-item"><div class="cta-icon icon-green"><i class="fa-solid fa-building-flag"></i></div><span><strong>An die Bürgermeister:</strong><br>Offizielle Bewerbung (Gemeindeblatt) & <strong>Akzeptanz-Argumente Wind/Solar</strong>: Lokale Projekte werden von Bürgern getragen, wenn sie direkt am günstigen Strom partizipieren!</span></li>
+                <li class="anim-item"><div class="cta-icon icon-green"><i class="fa-solid fa-building-flag"></i></div><span><strong>An die Bürgermeister:</strong><br>Offizielle Bewerbung (Gemeindeblatt) & <strong>Akzeptanz-Argumente Wind/Solar</strong>: Lokale Projekte werden von Bürgern befürwortet, wenn sie direkt am günstigen Strom partizipieren!</span></li>
                 <li class="anim-item"><div class="cta-icon icon-blue"><i class="fa-solid fa-landmark"></i></div><span><strong>An Kämmerer & Energiemanagement:</strong><br>Prüfung von 1–2 kommunalen Liegenschaften (Rathaus, Schule) als erste Test-Objekte.</span></li>
                 <li class="anim-item"><div class="cta-icon icon-yellow"><i class="fa-solid fa-bolt"></i></div><span><strong>An Süwag/Syna:</strong><br>Priorisierter iMSys-Rollout in BOL & direkte Schnittstelle zu decarbon1ze.</span></li>
             </ul>
@@ -1209,8 +1214,9 @@
                 <div class="partner-badge"><i class="fa-solid fa-heart-pulse"></i> Power-Share</div>
                 <div class="partner-badge" style="border-color:rgba(101,163,13,0.3);background:rgba(101,163,13,0.06);"><i class="fa-solid fa-chart-line"></i> decarbon1ze ★</div>
                 <div class="partner-badge"><i class="fa-solid fa-network-wired"></i> Syna / Süwag</div>
+                <div class="partner-badge"><i class="fa-solid fa-building-flag"></i> Kommunen</div>
             </div>
-            <p style="margin-top:1.5rem; font-size:0.72rem; color:var(--text-muted); text-align:center;">www.power-share.de · Kontakt für Rückfragen jederzeit möglich</p>
+            <p style="margin-top:1.5rem; font-size:0.72rem; color:var(--text-muted); text-align:center;">www.power-share.de</p>
         </div>
 
     </div>
@@ -1601,6 +1607,141 @@
         
         new EnergyNetwork('titleParticles');
         new EnergyNetwork('endParticles');
+
+        // ── SVG Mesh Network for Slide 9 ──
+        (function() {
+            const svgNodes = [
+                {x: 120, y: 80}, {x: 280, y: 80}, {x: 200, y: 60}, 
+                {x: 240, y: 230}, {x: 100, y: 180}, {x: 300, y: 180}, {x: 160, y: 230}
+            ];
+            const meshLines = document.getElementById('mesh-lines');
+            const meshParticles = document.getElementById('mesh-particles');
+            const colors = ['#84cc16', '#38bdf8', '#facc15'];
+            
+            if (meshLines && meshParticles) {
+                let edges = [];
+                for(let i=0; i<svgNodes.length; i++) {
+                    for(let j=i+1; j<svgNodes.length; j++) {
+                        edges.push({from: i, to: j});
+                        const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                        line.setAttribute("x1", svgNodes[i].x);
+                        line.setAttribute("y1", svgNodes[i].y);
+                        line.setAttribute("x2", svgNodes[j].x);
+                        line.setAttribute("y2", svgNodes[j].y);
+                        meshLines.appendChild(line);
+                    }
+                }
+                
+                let particles = [];
+                let particleIdCounter = 0;
+
+                function spawnMeshParticle() {
+                    const slide = meshParticles.closest('.slide');
+                    if (!slide || !slide.classList.contains('active')) return;
+
+                    const edge = edges[Math.floor(Math.random() * edges.length)];
+                    const reverse = Math.random() > 0.5;
+                    const start = reverse ? svgNodes[edge.to] : svgNodes[edge.from];
+                    const end = reverse ? svgNodes[edge.from] : svgNodes[edge.to];
+                    
+                    const particleColor = colors[Math.floor(Math.random() * colors.length)];
+                    const pid = 'p-grad-' + (particleIdCounter++);
+                    
+                    // Create gradient for trail
+                    const defs = meshParticles.ownerSVGElement.querySelector('defs');
+                    const gradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
+                    gradient.setAttribute("id", pid);
+                    gradient.setAttribute("gradientUnits", "userSpaceOnUse");
+                    
+                    const stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+                    stop1.setAttribute("offset", "0%");
+                    stop1.setAttribute("stop-color", particleColor);
+                    stop1.setAttribute("stop-opacity", "0");
+                    
+                    const stop2 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+                    stop2.setAttribute("offset", "100%");
+                    stop2.setAttribute("stop-color", particleColor);
+                    stop2.setAttribute("stop-opacity", "1");
+                    
+                    gradient.appendChild(stop1);
+                    gradient.appendChild(stop2);
+                    if (defs) defs.appendChild(gradient);
+                    
+                    // Create trail line
+                    const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
+                    line.setAttribute("stroke", `url(#${pid})`);
+                    line.setAttribute("stroke-width", "2.5");
+                    line.setAttribute("stroke-linecap", "round");
+                    
+                    const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+                    circle.setAttribute("r", 2.5);
+                    circle.setAttribute("fill", particleColor);
+                    circle.setAttribute("filter", "url(#glow)");
+                    
+                    // Initial position to prevent flash at 0,0
+                    circle.setAttribute("cx", start.x);
+                    circle.setAttribute("cy", start.y);
+                    line.setAttribute("x1", start.x);
+                    line.setAttribute("y1", start.y);
+                    line.setAttribute("x2", start.x);
+                    line.setAttribute("y2", start.y);
+                    
+                    meshParticles.appendChild(line);
+                    meshParticles.appendChild(circle);
+                    
+                    particles.push({
+                        el: circle,
+                        line: line,
+                        gradient: gradient,
+                        start: start,
+                        end: end,
+                        progress: 0,
+                        speed: 0.002 + Math.random() * 0.0025 // Slower speed
+                    });
+                }
+                
+                function animateParticles() {
+                    for (let i = particles.length - 1; i >= 0; i--) {
+                        const p = particles[i];
+                        p.progress += p.speed;
+                        
+                        if (p.progress >= 1) {
+                            if (p.el.parentNode) p.el.parentNode.removeChild(p.el);
+                            if (p.line.parentNode) p.line.parentNode.removeChild(p.line);
+                            if (p.gradient.parentNode) p.gradient.parentNode.removeChild(p.gradient);
+                            particles.splice(i, 1);
+                            continue;
+                        }
+                        
+                        const x = p.start.x + (p.end.x - p.start.x) * p.progress;
+                        const y = p.start.y + (p.end.y - p.start.y) * p.progress;
+                        
+                        const trailLen = 0.15;
+                        const trailStart = Math.max(0, p.progress - trailLen);
+                        const tx = p.start.x + (p.end.x - p.start.x) * trailStart;
+                        const ty = p.start.y + (p.end.y - p.start.y) * trailStart;
+                        
+                        p.el.setAttribute("cx", x);
+                        p.el.setAttribute("cy", y);
+                        
+                        p.line.setAttribute("x1", tx);
+                        p.line.setAttribute("y1", ty);
+                        p.line.setAttribute("x2", x);
+                        p.line.setAttribute("y2", y);
+                        
+                        p.gradient.setAttribute("x1", tx);
+                        p.gradient.setAttribute("y1", ty);
+                        p.gradient.setAttribute("x2", x);
+                        p.gradient.setAttribute("y2", y);
+                    }
+                    requestAnimationFrame(animateParticles);
+                }
+                
+                setInterval(spawnMeshParticle, 700);
+                requestAnimationFrame(animateParticles);
+            }
+        })();
+
         updateUI();
     </script>
 
