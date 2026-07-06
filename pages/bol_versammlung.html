@@ -66,7 +66,8 @@
         .nav-btn:hover { background: rgba(101,163,13,0.2); border-color: var(--brand-light); transform: scale(1.08); }
         .nav-btn:active { transform: scale(0.95); }
         .nav-btn:disabled { opacity: 0.25; cursor: default; transform: none; }
-        .slide-counter { font-size: 0.82rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.08em; min-width: 60px; text-align: center; }
+        .slide-counter { font-size: 0.82rem; font-weight: 600; color: var(--text-muted); letter-spacing: 0.08em; min-width: 60px; text-align: center; cursor: pointer; transition: color 0.2s; }
+        .slide-counter:hover { color: #fff; }
 
         .progress-track { position: fixed; top: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,0.06); z-index: 101; }
         .progress-fill { height: 100%; background: linear-gradient(90deg, var(--brand), var(--brand-light)); transition: width 0.4s ease; border-radius: 0 2px 2px 0; box-shadow: 0 0 12px var(--glow-brand); }
@@ -1223,7 +1224,7 @@
 
     <div class="nav-bar">
         <button class="nav-btn" id="btnPrev" title="Vorherige Folie"><i class="fa-solid fa-chevron-left"></i></button>
-        <span class="slide-counter" id="slideCounter">1 / 18</span>
+        <span class="slide-counter" id="slideCounter" title="Gehe zu Folie">1 / 18</span>
         <button class="nav-btn" id="btnNext" title="Nächste Folie"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
@@ -1262,6 +1263,53 @@
         function prevSlide() { goTo(current - 1, 'backward'); }
         btnNext.addEventListener('click', nextSlide);
         btnPrev.addEventListener('click', prevSlide);
+
+        counter.addEventListener('click', () => {
+            if (counter.querySelector('input')) return;
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.inputMode = 'numeric';
+            input.pattern = '[0-9]*';
+            input.value = current + 1;
+            input.style.width = '36px';
+            input.style.textAlign = 'center';
+            input.style.background = 'rgba(255,255,255,0.1)';
+            input.style.border = '1px solid var(--brand-light)';
+            input.style.color = '#fff';
+            input.style.borderRadius = '4px';
+            input.style.outline = 'none';
+            input.style.fontFamily = 'inherit';
+            input.style.fontSize = 'inherit';
+            input.style.padding = '2px 0';
+            input.style.marginRight = '4px';
+            
+            counter.innerHTML = '';
+            counter.appendChild(input);
+            const span = document.createElement('span');
+            span.textContent = `/ ${total}`;
+            counter.appendChild(span);
+            
+            input.focus();
+            input.select();
+            
+            let handled = false;
+            function finish() {
+                if (handled) return;
+                handled = true;
+                const targetIdx = parseInt(input.value, 10) - 1;
+                if (!isNaN(targetIdx) && targetIdx >= 0 && targetIdx < total && targetIdx !== current) {
+                    goTo(targetIdx, targetIdx > current ? 'forward' : 'backward');
+                } else {
+                    updateUI();
+                }
+            }
+            
+            input.addEventListener('blur', finish);
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') finish();
+                if (e.key === 'Escape') { handled = true; updateUI(); }
+            });
+        });
 
         document.addEventListener('keydown', (e) => {
             if (['INPUT', 'TEXTAREA'].includes(e.target.tagName)) return;
@@ -1611,8 +1659,8 @@
         // ── SVG Mesh Network for Slide 9 ──
         (function() {
             const svgNodes = [
-                {x: 120, y: 80}, {x: 280, y: 80}, {x: 200, y: 60}, 
-                {x: 240, y: 230}, {x: 100, y: 180}, {x: 300, y: 180}, {x: 160, y: 230}
+                {x: 120, y: 80, type: 'prosumer'}, {x: 280, y: 80, type: 'prosumer'}, {x: 200, y: 60, type: 'prosumer'}, 
+                {x: 240, y: 230, type: 'prosumer'}, {x: 100, y: 180, type: 'consumer'}, {x: 300, y: 180, type: 'consumer'}, {x: 160, y: 230, type: 'consumer'}
             ];
             const meshLines = document.getElementById('mesh-lines');
             const meshParticles = document.getElementById('mesh-particles');
@@ -1622,6 +1670,8 @@
                 let edges = [];
                 for(let i=0; i<svgNodes.length; i++) {
                     for(let j=i+1; j<svgNodes.length; j++) {
+                        if (svgNodes[i].type === 'consumer' && svgNodes[j].type === 'consumer') continue;
+                        
                         edges.push({from: i, to: j});
                         const line = document.createElementNS("http://www.w3.org/2000/svg", "line");
                         line.setAttribute("x1", svgNodes[i].x);
@@ -1640,9 +1690,20 @@
                     if (!slide || !slide.classList.contains('active')) return;
 
                     const edge = edges[Math.floor(Math.random() * edges.length)];
-                    const reverse = Math.random() > 0.5;
-                    const start = reverse ? svgNodes[edge.to] : svgNodes[edge.from];
-                    const end = reverse ? svgNodes[edge.from] : svgNodes[edge.to];
+                    
+                    let start = svgNodes[edge.from];
+                    let end = svgNodes[edge.to];
+                    
+                    if (start.type === 'consumer') {
+                        let temp = start; start = end; end = temp;
+                    } else if (end.type === 'consumer') {
+                        // start is prosumer, end is consumer. Keep as is.
+                    } else {
+                        // Both prosumers, random direction
+                        if (Math.random() > 0.5) {
+                            let temp = start; start = end; end = temp;
+                        }
+                    }
                     
                     const particleColor = colors[Math.floor(Math.random() * colors.length)];
                     const pid = 'p-grad-' + (particleIdCounter++);
