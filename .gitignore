@@ -7,3 +7,7 @@ npm-debug.log*
 # OS-Dateien
 .DS_Store
 Thumbs.db
+
+# PDF Export & Scripts
+export_pdf.py
+*.pdf

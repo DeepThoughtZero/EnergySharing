@@ -110,5 +110,7 @@ print(res.stdout)
 print(res.stderr)
 if os.path.exists(pdf_path):
     print("PDF created successfully at", pdf_path)
+    os.remove(out_html_path)
+    print("Cleaned up temporary HTML.")
 else:
     print("Failed to create PDF")
