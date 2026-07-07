@@ -296,6 +296,53 @@
             .bar-label { font-size: 0.6rem; max-width: 60px; }
         }
     </style>
+
+<style>
+@media print {
+    body, html {
+        height: auto !important;
+        overflow: visible !important;
+        background-color: #0a0f1a !important;
+        color: #e2e8f0 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .deck {
+        position: static !important;
+        height: auto !important;
+        width: 100% !important;
+        display: block !important;
+        overflow: visible !important;
+    }
+    .slide {
+        position: relative !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+        page-break-after: always !important;
+        page-break-inside: avoid !important;
+        height: 100vh !important;
+        width: 100vw !important;
+        display: flex !important;
+        overflow: hidden !important;
+        break-after: page !important;
+    }
+    .slide .anim-item {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    #pw-overlay, .nav-bar, .close-btn, .progress-track {
+        display: none !important;
+    }
+    .timeline-line-fill { width: 100% !important; }
+    .donut-fill { stroke-dasharray: 999, 999 !important; }
+}
+@page {
+    size: 1920px 1080px; 
+    margin: 0;
+}
+</style>
+
 </head>
 
 <body>
@@ -321,12 +368,7 @@
         .pw-error { color: #fb7185; font-size: 0.8rem; margin-top: 0.8rem; opacity: 0; transition: opacity 0.3s; }
         .pw-error.visible { opacity: 1; }
     </style>
-    <div id="pw-overlay">
-        <div class="pw-box">
-            <h2 style="font-size: 1.4rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">Präsentation geschützt</h2>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.5rem;">Bitte geben Sie das Passwort ein, um die Folien zu sehen.</p>
-            <input type="password" id="pw-input" class="pw-input" placeholder="Passwort eingeben..." autofocus>
-            <div id="pw-error" class="pw-error">Falsches Passwort</div>
+    
         </div>
     </div>
     <script>
@@ -361,9 +403,9 @@
             <h1 class="slide-title">Energy Sharing BOL<br><span class="accent">Gemeinsam unser Netz nutzen.</span></h1>
             <p class="slide-subtitle"><strong>B</strong>ühlertal · <strong>O</strong>ttersweier · <strong>L</strong>auf – Drei Gemeinden, eine Vision: Nachbarschaftsstrom statt anonymer Energiemarkt.</p>
             <div class="stat-row">
-                <div class="stat-item anim-item"><div class="num"><span class="count-up" data-target="3">0</span></div><div class="label">Gemeinden</div></div>
-                <div class="stat-item anim-item"><div class="num"><span class="count-up" data-target="2026" data-no-sep="1">0</span></div><div class="label">Startjahr</div></div>
-                <div class="stat-item anim-item"><div class="num"><span class="count-up" data-target="100" data-suffix="%">0</span></div><div class="label">Regional</div></div>
+                <div class="stat-item anim-item"><div class="num"><span class="count-up" data-target="3">3</span></div><div class="label">Gemeinden</div></div>
+                <div class="stat-item anim-item"><div class="num"><span class="count-up" data-target="2026" data-no-sep="1">2026</span></div><div class="label">Startjahr</div></div>
+                <div class="stat-item anim-item"><div class="num"><span class="count-up" data-target="100" data-suffix="%">100%</span></div><div class="label">Regional</div></div>
             </div>
             <div class="title-meta">
                 <span><i class="fa-solid fa-calendar-day"></i> 08.07.2026 · 16:30 Uhr</span>
@@ -374,7 +416,7 @@
 
         
         <!-- ══════════ F1b ── Inhaltsverzeichnis ══════════ -->
-        <div class="slide" data-slide="0">
+        <div class="slide active" data-slide="0">
             <div class="bg-glow blue" style="width:500px;height:500px;top:20%;left:-10%"></div>
             <div class="slide-tag"><span class="dot"></span> Agenda</div>
             <h2 class="slide-heading">Unsere <span class="accent">Themen</span> heute</h2>
@@ -392,7 +434,7 @@
         </div>
 
         <!-- ══════════ F2 ── Team Power-Share ══════════ -->
-        <div class="slide" data-slide="1">
+        <div class="slide active" data-slide="1">
             <div class="bg-glow green" style="width:400px;height:400px;top:10%;right:-10%"></div>
             <div class="slide-tag"><span class="dot"></span> 1. Vision: BOL als Vorreiter-Region für die Energiewende</div>
             <h2 class="slide-heading">Das Team hinter <span class="accent">Power-Share</span></h2>
@@ -422,7 +464,7 @@
         </div>
 
         <!-- ══════════ F3 ── Paradigmenwechsel ══════════ -->
-        <div class="slide" data-slide="2">
+        <div class="slide active" data-slide="2">
             <div class="bg-glow yellow" style="width:450px;height:450px;top:-8%;left:20%"></div>
             <div class="slide-tag"><span class="dot"></span> 1. Vision: BOL als Vorreiter-Region für die Energiewende</div>
             <h2 class="slide-heading">Der <span class="accent">Paradigmenwechsel</span></h2>
@@ -436,7 +478,7 @@
         </div>
 
         <!-- ══════════ F4 ── Was ist Energy Sharing? (1/2) ══════════ -->
-        <div class="slide" data-slide="3">
+        <div class="slide active" data-slide="3">
             <div class="bg-glow green" style="width:500px;height:500px;top:5%;right:-8%"></div>
             <div class="slide-tag"><span class="dot"></span> 1. Vision: BOL als Vorreiter-Region für die Energiewende</div>
             <h2 class="slide-heading">Was ist <span class="accent">Energy Sharing</span> genau? (1/2)</h2>
@@ -462,7 +504,7 @@
         </div>
 
         <!-- ══════════ F5 ── Was ist Energy Sharing? (2/2) ══════════ -->
-        <div class="slide" data-slide="4">
+        <div class="slide active" data-slide="4">
             <div class="bg-glow blue" style="width:400px;height:400px;bottom:-10%;left:10%"></div>
             <div class="slide-tag"><span class="dot"></span> 1. Vision: BOL als Vorreiter-Region für die Energiewende</div>
             <h2 class="slide-heading">Was ist <span class="accent">Energy Sharing</span> genau? (2/2)</h2>
@@ -490,7 +532,7 @@
         </div>
 
         <!-- ══════════ F6 ── Benchmarking ══════════ -->
-        <div class="slide" data-slide="5">
+        <div class="slide active" data-slide="5">
             <div class="bg-glow blue" style="width:400px;height:400px;top:-5%;right:5%"></div>
             <div class="slide-tag"><span class="dot"></span> 1. Vision: BOL als Vorreiter-Region für die Energiewende</div>
             <h2 class="slide-heading">Internationales <span class="accent">Benchmarking</span></h2>
@@ -508,7 +550,7 @@
         </div>
 
         <!-- ══════════ F5 ── Warum BOL? ══════════ -->
-        <div class="slide" data-slide="6">
+        <div class="slide active" data-slide="6">
             <div class="bg-glow green" style="width:500px;height:500px;bottom:-15%;right:10%"></div>
             <div class="slide-tag"><span class="dot"></span> 1. Vision: BOL als Vorreiter-Region für die Energiewende</div>
             <h2 class="slide-heading">Warum BOL die <span class="accent">perfekte Pilotregion</span> ist</h2>
@@ -522,7 +564,7 @@
         </div>
 
         <!-- ══════════ F6 ── Konzept Animated Flow ══════════ -->
-        <div class="slide" data-slide="7">
+        <div class="slide active" data-slide="7">
             <div class="bg-glow blue" style="width:500px;height:500px;top:10%;left:-10%"></div>
             <div class="slide-tag"><span class="dot"></span> 2. Das Power-Share Modell & unsere Partner</div>
             <h2 class="slide-heading">Das Konzept — <span class="accent">Simpel erklärt</span></h2>
@@ -553,7 +595,7 @@
         </div>
 
         <!-- ══════════ F7 ── Matching-Plattform mit Netzwerk-Grafik ══════════ -->
-        <div class="slide" data-slide="8">
+        <div class="slide active" data-slide="8">
             <div class="bg-glow green" style="width:400px;height:400px;top:5%;right:-5%"></div>
             <div class="slide-tag"><span class="dot"></span> 2. Das Power-Share Modell & unsere Partner</div>
             <h2 class="slide-heading">Die <span class="accent">Matching-Plattform</span></h2>
@@ -692,7 +734,7 @@
         </div>
 
         <!-- ══════════ F8 ── decarbon1ze ══════════ -->
-        <div class="slide" data-slide="9">
+        <div class="slide active" data-slide="9">
             <div class="bg-glow green" style="width:500px;height:500px;top:-5%;right:-10%"></div>
             <div class="bg-glow blue" style="width:350px;height:350px;bottom:-8%;left:5%"></div>
             <div class="slide-tag"><span class="dot"></span> 2. Das Power-Share Modell & unsere Partner</div>
@@ -716,7 +758,7 @@
         </div>
 
         <!-- ══════════ F9 ── Alternative Anbieter ══════════ -->
-        <div class="slide" data-slide="10">
+        <div class="slide active" data-slide="10">
             <div class="bg-glow rose" style="width:400px;height:400px;top:10%;left:-10%"></div>
             <div class="slide-tag"><span class="dot"></span> 2. Das Power-Share Modell & unsere Partner</div>
             <h2 class="slide-heading">Weitere mögliche <span class="accent">Partner</span></h2>
@@ -755,7 +797,7 @@
 
 
         <!-- ══════════ F10 ── Partner-Vergleich ══════════ -->
-        <div class="slide" data-slide="11">
+        <div class="slide active" data-slide="11">
             <div class="bg-glow yellow" style="width:400px;height:400px;top:-8%;left:10%"></div>
             <div class="slide-tag"><span class="dot"></span> 2. Das Power-Share Modell & unsere Partner</div>
             <h2 class="slide-heading">Partner-<span class="accent">Vergleich</span>: Setup-Kosten</h2>
@@ -779,7 +821,7 @@
         </div>
 
         <!-- ══════════ F10 ── Ökosystem Donut ══════════ -->
-        <div class="slide" data-slide="12">
+        <div class="slide active" data-slide="12">
             <div class="bg-glow blue" style="width:450px;height:450px;bottom:-10%;left:5%"></div>
             <div class="slide-tag"><span class="dot"></span> 2. Das Power-Share Modell & unsere Partner</div>
             <h2 class="slide-heading">Ein starkes <span class="accent">Ökosystem</span></h2>
@@ -810,7 +852,7 @@
         </div>
 
         <!-- ══════════ F11 ── Abgaben & Kosten ══════════ -->
-        <div class="slide" data-slide="13">
+        <div class="slide active" data-slide="13">
             <div class="bg-glow yellow" style="width:400px;height:400px;top:-5%;right:20%"></div>
             <div class="slide-tag"><span class="dot"></span> 3. Wirtschaftlichkeit & Rechenbeispiele</div>
             <h2 class="slide-heading">Kosten & <span class="accent">Abgaben</span></h2>
@@ -857,7 +899,7 @@
         </div>
 
         <!-- ══════════ F11b ── Interaktiver Rechner ══════════ -->
-        <div class="slide" data-slide="14">
+        <div class="slide active" data-slide="14">
             <div class="bg-glow blue" style="width:500px;height:500px;bottom:-10%;left:-5%"></div>
             <div class="bg-glow yellow" style="width:400px;height:400px;top:-5%;right:-5%"></div>
             <div class="slide-tag"><span class="dot"></span> 3. Wirtschaftlichkeit & Rechenbeispiele</div>
@@ -1108,7 +1150,7 @@
         </div>
 
         <!-- ══════════ F12 ── Post-EEG ══════════ -->
-        <div class="slide" data-slide="15">
+        <div class="slide active" data-slide="15">
             <div class="bg-glow" style="width:400px;height:400px;top:10%;left:-5%; background:#f97316;"></div>
             <div class="slide-tag"><span class="dot"></span> 3. Wirtschaftlichkeit & Rechenbeispiele</div>
             <h2 class="slide-heading">Der <span class="accent">Rettungsanker</span> für Post-EEG-Anlagen</h2>
@@ -1133,7 +1175,7 @@
         </div>
 
         <!-- ══════════ F12b ── Ottersweier Beispiel ══════════ -->
-        <div class="slide" data-slide="12b">
+        <div class="slide active" data-slide="12b">
             <div class="bg-glow rose" style="width:400px;height:400px;top:-5%;right:5%"></div>
             <div class="slide-tag"><span class="dot"></span> 3. Wirtschaftlichkeit & Rechenbeispiele</div>
             <h2 class="slide-heading">Aktuelles Beispiel: <span class="accent">Ottersweier</span></h2>
@@ -1163,7 +1205,7 @@
         </div>
 
         <!-- ══════════ F13 ── Kommune ══════════ -->
-        <div class="slide" data-slide="17">
+        <div class="slide active" data-slide="17">
             <div class="bg-glow green" style="width:500px;height:500px;bottom:-10%;right:-10%"></div>
             <div class="slide-tag"><span class="dot"></span> 3. Wirtschaftlichkeit & Rechenbeispiele</div>
             <h2 class="slide-heading">Die <span class="accent">Kommune als Anker</span>-Teilnehmer</h2>
@@ -1177,7 +1219,7 @@
         </div>
 
         <!-- ══════════ F15b ── Weitere Vorteile in Zukunft ══════════ -->
-        <div class="slide" data-slide="18">
+        <div class="slide active" data-slide="18">
             <div class="bg-glow yellow" style="width:500px;height:500px;top:-5%;left:-10%"></div>
             <div class="slide-tag"><span class="dot"></span> 3. Wirtschaftlichkeit & Rechenbeispiele</div>
             <h2 class="slide-heading">Weitere Vorteile <span class="accent">in Zukunft</span></h2>
@@ -1190,7 +1232,7 @@
         </div>
 
         <!-- ══════════ F14 ── Smart Meter ══════════ -->
-        <div class="slide" data-slide="19">
+        <div class="slide active" data-slide="19">
             <div class="bg-glow blue" style="width:400px;height:400px;top:-8%;left:10%"></div>
             <div class="slide-tag"><span class="dot"></span> 4. Herausforderungen & Lösungsansätze</div>
             <h2 class="slide-heading"><span class="accent">Smart Meter</span> als Fundament</h2>
@@ -1207,7 +1249,7 @@
         </div>
 
         <!-- ══════════ F15 ── Netz Herzstück ══════════ -->
-        <div class="slide" data-slide="20">
+        <div class="slide active" data-slide="20">
             <div class="bg-glow green" style="width:500px;height:500px;top:5%;right:-10%"></div>
             <div class="bg-glow blue" style="width:350px;height:350px;bottom:-5%;left:15%"></div>
             <div class="slide-tag"><span class="dot"></span> 4. Herausforderungen & Lösungsansätze</div>
@@ -1221,7 +1263,7 @@
         </div>
 
         <!-- ══════════ F16 ── CTA (mit Herr/Frau) ══════════ -->
-        <div class="slide" data-slide="21">
+        <div class="slide active" data-slide="21">
             <div class="bg-glow green" style="width:600px;height:600px;top:-15%;left:30%"></div>
             <div class="slide-tag"><span class="dot"></span> 5. Partnerschaft: Wie die Gemeinden uns unterstützen können</div>
             <h2 class="slide-heading">Unser Angebot & <span class="accent">Unsere Bitten</span></h2>
@@ -1233,7 +1275,7 @@
         </div>
 
         <!-- ══════════ F17 ── Abschluss ══════════ -->
-        <div class="slide" data-slide="22">
+        <div class="slide active" data-slide="22">
             <div class="gradient-bg"></div>
             <div class="particles" id="endParticles"></div>
             <div class="slide-tag"><span class="dot"></span> 6. Offene Fragen & Nächste Schritte</div>
