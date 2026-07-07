@@ -162,6 +162,7 @@
 
         /* ── Donut ────────────────────────────────────── */
         .donut-wrap { display: flex; align-items: center; gap: 1.75rem; justify-content: center; flex-wrap: wrap; }
+        @keyframes spin-donut { from { transform: rotate(-90deg); } to { transform: rotate(270deg); } }
         .donut-chart { position: relative; width: 130px; height: 130px; }
         .donut-chart svg { width: 100%; height: 100%; transform: rotate(-90deg); }
         .donut-chart .donut-track { fill: none; stroke: rgba(255,255,255,0.06); stroke-width: 10; }
@@ -299,6 +300,17 @@
 
 <body>
 
+    <!-- 
+      =====================================================================================
+      KI-AGENTEN-HINWEIS ZUR FOLIEN-ZÄHLUNG:
+      Wenn der Benutzer von "Folie X" spricht, bezieht er sich meist auf die fortlaufenden 
+      HTML-Kommentare vor jedem Slide (z.B. "F1", "F10", "F12b"). 
+      Das Attribut data-slide="X" beginnt bei 0 und weicht oft von der visuellen Folien-Nummer ab!
+      Bitte orientiere dich primär an den Überschriften und den HTML-Kommentaren 
+      (z.B. [F10]), um die richtige Folie zu finden.
+      Nutze vor Änderungen immer erst Such-Tools (grep_search), um die Inhalte abzugleichen.
+      =====================================================================================
+    -->
     <!-- ── Password Overlay ─────────────────────────── -->
     <style>
         #pw-overlay { position: fixed; inset: 0; z-index: 9999; background: rgba(10, 15, 26, 0.95); backdrop-filter: blur(20px); display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s, visibility 0.5s; }
@@ -360,10 +372,29 @@
             </div>
         </div>
 
+        
+        <!-- ══════════ F1b ── Inhaltsverzeichnis ══════════ -->
+        <div class="slide" data-slide="0">
+            <div class="bg-glow blue" style="width:500px;height:500px;top:20%;left:-10%"></div>
+            <div class="slide-tag"><span class="dot"></span> Agenda</div>
+            <h2 class="slide-heading">Unsere <span class="accent">Themen</span> heute</h2>
+            <p class="slide-subtitle">Ein klarer Fahrplan für die Energiewende in BOL.</p>
+            <div class="slide-body" style="max-width: 800px; margin-top: 1.5rem;">
+                <ul class="cta-list" style="margin: 0 auto;">
+                    <li class="anim-item"><div class="cta-icon icon-yellow">1</div><span><strong>Vision:</strong> BOL als Vorreiter-Region für die Energiewende</span></li>
+                    <li class="anim-item"><div class="cta-icon icon-green">2</div><span><strong>Das Power-Share Modell</strong> & unsere Partner</span></li>
+                    <li class="anim-item"><div class="cta-icon icon-blue">3</div><span><strong>Wirtschaftlichkeit & Rechenbeispiele</strong></span></li>
+                    <li class="anim-item"><div class="cta-icon icon-orange">4</div><span><strong>Herausforderungen</strong> & Lösungsansätze</span></li>
+                    <li class="anim-item"><div class="cta-icon icon-purple">5</div><span><strong>Partnerschaft:</strong> Wie die Gemeinden uns unterstützen können</span></li>
+                    <li class="anim-item"><div class="cta-icon icon-teal">6</div><span><strong>Offene Fragen & Nächste Schritte</strong></span></li>
+                </ul>
+            </div>
+        </div>
+
         <!-- ══════════ F2 ── Team Power-Share ══════════ -->
         <div class="slide" data-slide="1">
             <div class="bg-glow green" style="width:400px;height:400px;top:10%;right:-10%"></div>
-            <div class="slide-tag"><span class="dot"></span> Initiative</div>
+            <div class="slide-tag"><span class="dot"></span> 1. Vision: BOL als Vorreiter-Region für die Energiewende</div>
             <h2 class="slide-heading">Das Team hinter <span class="accent">Power-Share</span></h2>
             <p class="slide-subtitle">Ein privater Ansatz aus Überzeugung — von Bürgern für Bürger.</p>
             <div class="card-grid cols-4 slide-body" style="margin-top:1.5rem; max-width:800px;">
@@ -393,7 +424,7 @@
         <!-- ══════════ F3 ── Paradigmenwechsel ══════════ -->
         <div class="slide" data-slide="2">
             <div class="bg-glow yellow" style="width:450px;height:450px;top:-8%;left:20%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 1 · Vision</div>
+            <div class="slide-tag"><span class="dot"></span> 1. Vision: BOL als Vorreiter-Region für die Energiewende</div>
             <h2 class="slide-heading">Der <span class="accent">Paradigmenwechsel</span></h2>
             <p class="slide-subtitle">Bürger begeistern, Initiative zeigen: Bottom-up statt Top-down.</p>
             <div class="card-grid cols-2 slide-body">
@@ -407,7 +438,7 @@
         <!-- ══════════ F4 ── Was ist Energy Sharing? (1/2) ══════════ -->
         <div class="slide" data-slide="3">
             <div class="bg-glow green" style="width:500px;height:500px;top:5%;right:-8%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 1 · Grundlagen</div>
+            <div class="slide-tag"><span class="dot"></span> 1. Vision: BOL als Vorreiter-Region für die Energiewende</div>
             <h2 class="slide-heading">Was ist <span class="accent">Energy Sharing</span> genau? (1/2)</h2>
             <p class="slide-subtitle">Gesetzliche Basis und Abrechnung — virtuell und regional.</p>
 
@@ -433,7 +464,7 @@
         <!-- ══════════ F5 ── Was ist Energy Sharing? (2/2) ══════════ -->
         <div class="slide" data-slide="4">
             <div class="bg-glow blue" style="width:400px;height:400px;bottom:-10%;left:10%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 1 · Grundlagen</div>
+            <div class="slide-tag"><span class="dot"></span> 1. Vision: BOL als Vorreiter-Region für die Energiewende</div>
             <h2 class="slide-heading">Was ist <span class="accent">Energy Sharing</span> genau? (2/2)</h2>
             <p class="slide-subtitle">Sicherheit für die Teilnehmer und die Rolle des Netzes.</p>
 
@@ -461,7 +492,7 @@
         <!-- ══════════ F6 ── Benchmarking ══════════ -->
         <div class="slide" data-slide="5">
             <div class="bg-glow blue" style="width:400px;height:400px;top:-5%;right:5%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 1 · Grundlagen</div>
+            <div class="slide-tag"><span class="dot"></span> 1. Vision: BOL als Vorreiter-Region für die Energiewende</div>
             <h2 class="slide-heading">Internationales <span class="accent">Benchmarking</span></h2>
             <p class="slide-subtitle">Europa zeigt: Energy Sharing funktioniert, wenn die Anreize stimmen.</p>
             <div class="card-grid cols-4 slide-body">
@@ -477,9 +508,9 @@
         </div>
 
         <!-- ══════════ F5 ── Warum BOL? ══════════ -->
-        <div class="slide" data-slide="4">
+        <div class="slide" data-slide="6">
             <div class="bg-glow green" style="width:500px;height:500px;bottom:-15%;right:10%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 1 · Vision</div>
+            <div class="slide-tag"><span class="dot"></span> 1. Vision: BOL als Vorreiter-Region für die Energiewende</div>
             <h2 class="slide-heading">Warum BOL die <span class="accent">perfekte Pilotregion</span> ist</h2>
             <p class="slide-subtitle">Die Blaupause für ganz Deutschland — von uns, für uns.</p>
             <div class="card-grid cols-3 slide-body">
@@ -491,16 +522,16 @@
         </div>
 
         <!-- ══════════ F6 ── Konzept Animated Flow ══════════ -->
-        <div class="slide" data-slide="6">
+        <div class="slide" data-slide="7">
             <div class="bg-glow blue" style="width:500px;height:500px;top:10%;left:-10%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 2 · Lösung</div>
+            <div class="slide-tag"><span class="dot"></span> 2. Das Power-Share Modell & unsere Partner</div>
             <h2 class="slide-heading">Das Konzept — <span class="accent">Simpel erklärt</span></h2>
             <div class="flow-row" id="konzeptFlowRow" style="margin:2.5rem 0 1.5rem 0; position:relative;">
                 <div class="flow-box anim-item" id="flowBox1" style="background:rgba(234,179,8,0.08); border:1px solid rgba(234,179,8,0.2);"><i class="fa-solid fa-sun" style="color:#facc15;"></i><span class="label">Erzeuger</span><span class="sub">Dach-PV · Überschuss</span></div>
                 <div style="width:80px; flex-shrink:0;"></div>
                 <div class="flow-box anim-item" id="flowBox2" style="background:rgba(101,163,13,0.08); border:1px solid rgba(101,163,13,0.2);"><i class="fa-solid fa-bolt" style="color:var(--brand-light);"></i><span class="label">Öffentl. Netz</span><span class="sub">Syna · Verteilnetz</span></div>
                 <div style="width:80px; flex-shrink:0;"></div>
-                <div class="flow-box anim-item" id="flowBox3" style="background:rgba(2,132,199,0.08); border:1px solid rgba(2,132,199,0.2);"><i class="fa-solid fa-house" style="color:#38bdf8;"></i><span class="label">Verbraucher B</span><span class="sub">Nachbar · Haushalt</span></div>
+                <div class="flow-box anim-item" id="flowBox3" style="background:rgba(2,132,199,0.08); border:1px solid rgba(2,132,199,0.2);"><i class="fa-solid fa-house" style="color:#38bdf8;"></i><span class="label">Verbraucher</span><span class="sub">Nachbar · Haushalt</span></div>
                 <svg id="konzeptFlowSvg" style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1; overflow:visible;">
                     <defs>
                         <filter id="flowGlow" x="-50%" y="-50%" width="200%" height="200%">
@@ -522,9 +553,9 @@
         </div>
 
         <!-- ══════════ F7 ── Matching-Plattform mit Netzwerk-Grafik ══════════ -->
-        <div class="slide" data-slide="7">
+        <div class="slide" data-slide="8">
             <div class="bg-glow green" style="width:400px;height:400px;top:5%;right:-5%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 2 · Power-Share</div>
+            <div class="slide-tag"><span class="dot"></span> 2. Das Power-Share Modell & unsere Partner</div>
             <h2 class="slide-heading">Die <span class="accent">Matching-Plattform</span></h2>
             <p class="slide-subtitle">Unser Beitrag: Teilnehmer finden, Profile analysieren, Communities bilden.</p>
 
@@ -661,11 +692,11 @@
         </div>
 
         <!-- ══════════ F8 ── decarbon1ze ══════════ -->
-        <div class="slide" data-slide="8">
+        <div class="slide" data-slide="9">
             <div class="bg-glow green" style="width:500px;height:500px;top:-5%;right:-10%"></div>
             <div class="bg-glow blue" style="width:350px;height:350px;bottom:-8%;left:5%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 2 · Favorisierter Partner</div>
-            <h2 class="slide-heading"><span class="accent">decarbon1ze</span> — Unser Partner für die Abrechnung</h2>
+            <div class="slide-tag"><span class="dot"></span> 2. Das Power-Share Modell & unsere Partner</div>
+            <h2 class="slide-heading"><span class="accent">decarbon1ze</span> — Möglicher Partner für die Abrechnung</h2>
             <p class="slide-subtitle" style="max-width:640px;">Deutscher Anbieter mit fertiger Plattform für virtuelle Bilanzierung & Energy Sharing.</p>
             <div class="card-grid cols-2 slide-body" style="max-width:800px;">
                 <div class="card favored anim-item"><div class="icon icon-green"><i class="fa-solid fa-coins"></i></div><h3>Kosten — transparent & günstig</h3>
@@ -685,11 +716,11 @@
         </div>
 
         <!-- ══════════ F9 ── Alternative Anbieter ══════════ -->
-        <div class="slide" data-slide="9">
+        <div class="slide" data-slide="10">
             <div class="bg-glow rose" style="width:400px;height:400px;top:10%;left:-10%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 2 · Alternativen</div>
-            <h2 class="slide-heading">Mögliche <span class="accent">Partner</span></h2>
-            <p class="slide-subtitle">Wofür benötigen wir einen Partner? Für die 15-Minuten-Bilanzierung, das Datenmanagement und die rechtssichere Abrechnung.</p>
+            <div class="slide-tag"><span class="dot"></span> 2. Das Power-Share Modell & unsere Partner</div>
+            <h2 class="slide-heading">Weitere mögliche <span class="accent">Partner</span></h2>
+            <p class="slide-subtitle">Für die 15-Minuten-Bilanzierung, Datenmanagement und Abrechnung.</p>
             <div class="card-grid cols-2 slide-body" style="max-width:800px; margin-top:1.5rem;">
                 <div class="card anim-item" style="border-color:rgba(225,29,72,0.2);">
                     <h3 style="color:#fb7185;"><i class="fa-solid fa-server"></i> neugemacht</h3>
@@ -724,9 +755,9 @@
 
 
         <!-- ══════════ F10 ── Partner-Vergleich ══════════ -->
-        <div class="slide" data-slide="10">
+        <div class="slide" data-slide="11">
             <div class="bg-glow yellow" style="width:400px;height:400px;top:-8%;left:10%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 2 · Alternativen</div>
+            <div class="slide-tag"><span class="dot"></span> 2. Das Power-Share Modell & unsere Partner</div>
             <h2 class="slide-heading">Partner-<span class="accent">Vergleich</span>: Setup-Kosten</h2>
             <p class="slide-subtitle">Initiale Kosten — der Unterschied ist enorm.</p>
             <div class="bar-chart slide-body" style="max-width:480px; margin-bottom:1rem;">
@@ -748,14 +779,14 @@
         </div>
 
         <!-- ══════════ F10 ── Ökosystem Donut ══════════ -->
-        <div class="slide" data-slide="9">
+        <div class="slide" data-slide="12">
             <div class="bg-glow blue" style="width:450px;height:450px;bottom:-10%;left:5%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 2 · Ökosystem</div>
+            <div class="slide-tag"><span class="dot"></span> 2. Das Power-Share Modell & unsere Partner</div>
             <h2 class="slide-heading">Ein starkes <span class="accent">Ökosystem</span></h2>
             <p class="slide-subtitle">Klare Rollenverteilung — jeder macht, was er am besten kann.</p>
             <div class="donut-wrap" style="margin-bottom:1rem;">
                 <div class="donut-chart">
-                    <svg viewBox="0 0 120 120">
+                    <svg viewBox="0 0 120 120" style="animation: spin-donut 60s linear infinite;">
                         <circle class="donut-track" cx="60" cy="60" r="50"/>
                         <!-- 4 equal segments: circumference ≈ 314.16, each ≈ 75 with 3.5 gap -->
                         <circle class="donut-fill" cx="60" cy="60" r="50" stroke="var(--brand-light)" stroke-dasharray="75, 239"/>
@@ -779,9 +810,9 @@
         </div>
 
         <!-- ══════════ F11 ── Abgaben & Kosten ══════════ -->
-        <div class="slide" data-slide="10">
+        <div class="slide" data-slide="13">
             <div class="bg-glow yellow" style="width:400px;height:400px;top:-5%;right:20%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 3 · Wirtschaftlichkeit</div>
+            <div class="slide-tag"><span class="dot"></span> 3. Wirtschaftlichkeit & Rechenbeispiele</div>
             <h2 class="slide-heading">Kosten & <span class="accent">Abgaben</span></h2>
             <p class="slide-subtitle">Auch beim Energy Sharing fallen Netzentgelte und Umlagen an.</p>
             
@@ -826,10 +857,10 @@
         </div>
 
         <!-- ══════════ F11b ── Interaktiver Rechner ══════════ -->
-        <div class="slide" data-slide="11">
+        <div class="slide" data-slide="14">
             <div class="bg-glow blue" style="width:500px;height:500px;bottom:-10%;left:-5%"></div>
             <div class="bg-glow yellow" style="width:400px;height:400px;top:-5%;right:-5%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 3 · Wirtschaftlichkeit</div>
+            <div class="slide-tag"><span class="dot"></span> 3. Wirtschaftlichkeit & Rechenbeispiele</div>
             <h2 class="slide-heading">Der <span class="accent">Energy Sharing Rechner</span></h2>
             <p class="slide-subtitle">Live-Simulation: Wie verteilen wir die Vorteile fair?</p>
             
@@ -889,15 +920,15 @@
                     <!-- Producer -->
                     <div style="background: rgba(234, 179, 8, 0.05); border: 1px solid rgba(234, 179, 8, 0.2); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; position:relative; overflow:hidden;">
                         <div style="position:absolute; top:-10px; right:-10px; font-size:5rem; opacity:0.05; color:#facc15;"><i class="fa-solid fa-solar-panel"></i></div>
-                        <h3 style="color: #facc15; font-size: 1.2rem; font-weight: 900; margin-bottom: 1.2rem; display:flex; align-items:center; gap:0.5rem;"><i class="fa-solid fa-solar-panel"></i> Einspeiser <span style="font-size:0.7rem; font-weight:normal; opacity:0.7; border: 1px solid #facc15; border-radius:1rem; padding:0.1rem 0.5rem;">Producer</span></h3>
+                        <h3 style="color: #facc15; font-size: 1.2rem; font-weight: 900; margin-bottom: 1.2rem; display:flex; align-items:center; gap:0.5rem;"><i class="fa-solid fa-solar-panel"></i> Erzeuger <span style="font-size:0.7rem; font-weight:normal; opacity:0.7; border: 1px solid #facc15; border-radius:1rem; padding:0.1rem 0.5rem;">Producer</span></h3>
                         
                         <div style="flex: 1; display: flex; flex-direction: column; gap: 1.2rem; z-index:1;">
                             <div>
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
                                     <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Sharing-Einspeisung</label>
-                                    <span id="val_p_export" style="font-size: 0.85rem; font-weight: bold; color: #facc15;">10.000 kWh</span>
+                                    <span id="val_p_export" style="font-size: 0.85rem; font-weight: bold; color: #facc15;">3.000 kWh</span>
                                 </div>
-                                <input type="range" id="p_export" min="1000" max="50000" step="500" value="10000" style="width: 100%; accent-color: #facc15;" oninput="updateAll()">
+                                <input type="range" id="p_export" min="1000" max="50000" step="500" value="3000" style="width: 100%; accent-color: #facc15;" oninput="updateAll()">
                             </div>
                         </div>
                         
@@ -917,17 +948,17 @@
                             <div>
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
                                     <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Sharing-Einspeisung</label>
-                                    <span id="val_pr_export" style="font-size: 0.85rem; font-weight: bold; color: #34d399;">6.000 kWh</span>
+                                    <span id="val_pr_export" style="font-size: 0.85rem; font-weight: bold; color: #34d399;">3.000 kWh</span>
                                 </div>
-                                <input type="range" id="pr_export" min="0" max="30000" step="500" value="6000" style="width: 100%; accent-color: #34d399;" oninput="updateAll()">
+                                <input type="range" id="pr_export" min="0" max="30000" step="500" value="3000" style="width: 100%; accent-color: #34d399;" oninput="updateAll()">
                             </div>
 
                             <div>
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
                                     <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Sharing-Abnahme</label>
-                                    <span id="val_pr_share" style="font-size: 0.85rem; font-weight: bold; color: #34d399;">1.500 kWh</span>
+                                    <span id="val_pr_share" style="font-size: 0.85rem; font-weight: bold; color: #34d399;">1.000 kWh</span>
                                 </div>
-                                <input type="range" id="pr_share" min="0" max="30000" step="500" value="1500" style="width: 100%; accent-color: #34d399;" oninput="updateAll()">
+                                <input type="range" id="pr_share" min="0" max="30000" step="500" value="1000" style="width: 100%; accent-color: #34d399;" oninput="updateAll()">
                             </div>
                         </div>
                         
@@ -941,15 +972,15 @@
                     <!-- Consumer -->
                     <div style="background: rgba(56, 189, 248, 0.05); border: 1px solid rgba(56, 189, 248, 0.2); border-radius: 1rem; padding: 1.5rem; display: flex; flex-direction: column; position:relative; overflow:hidden;">
                         <div style="position:absolute; top:-10px; right:-10px; font-size:5rem; opacity:0.05; color:#38bdf8;"><i class="fa-solid fa-house-user"></i></div>
-                        <h3 style="color: #38bdf8; font-size: 1.2rem; font-weight: 900; margin-bottom: 1.2rem; display:flex; align-items:center; gap:0.5rem;"><i class="fa-solid fa-house-user"></i> Abnehmer <span style="font-size:0.7rem; font-weight:normal; opacity:0.7; border: 1px solid #38bdf8; border-radius:1rem; padding:0.1rem 0.5rem;">Consumer</span></h3>
+                        <h3 style="color: #38bdf8; font-size: 1.2rem; font-weight: 900; margin-bottom: 1.2rem; display:flex; align-items:center; gap:0.5rem;"><i class="fa-solid fa-house-user"></i> Verbraucher <span style="font-size:0.7rem; font-weight:normal; opacity:0.7; border: 1px solid #38bdf8; border-radius:1rem; padding:0.1rem 0.5rem;">Consumer</span></h3>
                         
                         <div style="flex: 1; display: flex; flex-direction: column; gap: 1.2rem; z-index:1;">
                             <div>
                                 <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
                                     <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Sharing-Abnahme</label>
-                                    <span id="val_c_share" style="font-size: 0.85rem; font-weight: bold; color: #38bdf8;">1.000 kWh</span>
+                                    <span id="val_c_share" style="font-size: 0.85rem; font-weight: bold; color: #38bdf8;">1.500 kWh</span>
                                 </div>
-                                <input type="range" id="c_share" min="0" max="20000" step="100" value="1000" style="width: 100%; accent-color: #38bdf8;" oninput="updateAll()">
+                                <input type="range" id="c_share" min="0" max="20000" step="100" value="1500" style="width: 100%; accent-color: #38bdf8;" oninput="updateAll()">
                             </div>
                         </div>
                         
@@ -962,9 +993,7 @@
 
                 </div>
 
-                <div style="text-align: center; font-size: 0.65rem; color: rgba(255,255,255,0.4); margin-top: 0.5rem; letter-spacing: 0.02em;">
-                    *Alle Berechnungen inklusive Plattformgebühr, exkl. ggf. einmaliger Smart-Meter-Installationskosten.
-                </div>
+
             </div>
             
             <script>
@@ -1079,9 +1108,9 @@
         </div>
 
         <!-- ══════════ F12 ── Post-EEG ══════════ -->
-        <div class="slide" data-slide="11">
+        <div class="slide" data-slide="15">
             <div class="bg-glow" style="width:400px;height:400px;top:10%;left:-5%; background:#f97316;"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 3 · Wirtschaftlichkeit</div>
+            <div class="slide-tag"><span class="dot"></span> 3. Wirtschaftlichkeit & Rechenbeispiele</div>
             <h2 class="slide-heading">Der <span class="accent">Rettungsanker</span> für Post-EEG-Anlagen</h2>
             <p class="slide-subtitle">Was passiert mit den alten Solaranlagen, deren Förderung ausläuft?</p>
             <div class="card-grid cols-2 slide-body" style="max-width:700px;">
@@ -1106,7 +1135,7 @@
         <!-- ══════════ F12b ── Ottersweier Beispiel ══════════ -->
         <div class="slide" data-slide="12b">
             <div class="bg-glow rose" style="width:400px;height:400px;top:-5%;right:5%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 3 · Wirtschaftlichkeit</div>
+            <div class="slide-tag"><span class="dot"></span> 3. Wirtschaftlichkeit & Rechenbeispiele</div>
             <h2 class="slide-heading">Aktuelles Beispiel: <span class="accent">Ottersweier</span></h2>
             <p class="slide-subtitle">Nach 13 Gewinnjahren plötzlich im Minus: Warum der Status Quo nicht mehr funktioniert.</p>
             
@@ -1121,8 +1150,8 @@
                     <h3 style="color:#facc15;">Bisherige Überlegungen</h3>
                     <p>Ideen wie die Nutzung für die Dorfheizung oder Schul-Klimaanlagen sind ein erster Schritt, schöpfen das Potenzial aber nicht voll aus:</p>
                     <ul style="font-size:0.75rem; margin-top:0.5rem; padding-left:1rem;">
-                        <li><i class="fa-solid fa-arrow-right" style="color:#facc15; margin-right:4px;"></i>Die Dorfheizung benötigt im Sommer (PV-Hochphase) <strong>kaum</strong> Energie — genau dann, wenn am meisten Solarstrom anfällt.</li>
-                        <li><i class="fa-solid fa-arrow-right" style="color:#facc15; margin-right:4px;"></i>Klimaanlagen erhöhen den Eigenverbrauch, generieren jedoch keine neuen Einnahmen.</li>
+                        <li><i class="fa-solid fa-arrow-right" style="color:#facc15; margin-right:4px;"></i><span>Die Dorfheizung benötigt im Sommer (PV-Hochphase) <strong>kaum</strong> Energie — genau dann, wenn am meisten Solarstrom anfällt.</span></li>
+                        <li><i class="fa-solid fa-arrow-right" style="color:#facc15; margin-right:4px;"></i><span>Klimaanlagen erhöhen den Eigenverbrauch, generieren jedoch keine neuen Einnahmen.</span></li>
                     </ul>
                 </div>
                 <div class="card anim-item" style="border-color:rgba(16,185,129,0.2);">
@@ -1134,9 +1163,9 @@
         </div>
 
         <!-- ══════════ F13 ── Kommune ══════════ -->
-        <div class="slide" data-slide="12">
+        <div class="slide" data-slide="17">
             <div class="bg-glow green" style="width:500px;height:500px;bottom:-10%;right:-10%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 3 · Wirtschaftlichkeit</div>
+            <div class="slide-tag"><span class="dot"></span> 3. Wirtschaftlichkeit & Rechenbeispiele</div>
             <h2 class="slide-heading">Die <span class="accent">Kommune als Anker</span>-Teilnehmer</h2>
             <p class="slide-subtitle">Rathäuser, Schulen, Bauhöfe — die Gemeinde als Vorbild und Treiber.</p>
             <div class="card-grid cols-3 slide-body">
@@ -1147,10 +1176,23 @@
             <p style="text-align:center; margin-top:0.9rem; font-size:0.75rem; color:var(--text-muted);"><i class="fa-solid fa-coins" style="color:var(--brand-light); margin-right:0.3rem;"></i>Keine Kosten für die Kommune — die Plattform wird privat betrieben.</p>
         </div>
 
+        <!-- ══════════ F15b ── Weitere Vorteile in Zukunft ══════════ -->
+        <div class="slide" data-slide="18">
+            <div class="bg-glow yellow" style="width:500px;height:500px;top:-5%;left:-10%"></div>
+            <div class="slide-tag"><span class="dot"></span> 3. Wirtschaftlichkeit & Rechenbeispiele</div>
+            <h2 class="slide-heading">Weitere Vorteile <span class="accent">in Zukunft</span></h2>
+            <p class="slide-subtitle">Die Regulatorik wird sich zugunsten von Energy Sharing weiterentwickeln.</p>
+            <div class="card-grid cols-3 slide-body">
+                <div class="card anim-item"><div class="icon icon-yellow"><i class="fa-solid fa-money-bill-wave"></i></div><h3>Entfall von Abgaben</h3><p>Weitere Befreiungen (z.B. von Stromsteuer oder verbleibenden Umlagen) für lokalen Strom sind politisch in Diskussion.</p></div>
+                <div class="card anim-item"><div class="icon icon-blue"><i class="fa-solid fa-tower-broadcast"></i></div><h3>Netzentgelt-Reform</h3><p>Dynamische, zeitvariable Netzentgelte belohnen netzdienliches Verhalten (Direktverbrauch bei viel Sonne) zusätzlich.</p></div>
+                <div class="card anim-item"><div class="icon icon-green"><i class="fa-solid fa-cubes"></i></div><h3>Rahmenwerk Power-Share</h3><p>Das von uns aufgebaute Plattform-Konstrukt ist skalierbar und offen für neue Module (z.B. E-Ladesäulen-Integration).</p></div>
+            </div>
+        </div>
+
         <!-- ══════════ F14 ── Smart Meter ══════════ -->
-        <div class="slide" data-slide="13">
+        <div class="slide" data-slide="19">
             <div class="bg-glow blue" style="width:400px;height:400px;top:-8%;left:10%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 4 · Schulterschluss</div>
+            <div class="slide-tag"><span class="dot"></span> 4. Herausforderungen & Lösungsansätze</div>
             <h2 class="slide-heading"><span class="accent">Smart Meter</span> als Fundament</h2>
             <p class="slide-subtitle" style="max-width:640px;">Für echtes Energy Sharing setzen wir auf iMSys von der Syna — kein Parallelbetrieb, kein Konflikt.</p>
             <div class="card-grid cols-2 slide-body" style="max-width:740px;">
@@ -1165,10 +1207,10 @@
         </div>
 
         <!-- ══════════ F15 ── Netz Herzstück ══════════ -->
-        <div class="slide" data-slide="14">
+        <div class="slide" data-slide="20">
             <div class="bg-glow green" style="width:500px;height:500px;top:5%;right:-10%"></div>
             <div class="bg-glow blue" style="width:350px;height:350px;bottom:-5%;left:15%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 4 · An Süwag/Syna</div>
+            <div class="slide-tag"><span class="dot"></span> 4. Herausforderungen & Lösungsansätze</div>
             <h2 class="slide-heading">Das Netz als <span class="accent">Herzstück</span></h2>
             <p class="slide-subtitle" style="max-width:620px;">Ohne das Verteilnetz geht nichts. Die Syna ist <strong style="color:#fff;">essenzieller Innovationspartner</strong>.</p>
             <div class="card-grid cols-2 slide-body" style="max-width:700px;">
@@ -1178,23 +1220,10 @@
             <div class="quote-block anim-item" style="border-left-color:var(--brand-accent);"><p>„Lassen Sie uns in BOL gemeinsam zeigen, wie Verteilnetzbetreiber und Sharing-Communities in der Praxis harmonieren."</p><div class="attr">— Direkte Einladung an Süwag/Syna</div></div>
         </div>
 
-        <!-- ══════════ F15b ── Weitere Vorteile in Zukunft ══════════ -->
-        <div class="slide" data-slide="15">
-            <div class="bg-glow yellow" style="width:500px;height:500px;top:-5%;left:-10%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 4 · Ausblick</div>
-            <h2 class="slide-heading">Weitere Vorteile <span class="accent">in Zukunft</span></h2>
-            <p class="slide-subtitle">Die Regulatorik wird sich zugunsten von Energy Sharing weiterentwickeln.</p>
-            <div class="card-grid cols-3 slide-body">
-                <div class="card anim-item"><div class="icon icon-yellow"><i class="fa-solid fa-money-bill-wave"></i></div><h3>Entfall von Abgaben</h3><p>Weitere Befreiungen (z.B. von Stromsteuer oder verbleibenden Umlagen) für lokalen Strom sind politisch in Diskussion.</p></div>
-                <div class="card anim-item"><div class="icon icon-blue"><i class="fa-solid fa-tower-broadcast"></i></div><h3>Netzentgelt-Reform</h3><p>Dynamische, zeitvariable Netzentgelte belohnen netzdienliches Verhalten (Direktverbrauch bei viel Sonne) zusätzlich.</p></div>
-                <div class="card anim-item"><div class="icon icon-green"><i class="fa-solid fa-cubes"></i></div><h3>Rahmenwerk Power-Share</h3><p>Das von uns aufgebaute Plattform-Konstrukt ist skalierbar und offen für neue Module (z.B. E-Ladesäulen-Integration).</p></div>
-            </div>
-        </div>
-
         <!-- ══════════ F16 ── CTA (mit Herr/Frau) ══════════ -->
-        <div class="slide" data-slide="16">
+        <div class="slide" data-slide="21">
             <div class="bg-glow green" style="width:600px;height:600px;top:-15%;left:30%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 4 · Bitten</div>
+            <div class="slide-tag"><span class="dot"></span> 5. Partnerschaft: Wie die Gemeinden uns unterstützen können</div>
             <h2 class="slide-heading">Unser Angebot & <span class="accent">Unsere Bitten</span></h2>
             <ul class="cta-list">
                 <li class="anim-item"><div class="cta-icon icon-green"><i class="fa-solid fa-building-flag"></i></div><span><strong>An die Bürgermeister:</strong><br>Offizielle Bewerbung (Gemeindeblatt) & <strong>Akzeptanz-Argumente Wind/Solar</strong>: Lokale Projekte werden von Bürgern befürwortet, wenn sie direkt am günstigen Strom partizipieren!</span></li>
@@ -1204,10 +1233,10 @@
         </div>
 
         <!-- ══════════ F17 ── Abschluss ══════════ -->
-        <div class="slide" data-slide="17">
+        <div class="slide" data-slide="22">
             <div class="gradient-bg"></div>
             <div class="particles" id="endParticles"></div>
-            <div class="slide-tag"><span class="dot"></span> Abschluss</div>
+            <div class="slide-tag"><span class="dot"></span> 6. Offene Fragen & Nächste Schritte</div>
             <h1 class="slide-title" style="margin-bottom:0.8rem;">Lassen Sie uns den<br><span class="accent">nächsten Schritt</span> gehen.</h1>
             <p class="slide-subtitle" style="max-width:540px;">Vom anonymen Strommarkt zur nachbarschaftlichen Wertegemeinschaft. BOL wird zum Vorreiter in Deutschland.</p>
             
@@ -1229,7 +1258,7 @@
 
     <div class="nav-bar">
         <button class="nav-btn" id="btnPrev" title="Vorherige Folie"><i class="fa-solid fa-chevron-left"></i></button>
-        <span class="slide-counter" id="slideCounter" title="Gehe zu Folie">1 / 18</span>
+        <span class="slide-counter" id="slideCounter" title="Gehe zu Folie">1 / 19</span>
         <button class="nav-btn" id="btnNext" title="Nächste Folie"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
