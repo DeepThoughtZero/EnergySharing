@@ -374,7 +374,7 @@
             </div>
             <div class="highlight-box anim-item" style="margin-top:1.5rem;">
                 <div class="big"><i class="fa-solid fa-heart" style="margin-right:0.4rem; color:#ef4444;"></i>Ehrenamtliches Projekt</div>
-                <p>Wir agieren unabhängig und ohne Gewinnabsicht. Unser Ziel: Das Verteilnetz effizienter machen und lokales Energy Sharing im Tal vorantreiben.</p>
+                <p>Wir agieren unabhängig und ohne Gewinnabsicht. Unser Ziel: Das Verteilnetz effizienter machen und lokales Energy Sharing in der Region vorantreiben.</p>
             </div>
             <div class="card-grid cols-2 slide-body" style="margin-top:1.5rem; max-width:800px;">
                 <div class="card anim-item" style="text-align:center; padding:1.2rem;">
@@ -420,7 +420,7 @@
                 <div class="schema-card anim-item">
                     <div class="schema-num">2</div>
                     <h3><i class="fa-solid fa-chart-bar" style="color:#38bdf8;font-size:0.75rem;"></i> 15-Minuten-Bilanzierung</h3>
-                    <p>Messung alle 15 Minuten. Die Zuordnung erfolgt <strong style="color:#fff;">virtuell</strong> über das <strong style="color:#fff;">GGV-Modell</strong> — kein separater Zähler nötig.</p>
+                    <p>Messung alle 15 Minuten. Die Zuordnung erfolgt <strong style="color:#fff;">virtuell</strong> über das <strong style="color:#fff;">Gemeinschaftliche-Gebäudeversorgung-Modell (GGV)</strong> — kein separater Zähler nötig.</p>
                 </div>
             </div>
             
@@ -495,22 +495,25 @@
             <div class="bg-glow blue" style="width:500px;height:500px;top:10%;left:-10%"></div>
             <div class="slide-tag"><span class="dot"></span> Block 2 · Lösung</div>
             <h2 class="slide-heading">Das Konzept — <span class="accent">Simpel erklärt</span></h2>
-            <div class="flow-row" style="margin:2.5rem 0 1.5rem 0;">
-                <div class="flow-box anim-item" style="background:rgba(234,179,8,0.08); border:1px solid rgba(234,179,8,0.2);"><i class="fa-solid fa-sun" style="color:#facc15;"></i><span class="label">Prosumer A</span><span class="sub">Dach-PV · Überschuss</span></div>
-                <div class="flow-connector anim-item" style="position:relative;">
-                    <span style="position:absolute; top:-25px; left:50%; transform:translateX(-50%); font-size:0.6rem; color:#fff; white-space:nowrap; font-weight:bold;">1. Finden über die App</span>
-                    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-                </div>
-                <div class="flow-box anim-item" style="background:rgba(101,163,13,0.08); border:1px solid rgba(101,163,13,0.2);"><i class="fa-solid fa-bolt" style="color:var(--brand-light);"></i><span class="label">Öffentl. Netz</span><span class="sub">Syna · Verteilnetz</span></div>
-                <div class="flow-connector anim-item" style="position:relative;">
-                    <span style="position:absolute; top:-25px; left:50%; transform:translateX(-50%); font-size:0.6rem; color:#fff; white-space:nowrap; font-weight:bold;">2. Community auf- und ausbauen</span>
-                    <div class="particle"></div><div class="particle"></div><div class="particle"></div>
-                </div>
-                <div class="flow-box anim-item" style="background:rgba(2,132,199,0.08); border:1px solid rgba(2,132,199,0.2);"><i class="fa-solid fa-house" style="color:#38bdf8;"></i><span class="label">Verbraucher B</span><span class="sub">Nachbar · Haushalt</span></div>
+            <div class="flow-row" id="konzeptFlowRow" style="margin:2.5rem 0 1.5rem 0; position:relative;">
+                <div class="flow-box anim-item" id="flowBox1" style="background:rgba(234,179,8,0.08); border:1px solid rgba(234,179,8,0.2);"><i class="fa-solid fa-sun" style="color:#facc15;"></i><span class="label">Erzeuger</span><span class="sub">Dach-PV · Überschuss</span></div>
+                <div style="width:80px; flex-shrink:0;"></div>
+                <div class="flow-box anim-item" id="flowBox2" style="background:rgba(101,163,13,0.08); border:1px solid rgba(101,163,13,0.2);"><i class="fa-solid fa-bolt" style="color:var(--brand-light);"></i><span class="label">Öffentl. Netz</span><span class="sub">Syna · Verteilnetz</span></div>
+                <div style="width:80px; flex-shrink:0;"></div>
+                <div class="flow-box anim-item" id="flowBox3" style="background:rgba(2,132,199,0.08); border:1px solid rgba(2,132,199,0.2);"><i class="fa-solid fa-house" style="color:#38bdf8;"></i><span class="label">Verbraucher B</span><span class="sub">Nachbar · Haushalt</span></div>
+                <svg id="konzeptFlowSvg" style="position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1; overflow:visible;">
+                    <defs>
+                        <filter id="flowGlow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                            <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+                    <g id="konzept-flow-particles"></g>
+                </svg>
             </div>
             <div class="highlight-box anim-item">
                 <div class="big"><i class="fa-solid fa-heart-pulse" style="margin-right:0.4rem;"></i>Power-Share</div>
-                <p>Die „Dating-App" für Strom — wir bringen Prosumer und Verbraucher zusammen.</p>
+                <p>Die „Dating-App" für Strom — wir bringen Erzeuger und Verbraucher zusammen.</p>
             </div>
             <div class="highlight-box anim-item" style="margin-top:1rem; border-color:rgba(249,115,22,0.3); background:rgba(249,115,22,0.1);">
                 <div class="big" style="color:#f97316;"><i class="fa-solid fa-fire" style="margin-right:0.4rem;"></i>Hohe Nachfrage</div>
@@ -547,9 +550,9 @@
                     <g id="mesh-particles"></g>
 
                     <!-- Center hub: Power-Share -->
-                    <circle cx="200" cy="140" r="22" fill="rgba(101,163,13,0.15)" stroke="var(--brand-light)" stroke-width="2"/>
-                    <text x="200" y="137" text-anchor="middle" fill="#84cc16" font-size="10" font-weight="800"><tspan>⚡</tspan></text>
-                    <text x="200" y="149" text-anchor="middle" fill="#fff" font-size="5.5" font-weight="700">MATCHING</text>
+                    <circle cx="200" cy="140" r="22" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4 3"/>
+                    <text x="200" y="137" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10" font-weight="800"><tspan>⚡</tspan></text>
+                    <text x="200" y="149" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="5.5" font-weight="700">MATCHING</text>
 
                     <!-- Erzeuger nodes (yellow/sun) -->
                     <circle cx="120" cy="80" r="18" class="node-circle" fill="rgba(234,179,8,0.1)" stroke="#facc15" stroke-width="1.5"/>
@@ -657,12 +660,36 @@
             </div>
         </div>
 
-        <!-- ══════════ F8 ── Alternative Anbieter ══════════ -->
+        <!-- ══════════ F8 ── decarbon1ze ══════════ -->
         <div class="slide" data-slide="8">
+            <div class="bg-glow green" style="width:500px;height:500px;top:-5%;right:-10%"></div>
+            <div class="bg-glow blue" style="width:350px;height:350px;bottom:-8%;left:5%"></div>
+            <div class="slide-tag"><span class="dot"></span> Block 2 · Favorisierter Partner</div>
+            <h2 class="slide-heading"><span class="accent">decarbon1ze</span> — Unser Partner für die Abrechnung</h2>
+            <p class="slide-subtitle" style="max-width:640px;">Deutscher Anbieter mit fertiger Plattform für virtuelle Bilanzierung & Energy Sharing.</p>
+            <div class="card-grid cols-2 slide-body" style="max-width:800px;">
+                <div class="card favored anim-item"><div class="icon icon-green"><i class="fa-solid fa-coins"></i></div><h3>Kosten — transparent & günstig</h3>
+                    <ul><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span><strong>100 € einmalig</strong> je Teilnehmer (Setup)</span></li><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span><strong>5 € / Monat</strong> je Teilnehmer (laufend)</span></li><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span><strong>15-Minuten-genaue</strong> Abrechnung</span></li><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span>Am einfachsten: fester ct/kWh-Preis</span></li></ul>
+                </div>
+                <div class="card anim-item"><div class="icon icon-blue"><i class="fa-solid fa-gears"></i></div><h3>Abrechnungsmodell</h3>
+                    <ul><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Verkäufer erhält 15-min-Abrechnung</span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Verkäufer rechnet <strong>selbst</strong> mit Käufern ab</span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span><strong>Rechnung über Einspeiser</strong></span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Virtuelle Bilanzierung (Gemeinschaftliche Gebäudeversorgung / GGV-Modell)</span></li></ul>
+                </div>
+                <div class="card anim-item"><div class="icon icon-purple"><i class="fa-solid fa-user-tie"></i></div><h3>Ansprechpartner</h3>
+                    <p><strong style="color:#fff;">Dr. Arwen Colell</strong> — GF / CPO</p><p style="font-size:0.68rem;">Strategie, Partnerschaften & Produkt</p>
+                    <p style="margin-top:0.3rem;"><strong style="color:#fff;">Dr. Ulrich Schuster</strong> — Technik</p><p style="font-size:0.68rem;">Integration, Zähler-Schnittstellen & Netz</p>
+                </div>
+                <div class="card anim-item"><div class="icon icon-yellow"><i class="fa-solid fa-star"></i></div><h3>Warum decarbon1ze?</h3>
+                    <ul><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span><strong>DE-Firma</strong> — DSGVO, deutsches Recht</span></li><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span><strong>Günstigster</strong> Anbieter im Vergleich</span></li><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span><strong>Fokus auf Gemeinschaftliche Gebäudeversorgung (GGV)</strong> (§ 42c EnWG)</span></li><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span>Bereit für <strong>Pilotprojekt BOL</strong></span></li></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ══════════ F9 ── Alternative Anbieter ══════════ -->
+        <div class="slide" data-slide="9">
             <div class="bg-glow rose" style="width:400px;height:400px;top:10%;left:-10%"></div>
             <div class="slide-tag"><span class="dot"></span> Block 2 · Alternativen</div>
-            <h2 class="slide-heading"><span class="accent">Markt-Alternativen</span> im Vergleich</h2>
-            <p class="slide-subtitle">Mögliche Partner, jedoch nicht favorisiert.</p>
+            <h2 class="slide-heading">Mögliche <span class="accent">Partner</span></h2>
+            <p class="slide-subtitle">Wofür benötigen wir einen Partner? Für die 15-Minuten-Bilanzierung, das Datenmanagement und die rechtssichere Abrechnung.</p>
             <div class="card-grid cols-2 slide-body" style="max-width:800px; margin-top:1.5rem;">
                 <div class="card anim-item" style="border-color:rgba(225,29,72,0.2);">
                     <h3 style="color:#fb7185;"><i class="fa-solid fa-server"></i> neugemacht</h3>
@@ -695,29 +722,6 @@
             </div>
         </div>
 
-        <!-- ══════════ F9 ── decarbon1ze ══════════ -->
-        <div class="slide" data-slide="9">
-            <div class="bg-glow green" style="width:500px;height:500px;top:-5%;right:-10%"></div>
-            <div class="bg-glow blue" style="width:350px;height:350px;bottom:-8%;left:5%"></div>
-            <div class="slide-tag"><span class="dot"></span> Block 2 · Favorisierter Partner</div>
-            <h2 class="slide-heading"><span class="accent">decarbon1ze</span> — Unser Partner für die Abrechnung</h2>
-            <p class="slide-subtitle" style="max-width:640px;">Deutscher Anbieter mit fertiger Plattform für virtuelle Bilanzierung & Energy Sharing.</p>
-            <div class="card-grid cols-2 slide-body" style="max-width:800px;">
-                <div class="card favored anim-item"><div class="icon icon-green"><i class="fa-solid fa-coins"></i></div><h3>Kosten — transparent & günstig</h3>
-                    <ul><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span><strong>100 € einmalig</strong> je Teilnehmer (Setup)</span></li><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span><strong>5 € / Monat</strong> je Teilnehmer (laufend)</span></li><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span><strong>15-Minuten-genaue</strong> Abrechnung</span></li><li><i class="fa-solid fa-circle" style="color:var(--brand-light);"></i><span>Am einfachsten: fester ct/kWh-Preis</span></li></ul>
-                </div>
-                <div class="card anim-item"><div class="icon icon-blue"><i class="fa-solid fa-gears"></i></div><h3>Abrechnungsmodell</h3>
-                    <ul><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Verkäufer erhält 15-min-Abrechnung</span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Verkäufer rechnet <strong>selbst</strong> mit Käufern ab</span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span><strong>Rechnung über Einspeiser</strong></span></li><li><i class="fa-solid fa-circle" style="color:#38bdf8;"></i><span>Virtuelle Bilanzierung (Gemeinschaftliche Gebäudeversorgung / GGV-Modell)</span></li></ul>
-                </div>
-                <div class="card anim-item"><div class="icon icon-purple"><i class="fa-solid fa-user-tie"></i></div><h3>Ansprechpartner</h3>
-                    <p><strong style="color:#fff;">Dr. Arwen Colell</strong> — GF / CPO</p><p style="font-size:0.68rem;">Strategie, Partnerschaften & Produkt</p>
-                    <p style="margin-top:0.3rem;"><strong style="color:#fff;">Dr. Ulrich Schuster</strong> — Technik</p><p style="font-size:0.68rem;">Integration, Zähler-Schnittstellen & Netz</p>
-                </div>
-                <div class="card anim-item"><div class="icon icon-yellow"><i class="fa-solid fa-star"></i></div><h3>Warum decarbon1ze?</h3>
-                    <ul><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span><strong>DE-Firma</strong> — DSGVO, deutsches Recht</span></li><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span><strong>Günstigster</strong> Anbieter im Vergleich</span></li><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span><strong>Fokus auf Gemeinschaftliche Gebäudeversorgung (GGV)</strong> (§ 42c EnWG)</span></li><li><i class="fa-solid fa-check" style="color:var(--brand-light);"></i><span>Bereit für <strong>Pilotprojekt BOL</strong></span></li></ul>
-                </div>
-            </div>
-        </div>
 
         <!-- ══════════ F10 ── Partner-Vergleich ══════════ -->
         <div class="slide" data-slide="10">
@@ -915,7 +919,7 @@
                                     <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Sharing-Einspeisung</label>
                                     <span id="val_pr_export" style="font-size: 0.85rem; font-weight: bold; color: #34d399;">6.000 kWh</span>
                                 </div>
-                                <input type="range" id="pr_export" min="1000" max="30000" step="500" value="6000" style="width: 100%; accent-color: #34d399;" oninput="updateAll()">
+                                <input type="range" id="pr_export" min="0" max="30000" step="500" value="6000" style="width: 100%; accent-color: #34d399;" oninput="updateAll()">
                             </div>
 
                             <div>
@@ -923,7 +927,7 @@
                                     <label style="font-size: 0.8rem; color: rgba(255,255,255,0.8); font-weight:bold;">Sharing-Abnahme</label>
                                     <span id="val_pr_share" style="font-size: 0.85rem; font-weight: bold; color: #34d399;">1.500 kWh</span>
                                 </div>
-                                <input type="range" id="pr_share" min="0" max="15000" step="100" value="1500" style="width: 100%; accent-color: #34d399;" oninput="updateAll()">
+                                <input type="range" id="pr_share" min="0" max="30000" step="500" value="1500" style="width: 100%; accent-color: #34d399;" oninput="updateAll()">
                             </div>
                         </div>
                         
@@ -1031,7 +1035,7 @@
                     // Fees p.a.
                     const feeProducer = currentFeeMode === 'fair' ? (5 * 12) : (10 * 12);
                     const feeConsumer = currentFeeMode === 'fair' ? (5 * 12) : 0;
-                    const feeProsumer = feeProducer + feeConsumer; // z.B. zahlt 10€ oder 10€
+                    const feeProsumer = feeProducer; // 1 Teilnehmer = 1 Gebühr
 
                     // FORMATTING HELPER
                     const fmt = (num) => new Intl.NumberFormat('de-DE').format(Math.round(num));
@@ -1117,7 +1121,7 @@
                     <h3 style="color:#facc15;">Bisherige Überlegungen</h3>
                     <p>Ideen wie die Nutzung für die Dorfheizung oder Schul-Klimaanlagen sind ein erster Schritt, schöpfen das Potenzial aber nicht voll aus:</p>
                     <ul style="font-size:0.75rem; margin-top:0.5rem; padding-left:1rem;">
-                        <li><i class="fa-solid fa-arrow-right" style="color:#facc15; margin-right:4px;"></i>Die Dorfheizung benötigt im Sommer (PV-Hochphase) ca. <strong>Faktor 7</strong> weniger Energie.</li>
+                        <li><i class="fa-solid fa-arrow-right" style="color:#facc15; margin-right:4px;"></i>Die Dorfheizung benötigt im Sommer (PV-Hochphase) <strong>kaum</strong> Energie — genau dann, wenn am meisten Solarstrom anfällt.</li>
                         <li><i class="fa-solid fa-arrow-right" style="color:#facc15; margin-right:4px;"></i>Klimaanlagen erhöhen den Eigenverbrauch, generieren jedoch keine neuen Einnahmen.</li>
                     </ul>
                 </div>
@@ -1802,6 +1806,110 @@
                 setInterval(spawnMeshParticle, 700);
                 requestAnimationFrame(animateParticles);
             }
+        })();
+
+        // ── SVG Flow Particles for Slide 8 (Konzept) ──
+        (function() {
+            const flowRow = document.getElementById('konzeptFlowRow');
+            const svg = document.getElementById('konzeptFlowSvg');
+            const particleGroup = document.getElementById('konzept-flow-particles');
+            if (!flowRow || !svg || !particleGroup) return;
+
+            const box1 = document.getElementById('flowBox1');
+            const box2 = document.getElementById('flowBox2');
+            const box3 = document.getElementById('flowBox3');
+
+            function getEdgePoints() {
+                const rowRect = flowRow.getBoundingClientRect();
+                const b1 = box1.getBoundingClientRect();
+                const b2 = box2.getBoundingClientRect();
+                const b3 = box3.getBoundingClientRect();
+                // Segment 1: right edge of box1 → left edge of box2
+                const seg1 = {
+                    x1: b1.right - rowRect.left,
+                    y1: b1.top + b1.height / 2 - rowRect.top,
+                    x2: b2.left - rowRect.left,
+                    y2: b2.top + b2.height / 2 - rowRect.top
+                };
+                // Segment 2: right edge of box2 → left edge of box3
+                const seg2 = {
+                    x1: b2.right - rowRect.left,
+                    y1: b2.top + b2.height / 2 - rowRect.top,
+                    x2: b3.left - rowRect.left,
+                    y2: b3.top + b3.height / 2 - rowRect.top
+                };
+                return [seg1, seg2];
+            }
+
+            let particles = [];
+            let pidCounter = 0;
+            const colors = ['#facc15', '#84cc16', '#38bdf8'];
+
+            function spawnFlowParticle() {
+                const slide = flowRow.closest('.slide');
+                if (!slide || !slide.classList.contains('active')) return;
+
+                const segs = getEdgePoints();
+                const seg = segs[Math.floor(Math.random() * segs.length)];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const pid = 'kf-grad-' + (pidCounter++);
+
+                const defs = svg.querySelector('defs');
+                const gradient = document.createElementNS('http://www.w3.org/2000/svg', 'linearGradient');
+                gradient.setAttribute('id', pid);
+                gradient.setAttribute('gradientUnits', 'userSpaceOnUse');
+                const stop1 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+                stop1.setAttribute('offset', '0%'); stop1.setAttribute('stop-color', color); stop1.setAttribute('stop-opacity', '0');
+                const stop2 = document.createElementNS('http://www.w3.org/2000/svg', 'stop');
+                stop2.setAttribute('offset', '100%'); stop2.setAttribute('stop-color', color); stop2.setAttribute('stop-opacity', '1');
+                gradient.appendChild(stop1); gradient.appendChild(stop2);
+                if (defs) defs.appendChild(gradient);
+
+                const trail = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                trail.setAttribute('stroke', `url(#${pid})`); trail.setAttribute('stroke-width', '3');
+                trail.setAttribute('stroke-linecap', 'round');
+                trail.setAttribute('x1', seg.x1); trail.setAttribute('y1', seg.y1);
+                trail.setAttribute('x2', seg.x1); trail.setAttribute('y2', seg.y1);
+
+                const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                dot.setAttribute('r', '3.5'); dot.setAttribute('fill', color);
+                dot.setAttribute('filter', 'url(#flowGlow)');
+                dot.setAttribute('cx', seg.x1); dot.setAttribute('cy', seg.y1);
+
+                particleGroup.appendChild(trail);
+                particleGroup.appendChild(dot);
+
+                particles.push({ dot, trail, gradient, seg, progress: 0, speed: 0.006 + Math.random() * 0.006 });
+            }
+
+            function animateFlowParticles() {
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    p.progress += p.speed;
+                    if (p.progress >= 1) {
+                        if (p.dot.parentNode) p.dot.parentNode.removeChild(p.dot);
+                        if (p.trail.parentNode) p.trail.parentNode.removeChild(p.trail);
+                        if (p.gradient.parentNode) p.gradient.parentNode.removeChild(p.gradient);
+                        particles.splice(i, 1);
+                        continue;
+                    }
+                    const s = p.seg;
+                    const x = s.x1 + (s.x2 - s.x1) * p.progress;
+                    const y = s.y1 + (s.y2 - s.y1) * p.progress;
+                    const trailP = Math.max(0, p.progress - 0.25);
+                    const tx = s.x1 + (s.x2 - s.x1) * trailP;
+                    const ty = s.y1 + (s.y2 - s.y1) * trailP;
+                    p.dot.setAttribute('cx', x); p.dot.setAttribute('cy', y);
+                    p.trail.setAttribute('x1', tx); p.trail.setAttribute('y1', ty);
+                    p.trail.setAttribute('x2', x); p.trail.setAttribute('y2', y);
+                    p.gradient.setAttribute('x1', tx); p.gradient.setAttribute('y1', ty);
+                    p.gradient.setAttribute('x2', x); p.gradient.setAttribute('y2', y);
+                }
+                requestAnimationFrame(animateFlowParticles);
+            }
+
+            setInterval(spawnFlowParticle, 500);
+            requestAnimationFrame(animateFlowParticles);
         })();
 
         updateUI();
