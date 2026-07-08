@@ -66,11 +66,12 @@ print_css = """
         transform: none !important;
         page-break-after: always !important;
         page-break-inside: avoid !important;
-        height: 100vh !important;
-        width: 100vw !important;
+        height: 80vh !important;
+        width: 80vw !important;
         display: flex !important;
         overflow: hidden !important;
         break-after: page !important;
+        zoom: 1.25 !important;
     }
     .slide .anim-item {
         opacity: 1 !important;
@@ -100,6 +101,7 @@ cmd = [
     'google-chrome',
     '--headless',
     '--disable-gpu',
+    '--window-size=1920,1080',
     '--print-to-pdf=' + pdf_path,
     '--no-pdf-header-footer',
     'file://' + os.path.abspath(out_html_path)
